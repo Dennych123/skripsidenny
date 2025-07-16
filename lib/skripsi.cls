@@ -240,7 +240,7 @@
   angle=0,       
   opacity=.2,
   hshift=3mm,
-  contents={\includegraphics[width=14cm]{images/logoUH.png}}
+  contents={\includegraphics[width=14cm]{images/logo-binus-university.jpg}}
 }
 \newcommand\addwatermark{\BgThispage}
 %-----------------------------------------------------------
@@ -333,7 +333,7 @@
         \begin{singlespace}
             \MakeUppercase{\normalfont\bfseries\@titleskripsi}\par\nobreak
             \vfill
-            \includegraphics[height=4.85cm]{images/logoUH}
+            \includegraphics[height=4.85cm]{images/logo-binus-university}
             \vfill
 
             Oleh\\
@@ -393,7 +393,7 @@
             \normalfont\bfseries{\@idnum}\\
             \vfill
 
-            \includegraphics[height=4.85cm]{images/logoUH}
+            \includegraphics[height=4.85cm]{images/logo-binus-university}
             \vfill
             
             {\normalfont
