@@ -1,9 +1,9 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'seminar-hasil.blg'
-[157] biber-MSWIN64:342> INFO - === 
-[212] Biber.pm:421> INFO - Reading 'seminar-hasil.bcf'
-[371] Biber.pm:1002> INFO - Found 0 citekeys in bib section 0
-[400] bbl.pm:676> INFO - Writing 'seminar-hasil.bbl' with encoding 'UTF-8'
-[401] bbl.pm:779> INFO - Output to seminar-hasil.bbl
-[401] Biber.pm:132> WARN - The file 'seminar-hasil.bcf' does not contain any citations!
-[401] Biber.pm:134> INFO - WARNINGS: 1
+[213] biber-MSWIN64:342> INFO - === 
+[262] Biber.pm:421> INFO - Reading 'seminar-hasil.bcf'
+[419] Biber.pm:1002> INFO - Found 0 citekeys in bib section 0
+[439] bbl.pm:676> INFO - Writing 'seminar-hasil.bbl' with encoding 'UTF-8'
+[440] bbl.pm:779> INFO - Output to seminar-hasil.bbl
+[440] Biber.pm:132> WARN - The file 'seminar-hasil.bcf' does not contain any citations!
+[440] Biber.pm:134> INFO - WARNINGS: 1
