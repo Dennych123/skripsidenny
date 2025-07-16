@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.16)  16 JUL 2025 22:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.16)  16 JUL 2025 23:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1171,16 +1171,16 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/it' will be
 (Font)              scaled to size 12.0pt on input line 39.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 14.4pt on input line 39.
-<images/logoUH.png, id=75, 532.99126pt x 602.25pt>
-File: images/logoUH.png Graphic file (type png)
-<use images/logoUH.png>
-Package pdftex.def Info: images/logoUH.png  used on input line 39.
-(pdftex.def)             Requested size: 122.12184pt x 137.99603pt.
+<images/logo-binus-university.jpg, id=74, 105.4485pt x 65.3715pt>
+File: images/logo-binus-university.jpg Graphic file (type jpg)
+<use images/logo-binus-university.jpg>
+Package pdftex.def Info: images/logo-binus-university.jpg  used on input line 39.
+(pdftex.def)             Requested size: 222.63583pt x 137.99603pt.
 
 
 [1
 
-{C:/Users/denny/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc} <./images/logoUH.png>]
+{C:/Users/denny/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc} <./images/logo-binus-university.jpg>]
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has been already used, duplicate ignored
@@ -1188,10 +1188,10 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has b
                    \relax 
 l.44 
      
-File: images/logoUH.png Graphic file (type png)
-<use images/logoUH.png>
-Package pdftex.def Info: images/logoUH.png  used on input line 44.
-(pdftex.def)             Requested size: 398.33858pt x 450.11496pt.
+File: images/logo-binus-university.jpg Graphic file (type jpg)
+<use images/logo-binus-university.jpg>
+Package pdftex.def Info: images/logo-binus-university.jpg  used on input line 44.
+(pdftex.def)             Requested size: 398.33858pt x 246.96985pt.
  [1]
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 14.4pt on input line 46.
@@ -1266,10 +1266,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--46
 
 
 
-File: images/logoUH.png Graphic file (type png)
-<use images/logoUH.png>
-Package pdftex.def Info: images/logoUH.png  used on input line 47.
-(pdftex.def)             Requested size: 398.33858pt x 450.11496pt.
+File: images/logo-binus-university.jpg Graphic file (type jpg)
+<use images/logo-binus-university.jpg>
+Package pdftex.def Info: images/logo-binus-university.jpg  used on input line 47.
+(pdftex.def)             Requested size: 398.33858pt x 246.96985pt.
 [2]
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/it' will be
 (Font)              scaled to size 14.4pt on input line 49.
@@ -1285,10 +1285,10 @@ Overfull \hbox (27.46407pt too wide) in paragraph at lines 49--49
 
 
 
-File: images/logoUH.png Graphic file (type png)
-<use images/logoUH.png>
-Package pdftex.def Info: images/logoUH.png  used on input line 50.
-(pdftex.def)             Requested size: 398.33858pt x 450.11496pt.
+File: images/logo-binus-university.jpg Graphic file (type jpg)
+<use images/logo-binus-university.jpg>
+Package pdftex.def Info: images/logo-binus-university.jpg  used on input line 50.
+(pdftex.def)             Requested size: 398.33858pt x 246.96985pt.
 [3]
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/it' will be
 (Font)              scaled to size 12.0pt on input line 52.
@@ -1309,10 +1309,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--52
 
 
 
-File: images/logoUH.png Graphic file (type png)
-<use images/logoUH.png>
-Package pdftex.def Info: images/logoUH.png  used on input line 53.
-(pdftex.def)             Requested size: 398.33858pt x 450.11496pt.
+File: images/logo-binus-university.jpg Graphic file (type jpg)
+<use images/logo-binus-university.jpg>
+Package pdftex.def Info: images/logo-binus-university.jpg  used on input line 53.
+(pdftex.def)             Requested size: 398.33858pt x 246.96985pt.
 [4] (include/kata-pengantar.tex
 Underfull \hbox (badness 2635) in paragraph at lines 5--6
 \OT1/minntx/m/n/12 LIN-EAR PADA VIDEO \OT1/ntxtlf/m/it/12 STREAM \OT1/minntx/m/n/12 MENG-GU-NAKAN \OT1/ntxtlf/m/it/12 FPGA HARD-WARE
@@ -1389,41 +1389,58 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 
 [15] (include/bab1.tex
 BAB I.
-) (include/bab2.tex
+
 
 [1
 
 ]
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 21.
+ (C:\Users\denny\AppData\Local\Programs\MiKTeX\tex/latex/newtx\ts1ntxtlf.fd
+File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
+)
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 12.0pt on input line 21.
+LaTeX Font Info:    Trying to load font information for OT1+ntxtt on input line 38.
+ (C:\Users\denny\AppData\Local\Programs\MiKTeX\tex/latex/newtx\ot1ntxtt.fd
+File: ot1ntxtt.fd 2012/04/20 v3.1
+)
+LaTeX Font Info:    Font shape `OT1/ntxtt/m/n' will be
+(Font)              scaled to size 12.0pt on input line 38.
+
+
+[2{C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]) (include/bab2.tex
+
+[3]
 BAB II.
 ) (include/bab3.tex
 
-[2
+[4
 
 ]
 BAB III.
 ) (include/bab4.tex
 
-[3
+[5
 
 ]
 BAB IV.
 ) (include/bab5.tex
 
-[4
+[6
 
 ]
 BAB V.
 )
 
-[5
+LaTeX Warning: Empty bibliography on input line 112.
 
-] (include/lampiran.tex
+(include/lampiran.tex
 
-[6
+[7
 
 ])
 
-[7
+[8
 
 ] (skripsi.aux)
  ***********
@@ -1431,23 +1448,23 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `skripsi.out' has not changed.
-(rerunfilecheck)             Checksum: 0A7701DB237BF18F376A34F1F01F65C7;2491.
+(rerunfilecheck)             Checksum: E4BF521EFC70AA8408306506FAADE2E8;2492.
 Package logreq Info: Writing requests to 'skripsi.run.xml'.
 \openout1 = `skripsi.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36836 strings out of 468149
- 682957 string characters out of 5431082
- 1461605 words of memory out of 5000000
- 64774 multiletter control sequences out of 15000+600000
- 653768 words of font info for 89 fonts, out of 8000000 for 9000
+ 36699 strings out of 468149
+ 680113 string characters out of 5431082
+ 1461584 words of memory out of 5000000
+ 64620 multiletter control sequences out of 15000+600000
+ 654420 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 118i,14n,131p,1605b,1325s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmbi.pfb><C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
-Output written on skripsi.pdf (23 pages, 357054 bytes).
+ 118i,14n,131p,1605b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/txtt.pfb><C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmbi.pfb><C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
+Output written on skripsi.pdf (24 pages, 213586 bytes).
 PDF statistics:
- 255 PDF objects out of 1000 (max. 8388607)
- 55 named destinations out of 1000 (max. 500000)
+ 282 PDF objects out of 1000 (max. 8388607)
+ 63 named destinations out of 1000 (max. 500000)
  170 words of extra memory for PDF output out of 10000 (max. 10000000)
 

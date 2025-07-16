@@ -16,43 +16,5 @@
   {}
 \endgroup
 
-
-\refsection{0}
-  \datalist[entry]{nty/global//global/global/global}
-    \entry{book:darma}{book}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=973de735dcff341f8a23c95a80c7fdb1}{%
-           family={Putra},
-           familyi={P\bibinitperiod},
-           given={Darma},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{location}{1}{%
-        {Jl. Beo 38-40, Yogyakarta 55281}%
-      }
-      \list{publisher}{1}{%
-        {Penerbit Andi}%
-      }
-      \strng{namehash}{973de735dcff341f8a23c95a80c7fdb1}
-      \strng{fullhash}{973de735dcff341f8a23c95a80c7fdb1}
-      \strng{fullhashraw}{973de735dcff341f8a23c95a80c7fdb1}
-      \strng{bibnamehash}{973de735dcff341f8a23c95a80c7fdb1}
-      \strng{authorbibnamehash}{973de735dcff341f8a23c95a80c7fdb1}
-      \strng{authornamehash}{973de735dcff341f8a23c95a80c7fdb1}
-      \strng{authorfullhash}{973de735dcff341f8a23c95a80c7fdb1}
-      \strng{authorfullhashraw}{973de735dcff341f8a23c95a80c7fdb1}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{ISBN-13: 978-979-29-1443-6}
-      \field{title}{Pengolahan Citra Digital}
-      \field{year}{2010}
-    \endentry
-  \enddatalist
-\endrefsection
 \endinput
 

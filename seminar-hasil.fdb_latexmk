@@ -1,11 +1,11 @@
 # Fdb version 4
-["biber seminar-hasil"] 1752682016.69879 "seminar-hasil.bcf" "seminar-hasil.bbl" "seminar-hasil" 1752683126.50109 0
-  "seminar-hasil.bcf" 1752683126 108613 d47079f6f8f319cc1404f53cbdcd9671 "pdflatex"
+["biber seminar-hasil"] 1752682016.69879 "seminar-hasil.bcf" "seminar-hasil.bbl" "seminar-hasil" 1752683889.99535 0
+  "seminar-hasil.bcf" 1752683889 108613 d47079f6f8f319cc1404f53cbdcd9671 "pdflatex"
   (generated)
   "seminar-hasil.bbl"
   "seminar-hasil.blg"
   (rewritten before read)
-["pdflatex"] 1752683123.07671 "c:/Users/denny/Downloads/skripsi-master/skripsi-master/seminar-hasil.tex" "seminar-hasil.pdf" "seminar-hasil" 1752683126.50231 0
+["pdflatex"] 1752683886.74587 "c:/Users/denny/Downloads/skripsi-master/skripsi-master/seminar-hasil.tex" "seminar-hasil.pdf" "seminar-hasil" 1752683889.9965 0
   "C:/Users/denny/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1752681943 163260 f7138aa97b0a1dcae55100dabb7d9e7d ""
   "C:/Users/denny/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1752678150 13254313 00e43b44034957a87921af0887c96f15 ""
   "C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1736607166 2083 60e36f8eac802fcaf19eabe2633b406e ""
@@ -222,24 +222,24 @@
   "C:/Users/denny/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/denny/AppData/Local/Programs/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
   "C:/Users/denny/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
-  "c:/Users/denny/Downloads/skripsi-master/skripsi-master/seminar-hasil.tex" 1752683122 3315 d12a53c0b35fba3daf3f466a2eb46f79 ""
-  "images/logoUH.png" 1752676605 208741 e639939e99d233bf8b6211f80b3e5948 ""
+  "c:/Users/denny/Downloads/skripsi-master/skripsi-master/seminar-hasil.tex" 1752683885 3315 d12a53c0b35fba3daf3f466a2eb46f79 ""
+  "images/logo-binus-university.jpg" 1752683595 11213 bfcceddf8225c996a9430f524fcfdffd ""
   "include/bab1.tex" 1752681713 3845 f45db4f4050a2fccf637b50921a0da22 ""
   "include/bab2.tex" 1752676606 53 19b3489ddde2a0d46174b81a39d9707e ""
   "include/bab3.tex" 1752676606 29 28dc5db0a225a9503d7eddb596bf3b18 ""
   "include/bab4.tex" 1752676606 30 56a8e254bd583e1b6f56c27651ea594c ""
   "include/bab5.tex" 1752676606 122 b4d8108d4fd96fe40b67789530327682 ""
   "include/lampiran.tex" 1752676606 20 135880f52f23b82d2b3b034a97a13d41 ""
-  "lib/skripsi.cls" 1752679948 26660 6d304adcde587ab788e9b392740743d0 ""
-  "seminar-hasil.apc" 1752683125 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "seminar-hasil.aux" 1752683126 3213 2e7d63ddc2c0f14161084f8259d0befb "pdflatex"
+  "lib/skripsi.cls" 1752683469 26705 2542133e11d67012c5fd207155a34dbb ""
+  "seminar-hasil.apc" 1752683889 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "seminar-hasil.aux" 1752683889 3213 2e7d63ddc2c0f14161084f8259d0befb "pdflatex"
   "seminar-hasil.bbl" 1752682019 486 76d65a242ec496c9b4361af646ff12cb "biber seminar-hasil"
-  "seminar-hasil.lof" 1752683126 100 4353d675f6b597e3aa3d5147c8369dec "pdflatex"
-  "seminar-hasil.lot" 1752683126 100 4353d675f6b597e3aa3d5147c8369dec "pdflatex"
-  "seminar-hasil.out" 1752683126 1302 95e407c1f8c4a4dfa9d158a714a828bd "pdflatex"
-  "seminar-hasil.run.xml" 1752683126 2390 d02f789e781a10c5eced76913e1b873e "pdflatex"
-  "seminar-hasil.tex" 1752683122 3315 d12a53c0b35fba3daf3f466a2eb46f79 ""
-  "seminar-hasil.toc" 1752683126 1597 aee27b59117118eb82e8e82c8d82dd14 "pdflatex"
+  "seminar-hasil.lof" 1752683889 100 4353d675f6b597e3aa3d5147c8369dec "pdflatex"
+  "seminar-hasil.lot" 1752683889 100 4353d675f6b597e3aa3d5147c8369dec "pdflatex"
+  "seminar-hasil.out" 1752683889 1302 95e407c1f8c4a4dfa9d158a714a828bd "pdflatex"
+  "seminar-hasil.run.xml" 1752683889 2390 d02f789e781a10c5eced76913e1b873e "pdflatex"
+  "seminar-hasil.tex" 1752683885 3315 d12a53c0b35fba3daf3f466a2eb46f79 ""
+  "seminar-hasil.toc" 1752683889 1597 aee27b59117118eb82e8e82c8d82dd14 "pdflatex"
   (generated)
   "seminar-hasil.apc"
   "seminar-hasil.aux"
