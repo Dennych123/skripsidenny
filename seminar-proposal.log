@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.16)  16 JUL 2025 22:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.16)  16 JUL 2025 23:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1145,8 +1145,6 @@ Package biblatex Info: Reference section=0 on input line 28.
 Package biblatex Info: Reference segment=0 on input line 28.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 12.0pt on input line 31.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/it' will be
-(Font)              scaled to size 12.0pt on input line 31.
 <images/logoUH.png, id=67, 532.99126pt x 602.25pt>
 File: images/logoUH.png Graphic file (type png)
 <use images/logoUH.png>
@@ -1306,17 +1304,17 @@ Package logreq Info: Writing requests to 'seminar-proposal.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36380 strings out of 468149
- 673848 string characters out of 5431082
- 1453454 words of memory out of 5000000
- 64371 multiletter control sequences out of 15000+600000
- 651463 words of font info for 86 fonts, out of 8000000 for 9000
+ 36376 strings out of 468149
+ 673777 string characters out of 5431082
+ 1454457 words of memory out of 5000000
+ 64370 multiletter control sequences out of 15000+600000
+ 649651 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  118i,11n,131p,760b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/txtt.pfb><C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmbi.pfb><C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
-Output written on seminar-proposal.pdf (9 pages, 326101 bytes).
+<C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/txtt.pfb><C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/denny/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
+Output written on seminar-proposal.pdf (9 pages, 298496 bytes).
 PDF statistics:
- 165 PDF objects out of 1000 (max. 8388607)
+ 160 PDF objects out of 1000 (max. 8388607)
  23 named destinations out of 1000 (max. 500000)
  146 words of extra memory for PDF output out of 10000 (max. 10000000)
 

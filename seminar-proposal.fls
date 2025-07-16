@@ -373,7 +373,6 @@ INPUT .\seminar-proposal.bbl
 INPUT .\seminar-proposal.bbl
 INPUT seminar-proposal.bbl
 INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
-INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-BoldItalic-tlf-ot1.tfm
 INPUT .\images\logoUH.png
 INPUT .\images\logoUH.png
 INPUT .\images\logoUH.png
@@ -385,9 +384,6 @@ INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txbmia
 INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1r.tfm
 INPUT C:\Users\denny\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\newtx\ntx-ot1-tlf.enc
-INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-BoldItalic-tlf-ot1.vf
-INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\NewTXBMI.tfm
-INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-BoldItalic-tlf-ot1r.tfm
 INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Regular-tlf-ot1.vf
 INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txmiaX.tfm
 INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-ot1r.tfm
@@ -481,8 +477,6 @@ INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\type1\public\txfonts\tx
 INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\type1\public\txfonts\txtt.pfb
 INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\ztmb.pfb
 INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\ztmb.pfb
-INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\ztmbi.pfb
-INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\ztmbi.pfb
 INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\ztmr.pfb
 INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\ztmr.pfb
 INPUT C:\Users\denny\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\ztmri.pfb
