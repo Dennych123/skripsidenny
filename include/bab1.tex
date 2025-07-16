@@ -1,0 +1,58 @@
+\chapter{Pendahuluan}
+
+\section{Latar Belakang Masalah}
+FUXA merupakan salah satu perangkat lunak SCADA (Supervisory Control and Data Acquisition) sumber terbuka yang banyak digunakan dalam berbagai aplikasi industri. Namun, hingga saat ini FUXA belum secara resmi mendukung protokol \textit{Factory Interface Network Service} (FINS) yang dikembangkan oleh Omron.
+
+Di sisi lain, industri manufaktur yang mengandalkan \textit{Programmable Logic Controller} (PLC) dari Omron memerlukan sistem visualisasi data secara \textit{real-time} yang kompatibel dengan protokol komunikasi FINS. Ketiadaan dukungan ini menyebabkan keterbatasan integrasi antara sistem SCADA open-source dan perangkat keras dari Omron.
+
+Oleh karena itu, diperlukan upaya pengembangan modul komunikasi FINS pada FUXA agar sistem SCADA ini mampu berkomunikasi secara efektif dengan PLC Omron, sehingga dapat digunakan secara luas oleh industri dan komunitas pengembang perangkat lunak terbuka.
+
+\section{Rumusan Masalah}
+Rumusan masalah dalam penelitian ini adalah sebagai berikut:
+\begin{enumerate}
+    \item Bagaimana menambahkan dukungan protokol FINS pada FUXA dengan fitur yang setara dengan protokol lain seperti Modbus?
+    \item Bagaimana memastikan proses pembacaan dan penulisan data melalui protokol FINS berjalan stabil serta dapat ditampilkan dengan benar pada antarmuka pengguna (UI)?
+\end{enumerate}
+
+\section{Tujuan dan Manfaat Penelitian}
+\subsection{Tujuan Penelitian}
+Penelitian ini bertujuan untuk mengimplementasikan dukungan protokol FINS pada FUXA, meliputi:
+\begin{itemize}
+    \item Pengambilan data secara berkala (polling),
+    \item Penulisan nilai ke PLC,
+    \item Dukungan \textit{Data Acquisition} (DAQ),
+    \item Integrasi sistem alarm berbasis tag.
+\end{itemize}
+
+\subsection{Manfaat Penelitian}
+Manfaat dari penelitian ini antara lain:
+\begin{itemize}
+    \item Menyediakan solusi SCADA sumber terbuka yang kompatibel dengan PLC Omron, khususnya untuk industri kecil dan menengah.
+    \item Memberikan kontribusi nyata dalam pengembangan perangkat lunak sumber terbuka di bidang otomasi industri.
+\end{itemize}
+
+\section{Ruang Lingkup Penelitian}
+Penelitian ini memiliki ruang lingkup sebagai berikut:
+\begin{itemize}
+    \item Fokus pada implementasi komunikasi FINS melalui protokol UDP/TCP.
+    \item Penggunaan area memori standar PLC Omron seperti \texttt{DM}, \texttt{CIO}, \texttt{W}, dan sejenisnya.
+    \item Pengembangan terbatas pada pembacaan dan penulisan tag serta visualisasi nilai melalui UI FUXA.
+    \item Pengujian dilakukan menggunakan perangkat lunak analisis jaringan seperti Wireshark serta PLC fisik maupun simulator.
+\end{itemize}
+
+\section{Hipotesis Penelitian}
+Hipotesis dari penelitian ini adalah:
+\begin{itemize}
+    \item Jika protokol FINS berhasil diintegrasikan ke dalam FUXA, maka sistem SCADA tersebut akan mampu membaca dan menulis data dari PLC Omron secara stabil dan akurat.
+    \item Performa polling dan DAQ yang dihasilkan akan setara dengan protokol komunikasi lain seperti Modbus.
+\end{itemize}
+
+\section{Sistematika Penulisan}
+Adapun sistematika penulisan dalam laporan ini adalah sebagai berikut:
+\begin{itemize}
+    \item \textbf{Bab 1} – Pendahuluan: berisi latar belakang, rumusan masalah, tujuan dan manfaat, ruang lingkup, hipotesis, dan sistematika penulisan.
+    \item \textbf{Bab 2} – Tinjauan Referensi: membahas teori dan referensi terkait, seperti protokol FINS, FUXA, dan komunikasi industri.
+    \item \textbf{Bab 3} – Metodologi Penelitian: menjelaskan tahapan dan metode penelitian yang digunakan.
+    \item \textbf{Bab 4} – Implementasi dan Pengujian: menyajikan proses integrasi FINS pada FUXA serta hasil pengujian.
+    \item \textbf{Bab 5} – Kesimpulan dan Saran: berisi simpulan dari hasil penelitian serta rekomendasi untuk pengembangan lebih lanjut.
+\end{itemize}
