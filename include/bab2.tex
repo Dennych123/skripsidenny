@@ -3,17 +3,17 @@
 \section{Landasan Teori}
 
 \subsection{Perusahaan Manufaktur dan Kebutuhan Otomasi}
-Industri manufaktur modern sangat bergantung pada sistem otomasi untuk meningkatkan efisiensi produksi, konsistensi kualitas, dan pengendalian biaya. Otomasi industri melibatkan penggunaan perangkat keras seperti sensor, aktuator, dan Programmable Logic Controller (PLC) yang terhubung ke sistem kontrol dan pengawasan seperti SCADA (Supervisory Control and Data Acquisition).
+Industri manufaktur modern sangat bergantung pada sistem otomasi untuk meningkatkan efisiensi produksi, konsistensi kualitas, dan pengendalian biaya. Otomasi industri melibatkan penggunaan perangkat keras seperti sensor, aktuator, dan Programmable Logic Controller (PLC) yang terhubung ke sistem kontrol dan pengawasan seperti SCADA (Supervisory Control and Data Acquisition) \parencite{sastoque2023assessing}.
 
-Perusahaan seperti \textit{Special Purpose Machine (SPM) Maker} sering kali merancang dan membangun mesin otomatis untuk kebutuhan spesifik di pabrik. Mesin-mesin ini biasanya menggunakan PLC dari berbagai vendor, termasuk Omron, Siemens, dan Allen-Bradley. Untuk memantau dan mengendalikan mesin secara efisien, diperlukan sistem HMI dan SCADA yang andal, fleksibel, dan mudah diintegrasikan dengan protokol komunikasi industri.
+Perusahaan seperti \textit{Special Purpose Machine (SPM) Maker} sering kali merancang dan membangun mesin otomatis untuk kebutuhan spesifik di pabrik. Mesin-mesin ini biasanya menggunakan PLC dari berbagai vendor, termasuk Omron, Siemens, dan Allen-Bradley. Untuk memantau dan mengendalikan mesin secara efisien, diperlukan sistem HMI dan SCADA yang andal, fleksibel, dan mudah diintegrasikan dengan protokol komunikasi industri \parencite{humaj2021fins}.
 
 \subsection{Programmable Logic Controller (PLC)}
-PLC adalah perangkat digital berbasis mikroprosesor yang dirancang untuk mengontrol proses otomatis di lingkungan industri. PLC dapat diprogram untuk menjalankan logika kontrol yang kompleks dan sangat tahan terhadap kondisi ekstrem seperti getaran, suhu tinggi, dan interferensi listrik. PLC berfungsi sebagai otak dari sistem otomasi, mengumpulkan data dari sensor dan mengontrol aktuator berdasarkan logika yang telah diprogram.
+PLC adalah perangkat digital berbasis mikroprosesor yang dirancang untuk mengontrol proses otomatis di lingkungan industri. PLC dapat diprogram untuk menjalankan logika kontrol yang kompleks dan sangat tahan terhadap kondisi ekstrem seperti getaran, suhu tinggi, dan interferensi listrik. PLC berfungsi sebagai otak dari sistem otomasi, mengumpulkan data dari sensor dan mengontrol aktuator berdasarkan logika yang telah diprogram \parencite{emqx2023fins}.
 
 \subsection{Protokol Komunikasi Industri dan FINS}
-Agar PLC dapat terhubung ke perangkat lain, diperlukan protokol komunikasi industri. Protokol ini memungkinkan transfer data secara real-time antara PLC dan SCADA. Contoh protokol yang umum digunakan antara lain Modbus, OPC UA, Profibus, EtherNet/IP, dan FINS.
+Agar PLC dapat terhubung ke perangkat lain, diperlukan protokol komunikasi industri. Protokol ini memungkinkan transfer data secara real-time antara PLC dan SCADA. Contoh protokol yang umum digunakan antara lain Modbus, OPC UA, Profibus, EtherNet/IP, dan FINS \parencite{sastoque2023assessing}.
 
-FINS (Factory Interface Network Service) merupakan protokol yang dikembangkan oleh Omron untuk memungkinkan komunikasi antar perangkat di dalam jaringan otomasi industri. FINS mendukung komunikasi melalui UDP dan TCP. Kelebihan FINS antara lain:
+FINS (Factory Interface Network Service) merupakan protokol yang dikembangkan oleh Omron untuk memungkinkan komunikasi antar perangkat di dalam jaringan otomasi industri \parencite{humaj2021fins}. FINS mendukung komunikasi melalui UDP dan TCP. Kelebihan FINS antara lain:
 \begin{itemize}
     \item Kompatibel dengan semua seri PLC Omron.
     \item Dukungan komunikasi jarak jauh melalui pengalamatan jaringan.
@@ -21,15 +21,14 @@ FINS (Factory Interface Network Service) merupakan protokol yang dikembangkan ol
 \end{itemize}
 
 \subsection{SCADA dan DAQ dalam Konteks Industri}
-SCADA adalah sistem yang digunakan untuk mengontrol dan memonitor proses industri secara terpusat. SCADA mencakup fungsi utama seperti akuisisi data (DAQ), kontrol jarak jauh, alarm, logging historis, dan visualisasi data melalui HMI. Akuisisi data (DAQ) berperan penting dalam mengumpulkan nilai-nilai sensor dan status proses secara periodik, yang kemudian disimpan dan dianalisis untuk pengambilan keputusan.
+SCADA adalah sistem yang digunakan untuk mengontrol dan memonitor proses industri secara terpusat. SCADA mencakup fungsi utama seperti akuisisi data (DAQ), kontrol jarak jauh, alarm, logging historis, dan visualisasi data melalui HMI \parencite{uddin2022open}. Akuisisi data (DAQ) berperan penting dalam mengumpulkan nilai-nilai sensor dan status proses secara periodik, yang kemudian disimpan dan dianalisis untuk pengambilan keputusan.
 
-Polling adalah metode yang digunakan oleh SCADA untuk mengambil data dari perangkat lapangan seperti PLC. Dalam polling, sistem SCADA mengirim permintaan ke PLC secara berkala dan membaca respon data yang dikirimkan kembali.
+Polling adalah metode yang digunakan oleh SCADA untuk mengambil data dari perangkat lapangan seperti PLC. Dalam polling, sistem SCADA mengirim permintaan ke PLC secara berkala dan membaca respon data yang dikirimkan kembali \parencite{omidi2023node}.
 
 \subsection{HMI dan Visualisasi Data}
-HMI (Human-Machine Interface) adalah antarmuka antara manusia dan sistem kontrol. HMI menyediakan representasi visual dari proses industri dan memungkinkan operator untuk memantau kondisi sistem dan melakukan intervensi jika diperlukan. Fitur penting dalam HMI meliputi grafik waktu nyata, pengaturan parameter, tampilan alarm, dan trend historis.
+HMI (Human-Machine Interface) adalah antarmuka antara manusia dan sistem kontrol. HMI menyediakan representasi visual dari proses industri dan memungkinkan operator untuk memantau kondisi sistem dan melakukan intervensi jika diperlukan. Fitur penting dalam HMI meliputi grafik waktu nyata, pengaturan parameter, tampilan alarm, dan trend historis \parencite{seeed2024fuxa}.
 
 \subsection{Teknologi Web Modern: HTML, CSS, JavaScript, TypeScript, Node.js, Angular}
-
 Perkembangan teknologi web memungkinkan sistem HMI dan SCADA dikembangkan sebagai aplikasi web lintas platform yang dapat diakses melalui browser secara real-time. Teknologi utama yang digunakan antara lain:
 
 \begin{itemize}
@@ -46,12 +45,12 @@ Perkembangan teknologi web memungkinkan sistem HMI dan SCADA dikembangkan sebaga
     \item \textbf{Angular}: Framework frontend modern yang dikembangkan oleh Google. Angular menggunakan TypeScript sebagai bahasa utamanya dan menyediakan pendekatan pengembangan berbasis komponen, dependency injection, serta routing yang efisien. Angular mempermudah pembuatan antarmuka pengguna (HMI) yang dinamis, modular, dan responsif.
 \end{itemize}
 
-Dengan kombinasi teknologi tersebut, sistem SCADA berbasis web menjadi lebih fleksibel, ringan, dan dapat diakses lintas perangkat tanpa memerlukan instalasi perangkat lunak tambahan.
+Dengan kombinasi teknologi tersebut, sistem SCADA berbasis web menjadi lebih fleksibel, ringan, dan dapat diakses lintas perangkat tanpa memerlukan instalasi perangkat lunak tambahan \parencite{seeed2024fuxa}.
 
 \subsection{SCADA Open-Source dan Vendor Lock-In}
-Salah satu tantangan dalam dunia industri adalah ketergantungan terhadap vendor atau \textit{vendor lock-in}. Sistem SCADA komersial biasanya memiliki lisensi yang mahal dan tertutup, membuat pengguna sulit untuk melakukan kustomisasi. Oleh karena itu, SCADA open-source seperti FUXA menjadi alternatif menarik.
+Salah satu tantangan dalam dunia industri adalah ketergantungan terhadap vendor atau \textit{vendor lock-in}. Sistem SCADA komersial biasanya memiliki lisensi yang mahal dan tertutup, membuat pengguna sulit untuk melakukan kustomisasi. Oleh karena itu, SCADA open-source seperti FUXA menjadi alternatif menarik \parencite{rubiomedrano2023icsnet}.
 
-FUXA adalah sistem SCADA berbasis web yang dikembangkan secara open-source. Dengan menggunakan FUXA, pengguna dapat menghindari ketergantungan vendor, menghemat biaya lisensi, serta bebas memodifikasi sistem sesuai kebutuhan spesifik industri.
+FUXA adalah sistem SCADA berbasis web yang dikembangkan secara open-source. Dengan menggunakan FUXA, pengguna dapat menghindari ketergantungan vendor, menghemat biaya lisensi, serta bebas memodifikasi sistem sesuai kebutuhan spesifik industri \parencite{seeed2024fuxa}.
 
 \subsection{Pengujian dan Validasi Sistem SCADA}
 Pengujian (testing) merupakan bagian penting dalam pengembangan sistem SCADA. Pengujian bertujuan untuk memastikan sistem dapat membaca dan menulis data secara benar, menangani kondisi ekstrem, serta menampilkan visualisasi data yang akurat. Pengujian biasanya mencakup:
@@ -60,7 +59,7 @@ Pengujian (testing) merupakan bagian penting dalam pengembangan sistem SCADA. Pe
     \item \textbf{Unit testing}: Memastikan setiap komponen bekerja sesuai fungsi.
     \item \textbf{Integration testing}: Memastikan komunikasi antara komponen berjalan lancar.
     \item \textbf{System testing}: Menguji sistem secara menyeluruh dalam kondisi nyata atau simulasi.
-    \item \textbf{Network traffic analysis}: Menggunakan Wireshark atau alat sejenis untuk memantau paket FINS dalam jaringan.
+    \item \textbf{Network traffic analysis}: Menggunakan Wireshark atau alat sejenis untuk memantau paket FINS dalam jaringan \parencite{almas2014open}.
 \end{itemize}
 
 \section{Penelitian Terdahulu}
@@ -69,29 +68,17 @@ Pengujian (testing) merupakan bagian penting dalam pengembangan sistem SCADA. Pe
 Beberapa studi telah membuktikan efektivitas SCADA open-source dalam dunia industri:
 
 \begin{itemize}
-\item \textbf{Uddin et al. (2022)} mengembangkan SCADA berbasis Node-RED dan Grafana untuk sistem reverse osmosis tenaga surya.
-\item \textbf{Omidi et al. (2023)} menggunakan SCADA open-source untuk pembangkit listrik hibrid, menekankan efisiensi energi.
-\item \textbf{Almas dan Vanfretti (2014)} menunjukkan integrasi SCADA open-source dengan PMU dan protokol DNP3.
-\item \textbf{Rubiomedrano et al. (2023)} menerapkan FUXA pada honeynet ICSNet untuk mensimulasikan serangan siber industri.
+\item \textcite{uddin2022open} mengembangkan SCADA berbasis Node-RED dan Grafana untuk sistem reverse osmosis tenaga surya.
+\item \textcite{omidi2023node} menggunakan SCADA open-source untuk pembangkit listrik hibrid, menekankan efisiensi energi.
+\item \textcite{almas2014open} menunjukkan integrasi SCADA open-source dengan PMU dan protokol DNP3.
+\item \textcite{rubiomedrano2023icsnet} menerapkan FUXA pada honeynet ICSNet untuk mensimulasikan serangan siber industri.
 \end{itemize}
 
 \subsection{Pemanfaatan FUXA dalam Pendidikan dan Simulasi}
-FUXA juga digunakan secara luas dalam pendidikan:
+FUXA juga digunakan secara luas dalam pendidikan dan penelitian, antara lain:
 
 \begin{itemize}
-    \item Visualisasi data sensor menggunakan MQTT dan Raspberry Pi.
+    \item Visualisasi data sensor menggunakan MQTT dan Raspberry Pi \parencite{seeed2024fuxa}.
     \item Penggunaan dalam laboratorium simulasi sistem kontrol.
     \item Integrasi dengan PLC simulasi dan HMI desain interaktif.
 \end{itemize}
-
-% \section*{Daftar Pustaka}
-% \begin{itemize}
-% \item Almas, M. S., Vanfretti, L. (2014). \textit{Open Source SCADA Implementation and PMU Integration}. IEEE PES GM.
-% \item Humaj, P. (2021). \textit{Communication – Omron FINS}. IPESOFT Blog.
-% \item Omidi, S. A., et al. (2023). \textit{Node-RED Based Open-Source SCADA for Hybrid Power System}. Energies.
-% \item Rubiomedrano, C. (2023). \textit{ICSNet: A Hybrid-Interaction Honeynet for ICS}. CPSIoTSec'24.
-% \item Sastoque-Pinilla, L., et al. (2023). \textit{Assessing Industrial Communication Protocols}. Machines.
-% \item Uddin, S. U., et al. (2022). \textit{Open-Source SCADA for Solar-Powered RO System}. Sensors.
-% \item EMQX (2023). \textit{Omron FINS Protocol Overview}.
-% \item Seeed Studio (2024). \textit{What FUXA Provides}.
-% \end{itemize}
