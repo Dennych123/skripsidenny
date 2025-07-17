@@ -427,10 +427,10 @@ INPUT C:\Users\tw\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxsyc.tf
 INPUT C:\Users\tw\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxexa.tfm
 INPUT C:\Users\tw\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxexa.tfm
 INPUT C:\Users\tw\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxexa.tfm
-OUTPUT seminar-proposal.toc
 INPUT C:\Users\tw\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Bold-tlf-ot1.vf
 INPUT C:\Users\tw\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txbmiaX.tfm
 INPUT C:\Users\tw\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1r.tfm
+OUTPUT seminar-proposal.toc
 INPUT .\seminar-proposal.lot
 INPUT .\seminar-proposal.lot
 INPUT seminar-proposal.lot
@@ -466,6 +466,11 @@ INPUT include\bab2.tex
 INPUT .\include\bab3.tex
 INPUT .\include\bab3.tex
 INPUT include\bab3.tex
+INPUT C:\Users\tw\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-ot1.tfm
+INPUT C:\Users\tw\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Italic-tlf-ot1.tfm
+INPUT C:\Users\tw\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Italic-tlf-ot1.vf
+INPUT C:\Users\tw\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\NewTXMI.tfm
+INPUT C:\Users\tw\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Italic-tlf-ot1r.tfm
 INPUT seminar-proposal.aux
 INPUT .\seminar-proposal.out
 INPUT .\seminar-proposal.out

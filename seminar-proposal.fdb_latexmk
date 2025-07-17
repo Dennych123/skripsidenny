@@ -1,12 +1,13 @@
 # Fdb version 4
-["biber seminar-proposal"] 1752686318.69534 "seminar-proposal.bcf" "seminar-proposal.bbl" "seminar-proposal" 1752686325.43021 0
-  "seminar-proposal.bcf" 1752686324 108613 d47079f6f8f319cc1404f53cbdcd9671 "pdflatex"
+["biber seminar-proposal"] 0 "seminar-proposal.bcf" "seminar-proposal.bbl" "seminar-proposal" 1752724693.06757 -1
+  "bibtex/daftar-pustaka.bib" 1752684761 9011 6cfc9ecc6b81d426057c64c5be11db9d ""
+  "seminar-proposal.bcf" 1752724692 108613 d47079f6f8f319cc1404f53cbdcd9671 "pdflatex"
   (generated)
   "seminar-proposal.bbl"
   "seminar-proposal.blg"
   (rewritten before read)
-["pdflatex"] 1752686322.40736 "c:/Users/tw/skripsidenny/seminar-proposal.tex" "seminar-proposal.pdf" "seminar-proposal" 1752686325.43197 0
-  "C:/Users/tw/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1752686078 163260 f7138aa97b0a1dcae55100dabb7d9e7d ""
+["pdflatex"] 1752724687.46374 "c:/Users/tw/skripsidenny/seminar-proposal.tex" "seminar-proposal.pdf" "seminar-proposal" 1752724693.06853 0
+  "C:/Users/tw/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1752714072 163260 f7138aa97b0a1dcae55100dabb7d9e7d ""
   "C:/Users/tw/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1752685595 13252902 667ceb7e7673d1c0acf134a26b8192a6 ""
   "C:/Users/tw/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1736607166 2083 60e36f8eac802fcaf19eabe2633b406e ""
   "C:/Users/tw/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1525740614 3124 3813fd4c981d99822890a2861b0d274c ""
@@ -220,20 +221,20 @@
   "C:/Users/tw/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/tw/AppData/Local/Programs/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
   "C:/Users/tw/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
-  "c:/Users/tw/skripsidenny/seminar-proposal.tex" 1752686155 2577 e91791c53fc06615f30141d171821972 ""
+  "c:/Users/tw/skripsidenny/seminar-proposal.tex" 1752724423 2573 32b32a547d3222634a2e8709ef4c07b2 ""
   "images/logo-binus-university.jpg" 1752686317 11213 bfcceddf8225c996a9430f524fcfdffd ""
   "include/bab1.tex" 1752684761 3903 f45db4f4050a2fccf637b50921a0da22 ""
-  "include/bab2.tex" 1752684761 56 19b3489ddde2a0d46174b81a39d9707e ""
-  "include/bab3.tex" 1752684761 29 28dc5db0a225a9503d7eddb596bf3b18 ""
-  "lib/skripsi.cls" 1752686317 27489 2542133e11d67012c5fd207155a34dbb ""
-  "seminar-proposal.aux" 1752686324 2372 1eb7b41b1b72a3840f067f538cc807fe "pdflatex"
+  "include/bab2.tex" 1752724682 8492 53c1512d273d17e0e634e30af5ea57df ""
+  "include/bab3.tex" 1752713571 3340 9cfd50e254957f647770f628aea109e2 ""
+  "lib/skripsi.cls" 1752721018 27489 2542133e11d67012c5fd207155a34dbb ""
+  "seminar-proposal.aux" 1752724692 4767 139aa3226591c753d7972afdf87bc586 "pdflatex"
   "seminar-proposal.bbl" 1752686322 486 76d65a242ec496c9b4361af646ff12cb "biber seminar-proposal"
-  "seminar-proposal.lof" 1752686324 60 35b3ba4c48b0bf046560cd0a3baa68f3 "pdflatex"
-  "seminar-proposal.lot" 1752686324 60 35b3ba4c48b0bf046560cd0a3baa68f3 "pdflatex"
-  "seminar-proposal.out" 1752686324 2240 2bca98503d9e69836a980900c306b564 "pdflatex"
-  "seminar-proposal.run.xml" 1752686324 2411 b48d976f3ac4bd206036ebd43a5543ba "pdflatex"
-  "seminar-proposal.tex" 1752686155 2577 e91791c53fc06615f30141d171821972 ""
-  "seminar-proposal.toc" 1752686324 1173 f857229365cc48d819a65bdfe06dc306 "pdflatex"
+  "seminar-proposal.lof" 1752724692 60 35b3ba4c48b0bf046560cd0a3baa68f3 "pdflatex"
+  "seminar-proposal.lot" 1752724692 169 48f25a778e8540c215b15650fcefe1cf "pdflatex"
+  "seminar-proposal.out" 1752724692 5964 701703bc1b484433297ec5ffde60ec6f "pdflatex"
+  "seminar-proposal.run.xml" 1752724692 2411 b48d976f3ac4bd206036ebd43a5543ba "pdflatex"
+  "seminar-proposal.tex" 1752724423 2573 32b32a547d3222634a2e8709ef4c07b2 ""
+  "seminar-proposal.toc" 1752724692 2761 1c622ec9295be4551eb582b55192f49b "pdflatex"
   (generated)
   "seminar-proposal.aux"
   "seminar-proposal.bcf"

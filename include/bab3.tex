@@ -1,1 +1,61 @@
-\chapter{METODE PENENILITIAN}
+\chapter{METODOLOGI PENELITIAN}
+
+\section{Jenis Penelitian}
+Jenis penelitian ini adalah penelitian rekayasa perangkat lunak (software engineering research), yang bertujuan untuk merancang, mengimplementasikan, dan mengevaluasi penambahan dukungan protokol FINS (Factory Interface Network Service) pada sistem SCADA open-source FUXA. Penelitian ini bersifat terapan dengan pendekatan kuantitatif dan kualitatif dalam menguji fungsionalitas dan performa sistem.
+
+\section{Metode Pengembangan Sistem}
+Metode yang digunakan dalam pengembangan perangkat lunak ini adalah metode iteratif dan inkremental, dengan tahapan sebagai berikut:
+
+\begin{enumerate}
+    \item \textbf{Analisis Kebutuhan:} Mengidentifikasi kebutuhan pengguna terhadap integrasi protokol FINS pada FUXA, termasuk dukungan konfigurasi parameter (DA1, SA1, Unit Address), polling tag, penulisan nilai ke PLC, serta fitur DAQ dan alarm.
+    \item \textbf{Perancangan Sistem:} Mendesain struktur konektor FINS di sisi server dan antarmuka pengguna di sisi client, sesuai dengan arsitektur FUXA (Node.js dan Angular).
+    \item \textbf{Implementasi:} Mengembangkan modul konektor FINS (server/runtime/devices/fins), komponen konfigurasi tag dan perangkat (Angular), serta logika polling dan penulisan data.
+    \item \textbf{Pengujian dan Evaluasi:} Melakukan pengujian fungsional, integrasi, serta monitoring paket FINS menggunakan Wireshark untuk memastikan komunikasi berjalan benar.
+    \item \textbf{Perbaikan dan Optimalisasi:} Menangani error, optimasi performa polling, memory leak (EventEmitter), serta penambahan fitur lanjutan (alarm, DAQ).
+\end{enumerate}
+
+\section{Alat dan Bahan}
+\begin{itemize}
+    \item \textbf{Perangkat Keras:} Laptop/PC, jaringan LAN, PLC Omron (atau simulator).
+    \item \textbf{Perangkat Lunak:} 
+    \begin{itemize}
+        \item FUXA (https://github.com/frangoteam/FUXA)
+        \item Node.js, Angular CLI, Git
+        \item Wireshark untuk sniffing paket FINS
+        \item Visual Studio Code untuk pengembangan
+    \end{itemize}
+    \item \textbf{Library Tambahan:} 
+    \begin{itemize}
+        \item \texttt{node-fins} atau modifikasi client FINS custom
+        \item Angular Material untuk UI komponen konfigurasi
+    \end{itemize}
+\end{itemize}
+
+\section{Tahapan Penelitian}
+Penelitian dilakukan dalam beberapa tahap berikut:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|p{8cm}|}
+\hline
+\textbf{No} & \textbf{Kegiatan} \\
+\hline
+1 & Studi literatur tentang protokol FINS, SCADA, dan arsitektur FUXA \\
+2 & Perancangan konektor dan struktur konfigurasi perangkat/tag \\
+3 & Implementasi modul konektor dan antarmuka pengguna \\
+4 & Pengujian komunikasi, pengamatan melalui Wireshark \\
+5 & Evaluasi dan dokumentasi hasil integrasi \\
+\hline
+\end{tabular}
+\caption{Tahapan Pelaksanaan Penelitian}
+\end{table}
+
+\section{Metode Pengujian}
+Pengujian dilakukan secara black-box dan white-box:
+
+\begin{itemize}
+    \item \textbf{Fungsional:} Pengujian konfigurasi parameter, pembacaan dan penulisan tag.
+    \item \textbf{Integrasi:} Validasi konektivitas antar komponen client-server.
+    \item \textbf{Monitoring:} Analisis lalu lintas FINS menggunakan Wireshark.
+    \item \textbf{Stabilitas:} Observasi memory leak, error event listener, dan retry mechanism.
+\end{itemize}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.17)  17 JUL 2025 00:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.17)  17 JUL 2025 10:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1145,7 +1145,7 @@ Package biblatex Info: Reference section=0 on input line 28.
 Package biblatex Info: Reference segment=0 on input line 28.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 12.0pt on input line 31.
-<images/logo-binus-university.jpg, id=67, 105.4485pt x 65.3715pt>
+<images/logo-binus-university.jpg, id=131, 105.4485pt x 65.3715pt>
 File: images/logo-binus-university.jpg Graphic file (type jpg)
 <use images/logo-binus-university.jpg>
 Package pdftex.def Info: images/logo-binus-university.jpg  used on input line 31.
@@ -1224,30 +1224,32 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 8.8pt on input line 1.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 6.6pt on input line 1.
-)
-\tf@toc=\write7
-\openout7 = `seminar-proposal.toc'.
-
 
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.40 
-      [1] (seminar-proposal.lot)
+l.27 ...ine {3.1}Jenis Penelitian}{9}{section.3.1}
+                                                  % [1])
+\tf@toc=\write7
+\openout7 = `seminar-proposal.toc'.
+
+
+
+[2] (seminar-proposal.lot)
 \tf@lot=\write8
 \openout8 = `seminar-proposal.lot'.
 
 
 
-[2] (seminar-proposal.lof)
+[3] (seminar-proposal.lof)
 \tf@lof=\write9
 \openout9 = `seminar-proposal.lof'.
 
 
 
-[3] (include/bab1.tex
+[4] (include/bab1.tex
 BAB I.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 14.4pt on input line 1.
@@ -1278,43 +1280,94 @@ LaTeX Font Info:    Font shape `OT1/ntxtt/m/n' will be
 
 [3]
 BAB II.
-) (include/bab3.tex
+
+Underfull \hbox (badness 1688) in paragraph at lines 16--18
+[]\OT1/minntx/m/n/12 FINS (Fac-tory In-ter-face Net-work Ser-vice) meru-pakan pro-tokol yang
+ []
+
+
 
 [4
 
 ]
+
+[5]
+Underfull \hbox (badness 1259) in paragraph at lines 40--41
+[]\OT1/ntxtlf/b/n/12 JavaScript\OT1/minntx/m/n/12 : Ba-hasa pem-ro-gra-man inti un-tuk in-ter-ak-tiv-i-tas pada web,
+ []
+
+
+Underfull \hbox (badness 2326) in paragraph at lines 40--41
+\OT1/minntx/m/n/12 memu-ngkinkan ma-nip-u-lasi DOM, penan-ganan event, dan ko-mu-nikasi
+ []
+
+
+
+[6]
+Underfull \hbox (badness 2012) in paragraph at lines 54--55
+\OT1/minntx/m/n/12 open-source. Den-gan meng-gu-nakan FUXA, peng-guna da-pat menghin-dari
+ []
+
+
+
+[7]) (include/bab3.tex
+
+[8]
 BAB III.
-)
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+[]\OT1/ntxtlf/b/n/12 Implementasi: \OT1/minntx/m/n/12 Mengem-bangkan modul konek-tor FINS
+ []
+
+
+Underfull \hbox (badness 2846) in paragraph at lines 12--13
+\OT1/minntx/m/n/12 (server/run-time/de-vices/fins), kom-po-nen kon-fig-urasi tag dan perangkat
+ []
+
+
+
+[9
+
+]
+Underfull \hbox (badness 1337) in paragraph at lines 46--47
+[]|\OT1/minntx/m/n/12 Pengujian ko-mu-nikasi, penga-matan melalui
+ []
+
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 10.95pt on input line 50.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/it' will be
+(Font)              scaled to size 10.95pt on input line 50.
+
+
+[10])
 
 LaTeX Warning: Empty bibliography on input line 68.
 
 
 
-[5
-
-] (seminar-proposal.aux)
+[11] (seminar-proposal.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `seminar-proposal.out' has not changed.
-(rerunfilecheck)             Checksum: 2BCA98503D9E69836A980900C306B564;2240.
+(rerunfilecheck)             Checksum: 701703BC1B484433297EC5FFDE60EC6F;5964.
 Package logreq Info: Writing requests to 'seminar-proposal.run.xml'.
 \openout1 = `seminar-proposal.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36378 strings out of 468148
- 672125 string characters out of 5432513
- 1454500 words of memory out of 5000000
- 64373 multiletter control sequences out of 15000+600000
- 649651 words of font info for 83 fonts, out of 8000000 for 9000
+ 36438 strings out of 468148
+ 672995 string characters out of 5432513
+ 1458509 words of memory out of 5000000
+ 64402 multiletter control sequences out of 15000+600000
+ 652200 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 118i,11n,131p,730b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 118i,12n,131p,730b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/tw/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/tw/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/txtt.pfb><C:/Users/tw/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/tw/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/tw/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
-Output written on seminar-proposal.pdf (9 pages, 142777 bytes).
+Output written on seminar-proposal.pdf (16 pages, 183870 bytes).
 PDF statistics:
- 158 PDF objects out of 1000 (max. 8388607)
- 23 named destinations out of 1000 (max. 500000)
- 146 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 282 PDF objects out of 1000 (max. 8388607)
+ 52 named destinations out of 1000 (max. 500000)
+ 274 words of extra memory for PDF output out of 10000 (max. 10000000)
 

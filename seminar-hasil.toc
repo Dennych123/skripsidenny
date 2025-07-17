@@ -1,7 +1,7 @@
 \contentsline {chapter}{DAFTAR ISI}{i}{Doc-Start}%
-\contentsline {chapter}{DAFTAR TABEL}{ii}{Doc-Start}%
-\contentsline {chapter}{DAFTAR GAMBAR}{iii}{Doc-Start}%
-\contentsline {chapter}{DAFTAR LAMPIRAN}{iv}{Doc-Start}%
+\contentsline {chapter}{DAFTAR TABEL}{iii}{Doc-Start}%
+\contentsline {chapter}{DAFTAR GAMBAR}{iv}{Doc-Start}%
+\contentsline {chapter}{DAFTAR LAMPIRAN}{v}{Doc-Start}%
 \contentsline {chapter}{\numberline {I}Pendahuluan}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Latar Belakang Masalah}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Rumusan Masalah}{1}{section.1.2}%
@@ -13,11 +13,28 @@
 \contentsline {section}{\numberline {1.6}Sistematika Penulisan}{3}{section.1.6}%
 \contentsline {chapter}{\numberline {II}TINJAUAN PUSTAKA}{4}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Landasan Teori}{4}{section.2.1}%
-\contentsline {chapter}{\numberline {III}METODE PENENILITIAN}{5}{chapter.3}%
-\contentsline {chapter}{\numberline {IV}HASIL DAN PEMBAHASAN}{6}{chapter.4}%
-\contentsline {chapter}{\numberline {V}KESIMPULAN DAN SARAN}{7}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Kesimpulan}{7}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Saran}{7}{section.5.2}%
-\contentsline {chapter}{DAFTAR PUSTAKA}{7}{section.5.2}%
-\contentsline {chapter}{LAMPIRAN}{7}{section.5.2}%
+\contentsline {subsection}{\numberline {2.1.1}Perusahaan Manufaktur dan Kebutuhan Otomasi}{4}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Programmable Logic Controller (PLC)}{4}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Protokol Komunikasi Industri dan FINS}{4}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}SCADA dan DAQ dalam Konteks Industri}{5}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}HMI dan Visualisasi Data}{5}{subsection.2.1.5}%
+\contentsline {subsection}{\numberline {2.1.6}Teknologi Web Modern: HTML, CSS, JavaScript, TypeScript, Node.js, Angular}{5}{subsection.2.1.6}%
+\contentsline {subsection}{\numberline {2.1.7}SCADA Open-Source dan Vendor Lock-In}{6}{subsection.2.1.7}%
+\contentsline {subsection}{\numberline {2.1.8}Pengujian dan Validasi Sistem SCADA}{7}{subsection.2.1.8}%
+\contentsline {section}{\numberline {2.2}Penelitian Terdahulu}{7}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Implementasi SCADA Open-Source dalam Industri}{7}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Pemanfaatan FUXA dalam Pendidikan dan Simulasi}{8}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}*}{8}{section.2.3}%
+\contentsline {chapter}{\numberline {III}METODOLOGI PENELITIAN}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Jenis Penelitian}{9}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Metode Pengembangan Sistem}{9}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Alat dan Bahan}{10}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Tahapan Penelitian}{10}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Metode Pengujian}{10}{section.3.5}%
+\contentsline {chapter}{\numberline {IV}HASIL DAN PEMBAHASAN}{12}{chapter.4}%
+\contentsline {chapter}{\numberline {V}KESIMPULAN DAN SARAN}{13}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Kesimpulan}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Saran}{13}{section.5.2}%
+\contentsline {chapter}{DAFTAR PUSTAKA}{13}{section.5.2}%
+\contentsline {chapter}{LAMPIRAN}{13}{section.5.2}%
 \setcounter {tocdepth}{0}
