@@ -278,10 +278,24 @@
 \newcommand{\@titleskripsi}{}
 \newcommand{\titleeng}[1]{\gdef\@titleeng{#1}}
 \newcommand{\@titleeng}{}
-\newcommand{\fullname}[1]{\gdef\@fullname{#1}}
-\newcommand{\@fullname}{}
-\newcommand{\idnum}[1]{\gdef\@idnum{#1}}
-\newcommand{\@idnum}{}
+\newcommand{\fullnameA}[1]{\gdef\@fullnameA{#1}}
+\newcommand{\@fullnameA}{}
+
+\newcommand{\idnumA}[1]{\gdef\@idnumA{#1}}
+\newcommand{\@idnumA}{}
+
+\newcommand{\fullnameB}[1]{\gdef\@fullnameB{#1}}
+\newcommand{\@fullnameB}{}
+
+\newcommand{\idnumB}[1]{\gdef\@idnumB{#1}}
+\newcommand{\@idnumB}{}
+
+\newcommand{\fullnameC}[1]{\gdef\@fullnameC{#1}}
+\newcommand{\@fullnameC}{}
+
+\newcommand{\idnumC}[1]{\gdef\@idnumC{#1}}
+\newcommand{\@idnumC}{}
+
 \newcommand{\datesubmit}[1]{\gdef\@datesubmit{#1}}
 \newcommand{\@datesubmit}{}
 \newcommand{\monthsubmit}[1]{\gdef\@monthsubmit{#1}}
@@ -337,8 +351,15 @@
             \vfill
 
             Oleh\\
-            \normalfont\bfseries{\@fullname}\\
-            \normalfont\bfseries{\@idnum}\\
+            \normalfont\bfseries{\@fullnameA}\\
+            \normalfont\bfseries{\@idnumA}\\[1em]
+
+            \normalfont\bfseries{\@fullnameB}\\
+            \normalfont\bfseries{\@idnumB}\\[1em]
+
+            \normalfont\bfseries{\@fullnameC}\\
+            \normalfont\bfseries{\@idnumC}\\
+
             \vfill
 
            % {\normalfont
