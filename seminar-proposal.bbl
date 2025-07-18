@@ -225,6 +225,51 @@
       \field{title}{Communication – Omron FINS}
       \field{year}{2021}
     \endentry
+    \entry{llopis2020industry}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=834e40bc75e70ef7d2e2dd69d6f46819}{%
+           family={Llopis-Albert},
+           familyi={L\bibinithyphendelim A\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bad66ebdb5ec915347d3a3d19386403a}{%
+           family={Rubio},
+           familyi={R\bibinitperiod},
+           given={Francisco},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=60572e3ff172ceee16a68dfc51ff1b8c}{%
+           family={Valero},
+           familyi={V\bibinitperiod},
+           given={Fernando},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2e53f17ba18874f5f473302a6a538289}
+      \strng{fullhash}{2e53f17ba18874f5f473302a6a538289}
+      \strng{fullhashraw}{2e53f17ba18874f5f473302a6a538289}
+      \strng{bibnamehash}{2e53f17ba18874f5f473302a6a538289}
+      \strng{authorbibnamehash}{2e53f17ba18874f5f473302a6a538289}
+      \strng{authornamehash}{2e53f17ba18874f5f473302a6a538289}
+      \strng{authorfullhash}{2e53f17ba18874f5f473302a6a538289}
+      \strng{authorfullhashraw}{2e53f17ba18874f5f473302a6a538289}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Technological Forecasting and Social Change}
+      \field{title}{Impact of digital transformation on the automotive industry}
+      \field{volume}{162}
+      \field{year}{2020}
+      \field{pages}{120343}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.techfore.2020.120343
+      \endverb
+    \endentry
     \entry{omidi2023node}{article}{}{}
       \true{moreauthor}
       \true{morelabelname}

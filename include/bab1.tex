@@ -1,11 +1,17 @@
-\chapter{Pendahuluan}
+\chapter{PENDAHULUAN}
 
-\section{Latar Belakang Masalah}
-FUXA merupakan salah satu perangkat lunak SCADA (Supervisory Control and Data Acquisition) sumber terbuka yang banyak digunakan dalam berbagai aplikasi industri. Namun, hingga saat ini FUXA belum secara resmi mendukung protokol \textit{Factory Interface Network Service} (FINS) yang dikembangkan oleh Omron.
+\section{Latar Belakang}
 
-Di sisi lain, industri manufaktur yang mengandalkan \textit{Programmable Logic Controller} (PLC) dari Omron memerlukan sistem visualisasi data secara \textit{real-time} yang kompatibel dengan protokol komunikasi FINS. Ketiadaan dukungan ini menyebabkan keterbatasan integrasi antara sistem SCADA open-source dan perangkat keras dari Omron.
+Industri otomotif global saat ini sedang menghadapi disrupsi besar seiring gencarnya transformasi digital dan tren kendaraan listrik. Kondisi ini ditandai dengan transformasi digital yang secara drastis mengubah industri otomotif dan mengganggu model bisnis tradisional, sehingga peluang bisnis baru terkait Industri 4.0 pun bermunculan dan perusahaan dituntut beradaptasi dengan lingkungan baru \parencite{llopis2020industry}. Pengenalan kendaraan listrik secara bertahap ke pasar global juga membawa efek disrupsi signifikan. Dampak ini diperkuat oleh kebijakan pengurangan emisi gas rumah kaca dan pemanfaatan sumber energi terbarukan, sehingga industri otomotif dipaksa menyesuaikan diri dengan regulasi baru terkait efisiensi energi dan keberlanjutan . Fenomena transformasi digital dan elektrifikasi kendaraan tersebut menuntut produsen komponen otomotif meningkatkan efisiensi produksi serta berinovasi dalam pengendalian proses manufaktur untuk mempertahankan daya saing di pasar global.
 
-Oleh karena itu, diperlukan upaya pengembangan modul komunikasi FINS pada FUXA agar sistem SCADA ini mampu berkomunikasi secara efektif dengan PLC Omron, sehingga dapat digunakan secara luas oleh industri dan komunitas pengembang perangkat lunak terbuka.
+PT~XYZ sebagai perusahaan manufaktur komponen otomotif nasional tidak lepas dari tekanan tersebut. Bersaing di pasar global, PT~XYZ dituntut meningkatkan efisiensi proses produksi serta beradaptasi dengan cepat terhadap teknologi mutakhir. Untuk mencapai hal ini, perusahaan menekankan penerapan konsep Industri~4.0 dalam proses produksinya, antara lain melalui otomatisasi cerdas dan digitalisasi mesin produksi. Dengan menghubungkan sistem mesin melalui teknologi digital dan Internet of Things (IoT), PT~XYZ berharap dapat meningkatkan produktivitas dan fleksibilitas operasional, sehingga lebih siap menghadapi perubahan tuntutan pasar otomotif akibat tren kendaraan listrik.
+
+Di lapangan, penerapan strategi digitalisasi di PT~XYZ didorong oleh temuan bahwa sebagian besar mesin produksi sudah menggunakan teknologi kontrol canggih. Berdasarkan data internal PT~XYZ, sekitar 91\% mesin di Departemen \textit{Machinery (Special Purpose Machine Maker)} menggunakan \textit{Programmable Logic Controller} (PLC) merek Omron dengan protokol komunikasi FINS (Factory Interface Network Service). Kondisi ini menegaskan perlunya pengembangan sistem \textit{Human-Machine Interface} (HMI) berbasis web yang kompatibel dengan PLC dan protokol tersebut.
+
+Namun, penggunaan sistem SCADA komersial yang tertutup berpotensi menimbulkan ketergantungan pada vendor tertentu (\textit{vendor lock-in}). Ketergantungan ini dapat menimbulkan risiko biaya tambahan ketika perangkat keras yang digunakan mengalami disfungsi, dihentikan produksinya (discontinue), atau tidak lagi didukung secara penuh oleh vendor. Perusahaan perlu mengeluarkan biaya besar untuk penggantian modul PLC, upgrade lisensi SCADA, atau penyesuaian perangkat baru yang kompatibel \parencite{banthia2024vendorlockin}. Risiko ini semakin nyata pada sistem tertutup yang tidak menyediakan fleksibilitas integrasi dengan teknologi masa depan.
+
+Oleh karena itu, pengembangan sistem SCADA berbasis web sumber terbuka seperti FUXA menjadi solusi strategis. Dengan menggunakan platform open source seperti FUXA, perusahaan dapat membangun visualisasi proses produksi modern dan mengendalikan mesin-mesin produksi secara \textit{real-time} melalui antarmuka web yang fleksibel, tanpa terkendala biaya lisensi tinggi maupun batasan teknologi dari vendor tertentu. Pendekatan ini diharapkan mendukung upaya monitoring dan pengendalian produksi PT~XYZ dalam rangka efisiensi dan adaptasi teknologi secara menyeluruh.
+
 
 \section{Rumusan Masalah}
 Rumusan masalah dalam penelitian ini adalah sebagai berikut:
