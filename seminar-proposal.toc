@@ -19,14 +19,17 @@
 \contentsline {subsection}{\numberline {2.1.5}HMI dan Visualisasi Data}{5}{subsection.2.1.5}%
 \contentsline {subsection}{\numberline {2.1.6}Teknologi Web Modern: HTML, CSS, JavaScript, TypeScript, Node.js, Angular}{6}{subsection.2.1.6}%
 \contentsline {subsection}{\numberline {2.1.7}SCADA Open-Source dan Vendor Lock-In}{7}{subsection.2.1.7}%
-\contentsline {subsection}{\numberline {2.1.8}Pengujian dan Validasi Sistem SCADA}{7}{subsection.2.1.8}%
-\contentsline {section}{\numberline {2.2}Penelitian Terdahulu}{7}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Implementasi SCADA Open-Source dalam Industri}{7}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Pemanfaatan FUXA dalam Pendidikan dan Simulasi}{8}{subsection.2.2.2}%
-\contentsline {chapter}{\numberline {III}METODOLOGI PENELITIAN}{9}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Jenis Penelitian}{9}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Metode Pengembangan Sistem}{9}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Alat dan Bahan}{10}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Tahapan Penelitian}{10}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Metode Pengujian}{10}{section.3.5}%
-\contentsline {chapter}{DAFTAR PUSTAKA}{11}{section.3.5}%
+\contentsline {subsection}{\numberline {2.1.8}Electron: Aplikasi Desktop Berbasis Web}{7}{subsection.2.1.8}%
+\contentsline {subsection}{\numberline {2.1.9}Pengujian dan Validasi Sistem SCADA}{8}{subsection.2.1.9}%
+\contentsline {section}{\numberline {2.2}Penelitian Terdahulu}{9}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Implementasi SCADA Open-Source dalam Industri}{9}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Implementasi SCADA pada Sistem Otomatisasi Rumah}{9}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Pemanfaatan FUXA dalam Pendidikan dan Simulasi}{9}{subsection.2.2.3}%
+\contentsline {chapter}{\numberline {III}METODOLOGI PENELITIAN}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Jenis Penelitian}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Metode Pengembangan Sistem}{11}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Alat dan Bahan}{12}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Tahapan Penelitian}{12}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Platform dan Arsitektur Aplikasi}{13}{subsection.3.4.1}%
+\contentsline {section}{\numberline {3.5}Metode Pengujian}{13}{section.3.5}%
+\contentsline {chapter}{DAFTAR PUSTAKA}{13}{section.3.5}%

@@ -1,15 +1,32 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'article-journal.blg'
-[130] biber-MSWIN64:342> INFO - === 
-[177] Biber.pm:421> INFO - Reading 'article-journal.bcf'
-[302] Biber.pm:1002> INFO - Found 16 citekeys in bib section 0
-[318] Biber.pm:4487> INFO - Processing section 0
-[333] Biber.pm:4678> INFO - Looking for bibtex file 'bibtex/daftar-pustaka.bib' for section 0
-[412] bibtex.pm:1713> INFO - LaTeX decoding ...
-[447] bibtex.pm:1519> INFO - Found BibTeX data source 'bibtex/daftar-pustaka.bib'
-[593] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[620] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[620] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[620] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[644] bbl.pm:676> INFO - Writing 'article-journal.bbl' with encoding 'UTF-8'
-[655] bbl.pm:779> INFO - Output to article-journal.bbl
+[154] biber-MSWIN64:342> INFO - === 
+[207] Biber.pm:421> INFO - Reading 'article-journal.bcf'
+[371] Biber.pm:1002> INFO - Found 16 citekeys in bib section 0
+[391] Biber.pm:4487> INFO - Processing section 0
+[406] Biber.pm:4678> INFO - Looking for bibtex file 'bibtex/daftar-pustaka.bib' for section 0
+[479] bibtex.pm:1713> INFO - LaTeX decoding ...
+[514] bibtex.pm:1519> INFO - Found BibTeX data source 'bibtex/daftar-pustaka.bib'
+[533] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[533] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[533] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[533] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[533] bbl.pm:676> INFO - Writing 'article-journal.bbl' with encoding 'UTF-8'
+[533] bbl.pm:779> INFO - Output to article-journal.bbl
+[534] Biber.pm:132> WARN - I didn't find a database entry for 'lb:cong' (section 0)
+[534] Biber.pm:132> WARN - I didn't find a database entry for 'XILINX' (section 0)
+[534] Biber.pm:132> WARN - I didn't find a database entry for 'lb:asano' (section 0)
+[534] Biber.pm:132> WARN - I didn't find a database entry for 'book:gonzalez' (section 0)
+[535] Biber.pm:132> WARN - I didn't find a database entry for 'pdf:marcin' (section 0)
+[535] Biber.pm:132> WARN - I didn't find a database entry for 'soa:dmitry' (section 0)
+[535] Biber.pm:132> WARN - I didn't find a database entry for 'pdf:jingbo' (section 0)
+[535] Biber.pm:132> WARN - I didn't find a database entry for 'pdf:ching' (section 0)
+[535] Biber.pm:132> WARN - I didn't find a database entry for 'book:munir' (section 0)
+[535] Biber.pm:132> WARN - I didn't find a database entry for 'book:sutoyo' (section 0)
+[535] Biber.pm:132> WARN - I didn't find a database entry for 'thesis:jin' (section 0)
+[535] Biber.pm:132> WARN - I didn't find a database entry for 'pdf:cheung' (section 0)
+[536] Biber.pm:132> WARN - I didn't find a database entry for 'pdf:pavan' (section 0)
+[536] Biber.pm:132> WARN - I didn't find a database entry for 'manual:linux' (section 0)
+[536] Biber.pm:132> WARN - I didn't find a database entry for 'book:os' (section 0)
+[536] Biber.pm:132> WARN - I didn't find a database entry for 'site:ltdp' (section 0)
+[536] Biber.pm:134> INFO - WARNINGS: 16

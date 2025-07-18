@@ -26,7 +26,7 @@ Metode yang digunakan dalam pengembangan perangkat lunak ini adalah metode itera
     \end{itemize}
     \item \textbf{Library Tambahan:} 
     \begin{itemize}
-        \item \texttt{node-fins} atau modifikasi client FINS custom
+        \item \texttt{node-omron-fins} atau modifikasi client FINS custom
         \item Angular Material untuk UI komponen konfigurasi
     \end{itemize}
 \end{itemize}
@@ -50,6 +50,18 @@ Penelitian dilakukan dalam beberapa tahap berikut:
 \caption{Tahapan Pelaksanaan Penelitian}
 \end{table}
 
+\subsection{Platform dan Arsitektur Aplikasi}
+Dalam pengembangan aplikasi SCADA berbasis web untuk desktop, penulis menggunakan framework \textbf{Electron} sebagai pembungkus (wrapper) yang mengemas aplikasi Angular dan Node.js ke dalam executable lintas platform. Dengan pendekatan ini, sistem dapat dijalankan sebagai aplikasi desktop independen tanpa perlu instalasi web server terpisah maupun browser.
+
+Arsitektur ini memberikan keuntungan berupa:
+\begin{itemize}
+\item Kemudahan distribusi dan instalasi.
+\item Akses langsung terhadap sistem file dan perangkat lokal.
+\item Performa tinggi karena menggunakan versi terbaru Chromium dan V8 engine.
+\item Kemandirian penuh dari browser atau runtime eksternal.
+\end{itemize}
+
+Penggunaan Electron menjadikan aplikasi SCADA dapat digunakan di lingkungan industri yang membutuhkan portabilitas, kestabilan, serta kontrol penuh terhadap platform distribusi.
 \section{Metode Pengujian}
 Pengujian dilakukan secara black-box dan white-box:
 

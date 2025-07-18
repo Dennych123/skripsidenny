@@ -48,9 +48,27 @@ Perkembangan teknologi web memungkinkan sistem HMI dan SCADA dikembangkan sebaga
 Dengan kombinasi teknologi tersebut, sistem SCADA berbasis web menjadi lebih fleksibel, ringan, dan dapat diakses lintas perangkat tanpa memerlukan instalasi perangkat lunak tambahan \parencite{seeed2024fuxa}.
 
 \subsection{SCADA Open-Source dan Vendor Lock-In}
-Salah satu tantangan dalam dunia industri adalah ketergantungan terhadap vendor atau \textit{vendor lock-in}. Sistem SCADA komersial biasanya memiliki lisensi yang mahal dan tertutup, membuat pengguna sulit untuk melakukan kustomisasi. Oleh karena itu, SCADA open-source seperti FUXA menjadi alternatif menarik \parencite{rubiomedrano2023icsnet}.
+Salah satu tantangan utama dalam dunia industri adalah ketergantungan terhadap vendor atau \textit{vendor lock-in}. Sistem SCADA komersial umumnya bersifat tertutup dan berlisensi mahal, sehingga membatasi fleksibilitas pengguna dalam hal integrasi, migrasi, maupun penyesuaian sistem.
 
-FUXA adalah sistem SCADA berbasis web yang dikembangkan secara open-source. Dengan menggunakan FUXA, pengguna dapat menghindari ketergantungan vendor, menghemat biaya lisensi, serta bebas memodifikasi sistem sesuai kebutuhan spesifik industri \parencite{seeed2024fuxa}.
+Vendor lock-in menyebabkan pengguna hanya dapat menggunakan layanan, protokol, atau perangkat lunak dari penyedia tertentu, sehingga sulit untuk beralih ke penyedia lain tanpa mengeluarkan biaya besar atau menghadapi gangguan layanan. Dalam konteks cloud computing, fenomena ini bahkan menjadi lebih kritis, karena banyak organisasi bergantung pada layanan seperti DBaaS (Database-as-a-Service). Ketika organisasi membutuhkan fitur baru atau terjadi perubahan harga, ketergantungan ini menjadi hambatan besar untuk berpindah platform \parencite{banthia2024vendorlockin}.
+
+Untuk mengatasi vendor lock-in, banyak organisasi mulai mengadopsi pendekatan berbasis teknologi terbuka dan strategi multi-cloud. Salah satu solusi yang relevan dalam konteks SCADA adalah penggunaan sistem open-source seperti FUXA. Dengan menggunakan SCADA open-source, pengguna memperoleh kendali penuh atas kode sumber, arsitektur, dan kemampuan integrasi sistem, sehingga meminimalkan risiko dikunci oleh vendor tertentu.
+
+FUXA adalah contoh SCADA berbasis web yang bersifat open-source dan mendukung berbagai protokol industri seperti Modbus, OPC-UA, dan MQTT. Sistem ini dapat dikustomisasi secara penuh dan tidak tergantung pada penyedia perangkat lunak tertentu \parencite{seeed2024fuxa}.
+
+\subsection{Electron: Aplikasi Desktop Berbasis Web}
+Electron adalah framework open-source yang memungkinkan pengembangan aplikasi desktop lintas platform (Windows, macOS, dan Linux) menggunakan teknologi web seperti HTML, CSS, dan JavaScript, dikombinasikan dengan Node.js dan Chromium. Framework ini banyak digunakan untuk membangun aplikasi desktop modern karena kemampuannya menjalankan kode frontend dan backend dalam satu kerangka kerja yang terintegrasi \parencite{electron2024why}.
+
+Beberapa keunggulan utama Electron antara lain:
+
+\begin{itemize}
+\item \textbf{Lintas platform}: Aplikasi yang dikembangkan dengan Electron dapat berjalan di berbagai sistem operasi tanpa perlu penulisan kode ulang.
+\item \textbf{Teknologi web modern}: Memanfaatkan ekosistem luas dari JavaScript, TypeScript, dan pustaka web.
+\item \textbf{Stabil dan enterprise-grade}: Digunakan oleh perusahaan besar seperti Microsoft (Visual Studio Code), OpenAI (ChatGPT Desktop), Discord, dan Slack.
+\item \textbf{Kemudahan integrasi native}: Mendukung pemanggilan kode native (C++, Rust, dsb) jika diperlukan.
+\end{itemize}
+
+Dengan bundling Chromium dan Node.js, Electron memberikan kendali penuh terhadap tampilan dan fungsionalitas aplikasi desktop, sekaligus menghindari keterbatasan atau bug dari webview bawaan sistem operasi \parencite{electron2024why}.
 
 \subsection{Pengujian dan Validasi Sistem SCADA}
 Pengujian (testing) merupakan bagian penting dalam pengembangan sistem SCADA. Pengujian bertujuan untuk memastikan sistem dapat membaca dan menulis data secara benar, menangani kondisi ekstrem, serta menampilkan visualisasi data yang akurat. Pengujian biasanya mencakup:
@@ -67,12 +85,15 @@ Pengujian (testing) merupakan bagian penting dalam pengembangan sistem SCADA. Pe
 \subsection{Implementasi SCADA Open-Source dalam Industri}
 Beberapa studi telah membuktikan efektivitas SCADA open-source dalam dunia industri:
 
+
 \begin{itemize}
 \item \textcite{uddin2022open} mengembangkan SCADA berbasis Node-RED dan Grafana untuk sistem reverse osmosis tenaga surya.
 \item \textcite{omidi2023node} menggunakan SCADA open-source untuk pembangkit listrik hibrid, menekankan efisiensi energi.
 \item \textcite{almas2014open} menunjukkan integrasi SCADA open-source dengan PMU dan protokol DNP3.
 \item \textcite{rubiomedrano2023icsnet} menerapkan FUXA pada honeynet ICSNet untuk mensimulasikan serangan siber industri.
 \end{itemize}
+\subsection{Implementasi SCADA pada Sistem Otomatisasi Rumah}
+Sistem SCADA tidak hanya digunakan pada industri manufaktur skala besar, tetapi juga mulai diimplementasikan dalam sistem otomasi rumah (smart home). Penelitian oleh Hazdi et al. (2017) menunjukkan bagaimana SCADA berbasis web dapat dirancang untuk memantau dan mengendalikan sistem rumah secara otomatis menggunakan PLC dan antarmuka berbasis browser \parencite{hazdi2017scada}. Sistem ini menunjukkan fleksibilitas SCADA dalam skala kecil serta potensi adaptasinya untuk kebutuhan rumah tangga atau industri kecil.
 
 \subsection{Pemanfaatan FUXA dalam Pendidikan dan Simulasi}
 FUXA juga digunakan secara luas dalam pendidikan dan penelitian, antara lain:
