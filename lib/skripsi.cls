@@ -373,7 +373,7 @@
             \vspace{2.0cm}
             {\normalfont
             \MakeUppercase{\normalfont\bfseries  \@program}\\
-            \MakeUppercase{\normalfont\bfseries  \@dept}\\
+            %\MakeUppercase{\normalfont\bfseries  \@dept}\\
             \MakeUppercase{\normalfont\bfseries  \@faculty}\\
             \MakeUppercase{\normalfont\bfseries\@university}\\
             \MakeUppercase{\normalfont\bfseries\@city}\\
