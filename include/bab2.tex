@@ -33,15 +33,15 @@ Perkembangan teknologi web memungkinkan sistem HMI dan SCADA dikembangkan sebaga
 
 \begin{itemize}
     \item \textbf{HTML (HyperText Markup Language)}: Bahasa standar untuk menyusun struktur dan elemen-elemen dasar halaman web. \textcite{bhanarkar2023responsive}.
-    
+
     \item \textbf{CSS (Cascading Style Sheets)}: Digunakan untuk mendesain tampilan visual halaman web, termasuk warna, tata letak, dan responsivitas antarmuka. \textcite{singh2014responsive}.
-    
+
     \item \textbf{JavaScript}: Bahasa pemrograman inti untuk interaktivitas pada web, memungkinkan manipulasi DOM, penanganan event, dan komunikasi asynchronous melalui AJAX. Menurut \textcite{emmanni2025typescript} menjelaskan bagaimana penggunaan TypeScript dalam pengembangan framework JavaScript modern seperti Angular meningkatkan keandalan dan skalabilitas aplikasi SCADA berbasis web.
-    
+
     \item \textbf{TypeScript}: Merupakan superset dari JavaScript yang dikembangkan oleh Microsoft, menyediakan fitur pengetikan statis dan pemrograman berorientasi objek yang kuat. TypeScript digunakan secara luas dalam pengembangan Angular karena meningkatkan skalabilitas, keamanan, dan maintainability kode. Menurut \textcite{scarsbrook2023typescript} keunggulan TypeScript dalam meningkatkan keamanan tipe dan produktivitas tim pengembang dalam proyek perangkat lunak berskala besar, termasuk sistem SCADA.
-    
+
     \item \textbf{Node.js}: Platform berbasis JavaScript yang berjalan di sisi server (backend). Node.js mendukung arsitektur non-blocking dan event-driven, sehingga sangat cocok untuk aplikasi SCADA yang membutuhkan performa tinggi dan komunikasi data real-time. Menurut \textcite{ancona2018nodejs} menjelaskan bahwa Node.js memiliki karakteristik yang mendukung pemantauan sistem secara waktu nyata, menjadikannya kandidat yang sesuai untuk penerapan pada sistem Internet of Things (IoT) dan SCADA modern.
-    
+
     \item \textbf{Angular}: Framework frontend modern yang dikembangkan oleh Google. Angular menggunakan TypeScript sebagai bahasa utamanya dan menyediakan pendekatan pengembangan berbasis komponen, dependency injection, serta routing yang efisien. Angular mempermudah pembuatan antarmuka pengguna (HMI) yang dinamis, modular, dan responsif. Menurut \textcite{jointjs2023scada}, yang memanfaatkan teknologi frontend modern termasuk Angular untuk membangun antarmuka HMI interaktif.
 
 \end{itemize}
@@ -63,10 +63,10 @@ Electron adalah framework open-source yang memungkinkan pengembangan aplikasi de
 Beberapa keunggulan utama Electron antara lain:
 
 \begin{itemize}
-\item \textbf{Lintas platform}: Aplikasi yang dikembangkan dengan Electron dapat berjalan di berbagai sistem operasi tanpa perlu penulisan kode ulang.
-\item \textbf{Teknologi web modern}: Memanfaatkan ekosistem luas dari JavaScript, TypeScript, dan pustaka web.
-\item \textbf{Stabil dan enterprise-grade}: Digunakan oleh perusahaan besar seperti Microsoft (Visual Studio Code), OpenAI (ChatGPT Desktop), Discord, dan Slack.
-\item \textbf{Kemudahan integrasi native}: Mendukung pemanggilan kode native (C++, Rust, dsb) jika diperlukan.
+    \item \textbf{Lintas platform}: Aplikasi yang dikembangkan dengan Electron dapat berjalan di berbagai sistem operasi tanpa perlu penulisan kode ulang.
+    \item \textbf{Teknologi web modern}: Memanfaatkan ekosistem luas dari JavaScript, TypeScript, dan pustaka web.
+    \item \textbf{Stabil dan enterprise-grade}: Digunakan oleh perusahaan besar seperti Microsoft (Visual Studio Code), OpenAI (ChatGPT Desktop), Discord, dan Slack.
+    \item \textbf{Kemudahan integrasi native}: Mendukung pemanggilan kode native (C++, Rust, dsb) jika diperlukan.
 \end{itemize}
 
 Dengan bundling Chromium dan Node.js, Electron memberikan kendali penuh terhadap tampilan dan fungsionalitas aplikasi desktop, sekaligus menghindari keterbatasan atau bug dari webview bawaan sistem operasi \parencite{electron2024why}.
@@ -83,26 +83,63 @@ Pengujian (testing) merupakan bagian penting dalam pengembangan sistem SCADA. Pe
 
 \section{Penelitian Terdahulu}
 
-\subsection{Implementasi SCADA Open-Source dalam Industri}
-Beberapa studi telah membuktikan efektivitas SCADA open-source dalam dunia industri:
+% \subsection{Implementasi SCADA Open-Source dalam Industri}
+% Beberapa studi telah membuktikan efektivitas SCADA open-source dalam dunia industri:
 
 
-\begin{itemize}
-\item \textcite{uddin2022open} mengembangkan SCADA berbasis Node-RED dan Grafana untuk sistem reverse osmosis tenaga surya.
-\item \textcite{omidi2023node} menggunakan SCADA open-source untuk pembangkit listrik hibrid, menekankan efisiensi energi.
-\item \textcite{almas2014open} menunjukkan integrasi SCADA open-source dengan PMU dan protokol DNP3.
-\item \textcite{rubiomedrano2023icsnet} menerapkan FUXA pada honeynet ICSNet untuk mensimulasikan serangan siber industri.
-\item \textcite{abbas2015efficient} mengusulkan protokol komunikasi SCADA yang efisien untuk otomasi industri guna mengurangi latensi dan meningkatkan integritas data.
-\item \textcite{eras_almeida2023off_grid_pv} melakukan evaluasi kinerja SCADA open-source dalam sistem pembangkit tenaga surya off-grid, dengan fokus pada keandalan monitoring dan kontrol sistem energi terdistribusi.
-\end{itemize}
-\subsection{Implementasi SCADA pada Sistem Otomatisasi Rumah}
-Sistem SCADA tidak hanya digunakan pada industri manufaktur skala besar, tetapi juga mulai diimplementasikan dalam sistem otomasi rumah (smart home). Penelitian oleh Hazdi et al. (2017) menunjukkan bagaimana SCADA berbasis web dapat dirancang untuk memantau dan mengendalikan sistem rumah secara otomatis menggunakan PLC dan antarmuka berbasis browser \parencite{hazdi2017scada}. Sistem ini menunjukkan fleksibilitas SCADA dalam skala kecil serta potensi adaptasinya untuk kebutuhan rumah tangga atau industri kecil.
+% \begin{itemize}
+%     \item \textcite{uddin2022open} mengembangkan SCADA berbasis Node-RED dan Grafana untuk sistem reverse osmosis tenaga surya.
+%     \item \textcite{omidi2023node} menggunakan SCADA open-source untuk pembangkit listrik hibrid, menekankan efisiensi energi.
+%     \item \textcite{almas2014open} menunjukkan integrasi SCADA open-source dengan PMU dan protokol DNP3.
+%     \item \textcite{salazar2024icsnet} menerapkan FUXA pada honeynet ICSNet untuk mensimulasikan serangan siber industri.
+%     \item \textcite{emmanni2025typescript} menjelaskan bagaimana penggunaan TypeScript dalam pengembangan framework JavaScript modern seperti Angular meningkatkan keandalan dan skalabilitas aplikasi SCADA berbasis web.
+%     \item \textcite{abbas2015efficient} mengusulkan protokol komunikasi SCADA yang efisien untuk otomasi industri guna mengurangi latensi dan meningkatkan integritas data.
+%     \item \textcite{scarsbrook2023typescript} menyoroti keunggulan TypeScript dalam meningkatkan keamanan tipe dan produktivitas tim pengembang dalam proyek perangkat lunak berskala besar, termasuk sistem SCADA.
+%     \item \textcite{eras_almeida2023off_grid_pv} melakukan evaluasi kinerja SCADA open-source dalam sistem pembangkit tenaga surya off-grid, dengan fokus pada keandalan monitoring dan kontrol sistem energi terdistribusi.
+% \end{itemize}
+% \subsection{Implementasi SCADA pada Sistem Otomatisasi Rumah}
+% Sistem SCADA tidak hanya digunakan pada industri manufaktur skala besar, tetapi juga mulai diimplementasikan dalam sistem otomasi rumah (smart home). Penelitian oleh Hazdi et al. (2017) menunjukkan bagaimana SCADA berbasis web dapat dirancang untuk memantau dan mengendalikan sistem rumah secara otomatis menggunakan PLC dan antarmuka berbasis browser \parencite{hazdi2017scada}. Sistem ini menunjukkan fleksibilitas SCADA dalam skala kecil serta potensi adaptasinya untuk kebutuhan rumah tangga atau industri kecil.
 
-\subsection{Pemanfaatan FUXA dalam Pendidikan dan Simulasi}
-FUXA juga digunakan secara luas dalam pendidikan dan penelitian, antara lain:
+% \subsection{Pemanfaatan FUXA dalam Pendidikan dan Simulasi}
+% FUXA juga digunakan secara luas dalam pendidikan dan penelitian, antara lain:
 
-\begin{itemize}
-    \item Visualisasi data sensor menggunakan MQTT dan Raspberry Pi \parencite{seeed2024fuxa}.
-    \item Penggunaan dalam laboratorium simulasi sistem kontrol.
-    \item Integrasi dengan PLC simulasi dan HMI desain interaktif.
-\end{itemize}
+% \begin{itemize}
+%     \item Visualisasi data sensor menggunakan MQTT dan Raspberry Pi \parencite{seeed2024fuxa}.
+%     \item Penggunaan dalam laboratorium simulasi sistem kontrol.
+%     \item Integrasi dengan PLC simulasi dan HMI desain interaktif.
+% \end{itemize}
+\begin{landscape}
+    \begin{longtable}{>{\raggedright\arraybackslash}p{0.5cm}
+        >{\raggedright\arraybackslash}p{2.5cm}
+        >{\raggedright\arraybackslash}p{3cm}
+        >{\raggedright\arraybackslash}p{2.8cm}
+        >{\raggedright\arraybackslash}p{3.5cm}
+        >{\raggedright\arraybackslash}p{6.5cm}}
+
+        \caption{Tabel Studi Literatur SCADA}                                                                                                                                                                                                                                                                                                                                                                                                                                                                      \\
+        \hline
+        \textbf{No.} & \textbf{Penulis (Tahun)} & \textbf{Judul Artikel}                                                                                        & \textbf{Domain Aplikasi}                     & \textbf{Platform / Teknologi}                                                                                & \textbf{Tujuan / Kontribusi}                                                                                                                                                       \\
+        \hline
+        \endfirsthead
+
+        \hline
+        \textbf{No.} & \textbf{Penulis (Tahun)} & \textbf{Judul Artikel}                                                                                        & \textbf{Domain Aplikasi}                     & \textbf{Platform / Teknologi}                                                                                & \textbf{Tujuan / Kontribusi}                                                                                                                                                       \\
+        \hline
+        \endhead
+
+        \hline
+        \endfoot
+
+        1            & Uddin dkk. (2022)        & Design and Implementation of an Open‑Source SCADA System for a Community Solar‑Powered Reverse Osmosis System & Industri Air Bersih                          & Node-RED, Grafana, InfluxDB, Debian OS, Protokol Firmata, Arduino Mega 2560, Arsitektur SCADA Sumber Terbuka & Merancang dan mengimplementasikan SCADA sumber terbuka untuk sistem desalinasi berbasis tenaga surya. Kontribusi: solusi murah dan terbuka untuk komunitas kecil seperti pedesaan. \\
+
+        2            & Omidi dkk. (2023)        & Design and Implementation of Node‑Red Based Open‑Source SCADA Architecture for a Hybrid Power System          & Sistem Pembangkit Listrik Terbarukan Hibrida & Node-RED, Grafana, InfluxDB, MQTT, Firmata, ESP32, Raspberry Pi                                              & Mengembangkan SCADA sumber terbuka untuk sistem pembangkit listrik hibrida. Kontribusi: sistem modular, berdaya rendah, dan biaya rendah.                                          \\
+
+        3            & Almas dkk. (2014)        & Open Source SCADA Implementation and PMU Integration for Power System Monitoring and Control Applications     & Sistem Tenaga Listrik                        & SCADA BR, PMU, DNP3, RT-HIL, LabVIEW, Statnett SDK, Pachube                                                  & Mengembangkan SCADA BR dan integrasi PMU. Kontribusi: evaluasi sistem tenaga waktu nyata dan batasan polling DNP3.                                                                 \\
+
+        4            & Salazar dkk. (2024)      & ICSNet: A Hybrid-Interaction Honeynet for Industrial Control Systems                                          & Keamanan Siber Sistem Kendali Industri       & FUXA HMI, Honeyd, ICSNet, Factory I/O, Mininet, Modbus TCP, IEC-104, ENIP, SNMP, Nmap, Nikto, Proxy          & Mengembangkan ICSNet sebagai honeynet hibrida realistis dan modular untuk ICS. Kontribusi: integrasi honeypot interaksi rendah dan tinggi.                                         \\
+
+        5            & Hazdi dkk. (2017)        & Desain SCADA Berbasis Web untuk Otomasi Rumah                                                                 & Otomatisasi Rumah                            & PLC, SCADA berbasis web, HMI, OPC, MySQL, Visual Basic, Sensor Arus, Jaringan Ethernet                       & Mengembangkan SCADA untuk otomatisasi rumah dan mengujinya dalam parameter waktu. Kontribusi: aplikasi SCADA dalam rumah tangga dan penyediaan data eksperimental.                 \\
+
+        6            & Kasun Thushara (2024)    & Getting Start with FUXA - Web Based SCADA Tool                                                                & SCADA/HMI Industri                           & FUXA HMI, reTerminal DM, Modbus, MQTT, Debian OS                                                             & Mendiskusikan implementasi FUXA SCADA berbasis web di perangkat edge. Kontribusi: solusi murah dan terbuka untuk sistem HMI/SCADA industri.                                        \\
+    \end{longtable}
+\end{landscape}
