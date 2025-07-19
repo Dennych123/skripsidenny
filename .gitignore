@@ -1,0 +1,82 @@
+# LaTeX intermediate files
+*.aux
+*.bbl
+*.blg
+*.brf
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.nav
+*.snm
+*.vrb
+
+# Editor swap and backup files
+*~
+*.swp
+*.swo
+*.bak
+*.backup
+
+# Output files
+# *.pdf
+*.dvi
+*.ps
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# latexmk generated files
+latex.out
+latex.log
+
+# Overleaf or local build folders
+_build/
+output/
+auto/
+
+# TikZ/pgfplots externalization
+*.dpth
+*.md5
+*.dep
+*.tikz
+*.cache
+*.gnuplot
+
+# MiKTeX specific
+*.synctex.gz(busy)
+
+# TinyTeX
+texmf-var/
+
+# TexLive
+texlive/
+
+# Compiled glossaries/nomenclatures
+*.acn
+*.acr
+*.glg
+*.glo
+*.gls
+*.ist
+*.xdy
+
+# Arara
+*.run.xml
+
+# Biber
+*.bbl
+*.bcf
+*.blg
+*.run.xml
