@@ -2398,8 +2398,16 @@
     <bcf:citekey order="22" intorder="1">almas2014open</bcf:citekey>
     <bcf:citekey order="23" intorder="1">rubiomedrano2023icsnet</bcf:citekey>
     <bcf:citekey order="24" intorder="1">rubiomedrano2023icsnet</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">hazdi2017scada</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">seeed2024fuxa</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">emmanni2025typescript</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">emmanni2025typescript</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">abbas2015efficient</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">abbas2015efficient</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">scarsbrook2023typescript</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">scarsbrook2023typescript</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">eras_almeida2023off_grid_pv</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">eras_almeida2023off_grid_pv</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">hazdi2017scada</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">seeed2024fuxa</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

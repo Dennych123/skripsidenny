@@ -19,6 +19,33 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
+    \entry{abbas2015efficient}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4b0f18019bed706254958631f5d5f719}{%
+           family={Abbas},
+           familyi={A\bibinitperiod},
+           given={Hosny\bibnamedelima A.},
+           giveni={H\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{4b0f18019bed706254958631f5d5f719}
+      \strng{fullhash}{4b0f18019bed706254958631f5d5f719}
+      \strng{fullhashraw}{4b0f18019bed706254958631f5d5f719}
+      \strng{bibnamehash}{4b0f18019bed706254958631f5d5f719}
+      \strng{authorbibnamehash}{4b0f18019bed706254958631f5d5f719}
+      \strng{authornamehash}{4b0f18019bed706254958631f5d5f719}
+      \strng{authorfullhash}{4b0f18019bed706254958631f5d5f719}
+      \strng{authorfullhashraw}{4b0f18019bed706254958631f5d5f719}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1501.05725}
+      \field{title}{Efficient Web-Based SCADA System}
+      \field{year}{2015}
+    \endentry
     \entry{almas2014open}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=df4d6efa7cb57914fd7be0aa721021dd}{%
@@ -124,6 +151,35 @@
       \verb https://www.electronjs.org/docs/latest/why-electron
       \endverb
     \endentry
+    \entry{emmanni2025typescript}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3e6d778067a66644b2a7e39a60ea985c}{%
+           family={Emmanni},
+           familyi={E\bibinitperiod},
+           given={Phani\bibnamedelima Sekhar},
+           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{fullhash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{fullhashraw}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{bibnamehash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{authorbibnamehash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{authornamehash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{authorfullhash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{authorfullhashraw}{3e6d778067a66644b2a7e39a60ea985c}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Scientific & Engineering Research (IJSR)}
+      \field{number}{1}
+      \field{title}{The Role of TypeScript in Enhancing Development with Modern JavaScript Frameworks}
+      \field{volume}{11}
+      \field{year}{2025}
+    \endentry
     \entry{emqx2023fins}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=c5a470f79e8a497585b5a3a6c7d81e3c}{%
@@ -147,6 +203,58 @@
       \field{note}{Accessed July 2025}
       \field{title}{Omron FINS Protocol Overview}
       \field{year}{2023}
+    \endentry
+    \entry{eras_almeida2023off_grid_pv}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=6a9bb9c8eb83f27568f17878d62a7e21}{%
+           family={Eras-Almeida},
+           familyi={E\bibinithyphendelim A\bibinitperiod},
+           given={Andrea\bibnamedelima A.},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4c7da1073d0c28eb5a99bae53c1d2995}{%
+           family={Vásquez-Hernández},
+           familyi={V\bibinithyphendelim H\bibinitperiod},
+           given={Tatiana},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8e3ecd7d9caa6700a934c7aa6e7cd285}{%
+           family={Hurtado-Moncada},
+           familyi={H\bibinithyphendelim M\bibinitperiod},
+           given={Merlyn\bibnamedelima J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=21d2021e9e229f3b71796af438a5d3ad}{%
+           family={Egido-Aguilera},
+           familyi={E\bibinithyphendelim A\bibinitperiod},
+           given={Miguel\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5d7c5249cfb76cc232a98051ff23aaec}
+      \strng{fullhash}{a2d88b13fa908957f4bf720042fe184c}
+      \strng{fullhashraw}{a2d88b13fa908957f4bf720042fe184c}
+      \strng{bibnamehash}{5d7c5249cfb76cc232a98051ff23aaec}
+      \strng{authorbibnamehash}{5d7c5249cfb76cc232a98051ff23aaec}
+      \strng{authornamehash}{5d7c5249cfb76cc232a98051ff23aaec}
+      \strng{authorfullhash}{a2d88b13fa908957f4bf720042fe184c}
+      \strng{authorfullhashraw}{a2d88b13fa908957f4bf720042fe184c}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Energies}
+      \field{number}{5}
+      \field{title}{A Comprehensive Evaluation of Off-Grid Photovoltaic Experiences in Non-Interconnected Zones of Colombia: Integrating a Sustainable Perspective}
+      \field{volume}{16}
+      \field{year}{2023}
+      \field{pages}{2292}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/en16052292
+      \endverb
     \endentry
     \entry{hazdi2017scada}{article}{}{}
       \name{author}{3}{}{%
@@ -365,6 +473,45 @@
       \verb{doi}
       \verb 10.1234/ijii.v18i2.5678
       \endverb
+    \endentry
+    \entry{scarsbrook2023typescript}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=fd40ed45253cadcd580fc4160fcbd689}{%
+           family={Scarsbrook},
+           familyi={S\bibinitperiod},
+           given={Joshua\bibnamedelima D.},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fd2b417e52982345bc826389bae4a156}{%
+           family={Utting},
+           familyi={U\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0db39deea26db1ea1e9fa508b66fc563}{%
+           family={Ko},
+           familyi={K\bibinitperiod},
+           given={Ryan\bibnamedelima K.\bibnamedelimi L.},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{734e2a5e0723ae792cf5720f7a9896bd}
+      \strng{fullhash}{734e2a5e0723ae792cf5720f7a9896bd}
+      \strng{fullhashraw}{734e2a5e0723ae792cf5720f7a9896bd}
+      \strng{bibnamehash}{734e2a5e0723ae792cf5720f7a9896bd}
+      \strng{authorbibnamehash}{734e2a5e0723ae792cf5720f7a9896bd}
+      \strng{authornamehash}{734e2a5e0723ae792cf5720f7a9896bd}
+      \strng{authorfullhash}{734e2a5e0723ae792cf5720f7a9896bd}
+      \strng{authorfullhashraw}{734e2a5e0723ae792cf5720f7a9896bd}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2303.09802}
+      \field{title}{TypeScript's Evolution: An Analysis of Feature Adoption Over Time}
+      \field{year}{2023}
     \endentry
     \entry{seeed2024fuxa}{misc}{}{}
       \name{author}{1}{}{%
