@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber seminar-proposal"] 1752903765.07108 "seminar-proposal.bcf" "seminar-proposal.bbl" "seminar-proposal" 1752903769.56414 0
-  "bibtex/daftar-pustaka.bib" 1752902754 6740 3070c15cb224c28ca05926ecfb2d0963 ""
-  "seminar-proposal.bcf" 1752903769 111089 64e070446aeb7ec10baae1fc1dcaea4e "pdflatex"
+["biber seminar-proposal"] 1752916459.83548 "seminar-proposal.bcf" "seminar-proposal.bbl" "seminar-proposal" 1752916463.90585 0
+  "bibtex/daftar-pustaka.bib" 1752916457 6742 7ad48c928042ad80f13fdc8e1090e1d8 ""
+  "seminar-proposal.bcf" 1752916463 111089 64e070446aeb7ec10baae1fc1dcaea4e "pdflatex"
   (generated)
   "seminar-proposal.bbl"
   "seminar-proposal.blg"
   (rewritten before read)
-["pdflatex"] 1752903768.18233 "e:/lh_apps/test/skripsidenny/seminar-proposal.tex" "seminar-proposal.pdf" "seminar-proposal" 1752903769.56462 2
+["pdflatex"] 1752916462.51614 "e:/lh_apps/test/skripsidenny/seminar-proposal.tex" "seminar-proposal.pdf" "seminar-proposal" 1752916463.90638 0
   "C:/Users/produ/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1752899905 163260 f7138aa97b0a1dcae55100dabb7d9e7d ""
   "C:/Users/produ/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1752899747 13254313 93f3194371c1238affd3ecfd5c15de96 ""
   "C:/Users/produ/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf-pc.enc" 1736607166 2211 c42193888177bc8f86d55dca129a9358 ""
@@ -225,19 +225,20 @@
   "C:/Users/produ/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/produ/AppData/Local/Programs/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
   "C:/Users/produ/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
-  "e:/lh_apps/test/skripsidenny/seminar-proposal.tex" 1752903767 2545 8100ae77803ba1a1107838510d272a6a ""
+  "e:/lh_apps/test/skripsidenny/seminar-proposal.tex" 1752916459 2545 8100ae77803ba1a1107838510d272a6a ""
   "images/logo-binus-university.jpg" 1752899255 11213 bfcceddf8225c996a9430f524fcfdffd ""
   "include/bab1.tex" 1752899255 6459 74245ef035a7bfc7fed778b7ebda94cf ""
-  "include/bab2.tex" 1752903729 11731 cf98cb9385da9a899a85f9df701943ac ""
+  "include/bab2.tex" 1752915322 11731 cf98cb9385da9a899a85f9df701943ac ""
   "include/bab3.tex" 1752899255 4264 73f2e976b3003180ecdf1186104a873b ""
   "lib/skripsi.cls" 1752899255 28010 22cbc83ebc03ced4f5644198ed83f8b2 ""
-  "seminar-proposal.aux" 1752903769 10007 d28a8f9d19ef946d7f9ed3ad4a857550 "pdflatex"
-  "seminar-proposal.bbl" 1752903766 24941 03652b0102c821ba0878690c9cd05cf1 "biber seminar-proposal"
-  "seminar-proposal.lof" 1752903769 60 35b3ba4c48b0bf046560cd0a3baa68f3 "pdflatex"
-  "seminar-proposal.lot" 1752903769 169 c34987771b7c0169aa10661c0ba1dc69 "pdflatex"
-  "seminar-proposal.out" 1752903769 6738 2e073475d4af1a09693b1f32b23b3de5 "pdflatex"
-  "seminar-proposal.tex" 1752903767 2545 8100ae77803ba1a1107838510d272a6a ""
-  "seminar-proposal.toc" 1752903769 3090 a2f1f7e544a337c9595a9732ba086177 "pdflatex"
+  "seminar-proposal.aux" 1752916463 10010 0aa51750a25b64ca3f454c900506e59f "pdflatex"
+  "seminar-proposal.bbl" 1752916461 24943 134d8199a2e886d5ebc7ee5f96eb4ca0 "biber seminar-proposal"
+  "seminar-proposal.lof" 1752916463 60 35b3ba4c48b0bf046560cd0a3baa68f3 "pdflatex"
+  "seminar-proposal.lot" 1752916463 169 c34987771b7c0169aa10661c0ba1dc69 "pdflatex"
+  "seminar-proposal.out" 1752916463 6738 2e073475d4af1a09693b1f32b23b3de5 "pdflatex"
+  "seminar-proposal.run.xml" 1752916463 2411 b48d976f3ac4bd206036ebd43a5543ba "pdflatex"
+  "seminar-proposal.tex" 1752916459 2545 8100ae77803ba1a1107838510d272a6a ""
+  "seminar-proposal.toc" 1752916463 3090 9be06482d14ab6ed9626f42cc9593d77 "pdflatex"
   (generated)
   "seminar-proposal.aux"
   "seminar-proposal.bcf"

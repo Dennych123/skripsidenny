@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.19)  19 JUL 2025 12:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.19)  19 JUL 2025 16:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1054,13 +1054,12 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 12.0pt on input line 35.
 \@quotelevel=\count505
 \@quotereset=\count506
-
-No file seminar-proposal.aux.
+ (seminar-proposal.aux)
 \openout1 = `seminar-proposal.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 35.
 LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 35.
-(C:\Users\produ\AppData\Local\Programs\MiKTeX\tex/latex/newtx\omlntxmi.fd
+ (C:\Users\produ\AppData\Local\Programs\MiKTeX\tex/latex/newtx\omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
 LaTeX Font Info:    ... okay on input line 35.
@@ -1120,6 +1119,7 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 LaTeX Info: Command `\dddot' is already robust on input line 35.
 LaTeX Info: Command `\ddddot' is already robust on input line 35.
 Package hyperref Info: Link coloring OFF on input line 35.
+ (seminar-proposal.out) (seminar-proposal.out)
 \@outlinefile=\write6
 \openout6 = `seminar-proposal.out'.
 
@@ -1145,7 +1145,7 @@ Package biblatex Info: Reference section=0 on input line 35.
 Package biblatex Info: Reference segment=0 on input line 35.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 12.0pt on input line 38.
-<images/logo-binus-university.jpg, id=6, 105.4485pt x 65.3715pt>
+<images/logo-binus-university.jpg, id=143, 105.4485pt x 65.3715pt>
 File: images/logo-binus-university.jpg Graphic file (type jpg)
 <use images/logo-binus-university.jpg>
 Package pdftex.def Info: images/logo-binus-university.jpg  used on input line 38.
@@ -1159,33 +1159,97 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 17.28pt on input line 45.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 17.28pt on input line 45.
-
-No file seminar-proposal.toc.
-\tf@toc=\write7
-\openout7 = `seminar-proposal.toc'.
-
+ (seminar-proposal.toc
+LaTeX Font Info:    Trying to load font information for OT1+minntx on input line 1.
+ (C:\Users\produ\AppData\Local\Programs\MiKTeX\tex/latex/newtx\ot1minntx.fd
+File: ot1minntx.fd 2023/09/09 v1.1 font definition file for OT1/minntx
+)
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 12.0pt on input line 1.
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 8.8pt on input line 1.
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 6.6pt on input line 1.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 12.0pt on input line 1.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 8.8pt on input line 1.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 6.6pt on input line 1.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 12.0pt on input line 1.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 8.8pt on input line 1.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 6.6pt on input line 1.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 12.0pt on input line 1.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 8.8pt on input line 1.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 6.6pt on input line 1.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 1.
+ (C:\Users\produ\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxmia.fd
+File: untxmia.fd 2024/04/09 Fontinst v1.933 font definitions for U/ntxmia.
+)
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 12.0pt on input line 1.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 8.8pt on input line 1.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 6.6pt on input line 1.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 1.
+ (C:\Users\produ\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsym.fd
+File: untxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/ntxsym.
+)
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 12.0pt on input line 1.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 8.8pt on input line 1.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 6.6pt on input line 1.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 1.
+ (C:\Users\produ\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsyc.fd
+File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
+)
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 12.0pt on input line 1.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 8.8pt on input line 1.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 6.6pt on input line 1.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 12.0pt on input line 1.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 8.8pt on input line 1.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 6.6pt on input line 1.
 
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.47 
-      [1]
-No file seminar-proposal.lot.
+l.27 ...idikan dan Simulasi}{11}{subsection.2.2.3}
+                                                  % [1])
+\tf@toc=\write7
+\openout7 = `seminar-proposal.toc'.
+
+
+
+[2] (seminar-proposal.lot)
 \tf@lot=\write8
 \openout8 = `seminar-proposal.lot'.
 
 
 
-[2]
-No file seminar-proposal.lof.
+[3] (seminar-proposal.lof)
 \tf@lof=\write9
 \openout9 = `seminar-proposal.lof'.
 
 
 
-[3] (include/bab1.tex
+[4] (include/bab1.tex
 BAB I.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 14.4pt on input line 1.
@@ -1225,26 +1289,26 @@ BAB II.
 
 ]
 Underfull \hbox (badness 1688) in paragraph at lines 16--18
-[]\OT1/ntxtlf/m/n/12 FINS (Fac-tory In-ter-face Net-work Ser-vice) meru-pakan pro-tokol yang
+[]\OT1/minntx/m/n/12 FINS (Fac-tory In-ter-face Net-work Ser-vice) meru-pakan pro-tokol yang
  []
 
 
 
 [6]
 Underfull \hbox (badness 1259) in paragraph at lines 39--40
-[]\OT1/ntxtlf/b/n/12 JavaScript\OT1/ntxtlf/m/n/12 : Ba-hasa pem-ro-gra-man inti un-tuk in-ter-ak-tiv-i-tas pada web,
+[]\OT1/ntxtlf/b/n/12 JavaScript\OT1/minntx/m/n/12 : Ba-hasa pem-ro-gra-man inti un-tuk in-ter-ak-tiv-i-tas pada web,
  []
 
 
 Underfull \hbox (badness 2326) in paragraph at lines 39--40
-\OT1/ntxtlf/m/n/12 memu-ngkinkan ma-nip-u-lasi DOM, penan-ganan event, dan ko-mu-nikasi
+\OT1/minntx/m/n/12 memu-ngkinkan ma-nip-u-lasi DOM, penan-ganan event, dan ko-mu-nikasi
  []
 
 
 
 [7]
 Underfull \hbox (badness 1383) in paragraph at lines 53--54
-\OT1/ntxtlf/m/n/12 layanan. Dalam kon-teks cloud com-put-ing, fenom-ena ini bahkan men-jadi
+\OT1/minntx/m/n/12 layanan. Dalam kon-teks cloud com-put-ing, fenom-ena ini bahkan men-jadi
  []
 
 
@@ -1259,12 +1323,12 @@ Underfull \hbox (badness 1383) in paragraph at lines 53--54
 BAB III.
 
 Underfull \hbox (badness 10000) in paragraph at lines 12--13
-[]\OT1/ntxtlf/b/n/12 Implementasi: \OT1/ntxtlf/m/n/12 Mengem-bangkan modul konek-tor FINS
+[]\OT1/ntxtlf/b/n/12 Implementasi: \OT1/minntx/m/n/12 Mengem-bangkan modul konek-tor FINS
  []
 
 
 Underfull \hbox (badness 2846) in paragraph at lines 12--13
-\OT1/ntxtlf/m/n/12 (server/run-time/de-vices/fins), kom-po-nen kon-fig-urasi tag dan perangkat
+\OT1/minntx/m/n/12 (server/run-time/de-vices/fins), kom-po-nen kon-fig-urasi tag dan perangkat
  []
 
 
@@ -1272,71 +1336,6 @@ Underfull \hbox (badness 2846) in paragraph at lines 12--13
 [12
 
 ]
-LaTeX Font Info:    Trying to load font information for OT1+minntx on input line 39.
- (C:\Users\produ\AppData\Local\Programs\MiKTeX\tex/latex/newtx\ot1minntx.fd
-File: ot1minntx.fd 2023/09/09 v1.1 font definition file for OT1/minntx
-)
-LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 12.0pt on input line 39.
-LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 8.8pt on input line 39.
-LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 6.6pt on input line 39.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 12.0pt on input line 39.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 8.8pt on input line 39.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 6.6pt on input line 39.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 12.0pt on input line 39.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 8.8pt on input line 39.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.6pt on input line 39.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 12.0pt on input line 39.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 8.8pt on input line 39.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.6pt on input line 39.
-LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 39.
- (C:\Users\produ\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxmia.fd
-File: untxmia.fd 2024/04/09 Fontinst v1.933 font definitions for U/ntxmia.
-)
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 12.0pt on input line 39.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 8.8pt on input line 39.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.6pt on input line 39.
-LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 39.
- (C:\Users\produ\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsym.fd
-File: untxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/ntxsym.
-)
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 12.0pt on input line 39.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 8.8pt on input line 39.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.6pt on input line 39.
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 39.
- (C:\Users\produ\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsyc.fd
-File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
-)
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 12.0pt on input line 39.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 8.8pt on input line 39.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.6pt on input line 39.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 12.0pt on input line 39.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 8.8pt on input line 39.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.6pt on input line 39.
-
 Underfull \hbox (badness 1337) in paragraph at lines 46--47
 []|\OT1/minntx/m/n/12 Pengujian ko-mu-nikasi, penga-matan melalui
  []
@@ -1405,19 +1404,6 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 6.1pt on input line 75.
 
-e:/lh_apps/test/skripsidenny/seminar-proposal.tex:75: Misplaced alignment tab character &.
-<argument> International Journal of Scientific &
-                                                 Engineering Research (IJSR)
-l.75 \printbibliography[title={DAFTAR PUSTAKA}]
-                                               
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-
 Underfull \hbox (badness 1043) in paragraph at lines 75--75
 [][]\OT1/minntx/m/n/12 Hazdi, Robby, Muham-mad Fadli, and Yus-ril Maulana (2017). ``Per-an-can-gan
  []
@@ -1433,39 +1419,24 @@ Underfull \hbox (badness 1043) in paragraph at lines 75--75
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-Package rerunfilecheck Warning: File `seminar-proposal.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `seminar-proposal.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  2E073475D4AF1A09693B1F32B23B3DE5;6738.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                seminar-proposal
-(biblatex)                and rerun LaTeX afterwards.
-
+Package rerunfilecheck Info: File `seminar-proposal.out' has not changed.
+(rerunfilecheck)             Checksum: 2E073475D4AF1A09693B1F32B23B3DE5;6738.
 Package logreq Info: Writing requests to 'seminar-proposal.run.xml'.
 \openout1 = `seminar-proposal.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36728 strings out of 468149
- 681457 string characters out of 5431082
- 1458482 words of memory out of 5000000
- 64673 multiletter control sequences out of 15000+600000
+ 36822 strings out of 468149
+ 682996 string characters out of 5431082
+ 1459985 words of memory out of 5000000
+ 64754 multiletter control sequences out of 15000+600000
  665093 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  118i,12n,131p,1135b,1685s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/produ/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/produ/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/txtt.pfb><C:/Users/produ/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/produ/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/produ/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
-Output written on seminar-proposal.pdf (20 pages, 195615 bytes).
+Output written on seminar-proposal.pdf (21 pages, 217564 bytes).
 PDF statistics:
- 232 PDF objects out of 1000 (max. 8388607)
- 76 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 379 PDF objects out of 1000 (max. 8388607)
+ 77 named destinations out of 1000 (max. 500000)
+ 298 words of extra memory for PDF output out of 10000 (max. 10000000)
 
