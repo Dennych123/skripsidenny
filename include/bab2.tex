@@ -11,7 +11,7 @@ Perusahaan seperti \textit{Special Purpose Machine (SPM) Maker} sering kali mera
 PLC adalah perangkat digital berbasis mikroprosesor yang dirancang untuk mengontrol proses otomatis di lingkungan industri. PLC dapat diprogram untuk menjalankan logika kontrol yang kompleks dan sangat tahan terhadap kondisi ekstrem seperti getaran, suhu tinggi, dan interferensi listrik. PLC berfungsi sebagai otak dari sistem otomasi, mengumpulkan data dari sensor dan mengontrol aktuator berdasarkan logika yang telah diprogram \parencite{emqx2023fins}.
 
 \subsection{Protokol Komunikasi Industri dan FINS}
-Agar PLC dapat terhubung ke perangkat lain, diperlukan protokol komunikasi industri. Protokol ini memungkinkan transfer data secara real-time antara PLC dan SCADA. Contoh protokol yang umum digunakan antara lain Modbus, OPC UA, Profibus, EtherNet/IP, dan FINS \parencite{sastoque2023assessing}.
+Agar PLC dapat terhubung ke perangkat lain, diperlukan protokol komunikasi industri. Protokol ini memungkinkan transfer data secara waktu nyata antara PLC dan SCADA. Contoh protokol yang umum digunakan antara lain Modbus, OPC UA, Profibus, EtherNet/IP, dan FINS \parencite{sastoque2023assessing}.
 
 FINS (Factory Interface Network Service) merupakan protokol yang dikembangkan oleh Omron untuk memungkinkan komunikasi antar perangkat di dalam jaringan otomasi industri \parencite{humaj2021fins}. FINS mendukung komunikasi melalui UDP dan TCP. Kelebihan FINS antara lain:
 \begin{itemize}
@@ -29,7 +29,7 @@ Polling adalah metode yang digunakan oleh SCADA untuk mengambil data dari perang
 HMI (Human-Machine Interface) adalah antarmuka antara manusia dan sistem kontrol. HMI menyediakan representasi visual dari proses industri dan memungkinkan operator untuk memantau kondisi sistem dan melakukan intervensi jika diperlukan. Fitur penting dalam HMI meliputi grafik waktu nyata, pengaturan parameter, tampilan alarm, dan trend historis \parencite{seeed2024fuxa}.
 
 \subsection{Teknologi Web Modern: HTML, CSS, JavaScript, TypeScript, Node.js, Angular}
-Perkembangan teknologi web memungkinkan sistem HMI dan SCADA dikembangkan sebagai aplikasi web lintas platform yang dapat diakses melalui browser secara real-time. Teknologi utama yang digunakan antara lain:
+Perkembangan teknologi web memungkinkan sistem HMI dan SCADA dikembangkan sebagai aplikasi web lintas platform yang dapat diakses melalui browser secara waktu nyata. Teknologi utama yang digunakan antara lain:
 
 \begin{itemize}
     \item \textbf{HTML (HyperText Markup Language)}: Bahasa standar untuk menyusun struktur dan elemen-elemen dasar halaman web. \textcite{bhanarkar2023responsive}.
@@ -40,7 +40,7 @@ Perkembangan teknologi web memungkinkan sistem HMI dan SCADA dikembangkan sebaga
 
     \item \textbf{TypeScript}: Merupakan superset dari JavaScript yang dikembangkan oleh Microsoft, menyediakan fitur pengetikan statis dan pemrograman berorientasi objek yang kuat. TypeScript digunakan secara luas dalam pengembangan Angular karena meningkatkan skalabilitas, keamanan, dan maintainability kode. Menurut \textcite{scarsbrook2023typescript} keunggulan TypeScript dalam meningkatkan keamanan tipe dan produktivitas tim pengembang dalam proyek perangkat lunak berskala besar, termasuk sistem SCADA.
 
-    \item \textbf{Node.js}: Platform berbasis JavaScript yang berjalan di sisi server (backend). Node.js mendukung arsitektur non-blocking dan event-driven, sehingga sangat cocok untuk aplikasi SCADA yang membutuhkan performa tinggi dan komunikasi data real-time. Menurut \textcite{ancona2018nodejs} menjelaskan bahwa Node.js memiliki karakteristik yang mendukung pemantauan sistem secara waktu nyata, menjadikannya kandidat yang sesuai untuk penerapan pada sistem Internet of Things (IoT) dan SCADA modern.
+    \item \textbf{Node.js}: Platform berbasis JavaScript yang berjalan di sisi server (backend). Node.js mendukung arsitektur non-blocking dan event-driven, sehingga sangat cocok untuk aplikasi SCADA yang membutuhkan performa tinggi dan komunikasi data waktu nyata. Menurut \textcite{ancona2018nodejs} menjelaskan bahwa Node.js memiliki karakteristik yang mendukung pemantauan sistem secara waktu nyata, menjadikannya kandidat yang sesuai untuk penerapan pada sistem Internet of Things (IoT) dan SCADA modern.
 
     \item \textbf{Angular}: Framework frontend modern yang dikembangkan oleh Google. Angular menggunakan TypeScript sebagai bahasa utamanya dan menyediakan pendekatan pengembangan berbasis komponen, dependency injection, serta routing yang efisien. Angular mempermudah pembuatan antarmuka pengguna (HMI) yang dinamis, modular, dan responsif. Menurut \textcite{jointjs2023scada}, yang memanfaatkan teknologi frontend modern termasuk Angular untuk membangun antarmuka HMI interaktif.
 
