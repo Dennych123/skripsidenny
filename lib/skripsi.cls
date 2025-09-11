@@ -101,16 +101,13 @@
 %-----------------------------------------------------------
 \usepackage[
     backend=biber,
-    style=authoryear,
-    citestyle=authoryear-comp,
-    sorting=nty,
-    giveninits=false,
-    maxbibnames=3
-    ]{biblatex}
+    style=apa
+]{biblatex}
+\DeclareLanguageMapping{english}{english-apa}
 \addbibresource{bibtex/daftar-pustaka.bib}
 
 % redefine "et al" in bib to "dkk"
-\DefineBibliographyStrings{english}{andothers={dkk\adddot}}
+\DefineBibliographyStrings{english}{andothers={et al\adddot}}
 % force to use quote in title field of bibliographi
 \DeclareFieldFormat
   [article,inbook,incollection,inproceedings,patent,thesis,masterthesis,misc,unpublished, book]
