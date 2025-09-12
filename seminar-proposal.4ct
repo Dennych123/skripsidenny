@@ -1,0 +1,44 @@
+\expandafter\ifx\csname doTocEntry\endcsname\relax \expandafter\endinput\fi 
+\doTocEntry\tocchapter{}{\csname a:TocLink\endcsname{1}{Q1-1-1}{}{DAFTAR ISI}}{i}\relax 
+\doTocEntry\toclikechapter{}{\csname a:TocLink\endcsname{1}{x1-1000}{QQ2-1-2}{DAFTAR ISI}}{2}\relax 
+\doTocEntry\tocchapter{}{\csname a:TocLink\endcsname{1}{Q1-1-3}{}{DAFTAR TABEL}}{iv}\relax 
+\doTocEntry\toclikechapter{}{\csname a:TocLink\endcsname{1}{x1-2000}{QQ2-1-4}{DAFTAR TABEL}}{5}\relax 
+\doTocEntry\tocchapter{}{\csname a:TocLink\endcsname{1}{Q1-1-5}{}{DAFTAR GAMBAR}}{vi}\relax 
+\doTocEntry\toclikechapter{}{\csname a:TocLink\endcsname{1}{x1-3000}{QQ2-1-6}{DAFTAR GAMBAR}}{7}\relax 
+\doTocEntry\tocchapter{I}{\csname a:TocLink\endcsname{1}{x1-4000I}{QQ2-1-7}{PENDAHULUAN}}{2}\relax 
+\doTocEntry\tocsection{1.1}{\csname a:TocLink\endcsname{1}{x1-50001.1}{QQ2-1-8}{Latar Belakang}}{2}\relax 
+\doTocEntry\tocsection{1.2}{\csname a:TocLink\endcsname{1}{x1-60001.2}{QQ2-1-9}{Rumusan Masalah}}{3}\relax 
+\doTocEntry\tocsection{1.3}{\csname a:TocLink\endcsname{1}{x1-70001.3}{QQ2-1-10}{Tujuan dan Manfaat Penelitian}}{3}\relax 
+\doTocEntry\tocsubsection{1.3.1}{\csname a:TocLink\endcsname{1}{x1-80001.3.1}{QQ2-1-11}{Tujuan Penelitian}}{3}\relax 
+\doTocEntry\tocsubsection{1.3.2}{\csname a:TocLink\endcsname{1}{x1-90001.3.2}{QQ2-1-12}{Manfaat Penelitian}}{4}\relax 
+\doTocEntry\tocsection{1.4}{\csname a:TocLink\endcsname{1}{x1-100001.4}{QQ2-1-13}{Ruang Lingkup Penelitian}}{5}\relax 
+\doTocEntry\tocsection{1.5}{\csname a:TocLink\endcsname{1}{x1-110001.5}{QQ2-1-14}{Hipotesis Penelitian}}{5}\relax 
+\doTocEntry\tocsection{1.6}{\csname a:TocLink\endcsname{1}{x1-120001.6}{QQ2-1-15}{Sistematika Penulisan}}{6}\relax 
+\doTocEntry\tocchapter{II}{\csname a:TocLink\endcsname{1}{x1-13000II}{QQ2-1-16}{TINJAUAN PUSTAKA}}{7}\relax 
+\doTocEntry\tocsection{2.1}{\csname a:TocLink\endcsname{1}{x1-140002.1}{QQ2-1-17}{Landasan Teori}}{7}\relax 
+\doTocEntry\tocsubsection{2.1.1}{\csname a:TocLink\endcsname{1}{x1-150002.1.1}{QQ2-1-18}{Perusahaan Manufaktur dan Kebutuhan Otomasi}}{7}\relax 
+\doTocEntry\tocsubsection{2.1.2}{\csname a:TocLink\endcsname{1}{x1-160002.1.2}{QQ2-1-19}{Programmable Logic Controller (PLC)}}{7}\relax 
+\doTocEntry\tocsubsection{2.1.3}{\csname a:TocLink\endcsname{1}{x1-170002.1.3}{QQ2-1-20}{Protokol Komunikasi Industri dan FINS}}{7}\relax 
+\doTocEntry\tocsubsection{2.1.4}{\csname a:TocLink\endcsname{1}{x1-180002.1.4}{QQ2-1-21}{SCADA dan DAQ dalam Konteks Industri}}{8}\relax 
+\doTocEntry\tocsubsection{2.1.5}{\csname a:TocLink\endcsname{1}{x1-190002.1.5}{QQ2-1-22}{HMI dan Visualisasi Data}}{9}\relax 
+\doTocEntry\tocsubsection{2.1.6}{\csname a:TocLink\endcsname{1}{x1-200002.1.6}{QQ2-1-23}{Teknologi Web Modern: HTML, CSS, JavaScript, TypeScript, Node.js, Angular}}{9}\relax 
+\doTocEntry\tocsubsection{2.1.7}{\csname a:TocLink\endcsname{1}{x1-210002.1.7}{QQ2-1-24}{SCADA Open-Source dan Vendor Lock-In}}{11}\relax 
+\doTocEntry\tocsubsection{2.1.8}{\csname a:TocLink\endcsname{1}{x1-220002.1.8}{QQ2-1-25}{Electron: Aplikasi Desktop Berbasis Web}}{11}\relax 
+\doTocEntry\tocsubsection{2.1.9}{\csname a:TocLink\endcsname{1}{x1-230002.1.9}{QQ2-1-26}{Pengujian dan Validasi Sistem SCADA}}{12}\relax 
+\doTocEntry\tocsection{2.2}{\csname a:TocLink\endcsname{1}{x1-240002.2}{QQ2-1-27}{Penelitian Terdahulu}}{13}\relax 
+\doTocEntry\toclot{2.1}{\csname a:TocLink\endcsname{1}{x1-24001r1}{}{\ignorespaces Tabel Studi Literatur SCADA}}{}\relax 
+\doTocEntry\tocchapter{III}{\csname a:TocLink\endcsname{1}{x1-25000III}{QQ2-1-29}{METODOLOGI PENELITIAN}}{23}\relax 
+\doTocEntry\tocsection{3.1}{\csname a:TocLink\endcsname{1}{x1-260003.1}{QQ2-1-30}{Jenis Penelitian}}{23}\relax 
+\doTocEntry\tocsection{3.2}{\csname a:TocLink\endcsname{1}{x1-270003.2}{QQ2-1-31}{Metode Pengembangan Sistem}}{23}\relax 
+\doTocEntry\tocsection{3.3}{\csname a:TocLink\endcsname{1}{x1-280003.3}{QQ2-1-32}{Alat dan Bahan}}{24}\relax 
+\doTocEntry\tocsection{3.4}{\csname a:TocLink\endcsname{1}{x1-290003.4}{QQ2-1-33}{Tahapan Penelitian}}{25}\relax 
+\doTocEntry\toclot{3.1}{\csname a:TocLink\endcsname{1}{x1-29001r1}{}{\ignorespaces Tahapan Pelaksanaan Penelitian}}{table}\relax 
+\doTocEntry\tocsection{3.5}{\csname a:TocLink\endcsname{1}{x1-300003.5}{QQ2-1-35}{Platform dan Arsitektur Aplikasi}}{28}\relax 
+\doTocEntry\tocsubsection{3.5.1}{\csname a:TocLink\endcsname{1}{x1-310003.5.1}{QQ2-1-36}{Topologi Sistem dan Komunikasi FINS}}{28}\relax 
+\doTocEntry\toclof{3.1}{\csname a:TocLink\endcsname{1}{x1-31001r1}{}{\ignorespaces Topologi Sistem SCADA FUXA dengan Protokol FINS}}{figure}\relax 
+\doTocEntry\tocsection{3.6}{\csname a:TocLink\endcsname{1}{x1-320003.6}{QQ2-1-38}{Metode Pengujian}}{32}\relax 
+\doTocEntry\tocsubsection{3.6.1}{\csname a:TocLink\endcsname{1}{x1-330003.6.1}{QQ2-1-39}{Black-Box Testing}}{32}\relax 
+\doTocEntry\tocsubsection{3.6.2}{\csname a:TocLink\endcsname{1}{x1-340003.6.2}{QQ2-1-40}{White-Box Testing}}{33}\relax 
+\doTocEntry\tocchapter{}{\csname a:TocLink\endcsname{1}{Q1-1-41}{}{DAFTAR PUSTAKA}}{34}\relax 
+\doTocEntry\toclikechapter{}{\csname a:TocLink\endcsname{1}{x1-35000}{QQ2-1-42}{DAFTAR PUSTAKA}}{35}\relax 
+\par 

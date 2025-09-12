@@ -60,7 +60,7 @@
 \RequirePackage{fancyhdr}
 
 % to hide Hyperlink color
-\RequirePackage[pdftex,bookmarks=true,hidelinks]{hyperref}
+\RequirePackage[bookmarks=true,hidelinks]{hyperref}
 
 % Counter for figure, table and equation
 \RequirePackage{chngcntr}
@@ -69,7 +69,7 @@
 \RequirePackage[font=small, labelfont={it},textfont={it}, justification=centering]{caption}
 
 % Setup label of enumerate item
-\RequirePackage{enumitem} 
+\RequirePackage{enumitem}
 % \renewcommand{\theenumi}{\Alph{enumi}}
 
 % use Watermark
@@ -110,8 +110,8 @@
 \DefineBibliographyStrings{english}{andothers={et al\adddot}}
 % force to use quote in title field of bibliographi
 \DeclareFieldFormat
-  [article,inbook,incollection,inproceedings,patent,thesis,masterthesis,misc,unpublished, book]
-  {title}{\mkbibquote{#1\isdot}}
+[article,inbook,incollection,inproceedings,patent,thesis,masterthesis,misc,unpublished, book]
+{title}{\mkbibquote{#1\isdot}}
 
 % new citation style
 \let\oldcitate\cite
@@ -223,7 +223,7 @@
 \setlength{\marginparsep}{0pt}
 \setlength{\marginparwidth}{0pt}
 %to set indent approx 6 character
-\setlength{\parindent}{3em} 
+\setlength{\parindent}{3em}
 %-----------------------------------------------------------
 % End Page Layout, Margin
 %===========================================================
@@ -233,11 +233,11 @@
 % Set Watermark
 %-----------------------------------------------------------
 \backgroundsetup{
-  scale=1,       
-  angle=0,       
-  opacity=.2,
-  hshift=3mm,
-  contents={\includegraphics[width=14cm]{images/logo-binus-university.jpg}}
+    scale=1,
+    angle=0,
+    opacity=.2,
+    hshift=3mm,
+    contents={\includegraphics[width=14cm]{images/logo-binus-university.jpg}}
 }
 \newcommand\addwatermark{\BgThispage}
 %-----------------------------------------------------------
@@ -359,24 +359,24 @@
 
             \vfill
 
-           % {\normalfont
+            % {\normalfont
             %   & Pembimbing Utama &: \@firstsupervisor\\
-             %   & Pembimbing Pertama  &: \@secondsupervisor\\
-              %  & Penguji  &: 1.\@firstexaminer\\
-               % & & \hspace{1.8mm} 2.\@secondexaminer\\
-           % \end{tabular}
+            %   & Pembimbing Pertama  &: \@secondsupervisor\\
+            %  & Penguji  &: 1.\@firstexaminer\\
+            % & & \hspace{1.8mm} 2.\@secondexaminer\\
+            % \end{tabular}
             %}
 
             \vspace{2.0cm}
             {\normalfont
-            \MakeUppercase{\normalfont\bfseries  \@program}\\
-            %\MakeUppercase{\normalfont\bfseries  \@dept}\\
-            \MakeUppercase{\normalfont\bfseries  \@faculty}\\
-            \MakeUppercase{\normalfont\bfseries\@university}\\
-            \MakeUppercase{\normalfont\bfseries\@city}\\
+                \MakeUppercase{\normalfont\bfseries  \@program}\\
+                %\MakeUppercase{\normalfont\bfseries  \@dept}\\
+                \MakeUppercase{\normalfont\bfseries  \@faculty}\\
+                \MakeUppercase{\normalfont\bfseries\@university}\\
+                \MakeUppercase{\normalfont\bfseries\@city}\\
 
-            \vspace{0.2cm}
-            \normalfont\bfseries{\MakeUppercase{\@monthsubmit} {\@yearsubmit}}
+                \vspace{0.2cm}
+                \normalfont\bfseries{\MakeUppercase{\@monthsubmit} {\@yearsubmit}}
             }
         \end{singlespace}
     \end{center}
@@ -413,17 +413,17 @@
 
             \includegraphics[height=4.85cm]{images/logo-binus-university}
             \vfill
-            
-            {\normalfont
-            \MakeUppercase{\normalfont\bfseries Program Studi \@program}\\
-            \MakeUppercase{\normalfont\bfseries Departemen \@dept}\\
-            \MakeUppercase{\normalfont\bfseries Fakultas \@faculty}\\
-            \MakeUppercase{\normalfont\bfseries\@university}\\
-            \MakeUppercase{\normalfont\bfseries\@city}\\
 
-            \vspace{0.2cm}
-            % \normalfont\bfseries{\MakeUppercase{\@monthsubmit} {\@yearsubmit}}
-            \normalfont\bfseries{\MakeUppercase{\@yearsubmit}}
+            {\normalfont
+                \MakeUppercase{\normalfont\bfseries Program Studi \@program}\\
+                \MakeUppercase{\normalfont\bfseries Departemen \@dept}\\
+                \MakeUppercase{\normalfont\bfseries Fakultas \@faculty}\\
+                \MakeUppercase{\normalfont\bfseries\@university}\\
+                \MakeUppercase{\normalfont\bfseries\@city}\\
+
+                \vspace{0.2cm}
+                % \normalfont\bfseries{\MakeUppercase{\@monthsubmit} {\@yearsubmit}}
+                \normalfont\bfseries{\MakeUppercase{\@yearsubmit}}
             }\\
         \end{singlespace}
     \end{center}
@@ -483,7 +483,7 @@
 \def\authenticationpage{
     \addwatermark
     \addcontentsline{toc}{chapter}{HALAMAN PERNYATAAN KEOTENTIKAN}
-    
+
     \begin{center}
         \MakeUppercase{\normalfont\large\bfseries\expandafter{HALAMAN PERNYATAAN KEOTENTIKAN}}\\
         \vspace{1cm}
@@ -491,11 +491,11 @@
 
     \noindent
     Yang bertanda tangan di bawah ini: \\
-    \begin{tabular}{ m{0.5cm} l c l } 
-        & Nama          & : & \@fullname \\
-        & NIM           & : & \@idnum \\
-        & Program Studi & : & \@program \\
-        & Jenjang       & : & S1 \\
+    \begin{tabular}{ m{0.5cm} l c l }
+         & Nama          & : & \@fullname \\
+         & NIM           & : & \@idnum    \\
+         & Program Studi & : & \@program  \\
+         & Jenjang       & : & S1         \\
     \end{tabular}
     \vspace{0.2cm}
 
@@ -513,7 +513,7 @@
 
     \noindent
     Apabila dikemudian hari terbukti atau dapat dibuktikan bahwa sebagian atau keseluruhan skripsi ini merupakan hasil karya orang lain, maka saya bersedia menerima sanksi atas perbuatan tersebut.
-    
+
     \vspace{1cm}
     \begin{flushright}
         \@city, \@examdate\\
@@ -547,29 +547,29 @@
             \vspace{1.0cm}
         \end{singlespace}
 
-            Telah dipertahankan di hadapan Panitia Ujian yang dibentuk dalam rangka Penyelesaian Studi Program Sarjana pada Program Studi {\@program} Fakultas {\@faculty} {\@university} dan dinyatakan telah memenuhi syarat kelulusan \\
+        Telah dipertahankan di hadapan Panitia Ujian yang dibentuk dalam rangka Penyelesaian Studi Program Sarjana pada Program Studi {\@program} Fakultas {\@faculty} {\@university} dan dinyatakan telah memenuhi syarat kelulusan \\
 
-            \vspace{0.2cm}
-            Menyetujui,
-            \vspace{0.2cm}
+        \vspace{0.2cm}
+        Menyetujui,
+        \vspace{0.2cm}
     \end{center}
 
     \begin{table}[h]
         \centering
         \begin{tabular}{ >{\centering\arraybackslash}m{6cm}  m{2cm} >{\centering\arraybackslash}m{6cm} }
-            Pembimbing Utama & & Pembimbing Pertama \\
-            & & \\
-            & & \\
-            & & \\
-            & & \\
-            & & \\
-            \underline{\@firstsupervisor} & & \underline{\@secondsupervisor} \\
-            NIP. \@firstsupervisorNIP & & NIP. \@secondsupervisorNIP
+            Pembimbing Utama              &  & Pembimbing Pertama             \\
+                                          &  &                                \\
+                                          &  &                                \\
+                                          &  &                                \\
+                                          &  &                                \\
+                                          &  &                                \\
+            \underline{\@firstsupervisor} &  & \underline{\@secondsupervisor} \\
+            NIP. \@firstsupervisorNIP     &  & NIP. \@secondsupervisorNIP
         \end{tabular}
 
         \vspace{1cm}
         \begin{tabular}{ >{\centering\arraybackslash}m{6cm} }
-            Ketua Program Studi \\
+            Ketua Program Studi       \\
             \\
             \\
             \\
@@ -602,32 +602,32 @@
         Skripsi ini diajukan oleh:
         \begin{center}
             \begin{tabular}{ p{3cm}  p{.1cm} p{10.5cm}}
-                Nama &:& \@fullname\\
-                NIM &:& \@idnum\\
-                Program Studi &:& \@program\\
-                Judul Skripsi &:& \@titleskripsi\\
+                Nama          & : & \@fullname     \\
+                NIM           & : & \@idnum        \\
+                Program Studi & : & \@program      \\
+                Judul Skripsi & : & \@titleskripsi \\
             \end{tabular}
         \end{center}
     \end{singlespace}
-    
+
     \noindent
     Telah dipertahankan di depan Tim Penguji dan diterima sebagai bagian persyaratan untuk memperoleh gelar {\@degree} pada Program Studi {\@program} Fakultas {\@faculty} {\@university}.\\
 
     \begin{center}
-        \begin{doublespace} 
+        \begin{doublespace}
             DEWAN PENGUJI\\
             \begin{tabular}{l l l c}
-                & & & Tanda Tangan \\ 
-                1. & Ketua &: \@firstsupervisor & (........................)\\ \\
-                2. & Sekretaris &: \@secondsupervisor & (........................)\\ \\
-                3. & Anggota &: \@firstexaminer & (........................)\\ \\
-                4. & Anggota &: \@secondexaminer & (........................)\\
+                   &            &                      & Tanda Tangan               \\
+                1. & Ketua      & : \@firstsupervisor  & (........................) \\ \\
+                2. & Sekretaris & : \@secondsupervisor & (........................) \\ \\
+                3. & Anggota    & : \@firstexaminer    & (........................) \\ \\
+                4. & Anggota    & : \@secondexaminer   & (........................) \\
             \end{tabular}
         \end{doublespace}
     \end{center}
     \begin{tabular}{l l}
-        Ditetapkan di &: \@city \\ 
-        Tanggal &: \@examdate
+        Ditetapkan di & : \@city     \\
+        Tanggal       & : \@examdate
     \end{tabular}
     \pagebreak
 }
@@ -654,12 +654,12 @@
         Sebagai civitas akademik {\@university}, saya yang bertanda tangan di bawah ini:
         \begin{center}
             \begin{tabular}{ p{3cm}  p{.1cm} p{10.5cm}}
-                Nama &:& \@fullname\\
-                NIM &:& \@idnum\\
-                Program Studi &:& \@program\\
-                Departemen &:& \@dept\\
-                Fakultas &:& \@faculty\\
-                Jenis Karya &:& Skripsi
+                Nama          & : & \@fullname \\
+                NIM           & : & \@idnum    \\
+                Program Studi & : & \@program  \\
+                Departemen    & : & \@dept     \\
+                Fakultas      & : & \@faculty  \\
+                Jenis Karya   & : & Skripsi
             \end{tabular}
         \end{center}
     \end{singlespace}
@@ -669,7 +669,7 @@
 
     \begin{center}
         {\normalfont\bfseries\expandafter{"\@titleskripsi"}}\\
-            % \vspace{1.0cm}
+        % \vspace{1.0cm}
     \end{center}
 
     \noindent
@@ -701,39 +701,39 @@
 \renewcommand \thesubsubsection {\@arabic\c@chapter.\@arabic\c@section.\@arabic\c@subsection.\@arabic\c@subsubsection}
 \renewcommand{\@makechapterhead}[1]{%
     {\parindent \z@ \centering \normalfont
-    \ifnum \c@secnumdepth >\m@ne
-        \large\bfseries \@chapapp\space \thechapter
-        \par\nobreak
-        \vskip 0\p@
-    \fi
-        \interlinepenalty\@M
-        \large \bfseries #1\par\nobreak
-        \vskip 15\p@
-    }
+            \ifnum \c@secnumdepth >\m@ne
+                \large\bfseries \@chapapp\space \thechapter
+                \par\nobreak
+                \vskip 0\p@
+            \fi
+            \interlinepenalty\@M
+            \large \bfseries #1\par\nobreak
+            \vskip 15\p@
+        }
 }
 \renewcommand{\section}{
     \@startsection {section}{1}{\z@}
-        {-3.3ex \@plus -1ex \@minus -.2ex}
-        {2.1ex \@plus.2ex}
-        {\normalfont\normalsize\bfseries}
+    {-3.3ex \@plus -1ex \@minus -.2ex}
+    {2.1ex \@plus.2ex}
+    {\normalfont\normalsize\bfseries}
 }
 \renewcommand{\subsection}{
     \@startsection{subsection}{2}{\z@}
-        {-3.25ex\@plus -1ex \@minus -.2ex}
-        {1.5ex \@plus .2ex}
-        {\normalfont\normalsize\bfseries}
+    {-3.25ex\@plus -1ex \@minus -.2ex}
+    {1.5ex \@plus .2ex}
+    {\normalfont\normalsize\bfseries}
 }
 \renewcommand{\subsubsection}{
     \@startsection{subsubsection}{2}{\z@}
-        {-3.25ex\@plus -1ex \@minus -.2ex}
-        {1.5ex \@plus .2ex}
-        {\normalfont\normalsize\bfseries}
+    {-3.25ex\@plus -1ex \@minus -.2ex}
+    {1.5ex \@plus .2ex}
+    {\normalfont\normalsize\bfseries}
 }
 \renewcommand{\@makeschapterhead}[1]{%
     {\parindent \z@ \centering \normalfont
-    \large\bfseries #1
-    \par\nobreak
-    \vskip 20\p@}
+            \large\bfseries #1
+            \par\nobreak
+            \vskip 20\p@}
 }
 %-----------------------------------------------------------
 % End Redefine chapter and sections
@@ -790,13 +790,13 @@
 %-----------------------------------------------------------
 % new environment for Figure
 \newenvironment{afigure}
-    {\begin{figure}[ht]}
-    {\end{figure}}
+{\begin{figure}[ht]}
+        {\end{figure}}
 
 % new environment for Table
 \newenvironment{atable}
-    {\begin{table}[ht] \renewcommand{\arraystretch}{1.3} \centering \small}
-    {\end{table}}
+{\begin{table}[ht] \renewcommand{\arraystretch}{1.3} \centering \small}
+        {\end{table}}
 %-----------------------------------------------------------
 % End Set Table, Figure Environment
 %===========================================================
