@@ -1,6 +1,8 @@
 \chapter{TINJAUAN PUSTAKA}
 
 \section{Tinjauan Studi}
+Tinjauan studi berisi rangkuman penelitian-penelitian terdahulu yang dijadikan acuan dalam menyusun penelitian ini. Tinjauan tersebut diharapkan dapat memperluas wawasan serta memperdalam pemahaman terhadap teori-teori yang telah dikembangkan sebelumnya. Adapun daftar penelitian terdahulu yang menjadi rujukan dalam penelitian ini disajikan pada Tabel 2.1.
+
 \begin{landscape}
     \begin{longtable}{>{\raggedright\arraybackslash}p{0.5cm}
         >{\raggedright\arraybackslash}p{2.5cm}
@@ -9,7 +11,7 @@
         >{\raggedright\arraybackslash}p{3.5cm}
         >{\raggedright\arraybackslash}p{6.5cm}}
 
-        \caption{Tabel Studi Literatur SCADA}                                                                                                                                                                                                                                                                                                                                                                                                                                                                      \\
+        \caption{Tabel Tinjauan Studi}                                                                                                                                                                                                                                                                                                                                                                                                                                                                             \\
         \hline
         \textbf{No.} & \textbf{Penulis (Tahun)} & \textbf{Judul Artikel}                                                                                        & \textbf{Domain Aplikasi}                     & \textbf{Platform / Teknologi}                                                                                & \textbf{Tujuan / Kontribusi}                                                                                                                                                       \\
         \hline
@@ -45,7 +47,8 @@ Objek penelitian adalah PLC Omron seri CJ2M yang berkomunikasi melalui protokol 
 Selain itu, perangkat lunak open-source FUXA dipilih sebagai platform HMI/SCADA karena berbasis Node.js dan Angular, mendukung Modbus, Siemens S7, BACnet, OPC UA, dan dapat diperluas dengan protokol baru seperti FINS.
 
 \subsection{Perusahaan Manufaktur dan Kebutuhan Otomasi}
-Industri manufaktur modern sangat bergantung pada sistem otomasi untuk meningkatkan efisiensi produksi, konsistensi kualitas, dan pengendalian biaya. Otomasi industri melibatkan penggunaan perangkat keras seperti sensor, aktuator, dan Programmable Logic Controller (PLC) yang terhubung ke sistem kontrol dan pengawasan seperti SCADA (Supervisory Control and Data Acquisition) \parencite{sastoque2023assessing}.
+Industri manufaktur modern sangat bergantung pada sistem otomasi untuk meningkatkan efisiensi produksi, konsistensi kualitas, dan pengendalian biaya. Otomasi industri melibatkan penggunaan perangkat keras seperti sensor, aktuator, dan Programmable Logic Controller (PLC) yang terhubung ke sistem kontrol dan pengawasan seperti SCADA (Supervisory Control and Data Acquisition) \parencite{mckinsey2023automation}.
+
 
 Perusahaan seperti \textit{Special Purpose Machine (SPM) Maker} sering kali merancang dan membangun mesin otomatis untuk kebutuhan spesifik di pabrik. Mesin-mesin ini biasanya menggunakan PLC dari berbagai vendor, termasuk Omron, Siemens, dan Allen-Bradley. Untuk memantau dan mengendalikan mesin secara efisien, diperlukan sistem HMI dan SCADA yang andal, fleksibel, dan mudah diintegrasikan dengan protokol komunikasi industri \parencite{humaj2021fins}.
 
@@ -53,7 +56,8 @@ Perusahaan seperti \textit{Special Purpose Machine (SPM) Maker} sering kali mera
 PLC adalah perangkat digital berbasis mikroprosesor yang dirancang untuk mengontrol proses otomatis di lingkungan industri. PLC dapat diprogram untuk menjalankan logika kontrol yang kompleks dan sangat tahan terhadap kondisi ekstrem seperti getaran, suhu tinggi, dan interferensi listrik. PLC berfungsi sebagai otak dari sistem otomasi, mengumpulkan data dari sensor dan mengontrol aktuator berdasarkan logika yang telah diprogram \parencite{emqx2023fins}.
 
 \subsection{Protokol Komunikasi Industri dan FINS}
-Agar PLC dapat terhubung ke perangkat lain, diperlukan protokol komunikasi industri. Protokol ini memungkinkan transfer data secara waktu nyata antara PLC dan SCADA. Contoh protokol yang umum digunakan antara lain Modbus, OPC UA, Profibus, EtherNet/IP, dan FINS \parencite{sastoque2023assessing}.
+Agar PLC dapat terhubung ke perangkat lain, diperlukan protokol komunikasi industri. Protokol ini memungkinkan transfer data secara waktu nyata antara PLC dan SCADA. Contoh protokol yang umum digunakan antara lain Modbus, OPC UA, Profibus, EtherNet/IP, dan FINS \parencite{joshi2024study}.
+
 
 FINS (Factory Interface Network Service) merupakan protokol yang dikembangkan oleh Omron untuk memungkinkan komunikasi antar perangkat di dalam jaringan otomasi industri \parencite{humaj2021fins}. FINS mendukung komunikasi melalui UDP dan TCP. Kelebihan FINS antara lain:
 \begin{itemize}
@@ -124,3 +128,19 @@ Pengujian (testing) merupakan bagian penting dalam pengembangan sistem SCADA. Pe
 \end{itemize}
 
 \section{Kerangka Pemikiran}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.75\textwidth]{images/kerangka_pemikiran.png}
+    \caption{Diagram kerangka pemikiran penelitian}
+    \label{fig:kerangka_pemikiran}
+\end{figure}
+
+
+Berdasarkan kajian pustaka yang telah dibahas pada bagian 2.2, penelitian ini berangkat dari kebutuhan otomatisasi di industri manufaktur yang semakin tinggi seiring dengan perkembangan teknologi digital dan penerapan konsep Industri 4.0. PT XYZ sebagai perusahaan manufaktur komponen otomotif menggunakan \textit{Programmable Logic Controller (PLC)} Omron yang berkomunikasi melalui protokol \textit{Factory Interface Network Service (FINS)} untuk mengendalikan sebagian besar mesin produksinya. Kondisi ini menuntut adanya sistem \textit{Human Machine Interface (HMI)} dan \textit{Supervisory Control and Data Acquisition (SCADA)} yang mampu berintegrasi dengan protokol tersebut.
+
+Sistem \textit{SCADA} komersial pada umumnya menawarkan performa yang baik dalam hal pemantauan, kontrol, dan akuisisi data. Namun, sistem ini seringkali menimbulkan permasalahan \textit{vendor lock-in} yang menyebabkan perusahaan harus bergantung pada penyedia tertentu dengan konsekuensi keterbatasan fleksibilitas integrasi. Untuk mengatasi hal tersebut, solusi berbasis sumber terbuka seperti \textit{FUXA} dipandang lebih sesuai karena memberikan fleksibilitas, efisiensi biaya, serta kemampuan kustomisasi sesuai kebutuhan perusahaan.
+
+Meskipun demikian, \textit{FUXA} belum mendukung protokol \textit{FINS} secara bawaan, sehingga tidak dapat langsung digunakan untuk berkomunikasi dengan \textit{PLC Omron} di PT XYZ. Oleh karena itu, penelitian ini berfokus pada pengembangan integrasi protokol \textit{FINS} ke dalam \textit{FUXA}, dengan memanfaatkan teknologi \textit{web} modern seperti \textit{HTML}, \textit{CSS}, \textit{JavaScript}, \textit{TypeScript}, \textit{Angular}, dan \textit{Node.js}, serta \textit{framework Electron} untuk mendukung distribusi aplikasi lintas platform.
+
+Dengan adanya integrasi tersebut, diharapkan tercipta sebuah sistem \textit{HMI/SCADA} berbasis \textit{web open-source} yang mampu melakukan akuisisi data (\textit{DAQ}), kontrol jarak jauh, alarm, dan visualisasi \textit{real-time}, sekaligus mengatasi keterbatasan sistem komersial. Hasil akhir penelitian ini diharapkan memberikan solusi yang kompatibel dengan \textit{PLC Omron}, bebas dari \textit{vendor lock-in}, fleksibel, dan ekonomis, serta mendukung strategi transformasi digital di PT XYZ.
