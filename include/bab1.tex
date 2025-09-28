@@ -2,50 +2,44 @@
 
 \section{Latar Belakang}
 
-Transformasi digital dan konsep Industri~4.0 telah membawa perubahan signifikan dalam sektor manufaktur global, termasuk industri otomotif. Perkembangan teknologi otomasi, Internet of Things (IoT), dan digitalisasi produksi mendorong perusahaan untuk meningkatkan efisiensi, fleksibilitas, serta kemampuan adaptasi dalam menghadapi tren elektrifikasi kendaraan dan regulasi energi berkelanjutan \parencite{llopis2020industry}. Bagi produsen komponen otomotif, penerapan otomasi cerdas melalui integrasi sistem kendali mesin menjadi faktor penting untuk mempertahankan daya saing di pasar global.
+\textit{Programmable logic controller} (PLC) merupakan perangkat utama dalam otomasi industri. Fungsi utama dari PLC adalah memproses dan mengendalikan mesin dengan pengetahuan yang terbatas mengenai pemrograman komputer \parencite{koondhar2023role}. Di lingkungan PT~XYZ, perusahaan manufaktur komponen otomotif multinasional, sebagian besar mesin produksi telah menggunakan PLC merek Omron. Data internal menunjukkan bahwa lebih dari 90\% mesin produksi pada perusahaan mengandalkan PLC Omron sebagai pusat kendali. Tingginya tingkat adopsi PLC Omron pada lini produksi menjadikannya objek penelitian yang relevan dalam konteks integrasi sistem kendali dengan teknologi digital modern.
 
-Di lingkungan PT~XYZ, perusahaan manufaktur komponen otomotif multi-nasional, sebagian besar mesin produksi telah menggunakan \textit{Programmable Logic Controller} (PLC) merek Omron dengan protokol komunikasi FINS (\textit{Factory Interface Network Service}). Data internal menunjukkan lebih dari 90\% mesin produksi pada perusahaan mengandalkan PLC Omron sebagai pusat kendali. Kondisi ini menegaskan perlunya sistem \textit{Human-Machine Interface} (HMI) yang kompatibel dengan PLC dan protokol tersebut untuk mendukung digitalisasi dan otomasi cerdas di perusahaan.
+Untuk mendukung interaksi antara operator dan mesin yang dikendalikan oleh PLC, dibutuhkan \textit{human--machine interface} (HMI). HMI berperan menampilkan data proses, memberikan kontrol interaktif, serta mendukung pengawasan visual yang memudahkan manajemen produksi \parencite{mujawar2023_hmi_intro}. Selama ini, banyak industri mengandalkan sistem HMI komersial. Sistem HMI komersial memiliki keunggulan dalam pengendalian, pengawasan, dan analisis untuk mengurangi \textit{downtime}, biaya, serta menjaga standar kualitas \parencite{sawal_scada_market_2025}. Namun, ketergantungan pada vendor tertentu sering menimbulkan masalah biaya lisensi, keterbatasan fleksibilitas, dan risiko \textit{vendor lock-in} \parencite{Gularte2025OpenVsProprietary}. Sebagai alternatif, pendekatan sumber terbuka (\textit{open source}) menawarkan efisiensi biaya, fleksibilitas, serta kemudahan kustomisasi. Salah satu platform HMI/SCADA \textit{open source} yang berkembang adalah FUXA, yang berbasis web, ringan, serta mendukung akses jarak jauh dan integrasi IoT \parencite{chen_open_source_web_scada_2025}. Karakteristik ini menjadikan FUXA sebagai sistem HMI sumber terbuka yang potensial untuk mendukung kebutuhan otomasi cerdas di industri manufaktur.
 
-Berbagai sistem \textit{Supervisory Control and Data Acquisition} (SCADA) komersial telah tersedia dan umum digunakan di industri manufaktur. Sistem-sistem tersebut memiliki keunggulan dalam melakukan operasi pengawasan waktu nyata, pengendalian, serta analisis untuk mengurangi \textit{downtime}, biaya, dan menjaga standar kualitas \parencite{sawal_scada_market_2025}. Namun, penggunaan sistem SCADA komersial seringkali menimbulkan permasalahan \textit{vendor lock-in}. Ketergantungan terhadap vendor tertentu menyebabkan biaya tinggi untuk lisensi perangkat lunak, keterbatasan kemampuan integrasi, serta risiko penggantian perangkat yang dihentikan produksinya \parencite{Gularte2025OpenVsProprietary}.
+Pada PLC Omron, komunikasi data umumnya dilakukan menggunakan protokol \textit{factory interface network service} (FINS), yakni standar komunikasi yang memungkinkan pertukaran data antarperangkat secara cepat dan andal. Protokol ini memiliki peran penting dalam menghubungkan PLC dengan sistem HMI, sehingga data proses dapat ditampilkan secara visual dan operator dapat melakukan pengendalian secara efektif. Namun demikian, meskipun FUXA menawarkan fleksibilitas sebagai platform HMI berbasis \textit{open source}, saat ini FUXA belum mendukung protokol FINS secara bawaan. Keterbatasan ini menjadi kendala utama dalam implementasi integrasi FUXA dengan PLC Omron yang digunakan pada lini produksi.
 
-Sebagai alternatif, pendekatan berbasis sumber terbuka (\textit{open source}) menawarkan solusi yang lebih fleksibel, ekonomis, dan mudah dikustomisasi. Salah satu platform SCADA/HMI sumber terbuka yang berkembang adalah FUXA. FUXA dirancang untuk visualisasi proses dan kendali jarak jauh melalui browser, serta mendukung integrasi IoT. Karakteristik sumber terbuka FUXA memungkinkan kustomisasi kode tanpa biaya lisensi, sementara arsitektur berbasis web mendukung akses \textit{remote} dan visualisasi data waktu nyata tanpa perlu instalasi khusus di tiap komputer. FUXA merupakan sistem SCADA/HMI ringan berbasis web yang mendukung visualisasi data, pemantauan peralatan, dan kontrol jarak jauh \parencite{chen_open_source_web_scada_2025}. Dengan karakteristik tersebut, FUXA sangat sesuai untuk mendukung kebutuhan digitalisasi di PT~XYZ.
+Untuk mengatasi kendala tersebut, diperlukan upaya pengembangan dengan menambahkan dukungan protokol FINS pada FUXA melalui modifikasi kode sumbernya. Karakteristik \textit{open source} pada FUXA memungkinkan penambahan fitur ini dilakukan tanpa keterbatasan lisensi perangkat lunak. Integrasi tersebut diharapkan menghasilkan sistem HMI berbasis web yang tidak hanya kompatibel dengan PLC Omron, tetapi juga lebih fleksibel, hemat biaya, dan terbebas dari risiko \textit{vendor lock-in}, sehingga dapat mendukung strategi transformasi digital di industri manufaktur.
 
-Namun demikian, masalah utama FUXA saat ini adalah belum adanya dukungan bawaan untuk protokol komunikasi FINS, sehingga tidak dapat langsung terhubung dengan mayoritas PLC Omron yang digunakan di PT~XYZ. Kondisi ini menjadi hambatan dalam penerapan FUXA secara langsung di lingkungan perusahaan. Untuk mengatasi kendala tersebut, penelitian ini menawarkan solusi dengan mengintegrasikan protokol FINS ke dalam FUXA. Karena FUXA bersifat sumber terbuka, pengembangan fungsi tambahan ini dimungkinkan melalui modifikasi kode, sehingga FUXA dapat berfungsi sebagai sistem HMI/SCADA berbasis web yang mendukung PLC Omron secara penuh. Dengan demikian, perusahaan memperoleh fleksibilitas, efisiensi biaya, dan terbebas dari \textit{vendor lock-in}.
-
-Berdasarkan kondisi tersebut, penelitian ini berfokus pada rancang bangun sistem HMI sumber terbuka berbasis web yang terintegrasi dengan PLC Omron menggunakan protokol FINS di PT~XYZ. Tujuannya adalah untuk menyediakan sistem visualisasi dan kendali proses produksi yang efisien, fleksibel, serta bebas dari ketergantungan vendor, sehingga mendukung strategi transformasi digital dan otomatisasi industri di perusahaan.
+Berdasarkan uraian di atas, penelitian ini difokuskan pada optimasi sistem HMI sumber terbuka berbasis web yang terintegrasi dengan PLC Omron melalui protokol FINS. Tujuan penelitian adalah menambahkan dukungan protokol FINS pada FUXA dengan kapabilitas yang setara dengan protokol lain, seperti Modbus, serta memastikan proses pembacaan dan penulisan data melalui protokol FINS berlangsung stabil dan dapat ditampilkan secara akurat pada antarmuka pengguna (\textit{user interface}).
 
 
 \section{Identifikasi Masalah}
 
 Berdasarkan uraian latar belakang di atas, dapat diidentifikasi beberapa permasalahan yang dihadapi PT~XYZ terkait kebutuhan sistem SCADA, yaitu:
 \begin{enumerate}
-    \item Sebagian besar mesin produksi PT~XYZ (sekitar 91\%) menggunakan PLC Omron dengan protokol komunikasi FINS, namun sistem SCADA komersial yang digunakan tidak fleksibel untuk integrasi terbuka.
-    \item Ketergantungan pada sistem SCADA komersial menimbulkan risiko \textit{vendor lock-in}, sehingga perusahaan berpotensi mengeluarkan biaya besar untuk lisensi, upgrade, maupun penggantian perangkat keras yang tidak lagi didukung vendor.
-    \item Belum tersedia sistem SCADA berbasis web sumber terbuka di PT~XYZ yang mampu melakukan komunikasi langsung dengan PLC Omron melalui protokol FINS.
-    \item Kebutuhan perusahaan untuk melakukan monitoring dan pengendalian proses produksi secara real-time dengan biaya efisien belum sepenuhnya terpenuhi.
+    \item Sistem HMI berbasis \textit{open source} FUXA belum mendukung protokol komunikasi FINS secara bawaan, sehingga tidak dapat langsung digunakan untuk integrasi dengan PLC Omron.
+    \item Proses pembacaan dan penulisan data melalui protokol FINS belum bisa dipastikan berlangsung secara stabil pada sistem HMI FUXA.
 \end{enumerate}
+
 
 \section{Rumusan Masalah}
 Rumusan masalah dalam penelitian ini adalah sebagai berikut:
 \begin{enumerate}
-    \item Bagaimana menambahkan dukungan protokol FINS pada FUXA dengan fitur yang setara dengan protokol lain seperti Modbus?
-    \item Bagaimana memastikan proses pembacaan dan penulisan data melalui protokol FINS berjalan stabil serta dapat ditampilkan dengan benar pada antarmuka pengguna (UI)?
+    \item Bagaimana menambahkan fitur protokol FINS pada sistem HMI FUXA dengan fitur yang setara dengan protokol lain seperti Modbus.
+    \item agaimana melakukan perbaikan proses pembacaan dan penulisan data melalui protokol FINS sehingga berjalan stabil serta dapat ditampilkan dengan benar pada antarmuka pengguna (UI).
 \end{enumerate}
 
-\section{Tujuan dan Manfaat Penelitian}
-\subsection{Tujuan Penelitian}
-Penelitian ini bertujuan untuk mengimplementasikan dukungan protokol FINS pada FUXA, meliputi:
-\begin{itemize}
-    \item Pengambilan data secara berkala (polling),
-    \item Penulisan nilai ke PLC,
-    \item Dukungan \textit{Data Acquisition} (DAQ),
-    \item Integrasi sistem alarm berbasis tag.
-\end{itemize}
+\section{Tujuan Penelitian}
+Tujuan dari penelitian ini adalah untuk:
+\begin{enumerate}
+    \item Menambahkan fitur protokol FINS pada sistem HMI FUXA dengan fitur yang setara dengan protokol lain seperti Modbus.
+    \item Melakukan perbaikan proses pembacaan dan penulisan data melalui protokol FINS sehingga berjalan stabil serta dapat ditampilkan dengan benar pada antarmuka pengguna (UI).
+\end{enumerate}
 
-\subsection{Manfaat Penelitian}
+\section{Manfaat Penelitian}
 Manfaat dari penelitian ini antara lain:
 \begin{itemize}
-    \item Menyediakan solusi SCADA sumber terbuka yang kompatibel dengan PLC Omron, khususnya untuk industri kecil dan menengah.
+    \item Menyediakan solusi HMI sumber terbuka yang kompatibel dengan PLC Omron, khususnya untuk industri kecil dan menengah.
     \item Memberikan kontribusi nyata dalam pengembangan perangkat lunak sumber terbuka di bidang otomasi industri.
 \end{itemize}
 
@@ -61,9 +55,10 @@ Penelitian ini memiliki ruang lingkup sebagai berikut:
 \section{Hipotesis Penelitian}
 Hipotesis dari penelitian ini adalah:
 \begin{itemize}
-    \item Jika protokol FINS berhasil diintegrasikan ke dalam FUXA, maka sistem SCADA tersebut akan mampu membaca dan menulis data dari PLC Omron secara stabil dan akurat.
-    \item Performa polling dan DAQ yang dihasilkan akan setara dengan protokol komunikasi lain seperti Modbus.
+    \item H1 (alternatif): Implementasi FINS pada FUXA menghasilkan komunikasi yang stabil dan dapat divisualisasikan pada UI.
+    \item H0 (nol): Implementasi FINS pada FUXA tidak menghasilkan komunikasi yang stabil atau tidak dapat divisualisasikan pada UI.
 \end{itemize}
+
 
 \section{Sistematika Penulisan}
 Adapun sistematika penulisan dalam laporan ini adalah sebagai berikut:
