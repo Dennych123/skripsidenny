@@ -44,19 +44,19 @@ Tinjauan studi berisi rangkuman penelitian-penelitian terdahulu yang dijadikan a
 \subsection{Objek Penelitian}
 Objek penelitian adalah PLC Omron seri CJ2M yang berkomunikasi melalui protokol Factory Interface Network Service (FINS). PLC ini digunakan secara luas di industri manufaktur di Indonesia, termasuk di PT XYZ, sehingga mendukung pentingnya penelitian ini.
 
-Selain itu, perangkat lunak open-source FUXA dipilih sebagai platform HMI/SCADA karena berbasis Node.js dan Angular, mendukung Modbus, Siemens S7, BACnet, OPC UA, dan dapat diperluas dengan protokol baru seperti FINS.
+Selain itu, perangkat lunak open-source FUXA dipilih sebagai platform HMI berbasis web karena berbasis Node.js dan Angular, mendukung Modbus, Siemens S7, BACnet, OPC UA, dan dapat diperluas dengan protokol baru seperti FINS.
 
 \subsection{Perusahaan Manufaktur dan Kebutuhan Otomasi}
-Industri manufaktur modern sangat bergantung pada sistem otomasi untuk meningkatkan efisiensi produksi, konsistensi kualitas, dan pengendalian biaya. Otomasi industri melibatkan penggunaan perangkat keras seperti sensor, aktuator, dan Programmable Logic Controller (PLC) yang terhubung ke sistem kontrol dan pengawasan seperti SCADA (Supervisory Control and Data Acquisition) \parencite{mckinsey2023automation}.
+Industri manufaktur modern sangat bergantung pada sistem otomasi untuk meningkatkan efisiensi produksi, konsistensi kualitas, dan pengendalian biaya. Otomasi industri melibatkan penggunaan perangkat keras seperti sensor, aktuator, dan Programmable Logic Controller (PLC) yang terhubung ke sistem kontrol dan pengawasan seperti HMI/SCADA (Supervisory Control and Data Acquisition) \parencite{mckinsey2023automation}.
 
 
-Perusahaan seperti \textit{Special Purpose Machine (SPM) Maker} sering kali merancang dan membangun mesin otomatis untuk kebutuhan spesifik di pabrik. Mesin-mesin ini biasanya menggunakan PLC dari berbagai vendor, termasuk Omron, Siemens, dan Allen-Bradley. Untuk memantau dan mengendalikan mesin secara efisien, diperlukan sistem HMI dan SCADA yang andal, fleksibel, dan mudah diintegrasikan dengan protokol komunikasi industri \parencite{humaj2021fins}.
+Perusahaan seperti \textit{Special Purpose Machine (SPM) Maker} sering kali merancang dan membangun mesin otomatis untuk kebutuhan spesifik di pabrik. Mesin-mesin ini biasanya menggunakan PLC dari berbagai vendor, termasuk Omron, Siemens, dan Allen-Bradley. Untuk memantau dan mengendalikan mesin secara efisien, diperlukan sistem HMI dan yang andal, fleksibel, dan mudah diintegrasikan dengan protokol komunikasi industri \parencite{humaj2021fins}.
 
 \subsection{Programmable Logic Controller (PLC)}
 PLC adalah perangkat digital berbasis mikroprosesor yang dirancang untuk mengontrol proses otomatis di lingkungan industri. PLC dapat diprogram untuk menjalankan logika kontrol yang kompleks dan sangat tahan terhadap kondisi ekstrem seperti getaran, suhu tinggi, dan interferensi listrik. PLC berfungsi sebagai otak dari sistem otomasi, mengumpulkan data dari sensor dan mengontrol aktuator berdasarkan logika yang telah diprogram \parencite{emqx2023fins}.
 
 \subsection{Protokol Komunikasi Industri dan FINS}
-Agar PLC dapat terhubung ke perangkat lain, diperlukan protokol komunikasi industri. Protokol ini memungkinkan transfer data secara waktu nyata antara PLC dan SCADA. Contoh protokol yang umum digunakan antara lain Modbus, OPC UA, Profibus, EtherNet/IP, dan FINS \parencite{joshi2024study}.
+Agar PLC dapat terhubung ke perangkat lain, diperlukan protokol komunikasi industri. Protokol ini memungkinkan transfer data secara waktu nyata antara PLC dan HMI. Contoh protokol yang umum digunakan antara lain Modbus, OPC UA, Profibus, EtherNet/IP, dan FINS \parencite{joshi2024study}.
 
 
 FINS (Factory Interface Network Service) merupakan protokol yang dikembangkan oleh Omron untuk memungkinkan komunikasi antar perangkat di dalam jaringan otomasi industri \parencite{humaj2021fins}. FINS mendukung komunikasi melalui UDP dan TCP. Kelebihan FINS antara lain:
@@ -66,42 +66,42 @@ FINS (Factory Interface Network Service) merupakan protokol yang dikembangkan ol
     \item Struktur data fleksibel, seperti area CIO, DM, WR, HR.
 \end{itemize}
 
-\subsection{SCADA dan DAQ dalam Konteks Industri}
-SCADA adalah sistem yang digunakan untuk mengontrol dan memonitor proses industri secara terpusat. SCADA mencakup fungsi utama seperti akuisisi data (DAQ), kontrol jarak jauh, alarm, logging historis, dan visualisasi data melalui HMI \parencite{uddin2022open}. Akuisisi data (DAQ) berperan penting dalam mengumpulkan nilai-nilai sensor dan status proses secara periodik, yang kemudian disimpan dan dianalisis untuk pengambilan keputusan.
+% \subsection{SCADA dan DAQ dalam Konteks Industri}
+% SCADA adalah sistem yang digunakan untuk mengontrol dan memonitor proses industri secara terpusat. SCADA mencakup fungsi utama seperti akuisisi data (DAQ), kontrol jarak jauh, alarm, logging historis, dan visualisasi data melalui HMI \parencite{uddin2022open}. Akuisisi data (DAQ) berperan penting dalam mengumpulkan nilai-nilai sensor dan status proses secara periodik, yang kemudian disimpan dan dianalisis untuk pengambilan keputusan.
 
-Polling adalah metode yang digunakan oleh SCADA untuk mengambil data dari perangkat lapangan seperti PLC. Dalam polling, sistem SCADA mengirim permintaan ke PLC secara berkala dan membaca respon data yang dikirimkan kembali \parencite{omidi2023node}.
+% Polling adalah metode yang digunakan oleh HMI/SCADA untuk mengambil data dari perangkat lapangan seperti PLC. Dalam polling, sistem HMI/SCADA mengirim permintaan ke PLC secara berkala dan membaca respon data yang dikirimkan kembali \parencite{omidi2023node}.
 
 \subsection{HMI dan Visualisasi Data}
 HMI (Human-Machine Interface) adalah antarmuka antara manusia dan sistem kontrol. HMI menyediakan representasi visual dari proses industri dan memungkinkan operator untuk memantau kondisi sistem dan melakukan intervensi jika diperlukan. Fitur penting dalam HMI meliputi grafik waktu nyata, pengaturan parameter, tampilan alarm, dan trend historis \parencite{seeed2024fuxa}.
 
 \subsection{Teknologi Web Modern: HTML, CSS, JavaScript, TypeScript, Node.js, Angular}
-Perkembangan teknologi web memungkinkan sistem HMI dan SCADA dikembangkan sebagai aplikasi web lintas platform yang dapat diakses melalui browser secara waktu nyata. Teknologi utama yang digunakan antara lain:
+Perkembangan teknologi web memungkinkan sistem HMI dikembangkan sebagai aplikasi web lintas platform yang dapat diakses melalui browser secara waktu nyata. Teknologi utama yang digunakan antara lain:
 
 \begin{itemize}
     \item \textbf{HTML (HyperText Markup Language)}: Bahasa standar untuk menyusun struktur dan elemen-elemen dasar halaman web. \textcite{bhanarkar2023responsive}.
 
     \item \textbf{CSS (Cascading Style Sheets)}: Digunakan untuk mendesain tampilan visual halaman web, termasuk warna, tata letak, dan responsivitas antarmuka. \textcite{singh2014responsive}.
 
-    \item \textbf{JavaScript}: Bahasa pemrograman inti untuk interaktivitas pada web, memungkinkan manipulasi DOM, penanganan event, dan komunikasi asynchronous melalui AJAX. Menurut \textcite{emmanni2025typescript} menjelaskan bagaimana penggunaan TypeScript dalam pengembangan framework JavaScript modern seperti Angular meningkatkan keandalan dan skalabilitas aplikasi SCADA berbasis web.
+    \item \textbf{JavaScript}: Bahasa pemrograman inti untuk interaktivitas pada web, memungkinkan manipulasi DOM, penanganan event, dan komunikasi asynchronous melalui AJAX. Menurut \textcite{emmanni2025typescript} menjelaskan bagaimana penggunaan TypeScript dalam pengembangan framework JavaScript modern seperti Angular meningkatkan keandalan dan skalabilitas aplikasi HMI berbasis web.
 
-    \item \textbf{TypeScript}: Merupakan superset dari JavaScript yang dikembangkan oleh Microsoft, menyediakan fitur pengetikan statis dan pemrograman berorientasi objek yang kuat. TypeScript digunakan secara luas dalam pengembangan Angular karena meningkatkan skalabilitas, keamanan, dan maintainability kode. Menurut \textcite{scarsbrook2023typescript} keunggulan TypeScript dalam meningkatkan keamanan tipe dan produktivitas tim pengembang dalam proyek perangkat lunak berskala besar, termasuk sistem SCADA.
+    \item \textbf{TypeScript}: Merupakan superset dari JavaScript yang dikembangkan oleh Microsoft, menyediakan fitur pengetikan statis dan pemrograman berorientasi objek yang kuat. TypeScript digunakan secara luas dalam pengembangan Angular karena meningkatkan skalabilitas, keamanan, dan maintainability kode. Menurut \textcite{scarsbrook2023typescript} keunggulan TypeScript dalam meningkatkan keamanan tipe dan produktivitas tim pengembang dalam proyek perangkat lunak berskala besar, termasuk sistem HMI.
 
-    \item \textbf{Node.js}: Platform berbasis JavaScript yang berjalan di sisi server (backend). Node.js mendukung arsitektur non-blocking dan event-driven, sehingga sangat cocok untuk aplikasi SCADA yang membutuhkan performa tinggi dan komunikasi data waktu nyata. Menurut \textcite{ancona2018nodejs} menjelaskan bahwa Node.js memiliki karakteristik yang mendukung pemantauan sistem secara waktu nyata, menjadikannya kandidat yang sesuai untuk penerapan pada sistem Internet of Things (IoT) dan SCADA modern.
+    \item \textbf{Node.js}: Platform berbasis JavaScript yang berjalan di sisi server (backend). Node.js mendukung arsitektur non-blocking dan event-driven, sehingga sangat cocok untuk aplikasi HMI yang membutuhkan performa tinggi dan komunikasi data waktu nyata. Menurut \textcite{ancona2018nodejs} menjelaskan bahwa Node.js memiliki karakteristik yang mendukung pemantauan sistem secara waktu nyata, menjadikannya kandidat yang sesuai untuk penerapan pada sistem Internet of Things (IoT) dan HMI modern.
 
     \item \textbf{Angular}: Framework frontend modern yang dikembangkan oleh Google. Angular menggunakan TypeScript sebagai bahasa utamanya dan menyediakan pendekatan pengembangan berbasis komponen, dependency injection, serta routing yang efisien. Angular mempermudah pembuatan antarmuka pengguna (HMI) yang dinamis, modular, dan responsif. Menurut \textcite{jointjs2023scada}, yang memanfaatkan teknologi frontend modern termasuk Angular untuk membangun antarmuka HMI interaktif.
 
 \end{itemize}
 
-Dengan kombinasi teknologi tersebut, sistem SCADA berbasis web menjadi lebih fleksibel, ringan, dan dapat diakses lintas perangkat tanpa memerlukan instalasi perangkat lunak tambahan \parencite{seeed2024fuxa}.
+Dengan kombinasi teknologi tersebut, sistem HMI berbasis web menjadi lebih fleksibel, ringan, dan dapat diakses lintas perangkat tanpa memerlukan instalasi perangkat lunak tambahan \parencite{seeed2024fuxa}.
 
-\subsection{SCADA Open-Source dan Vendor Lock-In}
-Salah satu tantangan utama dalam dunia industri adalah ketergantungan terhadap vendor atau \textit{vendor lock-in}. Sistem SCADA komersial umumnya bersifat tertutup dan berlisensi mahal, sehingga membatasi fleksibilitas pengguna dalam hal integrasi, migrasi, maupun penyesuaian sistem.
+\subsection{HMI Open-Source dan Vendor Lock-In}
+Salah satu tantangan utama dalam dunia industri adalah ketergantungan terhadap vendor atau \textit{vendor lock-in}. Sistem HMI komersial umumnya bersifat tertutup dan berlisensi mahal, sehingga membatasi fleksibilitas pengguna dalam hal integrasi, migrasi, maupun penyesuaian sistem.
 
 Vendor lock-in menyebabkan pengguna hanya dapat menggunakan layanan, protokol, atau perangkat lunak dari penyedia tertentu, sehingga sulit untuk beralih ke penyedia lain tanpa mengeluarkan biaya besar atau menghadapi gangguan layanan. Dalam konteks cloud computing, fenomena ini bahkan menjadi lebih kritis, karena banyak organisasi bergantung pada layanan seperti DBaaS (Database-as-a-Service). Ketika organisasi membutuhkan fitur baru atau terjadi perubahan harga, ketergantungan ini menjadi hambatan besar untuk berpindah platform \parencite{banthia2024vendorlockin}.
 
-Untuk mengatasi vendor lock-in, banyak organisasi mulai mengadopsi pendekatan berbasis teknologi terbuka dan strategi multi-cloud. Salah satu solusi yang relevan dalam konteks SCADA adalah penggunaan sistem open-source seperti FUXA. Dengan menggunakan SCADA open-source, pengguna memperoleh kendali penuh atas kode sumber, arsitektur, dan kemampuan integrasi sistem, sehingga meminimalkan risiko dikunci oleh vendor tertentu.
+Untuk mengatasi vendor lock-in, banyak organisasi mulai mengadopsi pendekatan berbasis teknologi terbuka dan strategi multi-cloud. Salah satu solusi yang relevan dalam konteks HMI adalah penggunaan sistem open-source seperti FUXA. Dengan menggunakan HMI open-source, pengguna memperoleh kendali penuh atas kode sumber, arsitektur, dan kemampuan integrasi sistem, sehingga meminimalkan risiko dikunci oleh vendor tertentu.
 
-FUXA adalah contoh SCADA berbasis web yang bersifat open-source dan mendukung berbagai protokol industri seperti Modbus, OPC-UA, dan MQTT. Sistem ini dapat dikustomisasi secara penuh dan tidak tergantung pada penyedia perangkat lunak tertentu \parencite{seeed2024fuxa}.
+FUXA adalah contoh HMI berbasis web yang bersifat open-source dan mendukung berbagai protokol industri seperti Modbus, OPC-UA, dan MQTT. Sistem ini dapat dikustomisasi secara penuh dan tidak tergantung pada penyedia perangkat lunak tertentu \parencite{seeed2024fuxa}.
 
 \subsection{Electron: Aplikasi Desktop Berbasis Web}
 Electron adalah framework open-source yang memungkinkan pengembangan aplikasi desktop lintas platform (Windows, macOS, dan Linux) menggunakan teknologi web seperti HTML, CSS, dan JavaScript, dikombinasikan dengan Node.js dan Chromium. Framework ini banyak digunakan untuk membangun aplikasi desktop modern karena kemampuannya menjalankan kode frontend dan backend dalam satu kerangka kerja yang terintegrasi \parencite{electron2024why}.
@@ -117,8 +117,8 @@ Beberapa keunggulan utama Electron antara lain:
 
 Dengan bundling Chromium dan Node.js, Electron memberikan kendali penuh terhadap tampilan dan fungsionalitas aplikasi desktop, sekaligus menghindari keterbatasan atau bug dari webview bawaan sistem operasi \parencite{electron2024why}.
 
-\subsection{Pengujian dan Validasi Sistem SCADA}
-Pengujian (testing) merupakan bagian penting dalam pengembangan sistem SCADA. Pengujian bertujuan untuk memastikan sistem dapat membaca dan menulis data secara benar, menangani kondisi ekstrem, serta menampilkan visualisasi data yang akurat. Pengujian biasanya mencakup:
+\subsection{Pengujian dan Validasi Sistem HMI}
+Pengujian (testing) merupakan bagian penting dalam pengembangan sistem HMI. Pengujian bertujuan untuk memastikan sistem dapat membaca dan menulis data secara benar, menangani kondisi ekstrem, serta menampilkan visualisasi data yang akurat. Pengujian biasanya mencakup:
 
 \begin{itemize}
     \item \textbf{Unit testing}: Memastikan setiap komponen bekerja sesuai fungsi.
@@ -137,10 +137,10 @@ Pengujian (testing) merupakan bagian penting dalam pengembangan sistem SCADA. Pe
 \end{figure}
 
 
-Berdasarkan kajian pustaka yang telah dibahas pada bagian 2.2, penelitian ini berangkat dari kebutuhan otomatisasi di industri manufaktur yang semakin tinggi seiring dengan perkembangan teknologi digital dan penerapan konsep Industri 4.0. PT XYZ sebagai perusahaan manufaktur komponen otomotif menggunakan \textit{Programmable Logic Controller (PLC)} Omron yang berkomunikasi melalui protokol \textit{Factory Interface Network Service (FINS)} untuk mengendalikan sebagian besar mesin produksinya. Kondisi ini menuntut adanya sistem \textit{Human Machine Interface (HMI)} dan \textit{Supervisory Control and Data Acquisition (SCADA)} yang mampu berintegrasi dengan protokol tersebut.
+Berdasarkan kajian pustaka yang telah dibahas pada bagian 2.2, penelitian ini berangkat dari kebutuhan otomatisasi di industri manufaktur yang semakin tinggi seiring dengan perkembangan teknologi digital dan penerapan konsep Industri 4.0. PT XYZ sebagai perusahaan manufaktur komponen otomotif menggunakan \textit{Programmable Logic Controller (PLC)} Omron yang berkomunikasi melalui protokol \textit{Factory Interface Network Service (FINS)} untuk mengendalikan sebagian besar mesin produksinya. Kondisi ini menuntut adanya sistem \textit{Human Machine Interface (HMI)} yang mampu berintegrasi dengan protokol tersebut.
 
-Sistem \textit{SCADA} komersial pada umumnya menawarkan performa yang baik dalam hal pemantauan, kontrol, dan akuisisi data. Namun, sistem ini seringkali menimbulkan permasalahan \textit{vendor lock-in} yang menyebabkan perusahaan harus bergantung pada penyedia tertentu dengan konsekuensi keterbatasan fleksibilitas integrasi. Untuk mengatasi hal tersebut, solusi berbasis sumber terbuka seperti \textit{FUXA} dipandang lebih sesuai karena memberikan fleksibilitas, efisiensi biaya, serta kemampuan kustomisasi sesuai kebutuhan perusahaan.
+Sistem \textit{HMI} komersial pada umumnya menawarkan performa yang baik dalam hal pemantauan, kontrol, dan akuisisi data. Namun, sistem ini seringkali menimbulkan permasalahan \textit{vendor lock-in} yang menyebabkan perusahaan harus bergantung pada penyedia tertentu dengan konsekuensi keterbatasan fleksibilitas integrasi. Untuk mengatasi hal tersebut, solusi berbasis sumber terbuka seperti \textit{FUXA} dipandang lebih sesuai karena memberikan fleksibilitas, efisiensi biaya, serta kemampuan kustomisasi sesuai kebutuhan perusahaan.
 
 Meskipun demikian, \textit{FUXA} belum mendukung protokol \textit{FINS} secara bawaan, sehingga tidak dapat langsung digunakan untuk berkomunikasi dengan \textit{PLC Omron} di PT XYZ. Oleh karena itu, penelitian ini berfokus pada pengembangan integrasi protokol \textit{FINS} ke dalam \textit{FUXA}, dengan memanfaatkan teknologi \textit{web} modern seperti \textit{HTML}, \textit{CSS}, \textit{JavaScript}, \textit{TypeScript}, \textit{Angular}, dan \textit{Node.js}, serta \textit{framework Electron} untuk mendukung distribusi aplikasi lintas platform.
 
-Dengan adanya integrasi tersebut, diharapkan tercipta sebuah sistem \textit{HMI/SCADA} berbasis \textit{web open-source} yang mampu melakukan akuisisi data (\textit{DAQ}), kontrol jarak jauh, alarm, dan visualisasi \textit{real-time}, sekaligus mengatasi keterbatasan sistem komersial. Hasil akhir penelitian ini diharapkan memberikan solusi yang kompatibel dengan \textit{PLC Omron}, bebas dari \textit{vendor lock-in}, fleksibel, dan ekonomis, serta mendukung strategi transformasi digital di PT XYZ.
+Dengan adanya integrasi tersebut, diharapkan tercipta sebuah sistem \textit{HMI} berbasis \textit{web open-source} yang mampu melakukan kendali mesin, alarm, dan visualisasi \textit{real-time}, sekaligus mengatasi keterbatasan sistem komersial. Hasil akhir penelitian ini diharapkan memberikan solusi yang kompatibel dengan \textit{PLC Omron}, bebas dari \textit{vendor lock-in}, fleksibel, dan ekonomis, serta mendukung strategi transformasi digital di PT XYZ.
