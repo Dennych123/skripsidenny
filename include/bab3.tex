@@ -1,39 +1,70 @@
 \chapter{METODOLOGI PENELITIAN}
 
-\section{Jenis Penelitian}
-Jenis penelitian ini adalah penelitian rekayasa perangkat lunak (\textit{software engineering research}) yang bersifat terapan. Fokus utama penelitian adalah merancang, mengimplementasikan, dan mengevaluasi penambahan dukungan protokol FINS (\textit{Factory Interface Network Service}) pada sistem SCADA open-source FUXA. 
+\section{Tahapan Penelitian}
+Tahapan penelitian dijalankan secara iteratif dengan pendekatan \textit{iterative prototyping}, yaitu siklus berulang antara analisis, desain, implementasi, pengujian, dan evaluasi. Diagram alir (flowchart) tahapan penelitian disajikan pada Gambar \ref{fig:flowchart-tahapan}.
 
-Pendekatan penelitian menggunakan metode \textbf{mixed-method}:  
-\begin{itemize}
-    \item \textbf{Kuantitatif:} Pengukuran performa komunikasi (latensi baca/tulis, \textit{throughput}, persentase keberhasilan, serta penggunaan CPU/memori). Berdasarkan literatur, performa FINS/UDP dapat mencapai latensi rata-rata 3--10 ms untuk \textit{polling} 100--200 tag dalam kondisi jaringan normal, lebih cepat dibandingkan Modbus TCP yang berkisar 20--40 ms pada beban serupa. Data ini menjadi acuan target performa. 
-    \item \textbf{Kualitatif:} Observasi kemudahan konfigurasi parameter, usability antarmuka FUXA, serta feedback dari pengguna/operator terkait pengalaman penggunaan sistem.
-\end{itemize}
+\begin{figure}[ht]
+    \centering
+    % letakkan file flowchart yang sesuai di folder images, ganti nama file jika perlu
+    \includegraphics[height=0.75\textwidth]{images/flowchart-tahapan.png}
+    \caption{Flowchart Tahapan Penelitian}
+    \label{fig:flowchart-tahapan}
+\end{figure}
 
-Pendekatan ini dipilih agar hasil penelitian valid secara teknis sekaligus relevan dalam konteks kebutuhan pengguna industri.
-
-\section{Metode Pengembangan Sistem}
-Metode pengembangan perangkat lunak yang digunakan adalah \textbf{iterative prototyping}, dengan siklus berulang analisis kebutuhan, perancangan, implementasi, pengujian, dan evaluasi. 
+Tahapan rinci penelitian adalah sebagai berikut:
 
 \begin{enumerate}
-    \item \textbf{Analisis Kebutuhan:} Identifikasi parameter komunikasi FINS (DA1, SA1, Unit Address), kebutuhan polling, penulisan nilai ke PLC, serta fitur DAQ dan alarm.
-    \item \textbf{Perancangan Sistem:} Penyusunan arsitektur konektor FINS pada sisi server (Node.js) dan antarmuka pengguna pada sisi client (Angular). Disertai diagram arsitektur dan \textit{sequence diagram} komunikasi FINS.
-    \item \textbf{Implementasi:} Pengembangan modul konektor FINS pada \texttt{server/runtime/devices/fins}, komponen konfigurasi tag/perangkat (Angular), serta logika polling dan penulisan data.
-    \item \textbf{Pengujian:} Uji fungsional, integrasi, serta evaluasi performa dengan monitoring paket menggunakan Wireshark dan skrip benchmarking.
-    \item \textbf{Evaluasi dan Perbaikan:} Identifikasi bug, optimasi performa polling, pencegahan \textit{memory leak}, serta peningkatan fitur DAQ dan alarm berdasarkan hasil pengujian.
+    \item \textbf{Studi literatur dan perumusan requirement}\\
+    Mengumpulkan referensi teknis terkait protokol FINS, arsitektur HMI berbasis web (khususnya FUXA), serta praktik pengujian komunikasi PLC. 
+    Hasil: dokumen requirement fungsional dan non-fungsional.
+    
+    \item \textbf{Uji coba pustaka \texttt{omron-fins} di Node.js}\\
+    Membuat skrip sederhana (\texttt{Communication test .js}) untuk menguji apakah pustaka dapat terkoneksi dengan PLC Omron, melakukan operasi baca, dan menulis nilai ke alamat tertentu. 
+    Hasil: validasi awal apakah pustaka berfungsi dengan PLC target.
+
+    \item \textbf{Analisis kebutuhan dan spesifikasi sistem}\\
+    Identifikasi kebutuhan integrasi ke HMI: parameter FINS (SA1, DA1, alamat memori, protokol UDP/TCP), kebutuhan alarm, tampilan status, dan kebutuhan UI. 
+    Hasil: spesifikasi teknis dan use-case.
+
+    \item \textbf{Perancangan arsitektur dan desain detail}\\
+    Mendesain arsitektur frontend (Angular) untuk form konfigurasi perangkat, backend (Node.js) untuk modul FINS, serta jalur komunikasi antara keduanya. 
+    Hasil: diagram arsitektur dan desain skema komunikasi.
+
+    \item \textbf{Implementasi prototipe HMI}\\
+    Integrasi pustaka \texttt{omron-fins} ke dalam modul HMI terbuka FUXA, meliputi koneksi, baca/tulis, polling, alarm, serta tampilan nilai pada UI. 
+    Hasil: prototipe fungsional HMI dengan dukungan FINS.
+
+    \item \textbf{Pengujian fungsional dan integrasi}\\
+    Melakukan uji baca/tulis tag, verifikasi tampilan nilai dan status pada UI, serta analisis paket jaringan menggunakan Wireshark untuk memastikan framing FINS benar. 
+    Hasil: laporan bug dan perbaikan iteratif.
+
+    \item \textbf{Pengujian performa sederhana}\\
+    Menjalankan skenario pengujian dengan jumlah tag dan interval polling berbeda untuk mengukur keterlambatan respon, tingkat keberhasilan, dan ketahanan koneksi. 
+    Hasil: dataset pengujian (CSV, log) dan metrik evaluasi.
+
+    \item \textbf{Analisis data dan evaluasi}\\
+    Mengolah hasil pengujian untuk menilai ketercapaian tujuan: konektivitas, kemudahan konfigurasi, kejelasan tampilan HMI, dan keandalan koneksi. 
+    Hasil: analisis dan rekomendasi optimasi.
+
+    \item \textbf{Penyempurnaan dan dokumentasi}\\
+    Menyempurnakan implementasi berdasarkan hasil evaluasi, menyusun dokumentasi penggunaan modul, panduan konfigurasi, serta publikasi kode pada repositori (mis. GitHub). 
+    Hasil: rilis final modul dan panduan.
 \end{enumerate}
+
+Pada setiap iterasi siklus di atas, dilakukan evaluasi risiko teknis (mis. \textit{timeout}, \textit{connection error}), mitigasi, dan pencatatan perubahan versi. Tahapan ini memastikan bahwa integrasi FINS pada HMI yang dikembangkan tidak hanya berfungsi secara fungsional tetapi juga andal (reliable) dan terdokumentasi.
 
 \section{Alat dan Bahan}
 \subsection{Perangkat Keras}
 \begin{itemize}
-    \item Mini PC (Intel i5, RAM 16GB, SSD 512GB, OS Ubuntu 22.04).
-    \item Jaringan LAN industri 1 Gbps.
-    \item PLC Omron CJ2M CPU31 (firmware terbaru) dan simulator PLC.
-    \item LCD TV 43'' untuk dashboard utama.
+    \item Laptop (Intel i7, RAM 16GB, SSD 512GB, OS Windows11).
+    \item Industrial Switching Hub Omron W4S1-05B.
+    \item PLC Omron CJ2M CPU34.
+    
 \end{itemize}
 
 \subsection{Perangkat Lunak}
 \begin{itemize}
-    \item FUXA (commit/tag versi penelitian).
+    
     \item Node.js v20.x, Angular v17.x, Electron v28.x.
     \item Wireshark v4.x untuk analisis paket.
     \item Visual Studio Code, Git.
@@ -41,30 +72,13 @@ Metode pengembangan perangkat lunak yang digunakan adalah \textbf{iterative prot
 
 \subsection{Library Tambahan}
 \begin{itemize}
-    \item \texttt{node-omron-fins} atau client FINS kustom.
+    \item \texttt{node-omron-fins}.
     \item Angular Material untuk komponen UI konfigurasi.
 \end{itemize}
 
-\section{Tahapan Penelitian}
-Penelitian dilakukan melalui tahapan berikut:
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|c|p{9cm}|}
-        \hline
-        \textbf{No} & \textbf{Kegiatan} \\
-        \hline
-        1 & Studi literatur tentang protokol FINS, SCADA, FUXA, dan metode evaluasi performa. \\
-        2 & Perancangan konektor dan struktur konfigurasi perangkat/tag, diagram arsitektur, serta \textit{sequence diagram}. \\
-        3 & Implementasi modul konektor, UI konfigurasi, serta integrasi dengan FUXA. \\
-        4 & Pengujian fungsional dan performa, termasuk analisis paket menggunakan Wireshark. \\
-        5 & Evaluasi hasil pengujian, perbaikan bug, perbandingan dengan baseline Modbus TCP, serta dokumentasi. \\
-        \hline
-    \end{tabular}
-    \caption{Tahapan Pelaksanaan Penelitian}
-\end{table}
 
-\section{Platform dan Arsitektur Aplikasi}
+\subsection{Platform dan Arsitektur Aplikasi}
 Aplikasi dikembangkan menggunakan framework \textbf{Electron}, yang mengemas frontend Angular dan backend Node.js ke dalam executable lintas platform.  
 
 Keunggulan pendekatan ini antara lain:
@@ -85,6 +99,171 @@ Keunggulan pendekatan ini antara lain:
 
 Mini PC bertindak sebagai pusat kendali yang berkomunikasi dengan delapan PLC Omron CJ2M melalui protokol FINS berbasis UDP/TCP. Data dari setiap pos kerja diproses dan divisualisasikan secara waktu nyata melalui dashboard utama.
 
+\section{Modifikasi UI (Frontend Angular)}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/ui_mod_plan.png}
+    \caption{Rencana modifikasi antarmuka pengguna (UI) untuk konfigurasi perangkat FINS}
+    \label{fig:ui_mod_plan}
+\end{figure}
+
+Modifikasi antarmuka pengguna dilakukan pada sisi \textit{frontend} berbasis Angular dengan menambahkan komponen khusus untuk konfigurasi FINS. 
+Perubahan utama antara lain:
+\begin{itemize}
+    \item Penambahan \texttt{TagPropertyEditFinsComponent} untuk mengatur parameter FINS seperti \texttt{DA1}, \texttt{SA1}, \texttt{Unit Address}, dan protokol (UDP/TCP).
+    \item Integrasi Angular Material untuk tampilan form konfigurasi agar konsisten dengan protokol lain (misalnya Modbus).
+    \item Penyesuaian \texttt{DevicePropertyComponent} agar parameter FINS dapat disimpan, ditampilkan ulang, dan diedit.
+    \item Validasi input (misalnya alamat PLC hanya menerima nilai numerik dalam rentang tertentu).
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{images/ui_edit_tag.png}
+    \caption{Rencana modifikasi antarmuka pengguna (UI) untuk konfigurasi tag perangkat FINS}
+    \label{fig:ui_edit_tag}
+\end{figure}
+
+Selain perencanaan awal (Gambar~\ref{fig:ui_mod_plan}), implementasi nyata form edit tag ditunjukkan pada Gambar~\ref{fig:ui_edit_tag}. 
+Antarmuka ini memungkinkan pengguna untuk menambahkan atau mengubah konfigurasi tag FINS secara langsung melalui dialog khusus, termasuk:
+\begin{itemize}
+    \item Pemilihan area memori (\texttt{CIO}, \texttt{DM}, \texttt{WR}, \texttt{HR}).
+    \item Input alamat numerik sesuai range yang didukung PLC Omron.
+    \item Konfigurasi parameter tambahan seperti interval polling dan enable/disable tag.
+    \item Tampilan konsisten dengan protokol lain sehingga memudahkan operator yang sudah terbiasa menggunakan FUXA.
+\end{itemize}
+
+\section{Modifikasi Backend (Node.js Konektor FINS)}
+Modifikasi sisi \textit{backend} dilakukan dengan menambahkan modul baru di dalam folder 
+\texttt{server/runtime/devices/fins}. Perubahan meliputi:
+\begin{itemize}
+    \item Implementasi fungsi dasar koneksi PLC:
+    \begin{itemize}
+        \item \texttt{connect()} untuk inisialisasi komunikasi FINS.
+        \item \texttt{read()} untuk membaca nilai alamat PLC.
+        \item \texttt{write()} untuk menulis nilai ke alamat PLC.
+        \item \texttt{poll()} untuk melakukan polling berkala.
+    \end{itemize}
+    \item Mekanisme \texttt{retry} jika koneksi terputus atau terjadi \textit{timeout}.
+    \item Pengaturan logging error agar memudahkan debugging.
+    \item Integrasi dengan lapisan API internal FUXA agar UI dapat berinteraksi langsung dengan modul FINS.
+\end{itemize}
+Contoh pseudocode alur kerja modul konektor FINS ditunjukkan pada Snippet~\ref{lst:fins-pseudocode}.
+\begin{verbatim}
+    Pseudocode: DeviceFins Module
+--------------------------------
+
+1. LOAD library "omron-fins"
+   IF gagal -> log error, modul tidak tersedia
+
+2. FUNCTION DeviceFins(data, logger, events, runtime):
+   INIT:
+     client = null
+     values = {}
+     isConnected = false
+     isConnecting = false
+     reconnectTimer = null
+     deviceId = data.id
+     deviceName = data.name
+     deviceTags = list dari data.tags
+     options = data.property
+
+     host = options.address OR default
+     port = options.port OR default
+     protocol = options.FinsProtocol OR 'UDP'
+     SA1, DA1 = options.SA1, options.DA1
+
+   LOG konfigurasi device
+
+   FUNCTION scheduleReconnect():
+     IF sudah connect/connecting -> return
+     CANCEL reconnectTimer jika ada
+     SET reconnectTimer = timeout 3 detik:
+        log "Trying reconnect"
+        CALL connect()
+          IF gagal -> log "Reconnect failed"
+
+   FUNCTION connect():
+     RETURN Promise
+       IF fins library tidak ada -> reject
+       isConnecting = true
+       BERSIHKAN client lama jika ada
+       CREATE client baru FinsClient(host, port, SA1, DA1, protocol)
+       client.onError:
+         log error
+         set isConnected=false, isConnecting=false
+         CALL disconnect()
+         CALL scheduleReconnect()
+       client.onTimeout:
+         log timeout
+         set isConnected=false, isConnecting=false
+         CALL disconnect()
+         CALL scheduleReconnect()
+       Jika sukses:
+         set isConnected=true, isConnecting=false
+         emit events "status:connect-ok"
+         resolve()
+
+   FUNCTION disconnect():
+     HAPUS semua listener client
+     PUTUS client jika ada
+     CLEAR reconnectTimer
+     set isConnected=false
+     emit events "status:connect-off"
+
+   FUNCTION stop() = disconnect
+
+   FUNCTION isConnected() RETURN isConnected
+
+   FUNCTION polling():
+     IF tidak connect atau tags kosong -> log skip
+     changed = []
+     FOR setiap tag dalam deviceTags:
+       TRY:
+         finsAddress = memaddress+address
+         CALL client.read(finsAddress)
+         ON reply:
+           val = response.values[0]
+           now = timestamp
+           IF val berbeda dari values[tag.id]:
+             update values
+             tambahkan ke changed
+             IF addDaq tersedia:
+               simpan data (val, ts)
+         ON error:
+           log error, set isConnected=false
+           CALL scheduleReconnect()
+       CATCH err -> log polling exception
+     IF changed tidak kosong:
+       emit events "device-value:changed"
+
+   FUNCTION getValues():
+     RETURN semua pasangan (id, value)
+
+   FUNCTION getValue(tagId):
+     RETURN {id, value, ts=now}
+
+   FUNCTION getStatus():
+     RETURN "connect-ok" jika isConnected else "connect-off"
+
+   FUNCTION load(newData):
+     jika newData.tags ada -> perbarui deviceTags
+
+   FUNCTION setValue(tagId, value):
+     cari tag sesuai id
+     IF client dan tag ada:
+       finsAddress = memaddress+address
+       client.write(finsAddress, [value])
+         ON error: log gagal tulis
+         ELSE: log sukses, update values
+
+   
+
+3. MODULE EXPORT:
+   init(): kosong
+   create(data,...): RETURN new DeviceFins
+\end{verbatim}
+
 \section{Metode Pengujian}
 Pengujian mencakup pengujian fungsional (\textit{black-box}), struktural (\textit{white-box}), serta evaluasi performa.
 
@@ -93,7 +272,7 @@ Pengujian mencakup pengujian fungsional (\textit{black-box}), struktural (\texti
     \item \textbf{Konfigurasi:} Uji penyimpanan dan pemanggilan parameter (DA1, SA1, Unit Address, protocol).
     \item \textbf{Baca/Tulis Data:} Verifikasi polling nilai PLC dan penulisan tag melalui UI.
     \item \textbf{Alarm:} Validasi pemicu alarm dan notifikasi.
-    \item \textbf{DAQ:} Uji penyimpanan dan pemanggilan data historis.
+    %\item \textbf{DAQ:} Uji penyimpanan dan pemanggilan data historis.
     \item \textbf{UI:} Penggunaan antarmuka tanpa error.
 \end{itemize}
 
@@ -106,33 +285,50 @@ Pengujian mencakup pengujian fungsional (\textit{black-box}), struktural (\texti
     \item \textbf{Integrasi Client-Server:} Penelusuran alur data dari UI (Angular) ke backend Node.js.
 \end{itemize}
 
-\subsection{Evaluasi Performa}
-Evaluasi performa menggunakan skenario \textbf{test matrix} berikut:
+% \subsection{Evaluasi Performa}
+% Evaluasi performa menggunakan skenario \textbf{test matrix} berikut:
+
+% \begin{table}[H]
+%     \centering
+%     \begin{tabular}{|c|c|c|c|c|}
+%         \hline
+%         \textbf{Skenario} & \textbf{Tag Count} & \textbf{Interval Polling} & \textbf{Kondisi Jaringan} & \textbf{Metrik Utama} \\
+%         \hline
+%         Base Load & 100 & 200 ms & Normal & Latensi, success rate \\
+%         Stress Load & 1000 & 50 ms & Normal & Latensi, CPU, memori \\
+%         Fault Tolerance & 200 & 100 ms & Packet loss 1\% & Success rate, retry \\
+%         Write Burst & 200 & Concurrent writes & Normal & Waktu tulis, error rate \\
+%         \hline
+%     \end{tabular}
+%     \caption{Test Matrix Evaluasi Performa Konektor FINS}
+% \end{table}
+
+\subsection{Metrik Evaluasi}
+Metrik evaluasi ditentukan berdasarkan kebutuhan praktis penggunaan HMI dalam komunikasi langsung dengan PLC. 
+Tabel berikut merangkum metrik dan target kinerja yang diharapkan:
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c|c|c|c|c|}
+    \begin{tabular}{|p{4cm}|p{5cm}|p{5cm}|}
         \hline
-        \textbf{Skenario} & \textbf{Tag Count} & \textbf{Interval Polling} & \textbf{Kondisi Jaringan} & \textbf{Metrik Utama} \\
+        \textbf{Metrik} & \textbf{Deskripsi} & \textbf{Target KPI} \\
         \hline
-        Base Load & 100 & 200 ms & Normal & Latensi, success rate \\
-        Stress Load & 1000 & 50 ms & Normal & Latensi, CPU, memori \\
-        Fault Tolerance & 200 & 100 ms & Packet loss 1\% & Success rate, retry \\
-        Write Burst & 200 & Concurrent writes & Normal & Waktu tulis, error rate \\
+        Latensi baca/tulis & Waktu rata-rata komunikasi antara HMI dan PLC untuk operasi baca/tulis. & $\leq 100$ ms (real-time, tidak terasa delay bagi operator) \\
+        \hline
+        Throughput & Jumlah operasi baca/tulis yang dapat diproses per detik. & $\geq 100$ operasi/detik untuk 100 tag \\
+        \hline
+        Persentase keberhasilan komunikasi & Proporsi request yang berhasil dibanding total request. & $\geq 99.5\%$ sukses \\
+        \hline
+        Penggunaan CPU/memori & Konsumsi sumber daya oleh aplikasi HMI saat polling aktif. & CPU $\leq 30\%$, Memori $\leq 500$ MB \\
+        \hline
+        Waktu deteksi alarm & Durasi dari kondisi abnormal di PLC muncul sampai indikator alarm tampil di HMI. & $\leq 200$ ms \\
+        \hline
+        Booting Time & Waktu yang diperlukan aplikasi HMI untuk siap terkoneksi dengan PLC setelah dijalankan. & $\leq 10$ detik \\
         \hline
     \end{tabular}
-    \caption{Test Matrix Evaluasi Performa Konektor FINS}
+    \caption{Metrik dan Target KPI Evaluasi Sistem HMI dengan Konektor FINS}
 \end{table}
 
-\subsection{Metrik Evaluasi}
-\begin{itemize}
-    \item Latensi baca/tulis rata-rata (ms) serta distribusi (min, max, p95).
-    \item \textit{Throughput} (operasi/detik).
-    \item Persentase keberhasilan komunikasi (\% sukses).
-    \item Penggunaan CPU/memori server.
-    \item Waktu deteksi alarm (ms).
-    \item Akurasi timestamp DAQ.
-\end{itemize}
 
 \subsection{Validasi dan Reproducibility}
 Untuk memastikan hasil dapat direplikasi:
@@ -141,3 +337,20 @@ Untuk memastikan hasil dapat direplikasi:
     \item Hasil eksperimen (CSV, log Wireshark) dilampirkan.
     \item Dokumentasi lingkungan (OS, spesifikasi hardware, versi software) dicantumkan di lampiran.
 \end{itemize}
+
+\section{Evaluasi Berbasis Responden}
+Selain pengujian teknis, penelitian ini juga melakukan evaluasi berbasis responden untuk menilai aspek usability dari sistem HMI yang dibangun. 
+Evaluasi dilakukan dengan melibatkan \textbf{5--10 responden} yang memiliki latar belakang sebagai mahasiswa otomasi industri, teknisi PLC, atau operator produksi. 
+
+Instrumen evaluasi berupa kuesioner yang menggunakan skala Likert (1--5), dengan aspek yang diukur sebagai berikut:
+\begin{enumerate}
+    \item \textbf{Kemudahan Konfigurasi:} Apakah form konfigurasi FINS (parameter SA1, DA1, alamat memori) mudah dipahami dan digunakan.
+    \item \textbf{Kejelasan Tampilan:} Apakah nilai tag dan status koneksi ditampilkan secara jelas dan informatif.
+    \item \textbf{Responsivitas:} Apakah perubahan nilai PLC (misalnya tombol ditekan) segera terlihat di HMI tanpa delay yang mengganggu.
+    \item \textbf{Konsistensi UI:} Apakah tampilan konsisten dengan protokol lain di FUXA (misalnya Modbus) sehingga mudah dipelajari.
+    \item \textbf{Kepuasan Umum:} Tingkat kepuasan pengguna terhadap sistem HMI dengan konektor FINS.
+\end{enumerate}
+
+Hasil kuesioner akan diolah secara kuantitatif (rata-rata, standar deviasi, distribusi skor) serta dianalisis kualitatif melalui komentar terbuka. 
+Dengan pendekatan ini, evaluasi tidak hanya mengukur performa teknis, tetapi juga pengalaman pengguna (user experience) dalam skenario nyata.
+
