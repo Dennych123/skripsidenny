@@ -100,6 +100,14 @@ Keunggulan pendekatan ini antara lain:
 Mini PC bertindak sebagai pusat kendali yang berkomunikasi dengan delapan PLC Omron CJ2M melalui protokol FINS berbasis UDP/TCP. Data dari setiap pos kerja diproses dan divisualisasikan secara waktu nyata melalui dashboard utama.
 
 \section{Modifikasi UI (Frontend Angular)}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/ui_mod_plan.png}
+    \caption{Rencana modifikasi antarmuka pengguna (UI) untuk konfigurasi perangkat FINS}
+    \label{fig:ui_mod_plan}
+\end{figure}
+
 Modifikasi antarmuka pengguna dilakukan pada sisi \textit{frontend} berbasis Angular dengan menambahkan komponen khusus untuk konfigurasi FINS. 
 Perubahan utama antara lain:
 \begin{itemize}
@@ -107,6 +115,22 @@ Perubahan utama antara lain:
     \item Integrasi Angular Material untuk tampilan form konfigurasi agar konsisten dengan protokol lain (misalnya Modbus).
     \item Penyesuaian \texttt{DevicePropertyComponent} agar parameter FINS dapat disimpan, ditampilkan ulang, dan diedit.
     \item Validasi input (misalnya alamat PLC hanya menerima nilai numerik dalam rentang tertentu).
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{images/ui_edit_tag.png}
+    \caption{Rencana modifikasi antarmuka pengguna (UI) untuk konfigurasi tag perangkat FINS}
+    \label{fig:ui_edit_tag}
+\end{figure}
+
+Selain perencanaan awal (Gambar~\ref{fig:ui_mod_plan}), implementasi nyata form edit tag ditunjukkan pada Gambar~\ref{fig:ui_edit_tag}. 
+Antarmuka ini memungkinkan pengguna untuk menambahkan atau mengubah konfigurasi tag FINS secara langsung melalui dialog khusus, termasuk:
+\begin{itemize}
+    \item Pemilihan area memori (\texttt{CIO}, \texttt{DM}, \texttt{WR}, \texttt{HR}).
+    \item Input alamat numerik sesuai range yang didukung PLC Omron.
+    \item Konfigurasi parameter tambahan seperti interval polling dan enable/disable tag.
+    \item Tampilan konsisten dengan protokol lain sehingga memudahkan operator yang sudah terbiasa menggunakan FUXA.
 \end{itemize}
 
 \section{Modifikasi Backend (Node.js Konektor FINS)}
@@ -124,6 +148,121 @@ Modifikasi sisi \textit{backend} dilakukan dengan menambahkan modul baru di dala
     \item Pengaturan logging error agar memudahkan debugging.
     \item Integrasi dengan lapisan API internal FUXA agar UI dapat berinteraksi langsung dengan modul FINS.
 \end{itemize}
+Contoh pseudocode alur kerja modul konektor FINS ditunjukkan pada Snippet~\ref{lst:fins-pseudocode}.
+\begin{verbatim}
+    Pseudocode: DeviceFins Module
+--------------------------------
+
+1. LOAD library "omron-fins"
+   IF gagal -> log error, modul tidak tersedia
+
+2. FUNCTION DeviceFins(data, logger, events, runtime):
+   INIT:
+     client = null
+     values = {}
+     isConnected = false
+     isConnecting = false
+     reconnectTimer = null
+     deviceId = data.id
+     deviceName = data.name
+     deviceTags = list dari data.tags
+     options = data.property
+
+     host = options.address OR default
+     port = options.port OR default
+     protocol = options.FinsProtocol OR 'UDP'
+     SA1, DA1 = options.SA1, options.DA1
+
+   LOG konfigurasi device
+
+   FUNCTION scheduleReconnect():
+     IF sudah connect/connecting -> return
+     CANCEL reconnectTimer jika ada
+     SET reconnectTimer = timeout 3 detik:
+        log "Trying reconnect"
+        CALL connect()
+          IF gagal -> log "Reconnect failed"
+
+   FUNCTION connect():
+     RETURN Promise
+       IF fins library tidak ada -> reject
+       isConnecting = true
+       BERSIHKAN client lama jika ada
+       CREATE client baru FinsClient(host, port, SA1, DA1, protocol)
+       client.onError:
+         log error
+         set isConnected=false, isConnecting=false
+         CALL disconnect()
+         CALL scheduleReconnect()
+       client.onTimeout:
+         log timeout
+         set isConnected=false, isConnecting=false
+         CALL disconnect()
+         CALL scheduleReconnect()
+       Jika sukses:
+         set isConnected=true, isConnecting=false
+         emit events "status:connect-ok"
+         resolve()
+
+   FUNCTION disconnect():
+     HAPUS semua listener client
+     PUTUS client jika ada
+     CLEAR reconnectTimer
+     set isConnected=false
+     emit events "status:connect-off"
+
+   FUNCTION stop() = disconnect
+
+   FUNCTION isConnected() RETURN isConnected
+
+   FUNCTION polling():
+     IF tidak connect atau tags kosong -> log skip
+     changed = []
+     FOR setiap tag dalam deviceTags:
+       TRY:
+         finsAddress = memaddress+address
+         CALL client.read(finsAddress)
+         ON reply:
+           val = response.values[0]
+           now = timestamp
+           IF val berbeda dari values[tag.id]:
+             update values
+             tambahkan ke changed
+             IF addDaq tersedia:
+               simpan data (val, ts)
+         ON error:
+           log error, set isConnected=false
+           CALL scheduleReconnect()
+       CATCH err -> log polling exception
+     IF changed tidak kosong:
+       emit events "device-value:changed"
+
+   FUNCTION getValues():
+     RETURN semua pasangan (id, value)
+
+   FUNCTION getValue(tagId):
+     RETURN {id, value, ts=now}
+
+   FUNCTION getStatus():
+     RETURN "connect-ok" jika isConnected else "connect-off"
+
+   FUNCTION load(newData):
+     jika newData.tags ada -> perbarui deviceTags
+
+   FUNCTION setValue(tagId, value):
+     cari tag sesuai id
+     IF client dan tag ada:
+       finsAddress = memaddress+address
+       client.write(finsAddress, [value])
+         ON error: log gagal tulis
+         ELSE: log sukses, update values
+
+   
+
+3. MODULE EXPORT:
+   init(): kosong
+   create(data,...): RETURN new DeviceFins
+\end{verbatim}
 
 \section{Metode Pengujian}
 Pengujian mencakup pengujian fungsional (\textit{black-box}), struktural (\textit{white-box}), serta evaluasi performa.
@@ -146,33 +285,50 @@ Pengujian mencakup pengujian fungsional (\textit{black-box}), struktural (\texti
     \item \textbf{Integrasi Client-Server:} Penelusuran alur data dari UI (Angular) ke backend Node.js.
 \end{itemize}
 
-\subsection{Evaluasi Performa}
-Evaluasi performa menggunakan skenario \textbf{test matrix} berikut:
+% \subsection{Evaluasi Performa}
+% Evaluasi performa menggunakan skenario \textbf{test matrix} berikut:
+
+% \begin{table}[H]
+%     \centering
+%     \begin{tabular}{|c|c|c|c|c|}
+%         \hline
+%         \textbf{Skenario} & \textbf{Tag Count} & \textbf{Interval Polling} & \textbf{Kondisi Jaringan} & \textbf{Metrik Utama} \\
+%         \hline
+%         Base Load & 100 & 200 ms & Normal & Latensi, success rate \\
+%         Stress Load & 1000 & 50 ms & Normal & Latensi, CPU, memori \\
+%         Fault Tolerance & 200 & 100 ms & Packet loss 1\% & Success rate, retry \\
+%         Write Burst & 200 & Concurrent writes & Normal & Waktu tulis, error rate \\
+%         \hline
+%     \end{tabular}
+%     \caption{Test Matrix Evaluasi Performa Konektor FINS}
+% \end{table}
+
+\subsection{Metrik Evaluasi}
+Metrik evaluasi ditentukan berdasarkan kebutuhan praktis penggunaan HMI dalam komunikasi langsung dengan PLC. 
+Tabel berikut merangkum metrik dan target kinerja yang diharapkan:
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c|c|c|c|c|}
+    \begin{tabular}{|p{4cm}|p{5cm}|p{5cm}|}
         \hline
-        \textbf{Skenario} & \textbf{Tag Count} & \textbf{Interval Polling} & \textbf{Kondisi Jaringan} & \textbf{Metrik Utama} \\
+        \textbf{Metrik} & \textbf{Deskripsi} & \textbf{Target KPI} \\
         \hline
-        Base Load & 100 & 200 ms & Normal & Latensi, success rate \\
-        Stress Load & 1000 & 50 ms & Normal & Latensi, CPU, memori \\
-        Fault Tolerance & 200 & 100 ms & Packet loss 1\% & Success rate, retry \\
-        Write Burst & 200 & Concurrent writes & Normal & Waktu tulis, error rate \\
+        Latensi baca/tulis & Waktu rata-rata komunikasi antara HMI dan PLC untuk operasi baca/tulis. & $\leq 100$ ms (real-time, tidak terasa delay bagi operator) \\
+        \hline
+        Throughput & Jumlah operasi baca/tulis yang dapat diproses per detik. & $\geq 100$ operasi/detik untuk 100 tag \\
+        \hline
+        Persentase keberhasilan komunikasi & Proporsi request yang berhasil dibanding total request. & $\geq 99.5\%$ sukses \\
+        \hline
+        Penggunaan CPU/memori & Konsumsi sumber daya oleh aplikasi HMI saat polling aktif. & CPU $\leq 30\%$, Memori $\leq 500$ MB \\
+        \hline
+        Waktu deteksi alarm & Durasi dari kondisi abnormal di PLC muncul sampai indikator alarm tampil di HMI. & $\leq 200$ ms \\
+        \hline
+        Booting Time & Waktu yang diperlukan aplikasi HMI untuk siap terkoneksi dengan PLC setelah dijalankan. & $\leq 10$ detik \\
         \hline
     \end{tabular}
-    \caption{Test Matrix Evaluasi Performa Konektor FINS}
+    \caption{Metrik dan Target KPI Evaluasi Sistem HMI dengan Konektor FINS}
 \end{table}
 
-\subsection{Metrik Evaluasi}
-\begin{itemize}
-    \item Latensi baca/tulis rata-rata (ms) serta distribusi (min, max, p95).
-    \item \textit{Throughput} (operasi/detik).
-    \item Persentase keberhasilan komunikasi (\% sukses).
-    \item Penggunaan CPU/memori server.
-    \item Waktu deteksi alarm (ms).
-    %\item Akurasi timestamp DAQ.
-\end{itemize}
 
 \subsection{Validasi dan Reproducibility}
 Untuk memastikan hasil dapat direplikasi:
@@ -181,3 +337,20 @@ Untuk memastikan hasil dapat direplikasi:
     \item Hasil eksperimen (CSV, log Wireshark) dilampirkan.
     \item Dokumentasi lingkungan (OS, spesifikasi hardware, versi software) dicantumkan di lampiran.
 \end{itemize}
+
+\section{Evaluasi Berbasis Responden}
+Selain pengujian teknis, penelitian ini juga melakukan evaluasi berbasis responden untuk menilai aspek usability dari sistem HMI yang dibangun. 
+Evaluasi dilakukan dengan melibatkan \textbf{5--10 responden} yang memiliki latar belakang sebagai mahasiswa otomasi industri, teknisi PLC, atau operator produksi. 
+
+Instrumen evaluasi berupa kuesioner yang menggunakan skala Likert (1--5), dengan aspek yang diukur sebagai berikut:
+\begin{enumerate}
+    \item \textbf{Kemudahan Konfigurasi:} Apakah form konfigurasi FINS (parameter SA1, DA1, alamat memori) mudah dipahami dan digunakan.
+    \item \textbf{Kejelasan Tampilan:} Apakah nilai tag dan status koneksi ditampilkan secara jelas dan informatif.
+    \item \textbf{Responsivitas:} Apakah perubahan nilai PLC (misalnya tombol ditekan) segera terlihat di HMI tanpa delay yang mengganggu.
+    \item \textbf{Konsistensi UI:} Apakah tampilan konsisten dengan protokol lain di FUXA (misalnya Modbus) sehingga mudah dipelajari.
+    \item \textbf{Kepuasan Umum:} Tingkat kepuasan pengguna terhadap sistem HMI dengan konektor FINS.
+\end{enumerate}
+
+Hasil kuesioner akan diolah secara kuantitatif (rata-rata, standar deviasi, distribusi skor) serta dianalisis kualitatif melalui komentar terbuka. 
+Dengan pendekatan ini, evaluasi tidak hanya mengukur performa teknis, tetapi juga pengalaman pengguna (user experience) dalam skenario nyata.
+
