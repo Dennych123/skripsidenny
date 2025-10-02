@@ -7,7 +7,7 @@ Integrasi Protokol FINS pada HMI Open-Source FUXA
 
 ### Universitas Bina Nusantara 
 <p align="center">
-    <img alt="Logo Binus" src="https://raw.githubusercontent.com/Dennych123/skripsidenny/blob/main/images/logo-binus-university.jpg" width="170px">
+    <img alt="Logo Binus" src="https://raw.githubusercontent.com/Dennych123/skripsidenny/refs/heads/main/images/logo-binus-university.jpg" width="170px">
 </p>
 
 
