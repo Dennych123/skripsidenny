@@ -17,22 +17,22 @@ Berdasarkan uraian di atas, penelitian ini difokuskan pada optimasi sistem HMI s
 
 Berdasarkan uraian latar belakang di atas, dapat diidentifikasi beberapa permasalahan yang dihadapi PT~XYZ terkait kebutuhan sistem SCADA, yaitu:
 \begin{enumerate}
-    \item Sistem HMI berbasis \textit{open source} FUXA belum mendukung protokol komunikasi FINS secara bawaan, sehingga tidak dapat langsung digunakan untuk integrasi dengan PLC Omron.
-    \item Proses pembacaan dan penulisan data melalui protokol FINS belum bisa dipastikan berlangsung secara stabil pada sistem HMI FUXA.
+    \item Sistem HMI belum mendukung protokol komunikasi FINS secara bawaan, sehingga tidak dapat langsung digunakan untuk integrasi dengan PLC Omron.
+    \item Proses pembacaan dan penulisan data melalui protokol FINS belum bisa dipastikan berlangsung secara stabil pada sistem HMI.
 \end{enumerate}
 
 
 \section{Rumusan Masalah}
 Rumusan masalah dalam penelitian ini adalah sebagai berikut:
 \begin{enumerate}
-    \item Bagaimana menambahkan fitur protokol FINS pada sistem HMI FUXA dengan fitur yang setara dengan protokol lain seperti Modbus.
-    \item agaimana melakukan perbaikan proses pembacaan dan penulisan data melalui protokol FINS sehingga berjalan stabil serta dapat ditampilkan dengan benar pada antarmuka pengguna (UI).
+    \item Bagaimana menambahkan fitur protokol FINS pada sistem HMI dengan fitur yang setara dengan protokol lain seperti Modbus.
+    \item Bagaimana melakukan perbaikan proses pembacaan dan penulisan data melalui protokol FINS sehingga berjalan stabil serta dapat ditampilkan dengan benar pada antarmuka pengguna (UI).
 \end{enumerate}
 
 \section{Tujuan Penelitian}
 Tujuan dari penelitian ini adalah untuk:
 \begin{enumerate}
-    \item Menambahkan fitur protokol FINS pada sistem HMI FUXA dengan fitur yang setara dengan protokol lain seperti Modbus.
+    \item Menambahkan fitur protokol FINS pada sistem HMI dengan fitur yang setara dengan protokol lain seperti Modbus.
     \item Melakukan perbaikan proses pembacaan dan penulisan data melalui protokol FINS sehingga berjalan stabil serta dapat ditampilkan dengan benar pada antarmuka pengguna (UI).
 \end{enumerate}
 
@@ -48,15 +48,15 @@ Penelitian ini memiliki ruang lingkup sebagai berikut:
 \begin{itemize}
     \item Fokus pada implementasi komunikasi FINS melalui protokol UDP/TCP.
     \item Penggunaan area memori standar PLC Omron seperti \texttt{DM}, \texttt{CIO}, \texttt{W}, dan sejenisnya.
-    \item Pengembangan terbatas pada pembacaan dan penulisan tag serta visualisasi nilai melalui UI FUXA.
-    \item Pengujian dilakukan menggunakan perangkat lunak analisis jaringan seperti Wireshark serta PLC fisik.
+    \item Pengembangan terbatas pada pembacaan dan penulisan tag serta visualisasi nilai melalui UI sistem HMI.
+    \item Pengujian dilakukan menggunakan perangkat lunak analisis jaringan seperti Wireshark serta PLC fisik maupun simulator.
 \end{itemize}
 
 \section{Hipotesis Penelitian}
 Hipotesis dari penelitian ini adalah:
 \begin{itemize}
-    \item H1 (alternatif): Implementasi FINS pada FUXA menghasilkan komunikasi yang stabil dan dapat divisualisasikan pada UI.
-    \item H0 (nol): Implementasi FINS pada FUXA tidak menghasilkan komunikasi yang stabil atau tidak dapat divisualisasikan pada UI.
+    \item H1 (alternatif): Implementasi FINS pada sistem HMI menghasilkan komunikasi yang stabil dengan PLC Omron dan dapat divisualisasikan pada UI.
+    \item H0 (nol): Implementasi FINS pada sistem HMI tidak menghasilkan komunikasi yang stabil dengan PLC Omron atau tidak dapat divisualisasikan pada UI.
 \end{itemize}
 
 
@@ -64,8 +64,8 @@ Hipotesis dari penelitian ini adalah:
 Adapun sistematika penulisan dalam laporan ini adalah sebagai berikut:
 \begin{itemize}
     \item \textbf{Bab 1} – Pendahuluan: berisi latar belakang, rumusan masalah, tujuan dan manfaat, ruang lingkup, hipotesis, dan sistematika penulisan.
-    \item \textbf{Bab 2} – Tinjauan Referensi: membahas teori dan referensi terkait, seperti protokol FINS, FUXA, dan komunikasi industri.
+    \item \textbf{Bab 2} – Tinjauan Referensi: membahas teori dan referensi terkait, seperti protokol FINS, sitem HMI, dan komunikasi industri.
     \item \textbf{Bab 3} – Metodologi Penelitian: menjelaskan tahapan dan metode penelitian yang digunakan.
-    \item \textbf{Bab 4} – Implementasi dan Pengujian: menyajikan proses integrasi FINS pada FUXA serta hasil pengujian.
+    \item \textbf{Bab 4} – Implementasi dan Pengujian: menyajikan proses integrasi FINS pada sistem HMI serta hasil pengujian.
     \item \textbf{Bab 5} – Kesimpulan dan Saran: berisi simpulan dari hasil penelitian serta rekomendasi untuk pengembangan lebih lanjut.
 \end{itemize}
