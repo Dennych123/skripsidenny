@@ -93,11 +93,14 @@ Keunggulan pendekatan ini antara lain:
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/topologi_fuxa_fins.png}
-    \caption{Topologi Sistem SCADA FUXA dengan Protokol FINS}
+    \caption{Topologi Sistem SCADA FUXA dengan Protokol FINS (Mini PC, PLC, Hub, Tablet)}
     \label{fig:topologi}
 \end{figure}
 
-Mini PC bertindak sebagai pusat kendali yang berkomunikasi dengan delapan PLC Omron CJ2M melalui protokol FINS berbasis UDP/TCP. Data dari setiap pos kerja diproses dan divisualisasikan secara waktu nyata melalui dashboard utama.
+Pada arsitektur ini, \textbf{PLC Omron CJ2M} terhubung ke sebuah \textbf{hub/switch} yang berfungsi sebagai pengatur lalu lintas jaringan. 
+\textbf{Mini PC} bertindak sebagai pusat kendali sekaligus server HMI , yang menjalankan konektor FINS untuk komunikasi dengan PLC. 
+Mini PC kemudian dapat diakses oleh \textbf{tablet} melalui jaringan yang sama, sehingga operator dapat melakukan monitoring dan kontrol secara real-time melalui antarmuka web FUXA. 
+Dengan topologi ini, komunikasi menggunakan protokol \textbf{FINS (UDP/TCP)} dapat berjalan efisien, mendukung skalabilitas, serta memudahkan akses multi-device. 
 
 \section{Modifikasi UI (Frontend Angular)}
 
