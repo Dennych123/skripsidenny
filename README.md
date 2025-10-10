@@ -1,10 +1,13 @@
 # Skripsi
-Template Skripsi LaTex, Program Studi Ilmu Komputer, Fakultas MIPA, Universitas Hasanuddin Makassar
+Skripsi Penelitian
+
+Integrasi Protokol FINS pada HMI Open-Source FUXA
 
 
-### Universitas Hasanuddin
+
+### Universitas Bina Nusantara 
 <p align="center">
-    <img alt="Logo Unhas" src="https://raw.githubusercontent.com/dirsulaiman/Skripsi/master/images/logoUH-tumbnail.png" width="170px">
+    <img alt="Logo Binus" src="https://raw.githubusercontent.com/Dennych123/skripsidenny/refs/heads/main/images/logo-binus-university.jpg" width="170px">
 </p>
 
 
@@ -92,7 +95,7 @@ Menampilkan gambar [images/jenis-jenis-citra.png](https://github.com/dirsulaiman
 \end{afigure}
 ```
 <p align="center">
-    <img alt="Jenis-jenis citra" src="https://raw.githubusercontent.com/dirsulaiman/Skripsi/master/images/contoh-gambar.png">
+    <img alt="Jenis-jenis citra" src="https://raw.githubusercontent.com/Dennych123/skripsidenny/refs/heads/main/images/logo-binus-university.jpg">
 </p>
 
 

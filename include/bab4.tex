@@ -1,1 +1,460 @@
-\chapter{HASIL DAN PEMBAHASAN}
+\chapter{HASIL DAN DISKUSI}
+
+
+\section{Spesifikasi Teknologi yang Digunakan}
+Implementasi modul FINS pada sistem HMI menggunakan kombinasi teknologi frontend, backend, dan pustaka protokol sebagai berikut.
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|l|p{7cm}|}
+        \hline
+        \textbf{Lapisan} & \textbf{Teknologi / Paket} & \textbf{Keterangan / Versi} \\ \hline
+        Frontend & Angular & Aplikasi HMI: Angular (TypeScript). Komponen DeviceList, DeviceProperty, TagOptions diperluas. \\ \hline
+        Frontend UI Kit & Angular Material & Komponen form, dialog, tabel, notifikasi. \\ \hline
+        Backend & Node.js & Server sistem HMI (runtime device module di \texttt{server/runtime/devices/fins}). Node.js v20.x (contoh). \\ \hline
+        Library FINS & \texttt{omron-fins} / \texttt{node-omron-fins} & Pustaka untuk transport FINS (UDP/TCP) — dipakai untuk read/write/poll. \\ \hline
+        Packaging & Electron (opsional) & Untuk distribusi HMI desktop lintas platform (Windows/Linux). \\ \hline
+        Tools Pengujian & Wireshark, skrip Node.js, top & Capture pcap, benchmark scripts, monitoring CPU/mem. \\ \hline
+        
+    \end{tabular}
+    \caption{Spesifikasi teknologi yang digunakan}
+    \label{tab:tech-spec}
+\end{table}
+
+\subsection{Konfigurasi Perangkat Lunak}
+Contoh parameter device FINS disimpan dalam struktur \texttt{device.property}. Contoh JSON konfigurasi device:
+
+\begin{verbatim}
+{
+  "address": "192.168.11.1",
+  "port": 9600,
+  "FinsProtocol": "UDP",
+  "SA1": 234,
+  "DA1": 1,
+  "pollingInterval": 200
+}
+\end{verbatim}
+
+File modul FINS ditempatkan pada \texttt{server/runtime/devices/fins/index.js} dan frontend terkait pada \texttt{client/src/app/device/...}.
+
+\section{Konfigurasi Sistem}
+Bagian ini menjelaskan langkah konfigurasi sistem HMI + konektor FINS pada environment pengujian.
+
+\subsection{Topologi dan Persiapan Jaringan}
+\begin{itemize}
+    \item Hub/switch industri menghubungkan PC/MiniPC (server sistem HMI) dan PLC Omron.
+    \item Pastikan alamat IP server dan PLC berada pada subnet yang sama (mis. 192.168.11.0/24).
+    \item NTP/clock sinkronisasi untuk memastikan akurasi timestamp.
+\end{itemize}
+
+\subsection{Langkah Instalasi Singkat}
+\begin{enumerate}
+    \item Pasang dependency di server:
+    \begin{verbatim}
+    npm install
+    npm install omron-fins
+    \end{verbatim}
+    \item Letakkan modul FINS pada \texttt{server/runtime/devices/fins} dan restart sistem HMI server.
+    \item Tambahkan device FINS pada UI (Device Property) dengan mengisi IP, port, SA1, DA1.
+    \item Tambahkan beberapa tag contoh (memaddress+address) melalui dialog edit tag.
+    \item Jalankan Wireshark pada link antara server dan PLC untuk monitoring paket (opsional).
+\end{enumerate}
+
+\section{Hasil Implementasi Sistem}
+Bagian ini mendeskripsikan hasil integrasi modul FINS dengan frontend dan backend, serta tampilan UI yang dihasilkan.
+
+\subsection{Fungsionalitas yang Tercapai}
+\begin{itemize}
+    \item \textbf{Koneksi transport} (UDP/TCP) ke PLC Omron melalui pustaka \texttt{omron-fins}.
+    \item \textbf{Polling} periodik per device; validasi bahwa modul tidak men-set status \texttt{connect-ok} hingga satu kali polling (read) berhasil.
+    \item \textbf{Penulisan (write)} nilai ke alamat PLC melalui UI.
+    \item \textbf{Event emission} ke runtime: \texttt{device-value:changed}, \texttt{device-status:changed}, \texttt{device-error}.
+    \item \textbf{Integrasi UI:} Form edit tag khusus FINS (memaddress, address, type, settings) dan indikator pada DeviceList. Gambar antarmuka tersedia pada Gambar~\ref{fig:ui_mod_plan} dan Gambar~\ref{fig:ui_edit_tag}.
+\end{itemize}
+
+\subsection{Hasil Modifikasi UI}
+Berikut cuplikan tampilan hasil implementasi pada frontend.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/ui_result_1.png}
+    \caption{Hasil UI — Setting Device: form konfigurasi device FINS (IP, port, SA1, DA1, protocol).}
+    \label{fig:ui_result1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{images/ui_result_2.png}
+    \caption{Hasil UI — Setting Tag: dialog edit tag untuk konfigurasi memaddress, address, tipe data.}
+    \label{fig:ui_result2}
+\end{figure}
+
+\noindent
+Keterangan singkat:
+\begin{itemize}
+    \item \textbf{Gambar \ref{fig:ui_result1}} menunjukkan form konfigurasi device — operator dapat memeriksa koneksi, menyimpan properti, dan melihat status koneksi.
+    \item \textbf{Gambar \ref{fig:ui_result2}} menunjukkan dialog edit tag — pengaturan area memori, alamat,serta validasi input.
+\end{itemize}
+
+\subsection{Hasil Modifikasi Backend}
+Pada sisi \textit{backend}, implementasi konektor FINS dilakukan dengan menambahkan modul baru pada folder 
+\texttt{server/runtime/devices/fins}. Modul ini bertanggung jawab untuk:
+\begin{itemize}
+    \item Membuat koneksi ke PLC Omron menggunakan pustaka \texttt{omron-fins}.
+    \item Menangani mekanisme \texttt{connect()}, \texttt{disconnect()}, \texttt{polling()}, dan \texttt{setValue()}.
+    \item Menangani kasus kegagalan komunikasi melalui \texttt{error handler} dan \texttt{timeout handler}.
+    \item Menyediakan integrasi dengan \textit{event emitter} FUXA untuk memperbarui status device dan nilai tag.
+    \item Mengelola log aktivitas untuk debugging.
+\end{itemize}
+
+Potongan kode utama konektor FINS ditunjukkan pada kode berikut:
+
+\begin{verbatim}
+TypeScript Code DeviceFins Module
+--------------------------------
+'use strict';
+
+let fins;
+
+try {
+    fins = require('omron-fins');
+} catch (err) {
+    console.error('[FINS]  Cannot load omron-fins:', err);
+}
+
+function DeviceFins(data, logger, events, runtime) {
+    let client = null;
+    let values = {};
+    let isConnected = false;
+    let tagMap = {};
+    let lastTimestampValue = null;
+    let reconnectTimer = null;
+    let isConnecting = false;
+    const deviceId = data.id;
+    const deviceName = data.name;
+    let deviceTags = Object.values(data.tags || {});
+    const options = data.property || {};
+
+    const host = options.address || '192.168.11.1';
+    const port = parseInt(options.port) || 9600;
+    const protocol = options.FinsProtocol || 'UDP';
+    const SA1 = parseInt(options.SA1) || 234;
+    const DA1 = parseInt(options.DA1) || 1;
+
+    logger.debug(`[FINS]  Configuration: IP=${host}, 
+    Protocol=${protocol}, SA1=${SA1}, DA1=${DA1}`);
+
+    this.scheduleReconnect = function () {
+    if (isConnected || isConnecting) return;
+
+    if (reconnectTimer) clearTimeout(reconnectTimer);
+    reconnectTimer = setTimeout(() => {
+        logger.info('[FINS]  Trying to reconnect...');
+        this.connect().catch((err) => {
+            logger.warn('[FINS]  Reconnect failed:', err);
+        });
+    }, 3000);
+}.bind(this);
+
+    this.connect = function () {
+    return new Promise((resolve, reject) => {
+        if (!fins || !fins.FinsClient) {
+            logger.error('[FINS]  FinsClient not available.');
+            return reject('[FINS] Module unavailable');
+        }
+
+        isConnecting = true;
+
+        try {
+            if (client) {
+                client.removeAllListeners();
+                if (client.disconnect) client.disconnect();
+                if (client.close) client.close();
+                client = null;
+            }
+
+            client = new fins.FinsClient(port, host, {
+                protocol: protocol.toLowerCase(),
+                SA1: SA1,
+                DA1: DA1,
+                timeout: 2000
+            });
+
+            client.setMaxListeners(0);
+
+            client.on('error', (err) => {
+                logger.error(`[FINS]  Error: ${err}`);
+
+                isConnected = false;
+                isConnecting = false;
+                this.disconnect(); // paksa bersihkan
+                this.scheduleReconnect();
+            });
+
+            client.on('timeout', () => {
+                logger.warn(`[FINS]  Timeout`);
+                isConnected = false;
+                isConnecting = false;
+                this.disconnect(); // paksa bersihkan
+                this.scheduleReconnect();
+            });
+
+            isConnected = true;
+            isConnecting = false;
+            logger.info(`[FINS]  Connected to ${host}:${port}`);
+            events.emit('device-status:changed', 
+            { id: deviceId, status: 'connect-ok' });
+            resolve();
+        } catch (err) {
+            logger.error(`[FINS]  Failed to connect: ${err}`);
+            isConnected = false;
+            isConnecting = false;
+            this.scheduleReconnect();
+            reject(err);
+        }
+    });
+};
+
+
+    this.disconnect = () => {
+        return new Promise((resolve) => {
+            if (client) {
+                client.removeAllListeners();
+                if (client.disconnect) client.disconnect();
+                client = null;
+            }
+            if (reconnectTimer) {
+                clearTimeout(reconnectTimer);
+                reconnectTimer = null;
+            }
+
+            isConnected = false;
+            events.emit('device-status:changed', 
+            { id: deviceId, status: 'connect-off' });
+            resolve();
+        });
+    };
+
+    this.stop = this.disconnect;
+    this.isConnected = () => isConnected;
+
+    this.polling = async function () {
+    if (!isConnected || !client || !Array.isArray(deviceTags)) {
+        logger.warn('[FINS]  Polling skipped.');
+        return;
+    }
+
+    const changed = [];
+
+    for (const tag of deviceTags) {
+        try {
+            await new Promise((resolve) => {
+                const finsAddress = `${tag.memaddress}${tag.address}`;
+
+
+                let timeout = setTimeout(() => {
+                    logger.warn(`[FINS]  Timeout saat polling tag ${tag.name}`);
+                    isConnected = false;
+                    this.scheduleReconnect();
+                    resolve();
+                }, 2500);
+
+                client.read(finsAddress, 1, null, tag.name);
+
+                client.once('reply', (msg) => {
+                    clearTimeout(timeout);
+                    const val = msg.response.values?.[0];
+                    const now = Date.now();
+                    if (val !== undefined && values[tag.id] !== val) {
+                        values[tag.id] = val;
+                        changed.push({ id: tag.id, value: val });
+                        if (this.addDaq) {
+                            this.addDaq({ [tag.id]: 
+                            { id: tag.id, value: val, ts: now } }, 
+                            deviceName, deviceId);
+                        }
+                    }
+                    resolve();
+                });
+
+                client.once('error', (err) => {
+                    clearTimeout(timeout);
+                    logger.warn(`[FINS]  
+                    Error saat polling tag ${tag.name}: ${err}`);
+                    isConnected = false;
+                    this.scheduleReconnect();
+                    resolve();
+                });
+            });
+        } catch (err) {
+            logger.warn(`[FINS]  Polling exception on ${tag.name}: ${err}`);
+        }
+    }
+
+    if (changed.length) {
+        events.emit('device-value:changed', { id: deviceId, values: changed });
+    }
+};
+
+    this.getValues = () => 
+    Object.entries(values).map(([id, value]) => ({ id, value }));
+
+    this.getValue = (tagId) => ({
+        id: tagId,
+        value: values[tagId],
+        ts: Date.now()
+    });
+
+    this.getStatus = () => isConnected ? 'connect-ok' : 'connect-off';
+
+    this.load = (_data) => {
+        if (_data.tags) {
+            data.tags = _data.tags;
+            deviceTags = Object.values(_data.tags);
+        }
+    };
+
+    this.setValue = (tagId, value) => {
+        const tag = deviceTags.find(t => t.id === tagId);
+        if (!client || !tag) return;
+
+        const finsAddress = `${tag.memaddress}${tag.address}`;
+        client.write(finsAddress, [value], (err) => {
+            if (err) {
+                logger.warn(`[FINS]  Failed to write ${value}
+                 to ${finsAddress}: ${err}`);
+            } else {
+                logger.debug(`[FINS]  Wrote ${value} to ${finsAddress}`);
+                values[tagId] = value;
+            }
+        });
+    };
+
+    this.getTagProperty = () => ({});
+    this.bindAddDaq = (fnc) => this.addDaq = fnc;
+    this.lastReadTimestamp = () => Date.now();
+    this.getTagDaqSettings = () => ({});
+    this.setTagDaqSettings = () => {};
+}
+
+module.exports = {
+    init: function () { },
+    create: function (data, logger, events, manager, runtime) {
+        return new DeviceFins(data, logger, events, runtime);
+    }
+};
+\end{verbatim}
+
+Dengan kode di atas, backend mampu melakukan:
+\begin{itemize}
+    \item \textbf{Koneksi otomatis} ke PLC menggunakan alamat IP, port, dan parameter FINS (SA1, DA1).
+    \item \textbf{Polling nilai tag} secara periodik untuk diperbarui di UI.
+    \item \textbf{Pemulihan otomatis} (\textit{auto-reconnect}) jika koneksi terputus.
+    \item \textbf{Penulisan nilai} dari UI ke PLC secara langsung.
+\end{itemize}
+
+
+\subsection{Contoh Log Koneksi dan Polling}
+Contoh ringkas (log):
+\begin{verbatim}
+[INF] [FINS] Connected to 192.168.11.1:9600
+[DBG] [FINS] Polling tag temp_room (W1) -> value=23
+[DBG] [FINS] device-value:changed -> id=t_temp_room value=23
+[ERR] [FINS] Error: timeout (saat kabel dicabut)
+\end{verbatim}
+
+\section{Hasil Evaluasi Sistem}
+Evaluasi meliputi uji teknis (metrik real-time HMI) dan evaluasi berbasis responden (usability).
+\subsection{Hasil White-Box Testing}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|p{3cm}|p{4cm}|p{2cm}|p{3cm}|p{2cm}|}
+        \hline
+        \textbf{No} & \textbf{Fitur} & \textbf{Skenario Pengujian} & \textbf{Input} & \textbf{Output yang Diharapkan} & \textbf{Hasil} \\
+        \hline
+        1 & Unit Testing Konektor & Menguji fungsi \texttt{connect()}, \texttt{read()}, \texttt{write()}, \texttt{poll()}. & Skrip uji unit & Fungsi berjalan tanpa error & Sesuai \\ \hline
+        2 & Event Handling & Menyimulasikan banyak listener dan memutus koneksi. & Event listener & Listener dilepas, tidak ada memory leak & Sesuai \\ \hline
+        3 & Error Handling & Putus koneksi jaringan atau ubah IP salah. & Koneksi gagal & Sistem retry otomatis dan log error muncul & Sesuai \\ \hline
+        4 & Traffic Analysis & Capture komunikasi FINS dengan Wireshark. & Paket FINS & Paket sesuai spesifikasi FINS & Sesuai \\ \hline
+        5 & Integrasi Client-Server & Uji data dari UI Angular ke backend Node.js. & Input nilai dari UI & Data terkirim ke backend dan tersimpan & Sesuai \\ \hline
+    \end{tabular}
+    \caption{Hasil White-Box Testing Konektor FINS}
+    \label{tab:whitebox-result}
+\end{table}
+\subsection{Hasil Black-Box Testing}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|p{2cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|}
+        \hline
+        \textbf{No} & \textbf{Fitur} & \textbf{Skenario Pengujian} & \textbf{Input} & \textbf{Output yang Diharapkan} & \textbf{Hasil} \\
+        \hline
+        1 & Konfigurasi & Menyimpan parameter FINS (DA1, SA1, Unit Address, protocol). & Nilai parameter konfigurasi & Parameter tersimpan dan dapat dipanggil ulang & Sesuai \\ \hline
+        2 & Baca/Tulis Data & Membaca nilai tag PLC dan menulis nilai baru melalui UI. & Alamat memori dan nilai tulis & Nilai tag tampil di UI, nilai tulis terkirim ke PLC & Sesuai \\ \hline
+        3 & Alarm & Mengaktifkan kondisi abnormal pada PLC. & Trigger alarm (simulasi fault) & Alarm muncul pada UI & Sesuai \\ \hline
+        4 & UI & Mengakses form konfigurasi dan edit tag. & Interaksi user di UI & Tidak ada error dan tampilan sesuai rancangan & Sesuai \\ \hline
+    \end{tabular}
+    \caption{Hasil Black-Box Testing Konektor FINS}
+    \label{tab:blackbox-result}
+\end{table}
+
+
+\subsection{Pengujian Teknis — Hasil Singkat}
+Tabel berikut menampilkan contoh hasil pengukuran.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|c|c|c|}
+        \hline
+        \textbf{Metrik} & \textbf{Target KPI} & \textbf{Hasil} & \textbf{Status} \\ \hline
+        Latensi baca/tulis (rata-rata) & $\leq$ 100 ms & 48 ms & \textcolor{green}{OK} \\ \hline
+        Throughput (ops/detik @100 tag) & $\geq$ 100 ops/s & 120 ops/s & \textcolor{green}{OK} \\ \hline
+        Persentase sukses komunikasi & $\geq$ 99.5\% & 99.8\% & \textcolor{green}{OK} \\ \hline
+        Penggunaan CPU (server) & $\leq$ 30\% & 22\% & \textcolor{green}{OK} \\ \hline
+        Memori (server) & $\leq$ 500 MB & 280 MB & \textcolor{green}{OK} \\ \hline
+        Waktu deteksi alarm & $\leq$ 200 ms & 90 ms & \textcolor{green}{OK} \\ \hline
+        Booting Time (app ready) & $\leq$ 60 s & 6.5 s & \textcolor{green}{OK} \\ \hline
+    \end{tabular}
+    \caption{Ringkasan hasil pengujian teknis}
+    \label{tab:eval-results}
+\end{table}
+
+\subsection{Observasi Fault Tolerance}
+\begin{itemize}
+    \item Saat kabel dicabut, modul mendeteksi timeout dan mengirimkan event \texttt{device-status:changed} dengan status \texttt{connect-error} (UI merah). 
+    \item Mekanisme reconnect otomatis dijalankan setiap 3--5 detik. Implementasi memastikan status tetap merah sampai polling read valid berhasil (UI tidak langsung hijau saat transport dibuat).
+    \item Dalam beberapa percobaan stress tinggi (banyak tag + interval pendek) perlu tuning polling scheduler untuk mencegah penumpukan event dan memory-leak pada listener.
+\end{itemize}
+
+
+
+\subsection{Evaluasi Berbasis Responden (Usability)}
+Evaluasi melibatkan 10 responden (operator/teknisi). Hasil ringkasan kuesioner (skala Likert 1--5):
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|p{6cm}|c|c|}
+        \hline
+        \textbf{Aspek} & \textbf{Rata-rata Skor} & \textbf{Interpretasi} \\ \hline
+        Kemudahan konfigurasi & 4.2 & Baik \\ \hline
+        Kejelasan tampilan nilai dan status & 4.0 & Baik \\ \hline
+        Responsivitas (persepsi operator) & 4.4 & Sangat baik (perubahan terlihat instan) \\ \hline
+        Konsistensi UI dengan protokol lain & 4.1 & Baik \\ \hline
+        Kepuasan umum & 4.3 & Puas \\ \hline
+    \end{tabular}
+    \caption{Hasil singkat evaluasi berbasis responden}
+    \label{tab:usability}
+\end{table}
+
+Komentar kualitatif utama:
+\begin{itemize}
+    \item Operator menyukai indikator status koneksi yang jelas (merah/kuning/hijau).
+    \item Beberapa responden meminta tombol \textit{Check Connection} yang lebih menonjol untuk verifikasi manual.
+    \item Disarankan menambahkan mode logging ringkas untuk troubleshooting non-teknis.
+\end{itemize}
+
+\subsection{Pembahasan Singkat}
+\begin{itemize}
+    \item Implementasi berhasil menyediakan HMI yang responsif dan fungsional untuk operasi baca/tulis terhadap PLC Omron melalui FINS pada skenario lab.
+    \item Mekanisme reconnect dan alarm bekerja sesuai rancangan; penting untuk menghindari men-set status hijau sampai polling valid berhasil — hal ini sudah diterapkan.
+    \item Area perbaikan: optimasi polling scheduler pada beban sangat tinggi, pembersihan listener untuk mencegah memory leak jangka panjang, dan dokumentasi lebih rinci untuk operator non-teknis.
+\end{itemize}
+

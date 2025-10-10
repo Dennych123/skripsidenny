@@ -93,11 +93,14 @@ Keunggulan pendekatan ini antara lain:
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/topologi_fuxa_fins.png}
-    \caption{Topologi Sistem SCADA FUXA dengan Protokol FINS}
+    \caption{Topologi Sistem SCADA FUXA dengan Protokol FINS (Mini PC, PLC, Hub, Tablet)}
     \label{fig:topologi}
 \end{figure}
 
-Mini PC bertindak sebagai pusat kendali yang berkomunikasi dengan delapan PLC Omron CJ2M melalui protokol FINS berbasis UDP/TCP. Data dari setiap pos kerja diproses dan divisualisasikan secara waktu nyata melalui dashboard utama.
+Pada arsitektur ini, \textbf{PLC Omron CJ2M} terhubung ke sebuah \textbf{hub/switch} yang berfungsi sebagai pengatur lalu lintas jaringan. 
+\textbf{Mini PC} bertindak sebagai pusat kendali sekaligus server HMI , yang menjalankan konektor FINS untuk komunikasi dengan PLC. 
+Mini PC kemudian dapat diakses oleh \textbf{tablet} melalui jaringan yang sama, sehingga operator dapat melakukan monitoring dan kontrol secara real-time melalui antarmuka web FUXA. 
+Dengan topologi ini, komunikasi menggunakan protokol \textbf{FINS (UDP/TCP)} dapat berjalan efisien, mendukung skalabilitas, serta memudahkan akses multi-device. 
 
 \section{Modifikasi UI (Frontend Angular)}
 
@@ -148,7 +151,7 @@ Modifikasi sisi \textit{backend} dilakukan dengan menambahkan modul baru di dala
     \item Pengaturan logging error agar memudahkan debugging.
     \item Integrasi dengan lapisan API internal FUXA agar UI dapat berinteraksi langsung dengan modul FINS.
 \end{itemize}
-Contoh pseudocode alur kerja modul konektor FINS ditunjukkan pada Snippet~\ref{lst:fins-pseudocode}.
+Contoh pseudocode alur kerja modul konektor FINS ditunjukkan pada pseudocode berikut:
 \begin{verbatim}
     Pseudocode: DeviceFins Module
 --------------------------------
@@ -268,22 +271,46 @@ Contoh pseudocode alur kerja modul konektor FINS ditunjukkan pada Snippet~\ref{l
 Pengujian mencakup pengujian fungsional (\textit{black-box}), struktural (\textit{white-box}), serta evaluasi performa.
 
 \subsection{Black-Box Testing}
-\begin{itemize}
-    \item \textbf{Konfigurasi:} Uji penyimpanan dan pemanggilan parameter (DA1, SA1, Unit Address, protocol).
-    \item \textbf{Baca/Tulis Data:} Verifikasi polling nilai PLC dan penulisan tag melalui UI.
-    \item \textbf{Alarm:} Validasi pemicu alarm dan notifikasi.
-    %\item \textbf{DAQ:} Uji penyimpanan dan pemanggilan data historis.
-    \item \textbf{UI:} Penggunaan antarmuka tanpa error.
-\end{itemize}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|p{2cm}|p{3.5cm}|p{3cm}|p{3cm}|p{2cm}|}
+        \hline
+        \textbf{No} & \textbf{Fitur} & \textbf{Skenario Pengujian} & \textbf{Input} & \textbf{Output yang Diharapkan} & \textbf{Hasil} \\
+        \hline
+        1 & Konfigurasi & Menyimpan parameter FINS (DA1, SA1, Unit Address, protocol). & Nilai parameter konfigurasi & Parameter tersimpan dan dapat dipanggil ulang & Sesuai / Tidak \\
+        \hline
+        2 & Baca/Tulis Data & Membaca nilai tag PLC dan menulis nilai baru melalui UI. & Alamat memori dan nilai tulis & Nilai tag tampil di UI, nilai tulis terkirim ke PLC & Sesuai / Tidak \\
+        \hline
+        3 & Alarm & Mengaktifkan kondisi abnormal pada PLC. & Trigger alarm (simulasi fault) & Alarm muncul pada UI & Sesuai / Tidak \\
+        \hline
+        4 & UI & Mengakses form konfigurasi dan edit tag. & Interaksi user di UI & Tidak ada error dan tampilan sesuai rancangan & Sesuai / Tidak \\
+        \hline
+    \end{tabular}
+    \caption{Black-Box Testing Konektor FINS}
+    \label{tab:blackbox}
+\end{table}
 
 \subsection{White-Box Testing}
-\begin{itemize}
-    \item \textbf{Unit Testing Konektor:} Fungsi \texttt{connect()}, \texttt{read()}, \texttt{write()}, \texttt{poll()}.
-    \item \textbf{Event Handling:} Uji pembersihan listener untuk mencegah \textit{memory leak}.
-    \item \textbf{Error Handling:} Simulasi kegagalan komunikasi dan mekanisme retry.
-    \item \textbf{Traffic Analysis:} Validasi paket FINS dengan Wireshark sesuai spesifikasi protokol.
-    \item \textbf{Integrasi Client-Server:} Penelusuran alur data dari UI (Angular) ke backend Node.js.
-\end{itemize}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|p{3cm}|p{3.5cm}|p{2cm}|p{3cm}|p{2cm}|}
+        \hline
+        \textbf{No} & \textbf{Fitur} & \textbf{Skenario Pengujian} & \textbf{Input} & \textbf{Output yang Diharapkan} & \textbf{Hasil} \\
+        \hline
+        1 & Unit Testing Konektor & Menguji fungsi \texttt{connect()}, \texttt{read()}, \texttt{write()}, \texttt{poll()}. & Skrip uji unit & Fungsi berjalan tanpa error & Sesuai / Tidak \\
+        \hline
+        2 & Event Handling & Menyimulasikan banyak listener dan memutus koneksi. & Event listener & Listener terputus, tidak ada memory leak & Sesuai / Tidak \\
+        \hline
+        3 & Error Handling & Putus koneksi jaringan atau ubah IP salah. & Koneksi gagal & Sistem menghubungkan ulang otomatis dan log error muncul & Sesuai / Tidak \\
+        \hline
+        4 & Traffic Analysis & Capture komunikasi FINS dengan Wireshark. & Paket FINS & Network Paket sesuai spesifikasi FINS & Sesuai / Tidak \\
+        \hline
+        5 & Integrasi Client-Server & Uji data dari UI Angular ke backend Node.js. & Input nilai dari UI & Data terkirim ke backend dan tersimpan & Sesuai / Tidak \\
+        \hline
+    \end{tabular}
+    \caption{White-Box Testing Konektor FINS}
+    \label{tab:whitebox}
+\end{table}
 
 % \subsection{Evaluasi Performa}
 % Evaluasi performa menggunakan skenario \textbf{test matrix} berikut:
