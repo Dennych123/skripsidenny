@@ -297,15 +297,15 @@ Pengujian mencakup pengujian fungsional (\textit{black-box}), struktural (\texti
         \hline
         \textbf{No} & \textbf{Fitur} & \textbf{Skenario Pengujian} & \textbf{Input} & \textbf{Output yang Diharapkan} & \textbf{Hasil} \\
         \hline
-        1 & Unit Testing Konektor & Menguji fungsi \texttt{connect()}, \texttt{read()}, \texttt{write()}, \texttt{poll()}. & Skrip uji unit & Fungsi berjalan tanpa error & Sesuai / Tidak \\
+        1 & Unit Testing Konektor & Menguji fungsi \texttt{connect()}, \texttt{read()}, \texttt{write()}, \texttt{poll()}. & Skrip uji unit & Fungsi berjalan tanpa error &  \\
         \hline
-        2 & Event Handling & Menyimulasikan banyak listener dan memutus koneksi. & Event listener & Listener terputus, tidak ada memory leak & Sesuai / Tidak \\
+        2 & Event Handling & Menyimulasikan banyak listener dan memutus koneksi. & Event listener & Listener terputus, tidak ada memory leak &  \\
         \hline
-        3 & Error Handling & Putus koneksi jaringan atau ubah IP salah. & Koneksi gagal & Sistem menghubungkan ulang otomatis dan log error muncul & Sesuai / Tidak \\
+        3 & Error Handling & Putus koneksi jaringan atau ubah IP salah. & Koneksi gagal & Sistem menghubungkan ulang otomatis dan log error muncul &  \\
         \hline
-        4 & Traffic Analysis & Capture komunikasi FINS dengan Wireshark. & Paket FINS & Network Paket sesuai spesifikasi FINS & Sesuai / Tidak \\
+        4 & Traffic Analysis & Capture komunikasi FINS dengan Wireshark. & Paket FINS & Network Paket sesuai spesifikasi FINS &  \\
         \hline
-        5 & Integrasi Client-Server & Uji data dari UI Angular ke backend Node.js. & Input nilai dari UI & Data terkirim ke backend dan tersimpan & Sesuai / Tidak \\
+        5 & Integrasi Client-Server & Uji data dari UI Angular ke backend Node.js. & Input nilai dari UI & Data terkirim ke backend dan tersimpan &  \\
         \hline
     \end{tabular}
     \caption{White-Box Testing Konektor FINS}
