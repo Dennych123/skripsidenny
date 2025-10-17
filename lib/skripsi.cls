@@ -407,8 +407,12 @@
             {\normalfont\large{Disusun dan diajukan oleh}}\\
             \vspace{1.5cm}
 
-            \normalfont\bfseries{\@fullname}\\
-            \normalfont\bfseries{\@idnum}\\
+            \normalfont\bfseries{\@fullnameA}\\
+            \normalfont\bfseries{\@idnumA}\\
+            \fullnameB{FRANS SEBASTIAN}
+            \idnumB{2502121162}
+            \fullnameC{GILANG HANSAGITA}
+            \idnumC{2502124403}
             \vfill
 
             \includegraphics[height=4.85cm]{images/logo-binus-university}
@@ -453,8 +457,12 @@
             \vfill
 
             {\normalfont\bfseries
-                \@fullname\\
-                \@idnum
+                \@fullnameA\\
+                \@idnumA
+                \@fullnameB\\
+                \@idnumB
+                \@fullnameC\\
+                \@idnumC
             }\\
             \vfill
 
@@ -492,8 +500,8 @@
     \noindent
     Yang bertanda tangan di bawah ini: \\
     \begin{tabular}{ m{0.5cm} l c l }
-         & Nama          & : & \@fullname \\
-         & NIM           & : & \@idnum    \\
+         & Nama          & : & \@fullnameA \\
+         & NIM           & : & \@idnumA    \\
          & Program Studi & : & \@program  \\
          & Jenjang       & : & S1         \\
     \end{tabular}
@@ -518,8 +526,8 @@
     \begin{flushright}
         \@city, \@examdate\\
         \vspace{2.5cm}
-        {\@fullname}\\
-        NIM. {\@idnum}
+        {\@fullnameA}\\
+        NIM. {\@idnumA}
     \end{flushright}
     \pagebreak
 }
@@ -542,8 +550,8 @@
     \begin{center}
         Disusun dan diajukan oleh\\
         \begin{singlespace}
-            \large\bfseries{\@fullname}\\
-            \large\bfseries{\@idnum}\\
+            \large\bfseries{\@fullnameA}\\
+            \large\bfseries{\@idnumA}\\
             \vspace{1.0cm}
         \end{singlespace}
 
@@ -602,8 +610,8 @@
         Skripsi ini diajukan oleh:
         \begin{center}
             \begin{tabular}{ p{3cm}  p{.1cm} p{10.5cm}}
-                Nama          & : & \@fullname     \\
-                NIM           & : & \@idnum        \\
+                Nama          & : & \@fullnameA     \\
+                NIM           & : & \@idnumA        \\
                 Program Studi & : & \@program      \\
                 Judul Skripsi & : & \@titleskripsi \\
             \end{tabular}
@@ -654,8 +662,8 @@
         Sebagai civitas akademik {\@university}, saya yang bertanda tangan di bawah ini:
         \begin{center}
             \begin{tabular}{ p{3cm}  p{.1cm} p{10.5cm}}
-                Nama          & : & \@fullname \\
-                NIM           & : & \@idnum    \\
+                Nama          & : & \@fullnameA \\
+                NIM           & : & \@idnumA    \\
                 Program Studi & : & \@program  \\
                 Departemen    & : & \@dept     \\
                 Fakultas      & : & \@faculty  \\
@@ -683,7 +691,7 @@
         Dibuat di {\@city} pada \@examdate\\
         Yang menyatakan\\
         \vspace{2.5cm}
-        {(\@fullname)}\\
+        {(\@fullnameA)}\\
     \end{flushright}
     \pagebreak
 }
