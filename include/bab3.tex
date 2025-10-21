@@ -340,17 +340,15 @@ Tabel berikut merangkum metrik dan target kinerja yang diharapkan:
         \hline
         \textbf{Metrik} & \textbf{Deskripsi} & \textbf{Target KPI} \\
         \hline
-        Latensi baca/tulis & Waktu rata-rata komunikasi antara HMI dan PLC untuk operasi baca/tulis. & $\leq 100$ ms (real-time, tidak terasa delay bagi operator) \\
+        Latensi baca/tulis & Waktu rata-rata komunikasi antara HMI dan PLC untuk operasi baca/tulis. & $\leq 200$ ms (tidak terasa delay bagi operator) \\
         \hline
-        Throughput & Jumlah operasi baca/tulis yang dapat diproses per detik. & $\geq 100$ operasi/detik untuk 100 tag \\
-        \hline
-        Persentase keberhasilan komunikasi & Proporsi request yang berhasil dibanding total request. & $\geq 99.5\%$ sukses \\
+        Persentase keberhasilan komunikasi & Proporsi request yang berhasil dibanding total request. & $\geq 95\%$ sukses \\
         \hline
         Penggunaan CPU/memori & Konsumsi sumber daya oleh aplikasi HMI saat polling aktif. & CPU $\leq 30\%$, Memori $\leq 500$ MB \\
         \hline
         Waktu deteksi alarm & Durasi dari kondisi abnormal di PLC muncul sampai indikator alarm tampil di HMI. & $\leq 200$ ms \\
         \hline
-        Booting Time & Waktu yang diperlukan aplikasi HMI untuk siap terkoneksi dengan PLC setelah dijalankan. & $\leq 10$ detik \\
+        Waktu mulai aplikasi & Waktu dari aplikasi dijalankan hingga aplikasi siap terkoneksi dengan PLC. & $\leq 10$ detik \\
         \hline
     \end{tabular}
     \caption{Metrik dan Target KPI Evaluasi Sistem HMI dengan Konektor FINS}
