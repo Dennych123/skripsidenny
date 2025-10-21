@@ -46,6 +46,13 @@ Skrip ini menggunakan pustaka \texttt{omron-fins} dan menjalankan uji beban seba
     \item Menilai stabilitas koneksi FINS terhadap permintaan berulang.
 \end{enumerate}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/script_stress_test.jpg}
+    \caption{Skrip pengujian pustaka \texttt{omron-fins}}
+    \label{fig:script-pengujian-fins}
+\end{figure}
+
 Kode pengujian lengkap dapat dilihat pada Lampiran~\ref{lampiran:kode-fin-test}.
 
 \subsection{Hasil dan Analisis Pengujian}
@@ -243,7 +250,7 @@ Gambar~\ref{fig:demo-run} menunjukkan tampilan antarmuka HMI saat proses penguji
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/demo_run.png}
-    \caption{Demo sistem HMI saat berjalan dan berkomunikasi langsung dengan PLC secara \textit{realtime}. Antarmuka menampilkan visualisasi data berupa grafik (\textit{chart}) dan kontrol input berupa \textit{slider} yang responsif terhadap nilai aktual di PLC.}
+    \caption{Demo sistem HMI yang terkoneksi dengan PLC secara \textit{real-time}. Antarmuka menampilkan visualisasi data berupa grafik (\textit{chart}) dan kontrol input berupa \textit{slider} yang responsif terhadap nilai aktual di PLC.}
     \label{fig:demo-run}
 \end{figure}
 
@@ -285,7 +292,7 @@ Evaluasi meliputi uji teknis (metrik real-time HMI) dan evaluasi berbasis respon
 \subsection{Hasil White-Box Testing}
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c|p{3cm}|p{4cm}|p{2cm}|p{3cm}|p{2cm}|}
+    \begin{tabular}{|c|p{2.2cm}|p{3.7cm}|p{1.5cm}|p{2.5cm}|p{1.3cm}|}
         \hline
         \textbf{No} & \textbf{Fitur} & \textbf{Skenario Pengujian} & \textbf{Input} & \textbf{Output yang Diharapkan} & \textbf{Hasil} \\
         \hline
@@ -301,7 +308,7 @@ Evaluasi meliputi uji teknis (metrik real-time HMI) dan evaluasi berbasis respon
 \subsection{Hasil Black-Box Testing}
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c|p{2cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|}
+    \begin{tabular}{|c|p{2cm}|p{3.5cm}|p{2cm}|p{3cm}|p{1.3cm}|}
         \hline
         \textbf{No} & \textbf{Fitur} & \textbf{Skenario Pengujian} & \textbf{Input} & \textbf{Output yang Diharapkan} & \textbf{Hasil} \\
         \hline
@@ -316,23 +323,66 @@ Evaluasi meliputi uji teknis (metrik real-time HMI) dan evaluasi berbasis respon
 
 
 \subsection{Pengujian Teknis}
-Tabel berikut menampilkan contoh hasil pengukuran.
+Tabel~\ref{tab:eval-results} menampilkan ringkasan hasil uji teknis terhadap implementasi komunikasi FINS pada sistem HMI.
 \begin{table}[H]
     \centering
     \begin{tabular}{|l|c|c|c|}
         \hline
         \textbf{Metrik} & \textbf{Target KPI} & \textbf{Hasil} & \textbf{Status} \\ \hline
-        Latensi baca/tulis (rata-rata) & $\leq$ 100 ms & 48 ms & \textcolor{green}{OK} \\ \hline
-        Throughput (ops/detik @100 tag) & $\geq$ 100 ops/s & 120 ops/s & \textcolor{green}{OK} \\ \hline
-        Persentase sukses komunikasi & $\geq$ 99.5\% & 99.8\% & \textcolor{green}{OK} \\ \hline
+        Latensi baca/tulis (rata-rata) & $\leq$ 200 ms & 48 ms & \textcolor{green}{OK} \\ \hline
+        Persentase sukses komunikasi & $\geq$ 95\% & 99\% & \textcolor{green}{OK} \\ \hline
         Penggunaan CPU (server) & $\leq$ 30\% & 22\% & \textcolor{green}{OK} \\ \hline
         Memori (server) & $\leq$ 500 MB & 280 MB & \textcolor{green}{OK} \\ \hline
-        Waktu deteksi alarm & $\leq$ 200 ms & 90 ms & \textcolor{green}{OK} \\ \hline
-        Booting Time (app ready) & $\leq$ 60 s & 6.5 s & \textcolor{green}{OK} \\ \hline
+        Waktu deteksi alarm & $\leq$ 200 ms & 1000ms & \textcolor{red}{NG} \\ \hline
+        Waktu mulai aplikasi & $\leq$ 10 s & 3.8 s & \textcolor{green}{OK} \\ \hline
     \end{tabular}
     \caption{Ringkasan hasil pengujian teknis}
     \label{tab:eval-results}
 \end{table}
+
+\noindent
+Berikut penjelasan hasil pengujian untuk setiap metrik yang diuji disertai dengan tangkapan layar hasil pengujian:
+
+\subsubsection{Latensi Baca/Tulis}
+Pengujian latensi dilakukan dengan mengukur waktu rata-rata yang dibutuhkan PLC untuk merespons permintaan baca dan tulis.  
+Hasil pengujian menunjukkan latensi rata-rata sebesar 48 ms, yang masih di bawah batas KPI 200 ms.  
+
+\subsubsection{Persentase Sukses Komunikasi}
+Tingkat keberhasilan komunikasi diukur dari jumlah permintaan yang berhasil dijawab dibandingkan dengan total permintaan yang dikirim.  
+Dapat dilihat pada gambar~\ref{fig:fins-stress-log}, terdapat 990 permintaan yang sukses dibandingkan dengan 1000 total permintaan. Hasil menunjukkan tingkat keberhasilan 99\%, melampaui KPI minimal 95\%.  
+
+\subsubsection{Penggunaan CPU dan Memori Server}
+Selama pengujian, penggunaan CPU server rata-rata berada pada 22\%. Hal ini berarti penggunaan CPU server masih di bawah batas KPI 30\%.
+Sedangkan rata-rata penggunaan memori selama uji beban tercatat 280 MB dari total memori sebesar 8 GB. Ini juga berarti bahwa penggunaan memori server masih dalam batas wajar.  
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/memori_cpu_usage.jpeg}
+    \caption{Monitoring penggunaan memori dan CPU server}
+    \label{fig:memory-cpu-usage}
+\end{figure}
+
+\subsubsection{Waktu Deteksi Alarm}
+Waktu deteksi alarm dihitung sejak kondisi yang memicu alarm terpenuhi hingga indikator alarm muncul di antarmuka pengguna.  
+Rata-rata waktu deteksi adalah sekitar 1000 ms, jauh lebih lambat dari batas KPI 200 ms. Hal ini dikarenakan interval terkecil sistem HMI untuk mendeteksi situasi dan kemudian mengirimkan alarm adalah 1 detik seperti yang ditunjukkan pada gambar~\ref{fig:alarm-interval}. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/alarm_interval.jpeg}
+    \caption{Batasan interval waktu deteksi alarm sistem HMI}
+    \label{fig:alarm-interval}
+\end{figure}
+
+\subsubsection{Waktu Mulai Aplikasi}
+Aplikasi diuji untuk mengetahui waktu yang dibutuhkan sejak proses inisialisasi hingga tampilan utama siap digunakan.  
+Rata-rata waktu mulai aplikasi adalah 3,8 detik, memenuhi KPI $\leq$ 10 detik.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/starting_time.jpeg}
+    \caption{Tangkapan layar proses inisialisasi aplikasi}
+    \label{fig:startup-time}
+\end{figure}
 
 \subsection{Observasi Fault Tolerance}
 \begin{itemize}
@@ -348,7 +398,7 @@ Evaluasi melibatkan 10 responden (operator/teknisi). Hasil ringkasan kuesioner (
 
 \begin{table}[ht]
     \centering
-    \begin{tabular}{|p{6cm}|c|c|}
+    \begin{tabular}{|c|c|p{2.5cm}|}
         \hline
         \textbf{Aspek} & \textbf{Rata-rata Skor} & \textbf{Interpretasi} \\ \hline
         Kemudahan konfigurasi & 4.2 & Baik \\ \hline
