@@ -398,7 +398,6 @@
         \begin{singlespace}
             \MakeUppercase{\normalfont\bfseries Skripsi}
             \vspace{2.0cm}
-            % \vfill
 
             \MakeUppercase{\normalfont\bfseries\@titleskripsi}\\
             \par\nobreak
@@ -408,11 +407,13 @@
             \vspace{1.5cm}
 
             \normalfont\bfseries{\@fullnameA}\\
-            \normalfont\bfseries{\@idnumA}\\
-            \fullnameB{FRANS SEBASTIAN}
-            \idnumB{2502121162}
-            \fullnameC{GILANG HANSAGITA}
-            \idnumC{2502124403}
+            \normalfont\bfseries{\@idnumA}\\[1em]
+
+            \normalfont\bfseries{\@fullnameB}\\
+            \normalfont\bfseries{\@idnumB}\\[1em]
+
+            \normalfont\bfseries{\@fullnameC}\\
+            \normalfont\bfseries{\@idnumC}\\
             \vfill
 
             \includegraphics[height=4.85cm]{images/logo-binus-university}
@@ -420,19 +421,18 @@
 
             {\normalfont
                 \MakeUppercase{\normalfont\bfseries Program Studi \@program}\\
-                \MakeUppercase{\normalfont\bfseries Departemen \@dept}\\
                 \MakeUppercase{\normalfont\bfseries Fakultas \@faculty}\\
                 \MakeUppercase{\normalfont\bfseries\@university}\\
                 \MakeUppercase{\normalfont\bfseries\@city}\\
 
                 \vspace{0.2cm}
-                % \normalfont\bfseries{\MakeUppercase{\@monthsubmit} {\@yearsubmit}}
                 \normalfont\bfseries{\MakeUppercase{\@yearsubmit}}
             }\\
         \end{singlespace}
     \end{center}
     \pagebreak
 }
+
 %-----------------------------------------------------------
 % End Define Cover Skripsi
 %===========================================================
@@ -453,22 +453,23 @@
             \bfseries{SKRIPSI}
             \vfill
 
-            \normalfont{Diajukan sebagai salah satu syarat untuk memperoleh gelar {\@degree} pada Program Studi {\@program} Departemen {\@dept} Fakultas {\@faculty} {\@university} {\@city}}\\
+            \normalfont{Diajukan sebagai salah satu syarat untuk memperoleh gelar {\@degree} pada Program Studi {\@program} Fakultas {\@faculty} {\@university} {\@city}}\\
             \vfill
 
             {\normalfont\bfseries
-                \@fullnameA\\
-                \@idnumA
-                \@fullnameB\\
-                \@idnumB
-                \@fullnameC\\
+                \@fullnameA \\[-0.2em]
+                \@idnumA \\[1em]
+
+                \@fullnameB \\[-0.2em]
+                \@idnumB \\[1em]
+
+                \@fullnameC \\[-0.2em]
                 \@idnumC
             }\\
             \vfill
 
             {\normalfont
                 \MakeUppercase{\normalfont\bfseries Program Studi \@program}\\
-                \MakeUppercase{\normalfont\bfseries Departemen \@dept}\\
                 \MakeUppercase{\normalfont\bfseries Fakultas \@faculty}\\
                 \MakeUppercase{\normalfont\bfseries\@university}\\
                 \MakeUppercase{\normalfont\bfseries\@city}\\
@@ -498,14 +499,25 @@
     \end{center}
 
     \noindent
-    Yang bertanda tangan di bawah ini: \\
+    Yang bertanda tangan di bawah ini: \\[0.3cm]
+
     \begin{tabular}{ m{0.5cm} l c l }
-         & Nama          & : & \@fullnameA \\
-         & NIM           & : & \@idnumA    \\
-         & Program Studi & : & \@program  \\
-         & Jenjang       & : & S1         \\
+        & Nama          & : & \@fullnameA \\
+        & NIM           & : & \@idnumA    \\
+        & Nama          & : & \@fullnameB \\
+        & NIM           & : & \@idnumB    \\
+        & Nama          & : & \@fullnameC \\
+        & NIM           & : & \@idnumC    \\
     \end{tabular}
-    \vspace{0.2cm}
+
+    \vspace{0.3cm}
+
+    \begin{tabular}{ m{0.5cm} l c l }
+        & Program Studi & : & \@program   \\
+        & Jenjang       & : & S1          \\
+    \end{tabular}
+
+\vspace{0.3cm}
 
     \noindent
     Menyatakan dengan ini bahwa karya tulisan saya berjudul
@@ -522,13 +534,17 @@
     \noindent
     Apabila dikemudian hari terbukti atau dapat dibuktikan bahwa sebagian atau keseluruhan skripsi ini merupakan hasil karya orang lain, maka saya bersedia menerima sanksi atas perbuatan tersebut.
 
-    \vspace{1cm}
+    % \vspace{1cm}
     \begin{flushright}
-        \@city, \@examdate\\
-        \vspace{2.5cm}
-        {\@fullnameA}\\
-        NIM. {\@idnumA}
+        \@city, \@examdate\\[2cm]
     \end{flushright}
+
+    \begin{center}
+    \begin{tabular}{ccc}
+        {\@fullnameA} & {\@fullnameB} & {\@fullnameC} \\
+        NIM. {\@idnumA} & NIM. {\@idnumB} & NIM. {\@idnumC}
+    \end{tabular}
+    \end{center}
     \pagebreak
 }
 %-----------------------------------------------------------
@@ -549,11 +565,20 @@
 
     \begin{center}
         Disusun dan diajukan oleh\\
-        \begin{singlespace}
-            \large\bfseries{\@fullnameA}\\
-            \large\bfseries{\@idnumA}\\
-            \vspace{1.0cm}
-        \end{singlespace}
+        \begin{center}
+            \begin{singlespace}
+                \large\bfseries{\@fullnameA}\\
+                \large\bfseries{\@idnumA}\\
+                \vspace{1.0cm}
+
+                \large\bfseries{\@fullnameB}\\
+                \large\bfseries{\@idnumB}\\
+                \vspace{1.0cm}
+
+                \large\bfseries{\@fullnameC}\\
+                \large\bfseries{\@idnumC}\\
+            \end{singlespace}
+        \end{center}
 
         Telah dipertahankan di hadapan Panitia Ujian yang dibentuk dalam rangka Penyelesaian Studi Program Sarjana pada Program Studi {\@program} Fakultas {\@faculty} {\@university} dan dinyatakan telah memenuhi syarat kelulusan \\
 
@@ -610,10 +635,17 @@
         Skripsi ini diajukan oleh:
         \begin{center}
             \begin{tabular}{ p{3cm}  p{.1cm} p{10.5cm}}
-                Nama          & : & \@fullnameA     \\
-                NIM           & : & \@idnumA        \\
-                Program Studi & : & \@program      \\
-                Judul Skripsi & : & \@titleskripsi \\
+                Nama          & : & \@fullnameA \\
+                NIM           & : & \@idnumA \\
+                \multicolumn{3}{c}{} \\[-0.3cm] 
+                Nama          & : & \@fullnameB \\
+                NIM           & : & \@idnumB \\
+                \multicolumn{3}{c}{} \\[-0.3cm]
+                Nama          & : & \@fullnameC \\
+                NIM           & : & \@idnumC \\
+                \multicolumn{3}{c}{} \\[0.2cm]
+                Program Studi & : & \@program \\
+                Judul Skripsi & : & \textbf{\@titleskripsi} \\
             \end{tabular}
         \end{center}
     \end{singlespace}
@@ -621,22 +653,22 @@
     \noindent
     Telah dipertahankan di depan Tim Penguji dan diterima sebagai bagian persyaratan untuk memperoleh gelar {\@degree} pada Program Studi {\@program} Fakultas {\@faculty} {\@university}.\\
 
-    \begin{center}
-        \begin{doublespace}
-            DEWAN PENGUJI\\
-            \begin{tabular}{l l l c}
-                   &            &                      & Tanda Tangan               \\
-                1. & Ketua      & : \@firstsupervisor  & (........................) \\ \\
-                2. & Sekretaris & : \@secondsupervisor & (........................) \\ \\
-                3. & Anggota    & : \@firstexaminer    & (........................) \\ \\
-                4. & Anggota    & : \@secondexaminer   & (........................) \\
-            \end{tabular}
-        \end{doublespace}
-    \end{center}
-    \begin{tabular}{l l}
-        Ditetapkan di & : \@city     \\
-        Tanggal       & : \@examdate
-    \end{tabular}
+    % \begin{center}
+    %     \begin{doublespace}
+    %         DEWAN PENGUJI\\
+    %         \begin{tabular}{l l l c}
+    %                &            &                      & Tanda Tangan               \\
+    %             1. & Ketua      & : \@firstsupervisor  & (........................) \\ \\
+    %             2. & Sekretaris & : \@secondsupervisor & (........................) \\ \\
+    %             3. & Anggota    & : \@firstexaminer    & (........................) \\ \\
+    %             4. & Anggota    & : \@secondexaminer   & (........................) \\
+    %         \end{tabular}
+    %     \end{doublespace}
+    % \end{center}
+    % \begin{tabular}{l l}
+    %     Ditetapkan di & : \@city     \\
+    %     Tanggal       & : \@examdate
+    % \end{tabular}
     \pagebreak
 }
 %-----------------------------------------------------------
@@ -661,12 +693,18 @@
         \noindent
         Sebagai civitas akademik {\@university}, saya yang bertanda tangan di bawah ini:
         \begin{center}
-            \begin{tabular}{ p{3cm}  p{.1cm} p{10.5cm}}
-                Nama          & : & \@fullnameA \\
-                NIM           & : & \@idnumA    \\
-                Program Studi & : & \@program  \\
-                Departemen    & : & \@dept     \\
-                Fakultas      & : & \@faculty  \\
+            \begin{tabular}{ @{} l c l @{} }
+                Nama          & : & \@fullnameA \\[-0.2em]
+                NIM           & : & \@idnumA    \\[0.8em]
+
+                Nama          & : & \@fullnameB \\[-0.2em]
+                NIM           & : & \@idnumB    \\[0.8em]
+
+                Nama          & : & \@fullnameC \\[-0.2em]
+                NIM           & : & \@idnumC    \\[1.0em]
+
+                Program Studi & : & \@program   \\[-0.2em]
+                Fakultas      & : & \@faculty   \\[-0.2em]
                 Jenis Karya   & : & Skripsi
             \end{tabular}
         \end{center}
@@ -686,13 +724,32 @@
     \noindent
     Demikian surat pernyataan ini saya buat dengan sebenarnya.
 
-    \vspace{.5cm}
-    \begin{flushright}
-        Dibuat di {\@city} pada \@examdate\\
-        Yang menyatakan\\
-        \vspace{2.5cm}
-        {(\@fullnameA)}\\
-    \end{flushright}
+    \vspace{0.5cm}
+    \begin{center}
+        \begin{tabular}{ccc}
+            % --- Name A ---
+            \begin{minipage}{0.3\textwidth}
+                \centering
+                \vspace{3cm}
+                (\@fullnameA)\\
+            \end{minipage}
+            &
+            % --- Name B ---
+            \begin{minipage}{0.3\textwidth}
+                \centering
+                \vspace{3cm}
+                (\@fullnameB)\\
+            \end{minipage}
+            &
+            % --- Name C with location/date ---
+            \begin{minipage}{0.3\textwidth}
+                \centering
+                Dibuat di \@city\\
+                pada \@examdate\\[1.5cm]
+                (\@fullnameC)\\
+            \end{minipage}
+        \end{tabular}
+    \end{center}
     \pagebreak
 }
 %-----------------------------------------------------------

@@ -1,44 +1,51 @@
 \chapter*{KATA PENGANTAR}
+\addcontentsline{toc}{chapter}{KATA PENGANTAR}
 
-Puji syukur penulis panjatkan kepada Allah SWT, karena atas berkat dan rahmat-Nya penulis dapat menyelesaikan skripsi ini. Shalawat serta salam senantiasa tercurah kepada \textit{Rasulullah} Muhammad \textit{Shallallahu Alaihi Wasallam,} yang merupakan teladan dalam menjalankan kehidupan dunia.
+Puji dan syukur penulis panjatkan ke hadirat Tuhan Yang Maha Esa atas limpahan rahmat, berkat, dan karunia-Nya, sehingga penulis dapat menyelesaikan laporan tugas akhir yang berjudul: \textbf{``Implementasi Protokol FINS pada Sistem HMI Sumber Terbuka Berbasis Web untuk PLC Omron''} dengan baik dan tepat waktu.
 
-Alhamdulillah, skripsi dengan judul "IMPLEMENTASI FILTER SPASIAL LINEAR PADA VIDEO \textit{STREAM} MENGGUNAKAN \textit{FPGA HARDWARE ACCELERATOR}" yang disusun sebagai salah satu syarat untuk mencapai gelar Sarjana pada program studi Sistem Informasi fakultas Matematika dan Ilmu Pengetahuan Alam Universitas Hasanuddin ini dapat diselesaikan. Walaupun adanya kendala-kendala yang dihadapi khususnya wabah Covid-19 ketika skripsi ini dikerjakan. Tetapi dalam penulisan skripsi ini, penulis mampu menyelesaikan pada waktu yang tepat berkat bantuan dan dukungan dari berbagai pihak. 
+Laporan tugas akhir ini disusun sebagai salah satu syarat untuk memperoleh gelar \textit{Sarjana Teknik} pada Program Studi Teknik Informatika, Fakultas Komputer, Universitas Bina Nusantara (BINUS University).  
+Penelitian ini berfokus pada pengembangan sistem \textit{Human–Machine Interface} (HMI) berbasis \textit{open source} dengan penambahan dukungan protokol komunikasi \textit{Factory Interface Network Service} (FINS) guna memungkinkan integrasi dengan \textit{Programmable Logic Controller} (PLC) merek Omron yang banyak digunakan di sektor manufaktur.
 
-Ucapan terima kasih dan apresiasi yang tak terhingga kepada kedua orang tua penulis bapak \textbf{Sudarmin} dan ibu \textbf{Yuli Hadiyanti} yang tak kenal lelah dalam memanjatkan doa serta memberikan nasihat dan motivasi kepada penulis. Tak lupa juga kepada saudara-saudara penulis \textbf{Fitri Handayani}, \textbf{Tri Novianti}, \textbf{Jumadil Yusuf}, \textbf{Muhammad Fitrah}, \textbf{Adam Ramadhan} yang selalu menjadi motivasi bagi penulis untuk terus melangkah maju.
+Latar belakang penelitian ini berangkat dari keterbatasan sistem HMI komersial yang kerap menimbulkan permasalahan biaya lisensi, kurangnya fleksibilitas, serta risiko \textit{vendor lock-in}.  
+Sebagai alternatif, pemanfaatan platform \textit{open source} seperti FUXA dinilai mampu menghadirkan solusi yang lebih efisien, adaptif, dan bebas lisensi. Dengan menambahkan dukungan protokol FINS, sistem HMI berbasis FUXA diharapkan dapat berfungsi secara optimal dalam lingkungan industri yang menggunakan PLC Omron, sekaligus mendukung arah transformasi digital di bidang otomasi industri.
 
-Penulis menyadari bahwa skripsi ini dapat terselesaikan dengan adanya bantuan, bimbingan, dukungan dan motivasi dari berbagai pihak. Oleh karena itu, penulis mengucapkan ucapan terima kasih dengan tulus kepada:
+Metodologi penelitian ini mencakup tahap analisis kebutuhan, studi literatur, implementasi protokol FINS pada sistem HMI berbasis FUXA, serta pengujian stabilitas komunikasi data antara sistem dan PLC.  
+Hasil akhir penelitian diharapkan dapat memberikan kontribusi nyata bagi pengembangan perangkat lunak sumber terbuka di bidang otomasi industri serta memperkuat integrasi antara sistem kendali dan teknologi informasi.
 
-\begin{enumerate}[topsep=0pt,itemsep=0pt,partopsep=0pt, parsep=0pt]
-    \item Rektor Universitas Hasanuddin, Ibu \textbf{Prof. Dr. Dwia Aries Tina Pulubuhu} beserta jajarannya.
-    \item Dekan Fakultas Matematika dan Ilmu Pengetahuan Alam, \textbf{Dr. Eng. Amiruddin} beserta jajarannya.
-    \item Ketua Departemen Matematika FMIPA, \textbf{Dr. Nurdin, S.Si., M.Si}, dan juga \textbf{Dr. Muhammad Hasbi, M.Sc} sebagai ketua Program Studi Sistem Informasi Universitas Hasanuddin.
-    \item Bapak \textbf{Dr. Eng. Armin Lawi, S.Si., M.Eng} sebagai pembimbing utama yang telah banyak memberikan arahan, ide, motivavsi serta dukungan kepada penulis dalam banyak hal.
-    \item Almarhum bapak \textbf{Dr. Diaraya, M.Ak} dan bapak \textbf{Supri Bin Hj. Amir, S.Si., M.Eng} sebagi pembimbing pertama yang senantiasa  memberikan masukan kepada penulis.
-    \item Bapak \textbf{Dr. Hendra, S.Si., M.Kom} dan Ibu \textbf{Nur Hilal, S.Si., M.Si} sebagai tim penguji atas saran dan masukan pada penelitian yang telah dilakukan oleh penulis.
-    \item Seluruh Bapak dan Ibu dosen FMIPA Universitas Hasanuddin yang telah mendidik dan memberikan ilmunya sehingga penulis mampu menyelesaikan program sarjana. Serta para staf yang telah membantu dalam pengurusan berkas administrasi.
+Ucapan terima kasih yang tulus penulis sampaikan kepada berbagai pihak yang telah memberikan dukungan, bimbingan, dan bantuan selama proses penyusunan tugas akhir ini, antara lain:
 
-    \item Saudara-saudara \textbf{Ramsis Squad} \textbf{(Sultan, Muh Rizaldi, Sangereng Dewa Raja, Hajrin, Badaruddin Hidayat, Hamzah Julianto Nugraha, Muh Naim, Achmad Husein Nyompa)} sebagai keluarga semasa tinggal di Ramsis sejak menjadi mahasiswa baru, saling berbagi dalam banyak hal, saling membantu dan bahkan saling merepotkan.
-
-    \item Saudara-saudara \textbf{Sunu Squad} dan \textbf{SSC Squad} \textbf{(Akbar, Muh Fikri Satria A, Andi Rezki Muh Nur, Muhammad Akbar Atori, Baharuddin Kasim, Andi Yaumil Falakh, Nur Ikhwan Putra Pratama, Bagas Prasetyo, Zinedine Kahlil Gibran Zidane, Rio Mukhtarom, Marfiandhi Putra, Abdul Aziz Mubarak,  Mutawally Syarawy, Fatur Rahman, Fitriadi Syawal Mustafa)} yang telah menemani penulis selama perkuliahan, saling memberi motivasi dan bantuan, meluangkan waktu dan berbagi suka-duka serta kebersamaan selama menuntut ilmu.
-
-    \item Saudari \textbf{Suci Rahmadana Anwar} dan \textbf{Sri Juliana} yang senantiasa menemani, memberi nasihat, menjadi tempat bertanya, serta dukungan untuk menyelesaikan skripsi ini.
-
-    \item Keluarga besar \textbf{Ilmu Komputer Unhas 2016} yang setia menemani dan membatu penulis selama menjalani pendidikan. Serta kakak-kakak dan adik-adik \textbf{Ilmu Komputer 2014, 2015, 2017, 2018} yang telah banyak membantu, semoga tetap semangat dalam mengejar impian.
-
-    \item Keluarga besar \textbf{HIPERMAWA Koperti Unhas} yang senantiasa memberikan naungan kekeluargaan dan dukungan.
-
-    \item Rekan-rekan \textbf{KKN Internasional Jepang Unhas Gel. 102} yang telah menjadi keluarga baru selama KKN dan menjadikan KKN sebagai momen yang berkesan.
-
-    \item Serta semua pihak yang telah banyak berpartisipasi, baik secara langsung maupun tidak langsung dalam penyusunan skripsi ini yang tidak sempat penulis sebutkan satu per satu.
+\begin{enumerate}
+    \item Bapak/Ibu dosen pembimbing, atas arahan, motivasi, serta bimbingan yang sangat berharga selama proses penelitian dan penulisan laporan ini.
+    \item Pihak PT~XYZ, atas kesempatan dan izin yang diberikan untuk melakukan observasi serta pengumpulan data terkait sistem otomasi produksi.
+    \item Kedua orang tua dan keluarga, atas doa, kasih sayang, serta dukungan moral yang tiada henti.
+    \item Rekan-rekan mahasiswa di BINUS University, atas kerja sama, dukungan, dan semangat kebersamaan selama menjalani proses akademik hingga penyusunan laporan ini.
 \end{enumerate}
 
-Penulis menyadari bahwa skripsi ini masih jauh dari sempurna dikarenakan terbatasnya pengalaman dan pengetahuan yang dimiliki penulis. Oleh karena itu, penulis mengharapkan segala bentuk saran serta masukan bahkan kritik yang membangun dari berbagai pihak. Semoga tulisan ini memberikan manfaat kepada semua pihak yang membutuhkan dan terutama untuk penulis.
+Penulis menyadari bahwa laporan ini masih memiliki kekurangan, baik dari segi analisis maupun penyajian. Oleh karena itu, penulis dengan rendah hati menerima kritik dan saran yang bersifat membangun untuk penyempurnaan penelitian ini di masa mendatang.  
+Semoga laporan tugas akhir ini dapat memberikan manfaat bagi pengembangan ilmu pengetahuan, khususnya di bidang otomasi industri dan sistem HMI berbasis \textit{open source}.
 
 \vspace{1cm}
-\begin{flushright}
-    Makassar, 9 April 2021\\
-    \vspace{2.5cm}
-    {DENNY CHRISNANDA}\\
-    NIM. {H13116002}
-\end{flushright}
+\begin{center}
+    Dibuat di Jakarta, pada 21 Oktober 2025\\[2cm]
+    \begin{tabular}{ccc}
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \textbf{DENNY CHRISNANDA}\\
+            NIM. 2502124914
+        \end{minipage}
+        &
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \textbf{FRANS SEBASTIAN}\\
+            NIM. 2502121162
+        \end{minipage}
+        &
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \textbf{GILANG HANSAGITA}\\
+            NIM. 2502124403
+        \end{minipage}
+    \end{tabular}
+\end{center}
+
 
