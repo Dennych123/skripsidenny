@@ -1,64 +1,170 @@
 \chapter{HASIL DAN DISKUSI}
 
+\section{Hasil Uji Coba Pustaka \texttt{omron-fins}}
 
-\section{Spesifikasi Teknologi yang Digunakan}
-Implementasi modul FINS pada sistem HMI menggunakan kombinasi teknologi frontend, backend, dan pustaka protokol sebagai berikut.
+Tahap awal penelitian diawali dengan uji coba pustaka \texttt{omron-fins} untuk memastikan kemampuan komunikasi antara komputer (mini PC) dan PLC Omron CJ2M melalui protokol FINS berbasis UDP. Tujuan pengujian ini adalah untuk memverifikasi bahwa pustaka dapat melakukan operasi dasar \textit{read} dan \textit{write} dengan keandalan yang memadai sebelum diintegrasikan ke dalam sistem HMI.
 
-\begin{table}[ht]
-    \centering
-    \begin{tabular}{|l|l|p{7cm}|}
-        \hline
-        \textbf{Lapisan} & \textbf{Teknologi / Paket} & \textbf{Keterangan / Versi} \\ \hline
-        Frontend & Angular & Aplikasi HMI: Angular (TypeScript). Komponen DeviceList, DeviceProperty, TagOptions diperluas. \\ \hline
-        Frontend UI Kit & Angular Material & Komponen form, dialog, tabel, notifikasi. \\ \hline
-        Backend & Node.js & Server sistem HMI (runtime device module di \texttt{server/runtime/devices/fins}). Node.js v20.x (contoh). \\ \hline
-        Library FINS & \texttt{omron-fins} / \texttt{node-omron-fins} & Pustaka untuk transport FINS (UDP/TCP) — dipakai untuk read/write/poll. \\ \hline
-        Packaging & Electron (opsional) & Untuk distribusi HMI desktop lintas platform (Windows/Linux). \\ \hline
-        Tools Pengujian & Wireshark, skrip Node.js, top & Capture pcap, benchmark scripts, monitoring CPU/mem. \\ \hline
-        
-    \end{tabular}
-    \caption{Spesifikasi teknologi yang digunakan}
-    \label{tab:tech-spec}
+\subsection{Konfigurasi Lingkungan Uji}
+Pengujian dilakukan menggunakan topologi sederhana yang terdiri atas satu mini PC sebagai \textit{client} dan satu PLC Omron CJ2M sebagai \textit{server}. Komunikasi berlangsung melalui jaringan lokal menggunakan protokol FINS UDP.  
+Rincian perangkat dan konfigurasi ditunjukkan pada Tabel~\ref{tab:uji-fins-env}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Komponen} & \textbf{Spesifikasi} \\ \hline
+PLC & Omron CJ2M-CPU34 \\ \hline
+Host Client & Mini PC (Intel N5105, 8GB RAM, Ubuntu Server 22.04) \\ \hline
+IP PLC & 192.168.0.1 \\ \hline
+IP Mini PC & 192.168.0.234 \\ \hline
+Protokol & FINS over UDP (port 9600) \\ \hline
+Pustaka & \texttt{omron-fins} (Node.js module) \\ \hline
+Bahasa Pemrograman & Node.js v18 LTS \\ \hline
+\end{tabular}
+\caption{Konfigurasi lingkungan uji coba pustaka \texttt{omron-fins}}
+\label{tab:uji-fins-env}
 \end{table}
 
-\subsection{Konfigurasi Perangkat Lunak}
-Contoh parameter device FINS disimpan dalam struktur \texttt{device.property}. Contoh JSON konfigurasi device:
+\subsection{Instalasi Pustaka \texttt{omron-fins}}
+Sebelum dilakukan pengujian, pustaka \texttt{omron-fins} diinstal melalui \texttt{npm} untuk memastikan dependensi jaringan dan protokol telah tersedia di sistem. Proses instalasi ditunjukkan pada Gambar~\ref{fig:install-node-fins}.
 
-\begin{verbatim}
-{
-  "address": "192.168.11.1",
-  "port": 9600,
-  "FinsProtocol": "UDP",
-  "SA1": 234,
-  "DA1": 1,
-  "pollingInterval": 200
-}
-\end{verbatim}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/install_node_fins.png}
+    \caption{Instalasi pustaka \texttt{omron-fins} melalui perintah \texttt{npm install node-red-contrib-omron-fins}}
+    \label{fig:install-node-fins}
+\end{figure}
 
-File modul FINS ditempatkan pada \texttt{server/runtime/devices/fins/index.js} dan frontend terkait pada \texttt{client/src/app/device/...}.
+Proses instalasi selesai tanpa error, yang menandakan pustaka telah terpasang dengan benar dan siap digunakan dalam skrip pengujian.
+
+\subsection{Metode Pengujian}
+Pengujian dilakukan dengan menulis skrip Node.js untuk mengirim sejumlah besar permintaan baca (\textit{read request}) ke PLC pada alamat \texttt{D100}.  
+Skrip ini menggunakan pustaka \texttt{omron-fins} dan menjalankan uji beban sebanyak 1000 permintaan dengan tingkat konkurensi 10. Tujuan utama pengujian ini adalah untuk:
+\begin{enumerate}
+    \item Mengukur waktu tanggapan (latensi) rata-rata tiap permintaan.
+    \item Mengetahui tingkat keberhasilan pengiriman dan penerimaan data.
+    \item Menilai stabilitas koneksi FINS terhadap permintaan berulang.
+\end{enumerate}
+
+Kode pengujian lengkap dapat dilihat pada Lampiran~\ref{lampiran:kode-fin-test}.
+
+\subsection{Hasil dan Analisis Pengujian}
+Hasil eksekusi skrip ditampilkan melalui terminal Node.js sebagaimana ditunjukkan pada Gambar~\ref{fig:fins-stress-log}.  
+Keluaran menunjukkan informasi total permintaan sukses, jumlah kegagalan, rata-rata waktu respon, serta jumlah permintaan per detik yang berhasil diselesaikan.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/fins_stress_log.png}
+    \caption{Tangkapan layar hasil uji coba pustaka \texttt{omron-fins}}
+    \label{fig:fins-stress-log}
+\end{figure}
+
+Selain log terminal, dilakukan pula analisis paket jaringan menggunakan Wireshark untuk memastikan format frame FINS sesuai dengan spesifikasi Omron.  
+Gambar~\ref{fig:capture-wireshark} memperlihatkan hasil \textit{capture} pada komunikasi antara PLC dan client.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/capture_wireshark_stresstest.png}
+    \caption{Cuplikan hasil analisis paket FINS pada Wireshark}
+    \label{fig:capture-wireshark}
+\end{figure}
+
+Berdasarkan hasil tangkapan paket, terlihat bahwa setiap respons PLC memiliki \texttt{Command Code 0101} (Memory Area Read) dengan \texttt{Response Code 0000} yang menandakan komunikasi berhasil tanpa kesalahan. Nilai \texttt{Service ID} yang berubah setiap paket menandakan bahwa setiap permintaan mendapat respons unik sesuai urutan pengiriman.
+
+Dari hasil tersebut dapat disimpulkan bahwa pustaka \texttt{omron-fins} mampu menangani komunikasi baca data dengan tingkat keberhasilan 100\% dan latensi rata-rata di bawah 50~ms.  
+Analisis paket FINS pada Wireshark juga mengonfirmasi bahwa format data sesuai dengan standar spesifikasi protokol Omron. Dengan demikian, pustaka ini layak digunakan sebagai basis komunikasi antara HMI dan PLC dalam sistem HMI yang dikembangkan pada penelitian ini.
+
+
+% \subsection{Konfigurasi Perangkat Lunak}
+% Contoh parameter device FINS disimpan dalam struktur \texttt{device.property}. Contoh JSON konfigurasi device:
+
+% \begin{verbatim}
+% {
+%   "address": "192.168.11.1",
+%   "port": 9600,
+%   "FinsProtocol": "UDP",
+%   "SA1": 234,
+%   "DA1": 1,
+%   "pollingInterval": 200
+% }
+% \end{verbatim}
+
+% File modul FINS ditempatkan pada \texttt{server/runtime/devices/fins/index.js} dan frontend terkait pada \texttt{client/src/app/device/...}.
 
 \section{Konfigurasi Sistem}
-Bagian ini menjelaskan langkah konfigurasi sistem HMI + konektor FINS pada environment pengujian.
+Bagian ini menjelaskan konfigurasi sistem HMI yang dikembangkan, mulai dari penyiapan topologi jaringan, konfigurasi perangkat keras dan lunak, hingga verifikasi koneksi awal antara HMI dan PLC.
 
-\subsection{Topologi dan Persiapan Jaringan}
+\subsection{Topologi dan Arsitektur Sistem}
+Sistem terdiri atas satu PLC Omron CJ2M sebagai kontroler proses, satu mini PC sebagai server HMI, dan satu tablet yang digunakan untuk pemantauan jarak dekat melalui antarmuka web. Komunikasi antarperangkat dilakukan melalui protokol FINS berbasis UDP yang berjalan di atas jaringan lokal (LAN). Topologi sistem ditunjukkan pada Gambar~\ref{fig:topologi-fuxa-fins}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/topologi_fuxa_fins.png}
+    \caption{Topologi sistem HMI FUXA dengan konektor FINS}
+    \label{fig:topologi-fuxa-fins}
+\end{figure}
+
+\subsection{Konfigurasi Perangkat Keras}
 \begin{itemize}
-    \item Hub/switch industri menghubungkan PC/MiniPC (server sistem HMI) dan PLC Omron.
-    \item Pastikan alamat IP server dan PLC berada pada subnet yang sama (mis. 192.168.11.0/24).
-    \item NTP/clock sinkronisasi untuk memastikan akurasi timestamp.
+    \item \textbf{PLC:} Omron CJ2M-CPU34, dihubungkan ke jaringan melalui port Ethernet internal.
+    \item \textbf{Mini PC:} Bertindak sebagai server HMI (menjalankan Node.js dan FUXA).
+    \item \textbf{Tablet:} Digunakan untuk mengakses HMI melalui browser dengan alamat IP server di jaringan Wi-Fi yang sama.
+    \item \textbf{Hub/Switch:} Menghubungkan PLC dan Mini PC secara fisik melalui kabel LAN.
 \end{itemize}
 
-\subsection{Langkah Instalasi Singkat}
-\begin{enumerate}
-    \item Pasang dependency di server:
-    \begin{verbatim}
-    npm install
-    npm install omron-fins
-    \end{verbatim}
-    \item Letakkan modul FINS pada \texttt{server/runtime/devices/fins} dan restart sistem HMI server.
-    \item Tambahkan device FINS pada UI (Device Property) dengan mengisi IP, port, SA1, DA1.
-    \item Tambahkan beberapa tag contoh (memaddress+address) melalui dialog edit tag.
-    \item Jalankan Wireshark pada link antara server dan PLC untuk monitoring paket (opsional).
-\end{enumerate}
+Pengaturan alamat IP dilakukan secara statik sebagaimana ditunjukkan pada Tabel~\ref{tab:konfigurasi-jaringan}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Perangkat} & \textbf{Alamat IP} \\ \hline
+PLC Omron CJ2M & 192.168.11.1 \\ \hline
+Mini PC (Server HMI) & 192.168.11.234 \\ \hline
+Tablet (Client) & 192.168.11.20 \\ \hline
+Subnet Mask & 255.255.255.0 \\ \hline
+Gateway & -- (jaringan lokal langsung) \\ \hline
+\end{tabular}
+\caption{Konfigurasi IP perangkat dalam sistem}
+\label{tab:konfigurasi-jaringan}
+\end{table}
+
+% \subsection{Konfigurasi Jaringan dan Keamanan}
+% Agar sistem dapat diakses dari tablet pada jaringan yang sama, dilakukan langkah-langkah berikut:
+% \begin{enumerate}
+%     \item Menonaktifkan fitur \texttt{ufw} (pada Ubuntu) atau menambahkan pengecualian port pada Windows Firewall:
+%     \begin{verbatim}
+%     netsh advfirewall firewall add rule name="FUXA 1881" dir=in  action=allow protocol=TCP localport=1881
+%     netsh advfirewall firewall add rule name="FUXA 1881" dir=out action=allow protocol=TCP localport=1881
+%     \end{verbatim}
+%     \item Mengaktifkan mode \texttt{0.0.0.0} bind pada konfigurasi server Node.js agar FUXA dapat diakses dari semua host di subnet yang sama.
+%     \item Melakukan uji \texttt{ping} dan \texttt{telnet 192.168.11.234 1881} dari tablet untuk memastikan konektivitas.
+% \end{enumerate}
+
+\subsection{Konfigurasi Perangkat Lunak}
+Konfigurasi modul FINS di sisi server dilakukan dengan menambahkan file konektor pada direktori \texttt{server/runtime/devices/fins}. Parameter koneksi diatur melalui antarmuka HMI, seperti pada Tabel~\ref{tab:konfigurasi-fins}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Parameter} & \textbf{Nilai Contoh} \\ \hline
+Alamat IP PLC & 192.168.11.1 \\ \hline
+Port & 9600 \\ \hline
+Protokol & UDP \\ \hline
+Source Address (SA1) & 234 \\ \hline
+Destination Address (DA1) & 1 \\ \hline
+Polling Interval & 200 ms \\ \hline
+\end{tabular}
+\caption{Parameter konfigurasi koneksi FINS di sistem HMI}
+\label{tab:konfigurasi-fins}
+\end{table}
+
+\subsection{Verifikasi Koneksi Awal}
+Setelah konfigurasi selesai, dilakukan uji komunikasi awal menggunakan skrip Node.js sederhana untuk membaca nilai dari alamat memori \texttt{D100}. Jika hasil baca sesuai dan tidak terjadi timeout, koneksi FINS dianggap berhasil dan sistem siap digunakan.
+
+
+
 
 \section{Hasil Implementasi Sistem}
 Bagian ini mendeskripsikan hasil integrasi modul FINS dengan frontend dan backend, serta tampilan UI yang dihasilkan.
@@ -72,7 +178,7 @@ Bagian ini mendeskripsikan hasil integrasi modul FINS dengan frontend dan backen
     \item \textbf{Integrasi UI:} Form edit tag khusus FINS (memaddress, address, type, settings) dan indikator pada DeviceList. Gambar antarmuka tersedia pada Gambar~\ref{fig:ui_mod_plan} dan Gambar~\ref{fig:ui_edit_tag}.
 \end{itemize}
 
-\subsection{Hasil Modifikasi UI}
+\subsection{Hasil Modifikasi Antarmuka}
 Berikut cuplikan tampilan hasil implementasi pada frontend.
 
 \begin{figure}[H]
@@ -107,261 +213,72 @@ Pada sisi \textit{backend}, implementasi konektor FINS dilakukan dengan menambah
     \item Mengelola log aktivitas untuk debugging.
 \end{itemize}
 
-Potongan kode utama konektor FINS ditunjukkan pada kode berikut:
+ kode utama konektor FINS ditunjukkan pada Lampiran~\ref{lampiran:kode-fins-backend}. Kode tersebut berisi definisi kelas konektor yang mengatur siklus hidup koneksi dan komunikasi dengan PLC.
 
-\begin{verbatim}
-TypeScript Code DeviceFins Module
---------------------------------
-'use strict';
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/capture_modul_fins.png}
+    \caption{Potongan kode modul konektor FINS pada sisi backend}
+    \label{fig:capture-modul-fins}
+\end{figure}
 
-let fins;
+Gambar~\ref{fig:capture-modul-fins} menunjukkan hasil implementasi modul konektor FINS yang terintegrasi pada struktur proyek FUXA di sisi \textit{server}. Modul ini memanfaatkan pustaka \texttt{omron-fins} untuk membangun komunikasi langsung dengan PLC melalui protokol FINS UDP/TCP.
 
-try {
-    fins = require('omron-fins');
-} catch (err) {
-    console.error('[FINS]  Cannot load omron-fins:', err);
-}
-
-function DeviceFins(data, logger, events, runtime) {
-    let client = null;
-    let values = {};
-    let isConnected = false;
-    let tagMap = {};
-    let lastTimestampValue = null;
-    let reconnectTimer = null;
-    let isConnecting = false;
-    const deviceId = data.id;
-    const deviceName = data.name;
-    let deviceTags = Object.values(data.tags || {});
-    const options = data.property || {};
-
-    const host = options.address || '192.168.11.1';
-    const port = parseInt(options.port) || 9600;
-    const protocol = options.FinsProtocol || 'UDP';
-    const SA1 = parseInt(options.SA1) || 234;
-    const DA1 = parseInt(options.DA1) || 1;
-
-    logger.debug(`[FINS]  Configuration: IP=${host}, 
-    Protocol=${protocol}, SA1=${SA1}, DA1=${DA1}`);
-
-    this.scheduleReconnect = function () {
-    if (isConnected || isConnecting) return;
-
-    if (reconnectTimer) clearTimeout(reconnectTimer);
-    reconnectTimer = setTimeout(() => {
-        logger.info('[FINS]  Trying to reconnect...');
-        this.connect().catch((err) => {
-            logger.warn('[FINS]  Reconnect failed:', err);
-        });
-    }, 3000);
-}.bind(this);
-
-    this.connect = function () {
-    return new Promise((resolve, reject) => {
-        if (!fins || !fins.FinsClient) {
-            logger.error('[FINS]  FinsClient not available.');
-            return reject('[FINS] Module unavailable');
-        }
-
-        isConnecting = true;
-
-        try {
-            if (client) {
-                client.removeAllListeners();
-                if (client.disconnect) client.disconnect();
-                if (client.close) client.close();
-                client = null;
-            }
-
-            client = new fins.FinsClient(port, host, {
-                protocol: protocol.toLowerCase(),
-                SA1: SA1,
-                DA1: DA1,
-                timeout: 2000
-            });
-
-            client.setMaxListeners(0);
-
-            client.on('error', (err) => {
-                logger.error(`[FINS]  Error: ${err}`);
-
-                isConnected = false;
-                isConnecting = false;
-                this.disconnect(); // paksa bersihkan
-                this.scheduleReconnect();
-            });
-
-            client.on('timeout', () => {
-                logger.warn(`[FINS]  Timeout`);
-                isConnected = false;
-                isConnecting = false;
-                this.disconnect(); // paksa bersihkan
-                this.scheduleReconnect();
-            });
-
-            isConnected = true;
-            isConnecting = false;
-            logger.info(`[FINS]  Connected to ${host}:${port}`);
-            events.emit('device-status:changed', 
-            { id: deviceId, status: 'connect-ok' });
-            resolve();
-        } catch (err) {
-            logger.error(`[FINS]  Failed to connect: ${err}`);
-            isConnected = false;
-            isConnecting = false;
-            this.scheduleReconnect();
-            reject(err);
-        }
-    });
-};
-
-
-    this.disconnect = () => {
-        return new Promise((resolve) => {
-            if (client) {
-                client.removeAllListeners();
-                if (client.disconnect) client.disconnect();
-                client = null;
-            }
-            if (reconnectTimer) {
-                clearTimeout(reconnectTimer);
-                reconnectTimer = null;
-            }
-
-            isConnected = false;
-            events.emit('device-status:changed', 
-            { id: deviceId, status: 'connect-off' });
-            resolve();
-        });
-    };
-
-    this.stop = this.disconnect;
-    this.isConnected = () => isConnected;
-
-    this.polling = async function () {
-    if (!isConnected || !client || !Array.isArray(deviceTags)) {
-        logger.warn('[FINS]  Polling skipped.');
-        return;
-    }
-
-    const changed = [];
-
-    for (const tag of deviceTags) {
-        try {
-            await new Promise((resolve) => {
-                const finsAddress = `${tag.memaddress}${tag.address}`;
-
-
-                let timeout = setTimeout(() => {
-                    logger.warn(`[FINS]  Timeout saat polling tag ${tag.name}`);
-                    isConnected = false;
-                    this.scheduleReconnect();
-                    resolve();
-                }, 2500);
-
-                client.read(finsAddress, 1, null, tag.name);
-
-                client.once('reply', (msg) => {
-                    clearTimeout(timeout);
-                    const val = msg.response.values?.[0];
-                    const now = Date.now();
-                    if (val !== undefined && values[tag.id] !== val) {
-                        values[tag.id] = val;
-                        changed.push({ id: tag.id, value: val });
-                        if (this.addDaq) {
-                            this.addDaq({ [tag.id]: 
-                            { id: tag.id, value: val, ts: now } }, 
-                            deviceName, deviceId);
-                        }
-                    }
-                    resolve();
-                });
-
-                client.once('error', (err) => {
-                    clearTimeout(timeout);
-                    logger.warn(`[FINS]  
-                    Error saat polling tag ${tag.name}: ${err}`);
-                    isConnected = false;
-                    this.scheduleReconnect();
-                    resolve();
-                });
-            });
-        } catch (err) {
-            logger.warn(`[FINS]  Polling exception on ${tag.name}: ${err}`);
-        }
-    }
-
-    if (changed.length) {
-        events.emit('device-value:changed', { id: deviceId, values: changed });
-    }
-};
-
-    this.getValues = () => 
-    Object.entries(values).map(([id, value]) => ({ id, value }));
-
-    this.getValue = (tagId) => ({
-        id: tagId,
-        value: values[tagId],
-        ts: Date.now()
-    });
-
-    this.getStatus = () => isConnected ? 'connect-ok' : 'connect-off';
-
-    this.load = (_data) => {
-        if (_data.tags) {
-            data.tags = _data.tags;
-            deviceTags = Object.values(_data.tags);
-        }
-    };
-
-    this.setValue = (tagId, value) => {
-        const tag = deviceTags.find(t => t.id === tagId);
-        if (!client || !tag) return;
-
-        const finsAddress = `${tag.memaddress}${tag.address}`;
-        client.write(finsAddress, [value], (err) => {
-            if (err) {
-                logger.warn(`[FINS]  Failed to write ${value}
-                 to ${finsAddress}: ${err}`);
-            } else {
-                logger.debug(`[FINS]  Wrote ${value} to ${finsAddress}`);
-                values[tagId] = value;
-            }
-        });
-    };
-
-    this.getTagProperty = () => ({});
-    this.bindAddDaq = (fnc) => this.addDaq = fnc;
-    this.lastReadTimestamp = () => Date.now();
-    this.getTagDaqSettings = () => ({});
-    this.setTagDaqSettings = () => {};
-}
-
-module.exports = {
-    init: function () { },
-    create: function (data, logger, events, manager, runtime) {
-        return new DeviceFins(data, logger, events, runtime);
-    }
-};
-\end{verbatim}
-
-Dengan kode di atas, backend mampu melakukan:
+Dengan implementasi ini, backend kini mampu melakukan:
 \begin{itemize}
     \item \textbf{Koneksi otomatis} ke PLC menggunakan alamat IP, port, dan parameter FINS (SA1, DA1).
-    \item \textbf{Polling nilai tag} secara periodik untuk diperbarui di UI.
+    \item \textbf{Polling nilai tag} secara periodik dan memperbarui hasilnya ke antarmuka pengguna (UI).
     \item \textbf{Pemulihan otomatis} (\textit{auto-reconnect}) jika koneksi terputus.
-    \item \textbf{Penulisan nilai} dari UI ke PLC secara langsung.
+    \item \textbf{Penulisan nilai (write)} dari UI ke PLC secara langsung dan real-time.
 \end{itemize}
 
+Fitur-fitur tersebut memastikan bahwa konektor FINS tidak hanya dapat digunakan untuk komunikasi satu arah, tetapi juga mampu menjaga kestabilan komunikasi dua arah antara PLC dan sistem HMI/SCADA.
 
-\subsection{Contoh Log Koneksi dan Polling}
-Contoh ringkas (log):
-\begin{verbatim}
-[INF] [FINS] Connected to 192.168.11.1:9600
-[DBG] [FINS] Polling tag temp_room (W1) -> value=23
-[DBG] [FINS] device-value:changed -> id=t_temp_room value=23
-[ERR] [FINS] Error: timeout (saat kabel dicabut)
-\end{verbatim}
+
+
+\subsection{Demonstrasi Running dan Komunikasi Realtime dengan PLC}
+Setelah modul FINS berhasil diintegrasikan pada sisi \textit{backend} dan antarmuka HMI, dilakukan uji coba langsung untuk memastikan bahwa sistem dapat berkomunikasi secara dua arah dengan PLC secara \textit{realtime}.  
+Gambar~\ref{fig:demo-run} menunjukkan tampilan antarmuka HMI saat proses pengujian dijalankan.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/demo_run.png}
+    \caption{Demo sistem HMI saat berjalan dan berkomunikasi langsung dengan PLC secara \textit{realtime}. Antarmuka menampilkan visualisasi data berupa grafik (\textit{chart}) dan kontrol input berupa \textit{slider} yang responsif terhadap nilai aktual di PLC.}
+    \label{fig:demo-run}
+\end{figure}
+
+Pada tampilan tersebut terlihat beberapa elemen utama:
+\begin{itemize}
+    \item \textbf{Grafik waktu nyata (Sensor Suhu Oli):} menampilkan perubahan nilai suhu yang dibaca dari memori PLC secara terus-menerus melalui protokol FINS.
+    \item \textbf{Input Slider dan Field Nilai:} digunakan untuk menulis nilai baru ke alamat memori PLC secara langsung, yang kemudian diperbarui kembali pada tampilan secara otomatis.
+    \item \textbf{Gauge Kecepatan Motor:} menampilkan nilai variabel yang dikirim PLC dalam bentuk visual analog, memperlihatkan kemampuan HMI dalam memperbarui data secara sinkron dan responsif.
+\end{itemize}
+
+Pengujian menunjukkan bahwa pembaruan nilai dari PLC ke HMI terjadi dalam waktu kurang dari 100~ms, menunjukkan performa yang baik dan responsivitas tinggi untuk sistem berbasis protokol FINS ini.
+
+\subsection{Demo Alarm Waktu Nyata pada Sistem HMI}
+Selain menampilkan data sensor dan kontrol secara langsung, sistem juga dilengkapi dengan mekanisme alarm untuk mendeteksi kondisi abnormal pada proses industri.  
+Gambar~\ref{fig:demo-alarm} memperlihatkan situasi ketika nilai suhu oli melebihi ambang batas maksimum yang telah ditentukan di PLC.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/demo_alarm.png}
+    \caption{Tampilan demo alarm pada HMI ketika suhu oli melebihi batas aman. Sistem menampilkan notifikasi visual dengan tingkat prioritas \textit{High High}.}
+    \label{fig:demo-alarm}
+\end{figure}
+
+Fitur alarm ini bekerja secara \textit{realtime}, di mana setiap perubahan nilai tag yang melampaui batas akan langsung menghasilkan entri alarm baru pada panel notifikasi.  
+Beberapa karakteristik utama dari mekanisme alarm yang diimplementasikan:
+\begin{itemize}
+    \item \textbf{Pemantauan kontinu:} nilai tag dari PLC dibaca secara periodik dan dibandingkan dengan ambang batas (\textit{threshold}) yang telah ditetapkan.
+    \item \textbf{Visualisasi alarm:} alarm ditampilkan dengan warna merah dan tingkat prioritas \textit{High High}, memudahkan operator mengenali kondisi kritis.
+    \item \textbf{Sinkronisasi status:} status alarm (\textit{active}, \textit{acknowledged}, atau \textit{passive}) diperbarui otomatis di UI berdasarkan data aktual dari sistem backend.
+    \item \textbf{Integrasi dengan konektor FINS:} setiap alarm terkait langsung dengan tag di PLC yang dikirim melalui protokol FINS UDP, memastikan deteksi yang akurat dan waktu respons cepat.
+\end{itemize}
+
+Hasil pengujian menunjukkan bahwa sistem mampu mendeteksi kondisi suhu tinggi dan memunculkan alarm dengan jeda waktu kurang dari 200~ms sejak perubahan nilai pada PLC terjadi.  
+Hal ini membuktikan bahwa modul konektor FINS yang dikembangkan tidak hanya mendukung pembacaan dan penulisan data, tetapi juga dapat menangani notifikasi kejadian kritis secara \textit{realtime}.
+
 
 \section{Hasil Evaluasi Sistem}
 Evaluasi meliputi uji teknis (metrik real-time HMI) dan evaluasi berbasis responden (usability).
@@ -426,7 +343,7 @@ Tabel berikut menampilkan contoh hasil pengukuran.
 
 
 
-\subsection{Evaluasi Berbasis Responden (Usability)}
+\subsection{Evaluasi Berbasis Responden }
 Evaluasi melibatkan 10 responden (operator/teknisi). Hasil ringkasan kuesioner (skala Likert 1--5):
 
 \begin{table}[ht]
