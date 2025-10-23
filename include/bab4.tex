@@ -329,12 +329,12 @@ Tabel~\ref{tab:eval-results} menampilkan ringkasan hasil uji teknis terhadap imp
     \begin{tabular}{|l|c|c|c|}
         \hline
         \textbf{Metrik} & \textbf{Target KPI} & \textbf{Hasil} & \textbf{Status} \\ \hline
-        Latensi baca/tulis (rata-rata) & $\leq$ 200 ms & 48 ms & \textcolor{green}{OK} \\ \hline
+        Latensi baca/tulis (rata-rata) & $\leq$ 200 ms & 12 ms & \textcolor{green}{OK} \\ \hline
         Persentase sukses komunikasi & $\geq$ 95\% & 99\% & \textcolor{green}{OK} \\ \hline
-        Penggunaan CPU (server) & $\leq$ 30\% & 22\% & \textcolor{green}{OK} \\ \hline
-        Memori (server) & $\leq$ 500 MB & 280 MB & \textcolor{green}{OK} \\ \hline
+        Penggunaan CPU (server) & $\leq$ 30\% & 2\% & \textcolor{green}{OK} \\ \hline
+        Memori (server) & $\leq$ 500 MB & 468 MB & \textcolor{green}{OK} \\ \hline
         Waktu deteksi alarm & $\leq$ 200 ms & 1000ms & \textcolor{red}{NG} \\ \hline
-        Waktu mulai aplikasi & $\leq$ 10 s & 3.8 s & \textcolor{green}{OK} \\ \hline
+        Waktu mulai aplikasi & $\leq$ 10 s & 3.14 s & \textcolor{green}{OK} \\ \hline
     \end{tabular}
     \caption{Ringkasan hasil pengujian teknis}
     \label{tab:eval-results}
@@ -344,27 +344,54 @@ Tabel~\ref{tab:eval-results} menampilkan ringkasan hasil uji teknis terhadap imp
 Berikut penjelasan hasil pengujian untuk setiap metrik yang diuji disertai dengan tangkapan layar hasil pengujian:
 
 \subsubsection{Latensi Baca/Tulis}
-Pengujian latensi dilakukan dengan mengukur waktu rata-rata yang dibutuhkan PLC untuk merespons permintaan baca dan tulis.  
-Hasil pengujian menunjukkan latensi rata-rata sebesar 48 ms, yang masih di bawah batas KPI 200 ms.  
+Pengujian latensi dilakukan untuk mengukur waktu rata-rata yang dibutuhkan sistem HMI dalam mengirimkan perintah tulis (write) ke PLC dan menerima respon baca (read-back) dari alamat memori yang sama. Tujuan pengujian ini adalah untuk mengetahui seberapa cepat komunikasi dua arah antara antarmuka pengguna dan PLC berlangsung.
+
+Skenario Pengujian :
+\begin{enumerate}
+    \item Tombol \textit{START/STOP} pada tampilan HMI ditekan untuk memicu perintah tulis (write) ke alamat memori PLC (\texttt{W1}).
+    \item Setelah perintah tulis berhasil, sistem secara otomatis melakukan perintah baca (read-back) terhadap alamat yang sama untuk memverifikasi nilai yang telah berubah.
+    \item Selisih waktu antara perintah tulis dan respon baca dihitung sebagai nilai latensi baca/tulis (\texttt{latency = t\textsubscript{read} - t\textsubscript{write}}).
+    \item Proses ini dilakukan berulang sebanyak 100 kali, dan hasil rata-rata diambil untuk mendapatkan nilai latensi akhir.
+\end{enumerate}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/test_latensi.png}
+    \caption{Tampilan log hasil pengujian latensi baca/tulis FINS antara FUXA dan PLC Omron}
+    \label{fig:test-latensi}
+\end{figure}
+
+Berdasarkan hasil pengujian pada Gambar~\ref{fig:test-latensi}, diperoleh waktu latensi baca/tulis rata-rata sebesar \textbf{12~ms}. Nilai ini menunjukkan bahwa sistem mampu merespons perubahan input dari pengguna dengan cepat, berada jauh di bawah target KPI sebesar 200~ms. Dengan demikian, performa komunikasi antara HMI dan PLC dapat dikategorikan OK.
+
+ 
 
 \subsubsection{Persentase Sukses Komunikasi}
 Tingkat keberhasilan komunikasi diukur dari jumlah permintaan yang berhasil dijawab dibandingkan dengan total permintaan yang dikirim.  
 Dapat dilihat pada gambar~\ref{fig:fins-stress-log}, terdapat 990 permintaan yang sukses dibandingkan dengan 1000 total permintaan. Hasil menunjukkan tingkat keberhasilan 99\%, melampaui KPI minimal 95\%.  
 
 \subsubsection{Penggunaan CPU dan Memori Server}
-Selama pengujian, penggunaan CPU server rata-rata berada pada 22\%. Hal ini berarti penggunaan CPU server masih di bawah batas KPI 30\%.
-Sedangkan rata-rata penggunaan memori selama uji beban tercatat 280 MB dari total memori sebesar 8 GB. Ini juga berarti bahwa penggunaan memori server masih dalam batas wajar.  
+Selama pengujian performa, pemantauan dilakukan melalui \textit{Task Manager} pada sistem operasi Windows untuk memisahkan beban proses antara \textbf{frontend} dan \textbf{backend}. 
+Gambar~\ref{fig:cpu-mem-usage} memperlihatkan bahwa proses \textbf{Microsoft Edge} mewakili bagian \textit{frontend} (aplikasi HMI berbasis Angular yang berjalan di browser), sedangkan proses \textbf{Node.js JavaScript Runtime} mewakili bagian \textit{backend} (server FUXA yang menjalankan konektor FINS).
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/memori_cpu_usage.jpeg}
-    \caption{Monitoring penggunaan memori dan CPU server}
-    \label{fig:memory-cpu-usage}
+    \includegraphics[width=0.85\textwidth]{images/cpu and mem usage.png}
+    \caption{Pemantauan penggunaan CPU dan memori oleh frontend (Edge) dan backend (Node.js)}
+    \label{fig:cpu-mem-usage}
 \end{figure}
+
+Selama uji beban berlangsung, total penggunaan CPU berada pada kisaran rata-rata \textbf{3\%} secara keseluruhan, 
+dengan kontribusi sekitar \textbf{0.8\%} dari proses \textit{Node.js backend} dan \textbf{0.8\%} dari proses \textit{frontend browser}. 
+Rata-rata konsumsi memori tercatat sebesar \textbf{91 MB} untuk backend dan sekitar \textbf{371 MB} untuk frontend browser.  
+
+Nilai tersebut masih jauh di bawah batas KPI yang telah ditetapkan, yaitu maksimum \textbf{30\% penggunaan CPU} dan \textbf{500 MB penggunaan memori server}. 
+Hal ini menunjukkan bahwa arsitektur HMI berbasis Node.js dan Angular mampu beroperasi dengan efisien tanpa membebani sumber daya sistem secara berlebihan.
+
 
 \subsubsection{Waktu Deteksi Alarm}
 Waktu deteksi alarm dihitung sejak kondisi yang memicu alarm terpenuhi hingga indikator alarm muncul di antarmuka pengguna.  
-Rata-rata waktu deteksi adalah sekitar 1000 ms, jauh lebih lambat dari batas KPI 200 ms. Hal ini dikarenakan interval terkecil sistem HMI untuk mendeteksi situasi dan kemudian mengirimkan alarm adalah 1 detik seperti yang ditunjukkan pada gambar~\ref{fig:alarm-interval}. 
+Waktu deteksi adalah sekitar 1000 ms, jauh lebih lambat dari batas KPI 200 ms. Hal ini dikarenakan interval terkecil sistem HMI untuk mendeteksi situasi dan kemudian mengirimkan alarm adalah 1 detik seperti yang ditunjukkan pada gambar~\ref{fig:alarm-interval}. 
 
 \begin{figure}[H]
     \centering
@@ -375,7 +402,7 @@ Rata-rata waktu deteksi adalah sekitar 1000 ms, jauh lebih lambat dari batas KPI
 
 \subsubsection{Waktu Mulai Aplikasi}
 Aplikasi diuji untuk mengetahui waktu yang dibutuhkan sejak proses inisialisasi hingga tampilan utama siap digunakan.  
-Rata-rata waktu mulai aplikasi adalah 3,8 detik, memenuhi KPI $\leq$ 10 detik.
+Rata-rata waktu mulai aplikasi adalah 3,14 detik, memenuhi KPI $\leq$ 10 detik.
 
 \begin{figure}[H]
     \centering
@@ -388,7 +415,6 @@ Rata-rata waktu mulai aplikasi adalah 3,8 detik, memenuhi KPI $\leq$ 10 detik.
 \begin{itemize}
     \item Saat kabel dicabut, modul mendeteksi timeout dan mengirimkan event \texttt{device-status:changed} dengan status \texttt{connect-error} (UI merah). 
     \item Mekanisme reconnect otomatis dijalankan setiap 3--5 detik. Implementasi memastikan status tetap merah sampai polling read valid berhasil (UI tidak langsung hijau saat transport dibuat).
-    \item Dalam beberapa percobaan stress tinggi (banyak tag + interval pendek) perlu tuning polling scheduler untuk mencegah penumpukan event dan memory-leak pada listener.
 \end{itemize}
 
 
