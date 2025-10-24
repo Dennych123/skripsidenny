@@ -732,7 +732,7 @@
     {\normalfont\normalsize\bfseries}
 }
 \renewcommand{\subsubsection}{
-    \@startsection{subsubsection}{2}{\z@}
+    \@startsection{subsubsection}{3}{\z@}
     {-3.25ex\@plus -1ex \@minus -.2ex}
     {1.5ex \@plus .2ex}
     {\normalfont\normalsize\bfseries}
