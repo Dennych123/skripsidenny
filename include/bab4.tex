@@ -367,8 +367,33 @@ Berdasarkan hasil pengujian pada Gambar~\ref{fig:test-latensi}, diperoleh waktu 
  
 
 \subsubsection{Persentase Sukses Komunikasi}
-Tingkat keberhasilan komunikasi diukur dari jumlah permintaan yang berhasil dijawab dibandingkan dengan total permintaan yang dikirim.  
-Dapat dilihat pada gambar~\ref{fig:fins-stress-log}, terdapat 990 permintaan yang sukses dibandingkan dengan 1000 total permintaan. Hasil menunjukkan tingkat keberhasilan 99\%, melampaui KPI minimal 95\%.  
+\label{sec:persentase-sukses}
+
+Pengujian persentase sukses komunikasi dilaksanakan menggunakan skrip Node.js yang mengirimkan permintaan baca (\textit{read request}) berulang ke alamat memori \texttt{D100} pada PLC. Parameter utama pengujian adalah sebagai berikut:
+\begin{itemize}
+\item Jumlah permintaan total: 1000 request.
+\item Tingkat konkurensi: 10 request paralel (concurrency = 10).
+\item Transport: FINS over UDP pada port 9600 (sesuai konfigurasi uji).
+\item Kriteria respons dianggap \emph{berhasil}: diterimanya paket balasan dari PLC yang menunjukkan \texttt{Response Code 0000} dan Service ID yang sesuai.
+\item Kegagalan dicatat jika tidak ada respons (timeout) atau respons berisi kode kesalahan/format tidak sesuai dalam batas waktu yang ditentukan oleh skrip pengujian.
+\item Semua event (success/fail/timeout) dicatat ke log terminal untuk analisis post-test.
+\end{itemize}
+
+Pengujian dijalankan oleh skrip yang memulai 10 worker paralel; setiap worker mengirimkan permintaan baca berurutan ke alamat \texttt{D100} sampai jumlah permintaan gabungan mencapai 1000. Untuk setiap permintaan skrip menunggu balasan hingga batas waktu yang ditetapkan; jika balasan diterima dengan \texttt{Response Code = 0000} permintaan dicatat sebagai berhasil, jika tidak dicatat gagal. Setelah semua 1000 permintaan selesai, skrip menghitung jumlah sukses, jumlah gagal, dan persentase sukses, serta menyimpan log dan tangkapan paket (Wireshark) untuk analisis akar penyebab kegagalan.
+
+Hasil pengujian menunjukkan \textbf{990 request berhasil} dari \textbf{1000 request total} (dapat dilihat di Gambar~\ref{fig:hasil-sukses-komunikasi}), sehingga diperoleh \textbf{persentase sukses 99\%}, melampaui target KPI minimal sebesar 95\%. Analisis log dan capture paket mengungkapkan hal berikut:
+\begin{itemize}
+\item Dari 10 kegagalan, mayoritas tercatat sebagai \textbf{timeout} (tidak ada respons dalam jangka waktu tunggu skrip). Timeout ini terekam juga pada Wireshark sebagai paket request tanpa paket reply yang sesuai.
+\item Tidak ada indikasi kesalahan framing FINS yang sistemik (Gambar~\ref{fig:capture-wireshark} menunjukkan \texttt{Response Code 0000} pada paket yang sukses).
+\item Faktor penyebab kegagalan yang mungkin: kerugian paket UDP di jaringan fisik/layer link, sementara PLC sedang sibuk memproses permintaan lain (antrian internal), atau packet scheduling pada host yang mengirim request terlalu agresif untuk kondisi jaringan uji.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/hasil_success_rate.png}
+    \caption{Tampilan log hasil pengujian persentase sukses komunikas}
+    \label{fig:hasil-sukses-komunikasi}
+\end{figure}
 
 \subsubsection{Penggunaan CPU dan Memori Server}
 Selama pengujian performa, pemantauan dilakukan melalui \textit{Task Manager} pada sistem operasi Windows untuk memisahkan beban proses antara \textbf{frontend} dan \textbf{backend}. 
