@@ -1,17 +1,16 @@
 \chapter*{ABSTRAK}
 
-Berbagai macam akselerator telah dikembangkan dalam meningkatkan kinerja dan efisiensi energi untuk menangani komputasi berat, salah satu diantaranya yaitu FPGA. FPGA mampu menangani beban komputasi yang begitu berat sehingga dapat digunakan untuk \textit{Digital Signal Processing}, \textit{Image Processing}, \textit{Neural Network}, dan sebagainya.
-% metode
-Pada penelitian ini penulis mencoba mengkaji kinerja yang dimiliki ARM prosesor dan FPGA pada FPGA \textit{Development Board} Xilinx PYNQ Z2 dalam penerapan filter spasial linear pada video \textit{stream}. Kernel filter yang digunakan pada penelitian ini yaitu \textit{average blur}, \textit{gaussian blur}, \textit{laplacian}, \textit{sharpen}, \textit{sobel horizontal} dan \textit{sobel vertical}. Parameter yang digunakan untuk mengukur kinerja ARM prosesor dan FPGA yaitu waktu komputasi, \textit{frame rate} (FPS), penggunaan CPU, penggunaan \textit{memory}, \textit{resident memory} (RES), \textit{shared memory} (SHR) dan \textit{virtual memory} (VIRT).
-% hasil
-Rata-rata waktu komputasi yang dibutuhkan untuk menerapkan filter spasial linear pada 200 frame dengan ARM prosesor adalah 29.06 detik sedangkan dengan FPGA rata-rata hanya dibutuhkan 3.32 detik. Waktu komputasi dengan FPGA 88.85\% lebih baik dibandingkan dengan ARM prosesor. Video hasil filter dengan ARM prosesor memperoleh rata-rata 6.95 fps sedangkan dengan FPGA rata-rata 60.37 fps. FPS dengan FPGA 88.49\% lebih baik lebih baik dibandingkan ARM prosesor. Penggunaan CPU pada FPGA 14.89\% lebih baik, penggunaan \textit{memory} pada FPGA 2.02\% lebih baik, penggunaan \textit{resident memory} 2.07\% lebih baik, dan penggunaan \textit{shared memory} 4.08\% lebih baik dibandingkan dengan ARM prosesor. Sedangkan penggunaan \textit{virtual memory} pada ARM prosesor 0.03\% lebih baik dibandingkan FPGA.
+Perkembangan teknologi otomasi industri menuntut adanya sistem kendali yang adaptif, efisien, dan mudah diintegrasikan dengan berbagai perangkat produksi. \textit{Programmable Logic Controller} (PLC) menjadi komponen utama dalam sistem otomasi karena kemampuannya dalam mengendalikan proses secara real-time dengan keandalan tinggi. Di lingkungan PT~XYZ, sebagian besar lini produksi telah menggunakan PLC merek Omron yang beroperasi menggunakan protokol komunikasi \textit{Factory Interface Network Service} (FINS). Sementara itu, \textit{Human–Machine Interface} (HMI) berperan penting dalam memvisualisasikan data proses, memberikan akses kontrol, serta memfasilitasi interaksi antara operator dan mesin.
 
+Kendala utama yang dihadapi industri adalah keterbatasan dukungan protokol FINS pada sistem HMI berbasis sumber terbuka (\textit{open source}). Salah satu platform HMI/SCADA \textit{open source} yang berkembang adalah FUXA, yang memiliki karakteristik ringan, berbasis web, serta mendukung akses jarak jauh dan integrasi dengan sistem IoT. Namun, FUXA belum mendukung komunikasi FINS secara bawaan, sehingga tidak dapat berinteraksi langsung dengan PLC Omron. Kondisi ini menjadi dasar dilakukannya penelitian untuk menambahkan dukungan protokol FINS pada FUXA agar sistem HMI berbasis web tersebut dapat berfungsi secara penuh dalam lingkungan industri yang menggunakan PLC Omron.
+
+Penelitian ini menggunakan pendekatan eksperimental yang terdiri dari empat tahapan utama, yaitu studi literatur, analisis arsitektur komunikasi FINS, implementasi modul komunikasi FINS pada FUXA, serta pengujian performa sistem. Pengujian dilakukan untuk mengevaluasi kestabilan proses pembacaan dan penulisan data antara FUXA dan PLC Omron serta akurasi visualisasi data pada antarmuka pengguna. Hasil pengujian menunjukkan bahwa modul komunikasi FINS yang dikembangkan mampu berfungsi dengan baik dan stabil, dengan tingkat keterlambatan (latensi) komunikasi yang rendah serta visualisasi data yang sesuai dengan kondisi aktual di PLC.
+
+Secara keseluruhan, penelitian ini berhasil mengimplementasikan protokol FINS pada sistem HMI FUXA sehingga mampu berinteraksi langsung dengan PLC Omron tanpa memerlukan perangkat lunak tambahan. Solusi yang dihasilkan bersifat fleksibel, bebas lisensi, dan dapat dikustomisasi sesuai kebutuhan industri. Dengan demikian, hasil penelitian ini diharapkan dapat menjadi kontribusi bagi pengembangan sistem otomasi industri berbasis sumber terbuka dan mendukung inisiatif transformasi digital di sektor manufaktur.
 
 \begin{table}[h]
     \begin{tabular}{ p{0.17\textwidth} p{0.8\textwidth} }
         \\
-        \textbf{Kata Kunci :} & filter spasial linear, FPGA, ARM prosesor, video \textit{stream}, \textit{video processing}
+        \textbf{Kata Kunci :} & HMI, FINS, PLC Omron, FUXA, otomasi industri, sistem kendali berbasis web
     \end{tabular}
 \end{table}
-
- 
