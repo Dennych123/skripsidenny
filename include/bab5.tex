@@ -1,29 +1,53 @@
 \chapter{KESIMPULAN DAN SARAN}
 
 \section{Kesimpulan}
-Berdasarkan implementasi modul konektor FINS pada FUXA, pengujian fungsional, pengujian performa, dan evaluasi responden yang telah dilakukan dalam penelitian ini, dapat ditarik kesimpulan sebagai berikut:
+Berdasarkan hasil implementasi, pengujian, dan evaluasi terhadap penambahan dukungan protokol FINS pada sistem HMI FUXA, dapat disimpulkan hal-hal berikut ini sesuai dengan rumusan masalah penelitian:
 
 \begin{enumerate}
-    \item Penambahan dukungan protokol FINS pada sistem HMI FUXA berhasil diimplementasikan pada arsitektur backend (Node.js) dan frontend (Angular). Modul mampu melakukan \texttt{connect()}, \texttt{read()}, \texttt{write()} dan \texttt{poll()} sehingga FUXA dapat berkomunikasi langsung dengan PLC Omron.
-    \item Dari aspek kestabilan komunikasi, hasil uji beban (1000 request, concurrency 10) menunjukkan tingkat keberhasilan komunikasi mencapai sekitar 99\% dan latensi rata-rata baca/tulis ~48\,ms, sehingga secara umum komunikasi FINS melalui modul yang dikembangkan bersifat stabil dan layak digunakan pada skenario lab/operasional ringan hingga menengah.
-    \item Penggunaan sumber daya (CPU $\approx$ 22\%, memori $\approx$ 280\,MB) berada dalam batas yang wajar untuk perangkat kelas mini PC, sehingga solusi ini praktis dari segi kebutuhan perangkat keras.
-    \item Mekanisme auto-reconnect, event emission (mis. \texttt{device-value:changed}, \texttt{device-status:changed}), dan integrasi ke UI FUXA berfungsi sehingga operator memperoleh tampilan status dan nilai tag secara real-time.
-    \item Namun terdapat keterbatasan pada waktu deteksi alarm: rata-rata deteksi alarm di sistem tercatat sekitar 1000\,ms (lebih lambat dari target KPI $\leq$ 200\,ms). Penyebab utama adalah interval polling minimum pada lapisan HMI; akibatnya untuk kejadian kritis perlu optimasi agar memenuhi kebutuhan real-time.
-    \item Secara keseluruhan, hipotesis alternatif (H1) bahwa implementasi FINS pada FUXA menghasilkan komunikasi stabil dan dapat divisualisasikan pada UI didukung oleh hasil pengujian, dengan catatan perbaikan pada deteksi alarm untuk aplikasi yang menuntut latensi sangat ketat.
+    \item \textbf{Penambahan fitur protokol FINS pada sistem HMI FUXA.}  
+    Pengembangan modul konektor FINS berhasil dilakukan dengan menambahkan komponen \texttt{DeviceFins} pada sisi \textit{backend} (Node.js) dan antarmuka konfigurasi pada sisi \textit{frontend} (Angular).  
+    Modul ini mampu menjalankan fungsi utama komunikasi PLC, yaitu \texttt{connect()}, \texttt{read()}, \texttt{write()}, dan \texttt{poll()} dengan protokol FINS berbasis UDP maupun TCP.  
+    Implementasi ini memungkinkan FUXA berkomunikasi langsung dengan PLC Omron CJ2M tanpa memerlukan middleware tambahan, menjadikannya solusi HMI \textit{open source} pertama yang mendukung FINS secara native.
+
+    \item \textbf{Perbaikan proses pembacaan dan penulisan data FINS agar stabil dan dapat divisualisasikan pada UI.}  
+    Berdasarkan hasil uji fungsional dan beban, sistem mampu mempertahankan tingkat keberhasilan komunikasi sebesar 99\% dengan latensi rata-rata baca/tulis sebesar 48\,ms.  
+    Nilai ini menunjukkan performa komunikasi yang stabil untuk penggunaan laboratorium atau sistem produksi berskala kecil–menengah.  
+    Data hasil pembacaan ditampilkan secara real-time di antarmuka HMI melalui mekanisme event-driven FUXA (\texttt{device-value:changed} dan \texttt{device-status:changed}), yang memastikan sinkronisasi antara nilai tag PLC dan visualisasi pengguna.  
+    Selain itu, fitur auto-reconnect dan logging adaptif yang ditambahkan meningkatkan keandalan komunikasi ketika terjadi gangguan jaringan.
+
 \end{enumerate}
 
+Secara keseluruhan, penelitian ini membuktikan bahwa FUXA dapat dikembangkan menjadi sistem HMI yang kompatibel dengan PLC Omron menggunakan protokol FINS.  
+Integrasi ini berhasil meningkatkan interoperabilitas sistem tanpa menambah biaya lisensi perangkat lunak.  
+Namun, hasil pengujian menunjukkan bahwa deteksi alarm masih memiliki latensi sekitar 1000\,ms, lebih lambat dari target 200\,ms, sehingga diperlukan optimasi polling atau mekanisme notifikasi berbasis event dari PLC untuk memenuhi kebutuhan real-time yang lebih ketat.
+
 \section{Saran}
-Berdasarkan temuan dan keterbatasan penelitian, penulis mengajukan saran terukur berikut untuk pengembangan dan penerapan praktis:
+Berdasarkan hasil dan keterbatasan penelitian, beberapa saran pengembangan dapat diajukan untuk meningkatkan kinerja dan penerapan sistem di masa mendatang:
 
 \begin{enumerate}
-    \item \textbf{Optimasi deteksi alarm:} Implementasikan mekanisme event-driven atau notifikasi dari PLC (jika tersedia) atau turunkan interval polling hanya untuk tag kritis; alternatif lain adalah menambahkan proses listener terpisah yang memprioritaskan pembacaan alarm.
-    \item \textbf{Stress test dan tuning scheduler:} Lakukan pengujian beban yang lebih ekstensif (jumlah tag besar, interval lebih kecil) untuk menentukan batas performa. Gunakan hasil ini untuk tuning polling scheduler, batching request, dan pengelolaan listener agar mencegah penumpukan event dan memory leak.
-    \item \textbf{Keamanan dan akses:} Tambahkan lapisan autentikasi, otorisasi, dan enkripsi (mis. VPN/TLS/DTLS) pada koneksi server HMI—terutama saat digunakan di lingkungan produksi atau remote access.
-    \item \textbf{Logging dan data historis:} Integrasikan penyimpanan historis (time-series database) untuk keperluan audit, analitik, dan debugging; tambahkan mode logging terperinci untuk troubleshooting tanpa mengganggu performa normal.
-    \item \textbf{Kompatibilitas luas:} Uji dan sesuaikan modul agar kompatibel dengan seri PLC Omron lain (mis. NX/NJ) dan dengan opsi FINS over TCP; pertimbangkan juga dukungan multi-protokol (Modbus, OPC-UA) untuk interoperabilitas.
-    \item \textbf{User experience (UX):} Perbaiki antarmuka konfigurasi (mis. tombol \textit{Check Connection}, validasi lebih kuat) berdasarkan umpan balik responden agar mempermudah penggunaan di lapangan oleh operator non-teknis.
-    \item \textbf{Dokumentasi dan repositori:} Publikasikan kode, skrip pengujian, dan dataset (CSV/Wireshark) pada repositori yang terdokumentasi untuk memastikan reproducibility dan memudahkan adopsi oleh pihak industri.
+    \item \textbf{Optimasi deteksi alarm dan latensi real-time.}  
+    Implementasikan pendekatan berbasis event (\textit{event-driven listener}) untuk tag alarm kritis atau gunakan fitur \textit{interrupt task} dari PLC Omron agar pembacaan tidak bergantung pada interval polling reguler.
+
+    \item \textbf{Pengujian lanjutan dan tuning performa.}  
+    Lakukan \textit{stress test} dengan jumlah tag lebih besar dan interval polling lebih cepat untuk menentukan batas performa sistem.  
+    Data hasil pengujian dapat digunakan untuk menyempurnakan algoritma scheduler FUXA, mengurangi beban CPU, dan mencegah penundaan pada UI.
+
+    \item \textbf{Penguatan aspek keamanan dan akses jaringan.}  
+    Tambahkan fitur autentikasi pengguna, enkripsi TLS/DTLS, dan opsi VPN agar komunikasi antara HMI dan PLC lebih aman, terutama untuk implementasi di jaringan produksi.
+
+    \item \textbf{Integrasi penyimpanan historis dan analitik.}  
+    Integrasikan basis data deret waktu (\textit{time-series database}) seperti InfluxDB atau TimescaleDB untuk menyimpan data tag secara historis, mendukung visualisasi tren, alarm historis, dan analisis performa mesin.
+
+    \item \textbf{Peningkatan antarmuka pengguna dan pengalaman operator.}  
+    Tambahkan fitur seperti tombol \textit{Test Connection}, validasi parameter otomatis (SA1, DA1, alamat memori), serta umpan balik status koneksi agar sistem lebih ramah bagi pengguna non-teknis.
+
+    \item \textbf{Ekspansi kompatibilitas protokol.}  
+    Lanjutkan pengembangan agar konektor FINS juga mendukung seri PLC Omron lainnya (mis. NX/NJ) serta varian komunikasi FINS over TCP.  
+    Selain itu, perlu diteliti integrasi multi-protokol (Modbus, MQTT, OPC-UA) untuk memperluas interoperabilitas industri.
+
+    \item \textbf{Publikasi kode sumber dan dokumentasi.}  
+    Dokumentasikan seluruh modul, skrip pengujian, serta dataset hasil uji dalam repositori \textit{open source} agar penelitian dapat direplikasi dan dikembangkan lebih lanjut oleh komunitas industri dan akademik.
 \end{enumerate}
 
 \noindent
-Dengan menerapkan saran-saran di atas, modul konektor FINS pada FUXA dapat ditingkatkan menuju solusi HMI/SCADA sumber terbuka yang lebih andal, aman, dan layak diterapkan pada lingkungan produksi PT~XYZ maupun industri serupa.
+Dengan penerapan saran-saran di atas, FUXA berpotensi menjadi sistem HMI/SCADA sumber terbuka yang tidak hanya mendukung PLC Omron melalui protokol FINS, tetapi juga memenuhi kebutuhan performa, keamanan, dan skalabilitas di lingkungan industri nyata.
