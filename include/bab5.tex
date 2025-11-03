@@ -10,7 +10,8 @@ Berdasarkan hasil implementasi, pengujian, dan evaluasi terhadap penambahan duku
     Implementasi ini memungkinkan FUXA berkomunikasi langsung dengan PLC Omron CJ2M tanpa memerlukan middleware tambahan, menjadikannya solusi HMI \textit{open source} pertama yang mendukung FINS secara native.
 
     \item \textbf{Perbaikan proses pembacaan dan penulisan data FINS agar stabil dan dapat divisualisasikan pada UI.}  
-    Berdasarkan hasil uji fungsional dan beban, sistem mampu mempertahankan tingkat keberhasilan komunikasi sebesar 99\% dengan latensi rata-rata baca/tulis sebesar 48\,ms.  
+    Berdasarkan hasil uji fungsional dan beban, sistem mampu mempertahankan tingkat keberhasilan komunikasi sebesar 99\% dengan latensi rata-rata baca/tulis sebesar 12
+    \,ms.  
     Nilai ini menunjukkan performa komunikasi yang stabil untuk penggunaan laboratorium atau sistem produksi berskala kecil–menengah.  
     Data hasil pembacaan ditampilkan secara real-time di antarmuka HMI melalui mekanisme event-driven FUXA (\texttt{device-value:changed} dan \texttt{device-status:changed}), yang memastikan sinkronisasi antara nilai tag PLC dan visualisasi pengguna.  
     Selain itu, fitur auto-reconnect dan logging adaptif yang ditambahkan meningkatkan keandalan komunikasi ketika terjadi gangguan jaringan.
