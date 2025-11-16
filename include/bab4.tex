@@ -444,21 +444,49 @@ Rata-rata waktu mulai aplikasi adalah 3,14 detik, memenuhi KPI $\leq$ 10 detik.
 
 
 
-\subsection{Evaluasi Berbasis Responden }
-Evaluasi melibatkan 10 responden (operator/teknisi). Hasil ringkasan kuesioner (skala Likert 1--5):
+\subsection{Evaluasi Berbasis Responden}
+Evaluasi dilakukan terhadap 10 responden (operator dan teknisi) dengan menggunakan kuesioner skala Likert 1--5. Lima aspek utama yang dinilai meliputi kemudahan konfigurasi, kejelasan tampilan nilai dan status, responsivitas sistem, konsistensi UI, serta kepuasan umum terhadap integrasi FINS pada FUXA.
 
-\begin{table}[ht]
+\subsubsection{Data Mentah Kuesioner}
+Tabel berikut menyajikan data mentah dari 10 responden. Untuk menjaga konsistensi penamaan, setiap responden diberi kode R1 hingga R10.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|p{2.2cm}|p{2.5cm}|p{2.5cm}|p{2.2cm}|p{2cm}|}
+\hline
+\textbf{Responden} & \textbf{Kemudahan} & \textbf{Kejelasan Status} & \textbf{Responsivitas} & \textbf{Konsistensi UI} & \textbf{Kepuasan Umum} \\ \hline
+R1 & 4 & 4 & 5 & 4 & 4 \\ \hline
+R2 & 5 & 4 & 4 & 4 & 5 \\ \hline
+R3 & 5 & 4 & 4 & 4 & 5 \\ \hline
+R4 & 4 & 4 & 4 & 4 & 4 \\ \hline
+R5 & 4 & 4 & 4 & 4 & 4 \\ \hline
+R6 & 4 & 5 & 4 & 4 & 4 \\ \hline
+R7 & 4 & 4 & 5 & 4 & 4 \\ \hline
+R8 & 4 & 4 & 4 & 4 & 4 \\ \hline
+R9 & 4 & 4 & 5 & 4 & 5 \\ \hline
+R10 & 4 & 4 & 4 & 4 & 4 \\ \hline
+\rowcolor{gray!20}
+\textbf{Rata-rata} & \textbf{4.2} & \textbf{4.1} & \textbf{4.3} & \textbf{4.0} & \textbf{4.3} \\ \hline
+\end{tabular}
+\caption{Data hasil evaluasi responden (R1--R10) beserta rata-rata}
+\label{tab:raw-respondent}
+\end{table}
+
+\subsubsection{Ringkasan Hasil Evaluasi}
+Rata-rata skor tiap aspek dihitung dari data mentah pada Tabel~\ref{tab:raw-respondent}. Ringkasan hasilnya ditunjukkan pada tabel berikut:
+
+\begin{table}[H]
     \centering
-    \begin{tabular}{|c|c|p{2.5cm}|}
+    \begin{tabular}{|c|c|p{3.5cm}|}
         \hline
         \textbf{Aspek} & \textbf{Rata-rata Skor} & \textbf{Interpretasi} \\ \hline
         Kemudahan konfigurasi & 4.2 & Baik \\ \hline
-        Kejelasan tampilan nilai dan status & 4.0 & Baik \\ \hline
-        Responsivitas (persepsi operator) & 4.4 & Sangat baik (perubahan terlihat instan) \\ \hline
-        Konsistensi UI dengan protokol lain & 4.1 & Baik \\ \hline
+        Kejelasan tampilan nilai dan status & 4.1 & Baik \\ \hline
+        Responsivitas (persepsi operator) & 4.3 & Sangat baik (perubahan terlihat instan) \\ \hline
+        Konsistensi UI dengan protokol lain & 4.0 & Baik \\ \hline
         Kepuasan umum & 4.3 & Puas \\ \hline
     \end{tabular}
-    \caption{Hasil evaluasi berbasis responden}
+    \caption{Ringkasan hasil evaluasi berbasis responden}
     \label{tab:usability}
 \end{table}
 
