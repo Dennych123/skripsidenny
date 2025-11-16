@@ -53,7 +53,8 @@ function singleRead(tag) {
 }
 
 async function runStressTest() {
-  console.log(`Running FINS stress test: ${TOTAL_REQUESTS} requests @ ${CONCURRENCY} concurrency`);
+  console.log(`Running FINS stress test: ${TOTAL_REQUESTS} requests 
+  @ ${CONCURRENCY} concurrency`);
   startTime = Date.now();
 
   while (sent < TOTAL_REQUESTS) {
@@ -62,7 +63,8 @@ async function runStressTest() {
       pending++;
       singleRead(`read ${sent}`).then(() => {
         pending--;
-        if (sent % 50 === 0) console.log(`Progress: ${sent}/${TOTAL_REQUESTS}`);
+        if (sent % 50 === 0) console.log(`Progress: 
+        ${sent}/${TOTAL_REQUESTS}`);
       });
     } else {
       await new Promise((r) => setTimeout(r, 1)); // small pause
@@ -80,8 +82,10 @@ async function runStressTest() {
   console.log(`Success       : ${success}`);
   console.log(`Failed        : ${failed}`);
   console.log(`Total Time    : ${duration} ms`);
-  console.log(`Avg Latency   : ${success ? (totalTime / success).toFixed(2) : '-'} ms`);
-  console.log(`Requests/sec  : ${(success / (duration / 1000)).toFixed(2)} rps`);
+  console.log(`Avg Latency   : ${success ? (totalTime / success)
+  .toFixed(2) : '-'} ms`);
+  console.log(`Requests/sec  : ${(success / (duration / 1000))
+  .toFixed(2)} rps`);
   console.log('---------------------------');
 }
 
@@ -237,7 +241,8 @@ function DeviceFins(data, logger, events, runtime) {
 
 
                 let timeout = setTimeout(() => {
-                    logger.warn(`[FINS]  Timeout saat polling tag ${tag.name}`);
+                    logger.warn(`[FINS]  Timeout saat polling tag 
+                    ${tag.name}`);
                     isConnected = false;
                     this.scheduleReconnect();
                     resolve();
@@ -276,7 +281,8 @@ function DeviceFins(data, logger, events, runtime) {
     }
 
     if (changed.length) {
-        events.emit('device-value:changed', { id: deviceId, values: changed });
+        events.emit('device-value:changed', { id: deviceId, 
+        values: changed });
     }
 };
 
