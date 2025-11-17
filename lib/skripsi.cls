@@ -468,8 +468,8 @@
             \vfill
 
             {\normalfont
-                \MakeUppercase{\normalfont\bfseries Program Studi \@program}\\
-                \MakeUppercase{\normalfont\bfseries Fakultas \@faculty}\\
+                \MakeUppercase{\normalfont\bfseries \@program}\\
+                \MakeUppercase{\normalfont\bfseries \@faculty}\\
                 \MakeUppercase{\normalfont\bfseries\@university}\\
                 \MakeUppercase{\normalfont\bfseries\@city}\\
                 \vspace{0.2cm}

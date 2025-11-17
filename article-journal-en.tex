@@ -11,29 +11,35 @@
 \title{\Large{Integration of the FINS Protocol into the Open-Source HMI System FUXA for Omron PLCs}} % Article title
 \author{%
     \textsc{Denny Chrisnanda} \\ % Your name
-    \normalsize {Universitas Bina Nusantara} \\ % Your institution
-    \normalsize {jane@smith.com} % Your email address
+    \normalsize {\textit{Computer Science Department}} \\ 
+    \normalsize {\textit{Binus Online Learning}} \\ 
+    \normalsize {\textit{Bina Nusantara University}} \\ % Your institution
+    \normalsize {denny.chrisnanda@binus.ac.id} % Your email address
     % \and % Uncomment if 2 authors are required, duplicate these 4 lines if more
     % \textsc{Jane Smith}\thanks{Corresponding author} \\[1ex] % Second author's name
     % \normalsize University of Utah \\ % Second author's institution
     % \normalsize {jane@smith.com} % Second author's email address
     \and
-    \textsc{Frans Sebastian}\thanks{Corresponding author} \\[1ex] % Second author's name
-    \normalsize {Universitas Bina Nusantara} \\ % Second author's institution
-    \normalsize {jane@smith.com} % Second author's email address
+    \textsc{Frans Sebastian}\\%\thanks{Corresponding author} \\[1ex] % Second author's name
+    \normalsize {\textit{Computer Science Department}} \\ 
+    \normalsize {\textit{Binus Online Learning}} \\ 
+    \normalsize {\textit{Bina Nusantara University}} \\ % Second author's institution
+    \normalsize {frans.sebastian@binus.ac.id} % Second author's email address
     \and
-    \textsc{Gilang Hansagita}\thanks{Corresponding author} \\[1ex] % Second author's name
-    \normalsize {Universitas Bina Nusantara} \\ % Second author's institution
-    \normalsize {jane@smith.com} % Second author's email address
+    \textsc{Gilang Hansagita}\\%\thanks{Corresponding author} \\[1ex] % Second author's name
+    \normalsize {\textit{Computer Science Department}} \\ 
+    \normalsize {\textit{Binus Online Learning}} \\ 
+    \normalsize {\textit{Bina Nusantara University}} \\  % Second author's institution
+    \normalsize {gilang.hansagita@binus.ac.id} % Second author's email address
 }
 \date{} % Leave empty to omit a date
 \renewcommand{\maketitlehookd}{%
 \begin{abstract}
-    This research aims to integrate the \textit{Factory Interface Network Service} (FINS) protocol into the open-source \textit{Human–Machine Interface} (HMI) system FUXA to enable direct communication with Omron \textit{Programmable Logic Controllers} (PLCs). The implementation involved developing a FINS connector module in Node.js for the backend and adding a configuration interface in Angular for the frontend. Experimental results show that the system can perform read and write operations over the FINS protocol with a success rate of 99\% and an average latency of 48\,ms. Therefore, the enhanced FUXA system provides a stable and cost-efficient open-source HMI/SCADA solution compatible with Omron PLCs, supporting industrial automation and digital transformation initiatives.\\[0.2cm]
+    Industrial automation requires control systems that are adaptive, efficient, and easily integrated across production environments. Programmable Logic Controllers (PLCs) remain central to such systems due to their real-time control capabilities and high reliability. At PT XYZ, Omron PLCs are widely deployed and communicate using the Factory Interface Network Service (FINS) protocol. However, most open-source Human–Machine Interface (HMI) platforms, including the lightweight and web-based FUXA system, do not natively support FINS, limiting their applicability in Omron-based industrial settings. This study addresses this limitation by developing and integrating a FINS communication module into the FUXA HMI. The research methodology comprises a literature review, analysis of FINS communication architecture, module implementation, and performance evaluation. Experimental results demonstrate that the proposed module enables stable data read/write communication with low latency and accurate process visualization corresponding to real PLC conditions. The proposed solution provides a license-free, customizable, and web-based HMI capable of direct communication with Omron PLCs without additional middleware. The findings contribute to the advancement of open-source industrial automation technologies and support ongoing digital transformation initiatives within manufacturing environments.\\[0.2cm]
 
     \vspace{0.15cm}
 
-    \textbf{Keywords}—FINS, FUXA, HMI, Omron, PLC, Industrial Automation.
+    \textbf{Keywords}—FINS, FUXA, HMI, PLC Omron, Industrial Automation.
 
 \end{abstract}
 }
