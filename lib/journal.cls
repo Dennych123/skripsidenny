@@ -122,7 +122,8 @@
     backend=biber,
     style=numeric,
     citestyle=numeric,
-    sorting=nty,
+    % Keep bibliography in citation order so numeric labels follow appearance
+    sorting=none,
     giveninits=false,
     maxbibnames=3
     ]{biblatex}
