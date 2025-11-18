@@ -2,10 +2,10 @@
 
 \section{Hasil Uji Coba Pustaka \texttt{omron-fins}}
 
-Tahap awal penelitian diawali dengan uji coba pustaka \texttt{omron-fins} untuk memastikan kemampuan komunikasi antara komputer (mini PC) dan PLC Omron CJ2M melalui protokol FINS berbasis UDP. Tujuan pengujian ini adalah untuk memverifikasi bahwa pustaka dapat melakukan operasi dasar \textit{read} dan \textit{write} dengan keandalan yang memadai sebelum diintegrasikan ke dalam sistem HMI.
+Tahap awal penelitian diawali dengan uji coba pustaka \texttt{omron-fins} untuk memastikan kemampuan komunikasi antara komputer (PC) dan PLC Omron CJ2M melalui protokol FINS berbasis UDP. Tujuan pengujian ini adalah untuk memverifikasi bahwa pustaka dapat melakukan operasi dasar \textit{read} dan \textit{write} dengan keandalan yang memadai sebelum diintegrasikan ke dalam sistem HMI.
 
 \subsection{Konfigurasi Lingkungan Uji}
-Pengujian dilakukan menggunakan topologi sederhana yang terdiri atas satu mini PC sebagai \textit{client} dan satu PLC Omron CJ2M sebagai \textit{server}. Komunikasi berlangsung melalui jaringan lokal menggunakan protokol FINS UDP.  
+Pengujian dilakukan menggunakan topologi sederhana yang terdiri atas satu PC sebagai \textit{client} dan satu PLC Omron CJ2M sebagai \textit{server}. Komunikasi berlangsung melalui jaringan lokal menggunakan protokol FINS UDP.  
 Rincian perangkat dan konfigurasi ditunjukkan pada Tabel~\ref{tab:uji-fins-env}.
 
 \begin{table}[H]
@@ -14,9 +14,9 @@ Rincian perangkat dan konfigurasi ditunjukkan pada Tabel~\ref{tab:uji-fins-env}.
 \hline
 \textbf{Komponen} & \textbf{Spesifikasi} \\ \hline
 PLC & Omron CJ2M-CPU34 \\ \hline
-Host Client & Mini PC (Intel core i7 11th gen, 16GB RAM, Windows 11) \\ \hline
+Host Client & PC (Intel core i7 11th gen, 16GB RAM, Windows 11) \\ \hline
 IP PLC & 192.168.0.1 \\ \hline
-IP Mini PC & 192.168.0.234 \\ \hline
+IP PC & 192.168.0.234 \\ \hline
 Protokol & FINS over UDP (port 9600) \\ \hline
 Pustaka & \texttt{omron-fins} (Node.js module) \\ \hline
 Bahasa Pemrograman & Node.js v18 LTS \\ \hline
@@ -102,11 +102,11 @@ Analisis paket FINS pada Wireshark juga mengonfirmasi bahwa format data sesuai d
 Bagian ini menjelaskan konfigurasi sistem HMI yang dikembangkan, mulai dari penyiapan topologi jaringan, konfigurasi perangkat keras dan lunak, hingga verifikasi koneksi awal antara HMI dan PLC.
 
 \subsection{Topologi dan Arsitektur Sistem}
-Sistem terdiri atas satu PLC Omron CJ2M sebagai kontroler proses, satu mini PC sebagai server HMI, dan satu tablet yang digunakan untuk pemantauan jarak dekat melalui antarmuka web. Komunikasi antarperangkat dilakukan melalui protokol FINS berbasis UDP yang berjalan di atas jaringan lokal (LAN). Topologi sistem ditunjukkan pada Gambar~\ref{fig:topologi-fuxa-fins}.
+Sistem terdiri atas satu PLC Omron CJ2M sebagai kontroler proses, satu PC sebagai server HMI, dan satu tablet yang digunakan untuk pemantauan jarak dekat melalui antarmuka web. Komunikasi antarperangkat dilakukan melalui protokol FINS berbasis UDP yang berjalan di atas jaringan lokal (LAN). Topologi sistem ditunjukkan pada Gambar~\ref{fig:topologi-fuxa-fins}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{images/topologi_fuxa_fins.png}
+    \includegraphics[width=0.9\textwidth]{images/topologi_fuxa_fins_lengkap.jpeg}
     \caption{Topologi sistem HMI FUXA dengan konektor FINS}
     \label{fig:topologi-fuxa-fins}
 \end{figure}
@@ -114,9 +114,9 @@ Sistem terdiri atas satu PLC Omron CJ2M sebagai kontroler proses, satu mini PC s
 \subsection{Konfigurasi Perangkat Keras}
 \begin{itemize}
     \item \textbf{PLC:} Omron CJ2M-CPU34, dihubungkan ke jaringan melalui port Ethernet internal.
-    \item \textbf{Mini PC:} Bertindak sebagai server HMI (menjalankan Node.js dan FUXA).
+    \item \textbf{PC:} Bertindak sebagai server HMI (menjalankan Node.js dan FUXA).
     \item \textbf{Tablet:} Digunakan untuk mengakses HMI melalui browser dengan alamat IP server di jaringan Wi-Fi yang sama.
-    \item \textbf{Hub/Switch:} Menghubungkan PLC dan Mini PC secara fisik melalui kabel LAN.
+    \item \textbf{Hub/Switch:} Menghubungkan PLC dan PC secara fisik melalui kabel LAN.
 \end{itemize}
 
 Pengaturan alamat IP dilakukan secara statik sebagaimana ditunjukkan pada Tabel~\ref{tab:konfigurasi-jaringan}.
@@ -127,7 +127,7 @@ Pengaturan alamat IP dilakukan secara statik sebagaimana ditunjukkan pada Tabel~
 \hline
 \textbf{Perangkat} & \textbf{Alamat IP} \\ \hline
 PLC Omron CJ2M & 192.168.11.1 \\ \hline
-Mini PC (Server HMI) & 192.168.11.234 \\ \hline
+PC (Server HMI) & 192.168.11.234 \\ \hline
 Tablet (Client) & 192.168.11.20 \\ \hline
 Subnet Mask & 255.255.255.0 \\ \hline
 Gateway & -- (jaringan lokal langsung) \\ \hline
