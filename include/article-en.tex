@@ -61,7 +61,7 @@ A simplified overview of this architecture is shown in Figure~\ref{fig:system-ar
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.85\linewidth]{images/topologi_fuxa_fins_en.jpeg}
+    \includegraphics[width=0.65\linewidth]{images/topologi_fuxa_fins_en.jpeg}
     \caption{Architecture of the developed HMI–PLC communication system}
     \label{fig:system-architecture}
 \end{figure}
@@ -117,7 +117,7 @@ The evaluation focused on two primary objectives aligned with the research goals
 \section{Results and Discussion}
 
 \subsection{Evaluation of the \texttt{omron-fins} Library}
-The study began with an evaluation of the \texttt{omron-fins} Node.js library to verify basic FINS communication (read/write) between a mini PC and an Omron CJ2M PLC via UDP. The experimental setup is summarized in Table~\ref{tab:uji-fins-env}.
+The study began with an evaluation of the \texttt{omron-fins} Node.js library to verify basic FINS communication (read/write) between a PC and an Omron CJ2M PLC via UDP. The experimental setup is summarized in Table~\ref{tab:uji-fins-env}.
 
 \begin{table}[H]
 \centering
@@ -151,11 +151,11 @@ Key observations from the library tests are:
 \end{itemize}
 
 \subsection{System Configuration and Integration}
-The FINS connector was integrated into the FUXA server under the directory \verb|server/runtime/devices/fins|. The deployed testbed topology comprises one Omron CJ2M PLC, one mini PC acting as HMI server, and a tablet as the client (see Fig.~\ref{fig:topologi-fuxa-fins}). Typical connector parameters are listed in Table~\ref{tab:konfigurasi-fins}.
+The FINS connector was integrated into the FUXA server under the directory \verb|server/runtime/devices/fins|. The deployed testbed topology comprises one Omron CJ2M PLC, one PC acting as HMI server, and a tablet as the client (see Fig.~\ref{fig:topologi-fuxa-fins}). Typical connector parameters are listed in Table~\ref{tab:konfigurasi-fins}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\columnwidth]{images/topologi_fuxa_fins_vertical.jpeg}
+    \includegraphics[width=0.65\linewidth]{images/topologi_fuxa_fins_lengkap.jpeg}
     \caption{System topology of the FUXA HMI with the FINS connector}
     \label{fig:topologi-fuxa-fins}
 \end{figure}
@@ -270,7 +270,7 @@ Read/write latency was measured by issuing a write to memory (e.g., \texttt{W1})
 The automated stress test (1\,000 requests, concurrency 10) recorded \textbf{990 successful responses} and \textbf{10 failures} (99\% success). Failures were predominantly timeouts visible in the Wireshark traces as requests without corresponding replies. Likely causes include UDP packet loss on the link, temporary PLC processing backlog, or aggressive scheduling from the test host. No systematic FINS framing errors were observed in successful captures.
 
 \subsubsection{Resource Utilization}
-System monitoring during load tests showed low CPU utilization (approx.\ 2--3\%) and moderate memory consumption (backend $\approx$91\,MB, frontend $\approx$371\,MB). These figures indicate the Node.js + Angular architecture can operate efficiently on the selected mini PC hardware for the tested workload.
+System monitoring during load tests showed low CPU utilization (approx.\ 2--3\%) and moderate memory consumption (backend $\approx$91\,MB, frontend $\approx$371\,MB). These figures indicate the Node.js + Angular architecture can operate efficiently on the selected PC hardware for the tested workload.
 
 \subsubsection{Alarm Detection Time}
 The alarm detection time is measured from the moment the triggering condition in the PLC becomes true until the alarm indicator appears on the HMI interface. 
