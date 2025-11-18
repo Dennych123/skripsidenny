@@ -29,7 +29,7 @@ Berdasarkan hasil implementasi, pengujian, serta keterbatasan yang ditemukan sel
     \item \textbf{Pengembangan fitur protokol FINS pada sistem HMI FUXA.}  
     Untuk meningkatkan kemampuan interoperabilitas sistem, perlu dilakukan optimasi terhadap deteksi alarm dan latensi pembacaan data secara real-time. Pendekatan berbasis \textit{event-driven listener} atau pemanfaatan fitur \textit{interrupt task} pada PLC Omron direkomendasikan agar pembacaan tag kritis tidak bergantung pada interval polling reguler.  
     Selain itu, aspek keamanan jaringan perlu diperkuat dengan menambahkan autentikasi pengguna, enkripsi TLS/DTLS, serta dukungan VPN agar komunikasi HMI–PLC lebih aman pada lingkungan produksi.  
-    Perluasan kompatibilitas juga disarankan dengan mengembangkan konektor multi-protokol (Modbus, MQTT, OPC-UA) guna meningkatkan fleksibilitas dan skalabilitas sistem FUXA di berbagai aplikasi industri.
+    Perluasan kompatibilitas juga disarankan dengan menambahkan protokol lain yang belum tersedia di FUXA tapi difokuskan pada protokol yang banyak digunakan di industri guna meningkatkan fleksibilitas dan skalabilitas sistem FUXA di berbagai aplikasi industri.
 
     \item \textbf{Perbaikan proses pembacaan dan penulisan data FINS agar stabil dan dapat divisualisasikan pada UI.}  
     Untuk meningkatkan performa dan reliabilitas sistem, disarankan dilakukan \textit{stress test} dengan jumlah tag lebih besar serta interval polling lebih cepat guna menentukan batas kemampuan sistem dan melakukan penyempurnaan algoritma \textit{scheduler} FUXA.  

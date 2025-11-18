@@ -14,7 +14,7 @@ Rincian perangkat dan konfigurasi ditunjukkan pada Tabel~\ref{tab:uji-fins-env}.
 \hline
 \textbf{Komponen} & \textbf{Spesifikasi} \\ \hline
 PLC & Omron CJ2M-CPU34 \\ \hline
-Host Client & Mini PC (Intel N5105, 8GB RAM, Ubuntu Server 22.04) \\ \hline
+Host Client & Mini PC (Intel core i7 11th gen, 16GB RAM, Windows 11) \\ \hline
 IP PLC & 192.168.0.1 \\ \hline
 IP Mini PC & 192.168.0.234 \\ \hline
 Protokol & FINS over UDP (port 9600) \\ \hline
@@ -250,7 +250,7 @@ Gambar~\ref{fig:demo-run} menunjukkan tampilan antarmuka HMI saat proses penguji
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/demo_run.png}
-    \caption{Demo sistem HMI yang terkoneksi dengan PLC secara \textit{real-time}. Antarmuka menampilkan visualisasi data berupa grafik (\textit{chart}) dan kontrol input berupa \textit{slider} yang responsif terhadap nilai aktual di PLC.}
+    \caption{Demo sistem HMI yang terkoneksi dengan PLC.}
     \label{fig:demo-run}
 \end{figure}
 
@@ -270,7 +270,7 @@ Gambar~\ref{fig:demo-alarm} memperlihatkan situasi ketika nilai suhu oli melebih
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/demo_alarm.png}
-    \caption{Tampilan demo alarm pada HMI ketika suhu oli melebihi batas aman. Sistem menampilkan notifikasi visual dengan tingkat prioritas \textit{High High}.}
+    \caption{Tampilan demo alarm pada HMI ketika suhu oli melebihi batas aman.}
     \label{fig:demo-alarm}
 \end{figure}
 
@@ -332,7 +332,7 @@ Tabel~\ref{tab:eval-results} menampilkan ringkasan hasil uji teknis terhadap imp
         Latensi baca/tulis (rata-rata) & $\leq$ 200 ms & 12 ms & \textcolor{green}{OK} \\ \hline
         Persentase sukses komunikasi & $\geq$ 95\% & 99\% & \textcolor{green}{OK} \\ \hline
         Penggunaan CPU (server) & $\leq$ 30\% & 2\% & \textcolor{green}{OK} \\ \hline
-        Memori (server) & $\leq$ 500 MB & 468 MB & \textcolor{green}{OK} \\ \hline
+        Memori (server) & $\leq$ 500 MB & 462 MB & \textcolor{green}{OK} \\ \hline
         Waktu deteksi alarm & $\leq$ 200 ms & 1000ms & \textcolor{red}{NG} \\ \hline
         Waktu mulai aplikasi & $\leq$ 10 s & 3.14 s & \textcolor{green}{OK} \\ \hline
     \end{tabular}
