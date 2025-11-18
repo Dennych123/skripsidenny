@@ -8,7 +8,8 @@ Human–Machine Interfaces (HMIs) are essential for enabling operator interactio
 
 FUXA is a lightweight, web-based open-source HMI/SCADA platform that supports common industrial protocols (e.g., Modbus, OPC UA, MQTT) and is implemented using modern web technologies such as Node.js and Angular \cite{seeed2024fuxa, ancona2018nodejs, scarsbrook2023typescript}. Despite its extensibility and suitability for remote and IoT-enabled deployments, FUXA currently lacks native support for Omron's Factory Interface Network Service (FINS) protocol. FINS—supporting both UDP and TCP transports—remains a prevalent protocol in Omron-based installations and provides flexible addressing and memory-area access required for efficient PLC–HMI communication \cite{humaj2021fins, joshi2024study}.
 
-The absence of FINS support in widely used open-source HMIs creates a practical barrier for facilities that wish to migrate away from proprietary HMI solutions without sacrificing compatibility with existing Omron PLC fleets. To address this gap, this study proposes the design and implementation of a FINS communication module for the FUXA platform. The objectives are to: (1) integrate FINS protocol support into FUXA with functional parity to established protocols such as Modbus, and (2) validate stable data read/write operations and accurate real-time visualization on the user interface. By enabling direct interoperability between FUXA and Omron PLCs, the proposed solution aims to offer a flexible, cost-effective, and vendor-independent HMI alternative suitable for digital transformation initiatives in manufacturing environments.
+The absence of FINS support in widely used open-source HMIs creates a practical barrier for facilities that wish to migrate away from proprietary HMI solutions without sacrificing compatibility with existing Omron PLC fleets. This research addresses this problem by focusing on two core questions: (1) How can FINS protocol support be seamlessly integrated into an HMI system, such as FUXA, with functional parity to existing protocols like Modbus? (2) How can the read/write operations for data via the FINS protocol be stabilized to ensure correct, real-time visualization on the User Interface (UI)? To address these questions, this study proposes the design and implementation of a FINS communication module for the FUXA platform. The objectives are to: (1) integrate FINS protocol support into FUXA with functional parity to established protocols such as Modbus, and (2) validate stable data read/write operations and accurate real-time visualization on the user interface. By enabling direct interoperability between FUXA and Omron PLCs, the proposed solution aims to offer a flexible, cost-effective, and vendor-independent HMI alternative suitable for digital transformation initiatives in manufacturing environments.
+
 
 %=========================
 % RELATED WORKS
@@ -44,7 +45,7 @@ The entire workflow is illustrated in Figure~\ref{fig:research-flow}.
 % gambar masih bahasa indonesia
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.85\linewidth]{images/flowchart-tahapan.png}
+    \includegraphics[width=\columnwidth]{images/flowchart-tahapan-en.jpeg}
     \caption{Research workflow for FINS protocol implementation in FUXA}
     \label{fig:research-flow}
 \end{figure}
@@ -60,7 +61,7 @@ A simplified overview of this architecture is shown in Figure~\ref{fig:system-ar
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.85\linewidth]{images/topologi_fuxa_fins.png}
+    \includegraphics[width=0.85\linewidth]{images/topologi_fuxa_fins_en.jpeg}
     \caption{Architecture of the developed HMI–PLC communication system}
     \label{fig:system-architecture}
 \end{figure}
@@ -124,7 +125,7 @@ The study began with an evaluation of the \texttt{omron-fins} Node.js library to
 \label{tab:uji-fins-env}
 \begin{tabular}{@{}ll@{}}
 \toprule
-\textbf{Komponen} & \textbf{Spesifikasi} \\ 
+\textbf{Component} & \textbf{Specification} \\ 
 \midrule
 PLC & Omron CJ2M-CPU34 \\ 
 Host Client & PC(i7-11th Gen, 16GB RAM, Win 11) \\ 
