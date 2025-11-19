@@ -346,6 +346,14 @@ Tabel berikut merangkum metrik dan target kinerja yang diharapkan:
         \hline
         Penggunaan CPU/memori & Konsumsi sumber daya oleh aplikasi HMI saat polling aktif. & CPU $\leq 30\%$, Memori $\leq 500$ MB \\
         \hline
+        Penggunaan CPU Frontend (FE) & Konsumsi CPU oleh komponen Angular saat menampilkan UI dan visualisasi. & CPU $\leq 0.8\%$ \\
+        \hline
+        Penggunaan Memori Frontend (FE) & Konsumsi memori oleh komponen Angular untuk rendering UI. & Memori $\leq 371$ MB \\
+        \hline
+        Penggunaan CPU Backend (BE) & Konsumsi CPU oleh Node.js untuk komunikasi FINS dan polling data PLC. & CPU $\leq 0.8\%$ \\
+        \hline
+        Penggunaan Memori Backend (BE) & Konsumsi memori oleh Node.js untuk buffer komunikasi dan manajemen koneksi. & Memori $\leq 91$ MB \\
+        \hline
         Waktu deteksi alarm & Durasi dari kondisi abnormal di PLC muncul sampai indikator alarm tampil di HMI. & $\leq 200$ ms \\
         \hline
         Waktu mulai aplikasi & Waktu dari aplikasi dijalankan hingga aplikasi siap terkoneksi dengan PLC. & $\leq 10$ detik \\
