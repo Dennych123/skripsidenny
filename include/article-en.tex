@@ -209,16 +209,16 @@ After integrating the FINS connector module into both the backend and the HMI in
     \label{fig:demo-run}
 \end{figure}
 
-The HMI display includes several key elements:
+The HMI display comprises several key components:
 \begin{itemize}
-    \item \textbf{Realtime trend (Oil Temperature Sensor):} continuously visualizes temperature values read from the PLC via the FINS protocol.
-    \item \textbf{Slider and input field:} allow writing updated values to PLC memory addresses, which are immediately reflected back on the HMI.
-    \item \textbf{Motor speed gauge:} represents PLC variables using an analog-style visualization, demonstrating responsive data updates.
+\item \textbf{Real-time trend (oil temperature sensor):} continuously visualizes temperature measurements acquired from the PLC via the FINS protocol.
+\item \textbf{Slider and numeric input field:} enable operators to write updated setpoint values to specific PLC memory addresses, with changes immediately reflected on the HMI.
+\item \textbf{Motor speed gauge:} presents the corresponding PLC variables through an analog-style indicator, illustrating responsive and intuitive feedback for speed changes.
 \end{itemize}
 
-Experimental results show that PLC-to-HMI data updates occur within \textless 100\,ms, indicating that the implemented FINS connector provides low-latency and stable realtime communication.
+Experimental measurements indicate that PLC-to-HMI data updates occur within <100ms, demonstrating that the implemented FINS connector achieves low-latency and stable real-time communication performance.
 
-In addition to realtime monitoring and control, the system incorporates an alarm mechanism to detect abnormal industrial process conditions. Fig.~\ref{fig:demo-alarm} shows an alarm triggered when the oil temperature exceeds the maximum threshold defined in the PLC.
+Beyond real-time monitoring and control, the system also integrates an alarm mechanism to identify abnormal operating conditions. As illustrated in Fig.~\ref{fig:demo-alarm}, an alarm is raised when the oil temperature exceeds the maximum threshold configured in the PLC, allowing timely operator intervention.
 
 \begin{figure}[H]
     \centering
