@@ -223,20 +223,19 @@ Beyond real-time monitoring and control, the system also integrates an alarm mec
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{images/demo_alarm.png}
-    \caption{Realtime alarm display when oil temperature exceeds the safety threshold.}
+    \caption{Real-time alarm view highlighting when the oil temperature rises above the defined safety limit.}
     \label{fig:demo-alarm}
 \end{figure}
 
 The alarm subsystem operates in realtime with the following characteristics:
 \begin{itemize}
-    \item \textbf{Continuous monitoring:} PLC tag values are periodically sampled and compared with predefined thresholds.
-    \item \textbf{Alarm visualization:} triggered alarms appear in red with \textit{High-High} priority to highlight critical conditions.
-    \item \textbf{Status synchronization:} alarm states (active, acknowledged, cleared) automatically update based on backend data.
-    \item \textbf{FINS-based event detection:} each alarm directly corresponds to PLC tags transmitted through the FINS UDP protocol, ensuring fast and accurate detection.
+    \item \textbf{Continuous monitoring:} PLC tag values are sampled periodically and compared against configured thresholds.
+    \item \textbf{Alarm visualization:} active alarms are shown in red with \textit{High-High} priority to make critical states easy to notice.
+    \item \textbf{Status synchronization:} alarm states (active, acknowledged, cleared) are kept in sync with the backend so that the HMI always reflects the latest condition.
+    \item \textbf{FINS-based event detection:} each alarm is bound directly to PLC tags transmitted over the FINS UDP protocol, which supports fast and accurate detection.
 \end{itemize}
 
-Testing confirms that the system detects high-temperature events and displays alarms with a delay of less than 200\,ms after the PLC value changes. These results demonstrate that the developed FINS connector reliably supports both data exchange and realtime event notification within the HMI system.
-
+Testing shows that the system detects high-temperature events and displays the corresponding alarms with a delay of less than $200\,\mathrm{ms}$ after the PLC value changes. These results indicate that the developed FINS connector can reliably handle both routine data exchange and realtime event notification in the HMI.
 
 \subsection{Performance Evaluation}
 
