@@ -15,22 +15,19 @@ This work tackles the issue head-on by answering two practical questions: (1) Ho
 % RELATED WORKS
 %=========================
 \section{Related Works}
+Open-source HMI/SCADA system have gained increasing attention as alternative to proprietary industrial automation platform, specially due to their flexibility, extensibility, and lower deployment cost. Several study have explored the design and implementation of open-source HMI/SCADA architecture across different industrial domain.
 
-Open-source HMI/SCADA systems have gained increasing attention as alternatives to proprietary industrial automation platforms, particularly due to their flexibility, extensibility, and lower deployment costs. Several studies have explored the design and implementation of open-source HMI/SCADA architectures across different industrial domains.
+Uddin et al.~\cite{uddin2022open} develop an open-source SCADA system for a solar-powered reverse osmosis plant using Node-RED, Grafana, and InfluxDB. Their work show that low-cost and community-deployable SCADA architecture can be effectively implemented using open source technology. Similarly, Omidi et al.~\cite{omidi2023node} propose a modular Node-RED-based SCADA system for hybrid renewable energy generation. Their architecture illustrate the suitability of lightweight web technology for real-time monitoring with minimal computational resource.
 
-Uddin et al.~\cite{uddin2022open} developed an open-source SCADA system for a solar-powered reverse osmosis plant using Node-RED, Grafana, and InfluxDB. Their work demonstrates that low-cost and community-deployable SCADA architectures can be effectively implemented using open technologies. Similarly, Omidi et al.~\cite{omidi2023node} proposed a modular Node-RED-based SCADA system for hybrid renewable energy generation. Their architecture illustrates the suitability of lightweight web technologies for real-time monitoring with minimal computational resources.
+In the power system domain, Almas et al.~\cite{almas2014open} integrate open-source SCADA with Phasor Measurement Units (PMUs) to evaluate real-time system performance using the DNP3 protocol. Their result highlight protocol constraint such as polling limitation, which have implication for SCADA performance in large-scale grid.
 
-In the power systems domain, Almas et al.~\cite{almas2014open} integrated open-source SCADA with Phasor Measurement Units (PMUs) to evaluate real-time system performance using the DNP3 protocol. Their results highlight protocol constraints such as polling limitations, which have implications for SCADA performance in large-scale grids.
+In the field of industrial cybersecurity, Salazar et al.~\cite{salazar2024icsnet} introduce ICSNet, a hybrid-interaction honeynet incorporating multiple industrial protocol including Modbus TCP, IEC-104, and Ethernet/IP. Notably, their implementation use FUXA HMI as part of the visualization layer, showing FUXA's potential applicability beyond traditional HMI use case.
 
-In the field of industrial cybersecurity, Salazar et al.~\cite{salazar2024icsnet} introduced ICSNet, a hybrid-interaction honeynet incorporating multiple industrial protocols including Modbus TCP, IEC-104, and Ethernet/IP. Notably, their implementation uses FUXA HMI as part of the visualization layer, showcasing FUXA's potential applicability beyond traditional HMI use cases.
+Other study have focused on the use of web-based SCADA system in smaller-scale automation environment. Hazdi et al.~\cite{hazdi2017scada} implement a web-based SCADA system for home automation using PLCs and OPC, demonstrate the viability of web technology for real-time domestic application. Additionally, Thushara~\cite{seeed2024fuxa} introduce the FUXA web-based SCADA tool and discuss its deployment on edge device using Modbus and MQTT, reinforce its role as a modern, extensible HMI/SCADA platform.
 
-Other studies have focused on the use of web-based SCADA systems in smaller-scale automation environments. Hazdi et al.~\cite{hazdi2017scada} implemented a web-based SCADA system for home automation using PLCs and OPC, demonstrating the viability of web technologies for real-time domestic applications. Additionally, Thushara~\cite{seeed2024fuxa} introduced the FUXA web-based SCADA tool and discussed its deployment on edge devices using Modbus and MQTT, reinforcing its role as a modern, extensible HMI/SCADA platform.
+Across these work, open-source SCADA implementation consistently rely on widely supported protocol such as Modbus, OPC UA, or MQTT. However, none of the reviewed study address the Factory Interface Network Service (FINS) protocol, which remain widely used in Omron PLC-based industrial environment. This absence indicate a significant research gap in open-source HMI/SCADA system that support FINS communication.
 
-Across these works, open-source SCADA implementations consistently rely on widely supported protocols such as Modbus, OPC UA, or MQTT. However, none of the reviewed studies address the Factory Interface Network Service (FINS) protocol, which remains widely used in Omron PLC-based industrial environments. This absence indicates a significant research gap in open-source HMI/SCADA systems that support FINS communication.
-
-Therefore, the present study contributes by developing and integrating a FINS communication module into the FUXA HMI platform. This fills an identified gap in open-source industrial automation research and enables direct interoperability with Omron PLCs, which are prevalent in manufacturing systems such as those at PT~XYZ.
-
-
+Therefore, the present study contribute by developing and integrating a FINS communication module into the FUXA HMI platform. This fill an identified gap in open-source industrial automation research and enable direct interoperability with Omron PLCs, which are prevalent in manufacturing system such as those at PT~XYZ.
 
 %=========================
 % METHODOLOGY
