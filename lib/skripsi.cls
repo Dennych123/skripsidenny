@@ -421,6 +421,7 @@
 
             {\normalfont
                 \MakeUppercase{\normalfont\bfseries \@program}\\
+                \MakeUppercase{\normalfont\bfseries \@faculty}\\
                 \MakeUppercase{\normalfont\bfseries\@university}\\
                 \MakeUppercase{\normalfont\bfseries\@city}\\
 
@@ -452,7 +453,13 @@
             \bfseries{SKRIPSI}
             \vfill
 
-            \normalfont{Diajukan sebagai salah satu syarat untuk memperoleh gelar {\@degree} pada Program Studi {\@program} Fakultas {\@faculty} {\@university} {\@city}}\\
+            \normalfont\bfseries{diajukan sebagai salah satu syarat}\\
+            \normalfont\bfseries{untuk gelar kesarjanaan pada}\\
+            \normalfont\bfseries{Program Studi Teknik Informatika}\\
+            \normalfont\bfseries{Jenjang Pendidikan Strata-1}\\
+            \vfill
+
+            \normalfont\bfseries{oleh}\\
             \vfill
 
             {\normalfont\bfseries
@@ -490,60 +497,66 @@
 %-----------------------------------------------------------
 \def\authenticationpage{
     \addwatermark
-    \addcontentsline{toc}{chapter}{HALAMAN PERNYATAAN KEOTENTIKAN}
+    \addcontentsline{toc}{chapter}{Pernyataan Kesiapan Skripsi untuk Sidang Skripsi}
 
     \begin{center}
-        \MakeUppercase{\normalfont\large\bfseries\expandafter{HALAMAN PERNYATAAN KEOTENTIKAN}}\\
-        \vspace{1cm}
+        \MakeUppercase{\normalfont\large\bfseries\expandafter{Universitas Bina Nusantara}}\\
+        \noindent\rule{\linewidth}{0.4pt}
+        \normalfont\bfseries{Pernyataan Kesiapan Skripsi untuk Sidang Skripsi}
+        \vspace{0.2cm}
     \end{center}
 
     \noindent
-    Yang bertanda tangan di bawah ini: \\[0.3cm]
-
-    \begin{tabular}{ m{0.5cm} l c l }
-        & Nama          & : & \@fullnameA \\
-        & NIM           & : & \@idnumA    \\
-        & Nama          & : & \@fullnameB \\
-        & NIM           & : & \@idnumB    \\
-        & Nama          & : & \@fullnameC \\
-        & NIM           & : & \@idnumC    \\
-    \end{tabular}
-
-    \vspace{0.3cm}
-
-    \begin{tabular}{ m{0.5cm} l c l }
-        & Program Studi & : & \@program   \\
-        & Jenjang       & : & S1          \\
-    \end{tabular}
-
-\vspace{0.3cm}
-
-    \noindent
-    Menyatakan dengan ini bahwa karya tulisan saya berjudul
-    \vspace{0.5cm}
+    \normalfont\bfseries{Pernyataan Penyusunan Skripsi:} \\
+    \normalfont\bfseries{Kami,} \\
 
     \begin{center}
-        \bfseries{\@titleskripsi}
-        \vspace{0.5cm}
+        \normalfont\bfseries{\@fullnameA}\\
+        \normalfont\bfseries{\@fullnameB}\\
+        \normalfont\bfseries{\@fullnameC}\\
+    \end{center}
+
+    % \begin{tabular}{ m{0.5cm} l c l }
+    %     & Nama          & : & \@fullnameA \\
+    %     & Nama          & : & \@fullnameB \\
+    %     & Nama          & : & \@fullnameC \\
+    % \end{tabular}
+
+
+    \noindent
+    dengan ini menyatakan bahwa Skripsi yang berjudul:
+
+    \begin{center}
+        \bfseries{\@titleskripsi}\\
+        \bfseries{\@titleeng}
     \end{center}
 
     \noindent
-    Adalah benar hasil karya saya sendiri bukan merupakan pengambilan alihan tulisan orang lain dan belum pernah dipublikasikan dalam bentuk apapun. \\
+    adalah benar hasil karya kami dan belum pernah diajukan sebagai karya ilmiah, sebagian atau seluruhnya, atas nama kami atau pihak lain. \\
 
-    \noindent
-    Apabila dikemudian hari terbukti atau dapat dibuktikan bahwa sebagian atau keseluruhan skripsi ini merupakan hasil karya orang lain, maka saya bersedia menerima sanksi atas perbuatan tersebut.
-
-    % \vspace{1cm}
-    \begin{flushright}
-        \@city, \@examdate\\[2cm]
-    \end{flushright}
+    \vspace{1cm}
 
     \begin{center}
     \begin{tabular}{ccc}
         {\@fullnameA} & {\@fullnameB} & {\@fullnameC} \\
         NIM. {\@idnumA} & NIM. {\@idnumB} & NIM. {\@idnumC}
+        \vspace{0.4cm}
+    \end{tabular}
+        \normalfont\bfseries{Disetujui oleh Pembimbing}\\
+        \normalfont\bfseries{Saya setuju Skripsi tersebut layak diajukan untuk Sidang Skripsi}\\
+    \end{center}
+
+    \vspace{1cm}
+
+    \begin{center}
+    \begin{tabular}{c c c}
+        {\@firstsupervisor} & & {23 November 2025} \\
+        \cline{1-1} \cline{3-3}
+        {\@firstsupervisorNIP} & & \\
+        \vspace{0.4cm}
     \end{tabular}
     \end{center}
+
     \pagebreak
 }
 %-----------------------------------------------------------
@@ -623,9 +636,14 @@
 %-----------------------------------------------------------
 \def\approvalpage{%
     \addwatermark
-    \addcontentsline{toc}{chapter}{HALAMAN PENGESAHAN}
-    \begin{center}
-        \MakeUppercase{\normalfont\large\bfseries\expandafter{HALAMAN PENGESAHAN}}\\
+                    \@fullnameA \\
+                    NIM. \@idnumA \\
+                    \vspace{0.3cm} \\
+                    \@fullnameB \\
+                    NIM. \@idnumB \\
+                    \vspace{0.3cm} \\
+                    \@fullnameC \\
+                    NIM. \@idnumC \\
         \vspace{0.5cm}
     \end{center}
 

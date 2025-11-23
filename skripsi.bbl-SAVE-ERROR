@@ -1,0 +1,1563 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{apa/apasortcite//global/global/global}
+    \entry{almas2014open}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=df4d6efa7cb57914fd7be0aa721021dd}{%
+           family={Almas},
+           familyi={A\bibinitperiod},
+           given={M.\bibnamedelimi S.},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fd402262a74b7286ad062a42526938bd}{%
+           family={Vanfretti},
+           familyi={V\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f2475dbd1fc0bfa9e0c9425e6582a08d}
+      \strng{fullhash}{f2475dbd1fc0bfa9e0c9425e6582a08d}
+      \strng{fullhashraw}{f2475dbd1fc0bfa9e0c9425e6582a08d}
+      \strng{bibnamehash}{f2475dbd1fc0bfa9e0c9425e6582a08d}
+      \strng{authorbibnamehash}{f2475dbd1fc0bfa9e0c9425e6582a08d}
+      \strng{authornamehash}{f2475dbd1fc0bfa9e0c9425e6582a08d}
+      \strng{authorfullhash}{f2475dbd1fc0bfa9e0c9425e6582a08d}
+      \strng{authorfullhashraw}{f2475dbd1fc0bfa9e0c9425e6582a08d}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE PES General Meeting}
+      \field{title}{Open Source SCADA Implementation and PMU Integration}
+      \field{year}{2014}
+    \endentry
+    \entry{ancona2018nodejs}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=4d28113dc31dfe4c449904a19210a0a2}{%
+           family={Ancona},
+           familyi={A\bibinitperiod},
+           given={Davide},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0ee07e31a39e8db2f7fa82a69c175453}{%
+           family={Franceschini},
+           familyi={F\bibinitperiod},
+           given={Luca},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2e4809d840d1596ed662d30ec3f1ac25}{%
+           family={Delzanno},
+           familyi={D\bibinitperiod},
+           given={Giorgio},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=195bbef5226e67489c0979057feee037}{%
+           family={Leotta},
+           familyi={L\bibinitperiod},
+           given={Maurizio},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6909d41ed27d37f59ccf48201708eb4f}{%
+           family={Ribaudo},
+           familyi={R\bibinitperiod},
+           given={Marina},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4ee41f96d413672a97365aa556a0c8d8}{%
+           family={Ricca},
+           familyi={R\bibinitperiod},
+           given={Filippo},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d32e834b8ac66f8db188181dc3fd20d8}
+      \strng{fullhash}{8f2596def1f7174c9193404a30f3a269}
+      \strng{fullhashraw}{8f2596def1f7174c9193404a30f3a269}
+      \strng{bibnamehash}{8f2596def1f7174c9193404a30f3a269}
+      \strng{authorbibnamehash}{8f2596def1f7174c9193404a30f3a269}
+      \strng{authornamehash}{d32e834b8ac66f8db188181dc3fd20d8}
+      \strng{authorfullhash}{8f2596def1f7174c9193404a30f3a269}
+      \strng{authorfullhashraw}{8f2596def1f7174c9193404a30f3a269}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1802.01790}
+      \field{title}{Towards Runtime Monitoring of Node.js and Its Application to the Internet of Things}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.48550/arXiv.1802.01790
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1802.01790
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1802.01790
+      \endverb
+    \endentry
+    \entry{banthia2024vendorlockin}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=98bb9886b9c47c331b76b2540f9b000e}{%
+           family={Banthia},
+           familyi={B\bibinitperiod},
+           given={Bakul},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Tessell}%
+      }
+      \strng{namehash}{98bb9886b9c47c331b76b2540f9b000e}
+      \strng{fullhash}{98bb9886b9c47c331b76b2540f9b000e}
+      \strng{fullhashraw}{98bb9886b9c47c331b76b2540f9b000e}
+      \strng{bibnamehash}{98bb9886b9c47c331b76b2540f9b000e}
+      \strng{authorbibnamehash}{98bb9886b9c47c331b76b2540f9b000e}
+      \strng{authornamehash}{98bb9886b9c47c331b76b2540f9b000e}
+      \strng{authorfullhash}{98bb9886b9c47c331b76b2540f9b000e}
+      \strng{authorfullhashraw}{98bb9886b9c47c331b76b2540f9b000e}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{13}
+      \field{month}{8}
+      \field{note}{Disaster Recovery Journal}
+      \field{title}{Understanding the Risks of Cloud Vendor Lock-In}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://drj.com/industry_news/understanding-the-risks-of-cloud-vendor-lock-in/
+      \endverb
+      \verb{url}
+      \verb https://drj.com/industry_news/understanding-the-risks-of-cloud-vendor-lock-in/
+      \endverb
+    \endentry
+    \entry{bhanarkar2023responsive}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=ebc0141bf416f5a42d7add641614c439}{%
+           family={Bhanarkar},
+           familyi={B\bibinitperiod},
+           given={Noorkaran},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a3d972e567d9a6c5fe7e13ca3912a425}{%
+           family={Paul},
+           familyi={P\bibinitperiod},
+           given={Aditi},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3403dfef0bf4c6068ec0c6f9ca7b1313}{%
+           family={Mehta},
+           familyi={M\bibinitperiod},
+           given={Ashima},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{60b43bb62952b338f5b83190546d87aa}
+      \strng{fullhash}{f193182eae8b43cdbe78b55dcaa1b1fb}
+      \strng{fullhashraw}{f193182eae8b43cdbe78b55dcaa1b1fb}
+      \strng{bibnamehash}{f193182eae8b43cdbe78b55dcaa1b1fb}
+      \strng{authorbibnamehash}{f193182eae8b43cdbe78b55dcaa1b1fb}
+      \strng{authornamehash}{60b43bb62952b338f5b83190546d87aa}
+      \strng{authorfullhash}{f193182eae8b43cdbe78b55dcaa1b1fb}
+      \strng{authorfullhashraw}{f193182eae8b43cdbe78b55dcaa1b1fb}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Advanced Research in Science, Communication and Technology}
+      \field{note}{Accessed: 2025-07-19}
+      \field{title}{Responsive Web Design and Its Impact on User Experience}
+      \field{volume}{50}
+      \field{year}{2023}
+      \field{pages}{50\bibrangedash 55}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.48175/ijarsct-9259
+      \endverb
+      \verb{urlraw}
+      \verb https://resmilitaris.net/uploads/paper/71c5ba28e79bacafb5bcd0f4dc298d3a.pdf
+      \endverb
+      \verb{url}
+      \verb https://resmilitaris.net/uploads/paper/71c5ba28e79bacafb5bcd0f4dc298d3a.pdf
+      \endverb
+    \endentry
+    \entry{chen_open_source_web_scada_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8fcdd7c09f8a379f059df5f4eb5c50d1}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Jerry},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8fcdd7c09f8a379f059df5f4eb5c50d1}
+      \strng{fullhash}{8fcdd7c09f8a379f059df5f4eb5c50d1}
+      \strng{fullhashraw}{8fcdd7c09f8a379f059df5f4eb5c50d1}
+      \strng{bibnamehash}{8fcdd7c09f8a379f059df5f4eb5c50d1}
+      \strng{authorbibnamehash}{8fcdd7c09f8a379f059df5f4eb5c50d1}
+      \strng{authornamehash}{8fcdd7c09f8a379f059df5f4eb5c50d1}
+      \strng{authorfullhash}{8fcdd7c09f8a379f059df5f4eb5c50d1}
+      \strng{authorfullhashraw}{8fcdd7c09f8a379f059df5f4eb5c50d1}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://armbasedsolutions.com/blog-detail/top-10-open-source-web-scada-platforms-from-around-the-world}}
+      \field{month}{7}
+      \field{note}{Blog post}
+      \field{title}{Top 10 Open-Source Web SCADA Platforms from Around the World}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://armbasedsolutions.com/blog-detail/top-10-open-source-web-scada-platforms-from-around-the-world
+      \endverb
+      \verb{url}
+      \verb https://armbasedsolutions.com/blog-detail/top-10-open-source-web-scada-platforms-from-around-the-world
+      \endverb
+    \endentry
+    \entry{jointjs2023scada}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=abe0545a85f98ab58bf1d2d2ef5fa163}{%
+           family={{Client IO}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{abe0545a85f98ab58bf1d2d2ef5fa163}
+      \strng{fullhash}{abe0545a85f98ab58bf1d2d2ef5fa163}
+      \strng{fullhashraw}{abe0545a85f98ab58bf1d2d2ef5fa163}
+      \strng{bibnamehash}{abe0545a85f98ab58bf1d2d2ef5fa163}
+      \strng{authorbibnamehash}{abe0545a85f98ab58bf1d2d2ef5fa163}
+      \strng{authornamehash}{abe0545a85f98ab58bf1d2d2ef5fa163}
+      \strng{authorfullhash}{abe0545a85f98ab58bf1d2d2ef5fa163}
+      \strng{authorfullhashraw}{abe0545a85f98ab58bf1d2d2ef5fa163}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{JointJS Official Demos}
+      \field{note}{Accessed: 2025-07-19}
+      \field{title}{SCADA HMI Demo using Angular and JointJS+}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://www.jointjs.com/demos/scada
+      \endverb
+      \verb{url}
+      \verb https://www.jointjs.com/demos/scada
+      \endverb
+    \endentry
+    \entry{electron2024why}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e20915476a3233d6704e0e59d1ea0165}{%
+           family={{Electron Team}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {ElectronJS}%
+      }
+      \strng{namehash}{e20915476a3233d6704e0e59d1ea0165}
+      \strng{fullhash}{e20915476a3233d6704e0e59d1ea0165}
+      \strng{fullhashraw}{e20915476a3233d6704e0e59d1ea0165}
+      \strng{bibnamehash}{e20915476a3233d6704e0e59d1ea0165}
+      \strng{authorbibnamehash}{e20915476a3233d6704e0e59d1ea0165}
+      \strng{authornamehash}{e20915476a3233d6704e0e59d1ea0165}
+      \strng{authorfullhash}{e20915476a3233d6704e0e59d1ea0165}
+      \strng{authorfullhashraw}{e20915476a3233d6704e0e59d1ea0165}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2025-07-18}
+      \field{title}{Why Electron}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.electronjs.org/docs/latest/why-electron
+      \endverb
+      \verb{url}
+      \verb https://www.electronjs.org/docs/latest/why-electron
+      \endverb
+    \endentry
+    \entry{emmanni2025typescript}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3e6d778067a66644b2a7e39a60ea985c}{%
+           family={Emmanni},
+           familyi={E\bibinitperiod},
+           given={Phani\bibnamedelima Sekhar},
+           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{fullhash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{fullhashraw}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{bibnamehash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{authorbibnamehash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{authornamehash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{authorfullhash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{authorfullhashraw}{3e6d778067a66644b2a7e39a60ea985c}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Scientific and Engineering Research (IJSR)}
+      \field{number}{1}
+      \field{title}{The Role of TypeScript in Enhancing Development with Modern JavaScript Frameworks}
+      \field{volume}{11}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.researchgate.net/publication/380361058_The_Role_of_TypeScript_in_Enhancing_Development_with_Modern_JavaScript_Frameworks
+      \endverb
+      \verb{url}
+      \verb https://www.researchgate.net/publication/380361058_The_Role_of_TypeScript_in_Enhancing_Development_with_Modern_JavaScript_Frameworks
+      \endverb
+    \endentry
+    \entry{emqx2023fins}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c5a470f79e8a497585b5a3a6c7d81e3c}{%
+           family={EMQX},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{c5a470f79e8a497585b5a3a6c7d81e3c}
+      \strng{fullhash}{c5a470f79e8a497585b5a3a6c7d81e3c}
+      \strng{fullhashraw}{c5a470f79e8a497585b5a3a6c7d81e3c}
+      \strng{bibnamehash}{c5a470f79e8a497585b5a3a6c7d81e3c}
+      \strng{authorbibnamehash}{c5a470f79e8a497585b5a3a6c7d81e3c}
+      \strng{authornamehash}{c5a470f79e8a497585b5a3a6c7d81e3c}
+      \strng{authorfullhash}{c5a470f79e8a497585b5a3a6c7d81e3c}
+      \strng{authorfullhashraw}{c5a470f79e8a497585b5a3a6c7d81e3c}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed July 2025}
+      \field{title}{Omron FINS Protocol Overview}
+      \field{year}{2023}
+    \endentry
+    \entry{Gularte2025OpenVsProprietary}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b8f0fbb0129a7e71d123450e31901733}{%
+           family={Gularte},
+           familyi={G\bibinitperiod},
+           given={Alisyn},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b8f0fbb0129a7e71d123450e31901733}
+      \strng{fullhash}{b8f0fbb0129a7e71d123450e31901733}
+      \strng{fullhashraw}{b8f0fbb0129a7e71d123450e31901733}
+      \strng{bibnamehash}{b8f0fbb0129a7e71d123450e31901733}
+      \strng{authorbibnamehash}{b8f0fbb0129a7e71d123450e31901733}
+      \strng{authornamehash}{b8f0fbb0129a7e71d123450e31901733}
+      \strng{authorfullhash}{b8f0fbb0129a7e71d123450e31901733}
+      \strng{authorfullhashraw}{b8f0fbb0129a7e71d123450e31901733}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Blog post, Nor‑Cal Controls}
+      \field{month}{2}
+      \field{note}{Accessed: 2025‑09‑12}
+      \field{title}{Open vs. Proprietary: Choosing the Right SCADA System for Your Solar Plant}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://blog.norcalcontrols.net/open-vs.-proprietary-choosing-the-right-scada-system-for-your-solar-plant
+      \endverb
+      \verb{url}
+      \verb https://blog.norcalcontrols.net/open-vs.-proprietary-choosing-the-right-scada-system-for-your-solar-plant
+      \endverb
+    \endentry
+    \entry{humaj2021fins}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fa6ca52db56502d042643ba11a2319fa}{%
+           family={Humaj},
+           familyi={H\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fa6ca52db56502d042643ba11a2319fa}
+      \strng{fullhash}{fa6ca52db56502d042643ba11a2319fa}
+      \strng{fullhashraw}{fa6ca52db56502d042643ba11a2319fa}
+      \strng{bibnamehash}{fa6ca52db56502d042643ba11a2319fa}
+      \strng{authorbibnamehash}{fa6ca52db56502d042643ba11a2319fa}
+      \strng{authornamehash}{fa6ca52db56502d042643ba11a2319fa}
+      \strng{authorfullhash}{fa6ca52db56502d042643ba11a2319fa}
+      \strng{authorfullhashraw}{fa6ca52db56502d042643ba11a2319fa}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Blog post on Ipesoft D2000}
+      \field{month}{4}
+      \field{title}{Communication with Omron FINS}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://d2000.ipesoft.com/blog/communication-omron-fins/
+      \endverb
+      \verb{url}
+      \verb https://d2000.ipesoft.com/blog/communication-omron-fins/
+      \endverb
+    \endentry
+    \entry{joshi2024study}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=43ed84727947c3c59c306f7ef23a6400}{%
+           family={Joshi},
+           familyi={J\bibinitperiod},
+           given={Brijesh},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{43ed84727947c3c59c306f7ef23a6400}
+      \strng{fullhash}{43ed84727947c3c59c306f7ef23a6400}
+      \strng{fullhashraw}{43ed84727947c3c59c306f7ef23a6400}
+      \strng{bibnamehash}{43ed84727947c3c59c306f7ef23a6400}
+      \strng{authorbibnamehash}{43ed84727947c3c59c306f7ef23a6400}
+      \strng{authornamehash}{43ed84727947c3c59c306f7ef23a6400}
+      \strng{authorfullhash}{43ed84727947c3c59c306f7ef23a6400}
+      \strng{authorfullhashraw}{43ed84727947c3c59c306f7ef23a6400}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Research Journal of Modernization in Engineering Technology and Science (IRJMETS)}
+      \field{month}{4}
+      \field{number}{4}
+      \field{title}{A Study of the Various Communication Protocols Used in PLC Systems: Modbus, Profibus, Ethernet/IP and Their Implementations, Evolution and Comparative Analysis}
+      \field{volume}{6}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.56726/IRJMETS52882
+      \endverb
+      \verb{urlraw}
+      \verb https://www.irjmets.com/uploadedfiles/paper//issue_4_april_2024/52882/final/fin_irjmets1713198034.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.irjmets.com/uploadedfiles/paper//issue_4_april_2024/52882/final/fin_irjmets1713198034.pdf
+      \endverb
+    \endentry
+    \entry{koondhar2023role}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=188a26a36b261869ed17bd8f99637b2c}{%
+           family={Koondhar},
+           familyi={K\bibinitperiod},
+           given={Mohsin\bibnamedelima Ali},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e4c3d1a6eab9913abe483807cfa149f4}{%
+           family={Kaloi},
+           familyi={K\bibinitperiod},
+           given={Ghulam\bibnamedelima Sarwar},
+           giveni={G\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=525a59b8705f8fa9b0582a2d4cec5bc2}{%
+           family={Junejo},
+           familyi={J\bibinitperiod},
+           given={Abdul\bibnamedelima Khalique},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=17d5111e216f63fcc0314e986af25dc1}{%
+           family={Soomro},
+           familyi={S\bibinitperiod},
+           given={Abdul\bibnamedelima Hameed},
+           giveni={A\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4cab34b3739cabf602aebfa28b0e8719}{%
+           family={Chandio},
+           familyi={C\bibinitperiod},
+           given={Sadullah},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9ea9f3892e6283eae80b3552ef3728fe}{%
+           family={Ali},
+           familyi={A\bibinitperiod},
+           given={Majid},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{2}{%
+        {Mehran University of Engineering}%
+        {Technology}%
+      }
+      \strng{namehash}{77bde90a5c8b0c365282eb31653a0e81}
+      \strng{fullhash}{8936e1583bad97775ef63f4a84eccb1a}
+      \strng{fullhashraw}{8936e1583bad97775ef63f4a84eccb1a}
+      \strng{bibnamehash}{8936e1583bad97775ef63f4a84eccb1a}
+      \strng{authorbibnamehash}{8936e1583bad97775ef63f4a84eccb1a}
+      \strng{authornamehash}{77bde90a5c8b0c365282eb31653a0e81}
+      \strng{authorfullhash}{8936e1583bad97775ef63f4a84eccb1a}
+      \strng{authorfullhashraw}{8936e1583bad97775ef63f4a84eccb1a}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Pakistan Journal of Engineering Technology and Science}
+      \field{number}{2}
+      \field{title}{The Role of PLC in Automation, Industry, and Education: A Review}
+      \field{volume}{11}
+      \field{year}{2023}
+      \field{pages}{22\bibrangedash 31}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.22555/pjets.v11i2.975
+      \endverb
+    \endentry
+    \entry{mckinsey2023automation}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=96eaa81a81a29c441708d1ec4be5a27b}{%
+           family={{McKinsey \& Company}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{96eaa81a81a29c441708d1ec4be5a27b}
+      \strng{fullhash}{96eaa81a81a29c441708d1ec4be5a27b}
+      \strng{fullhashraw}{96eaa81a81a29c441708d1ec4be5a27b}
+      \strng{bibnamehash}{96eaa81a81a29c441708d1ec4be5a27b}
+      \strng{authorbibnamehash}{96eaa81a81a29c441708d1ec4be5a27b}
+      \strng{authornamehash}{96eaa81a81a29c441708d1ec4be5a27b}
+      \strng{authorfullhash}{96eaa81a81a29c441708d1ec4be5a27b}
+      \strng{authorfullhashraw}{96eaa81a81a29c441708d1ec4be5a27b}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{McKinsey \& Company Insights}
+      \field{title}{Is industrial automation headed for a tipping point?}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://www.mckinsey.com/capabilities/operations/our-insights/is-industrial-automation-headed-for-a-tipping-point
+      \endverb
+      \verb{url}
+      \verb https://www.mckinsey.com/capabilities/operations/our-insights/is-industrial-automation-headed-for-a-tipping-point
+      \endverb
+    \endentry
+    \entry{mujawar2023_hmi_intro}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fe8e2c5b1e0e610a740993d6ee3b3077}{%
+           family={Mujawar},
+           familyi={M\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{fe8e2c5b1e0e610a740993d6ee3b3077}
+      \strng{fullhash}{fe8e2c5b1e0e610a740993d6ee3b3077}
+      \strng{fullhashraw}{fe8e2c5b1e0e610a740993d6ee3b3077}
+      \strng{bibnamehash}{fe8e2c5b1e0e610a740993d6ee3b3077}
+      \strng{authorbibnamehash}{fe8e2c5b1e0e610a740993d6ee3b3077}
+      \strng{authornamehash}{fe8e2c5b1e0e610a740993d6ee3b3077}
+      \strng{authorfullhash}{fe8e2c5b1e0e610a740993d6ee3b3077}
+      \strng{authorfullhashraw}{fe8e2c5b1e0e610a740993d6ee3b3077}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Handbook/Book on Human--Machine Interfaces}
+      \field{note}{Chapter 1; Accessed via Wiley Online Library}
+      \field{title}{Introduction to Human--Machine Interface}
+      \field{urlday}{26}
+      \field{urlmonth}{9}
+      \field{urlyear}{2025}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/9781394200344.ch1
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/9781394200344.ch1
+      \endverb
+    \endentry
+    \entry{sawal_scada_market_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6223be459bafd2ad7b59242ab0844be3}{%
+           family={Sawal},
+           familyi={S\bibinitperiod},
+           given={Jyotika},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6223be459bafd2ad7b59242ab0844be3}
+      \strng{fullhash}{6223be459bafd2ad7b59242ab0844be3}
+      \strng{fullhashraw}{6223be459bafd2ad7b59242ab0844be3}
+      \strng{bibnamehash}{6223be459bafd2ad7b59242ab0844be3}
+      \strng{authorbibnamehash}{6223be459bafd2ad7b59242ab0844be3}
+      \strng{authornamehash}{6223be459bafd2ad7b59242ab0844be3}
+      \strng{authorfullhash}{6223be459bafd2ad7b59242ab0844be3}
+      \strng{authorfullhashraw}{6223be459bafd2ad7b59242ab0844be3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.emergenresearch.com/industry-report/scada-market}}
+      \field{month}{5}
+      \field{note}{Report ID: ER\_00 4544}
+      \field{title}{SCADA Market Size, Share, Trend Analysis by 2033}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.emergenresearch.com/industry-report/scada-market?srsltid=AfmBOorSdQPJM_IH0PBEriqxoKYbO23L8TR4JyuIII93M6iZJ4ojmwiu
+      \endverb
+      \verb{url}
+      \verb https://www.emergenresearch.com/industry-report/scada-market?srsltid=AfmBOorSdQPJM_IH0PBEriqxoKYbO23L8TR4JyuIII93M6iZJ4ojmwiu
+      \endverb
+    \endentry
+    \entry{scarsbrook2023typescript}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=fd40ed45253cadcd580fc4160fcbd689}{%
+           family={Scarsbrook},
+           familyi={S\bibinitperiod},
+           given={Joshua\bibnamedelima D.},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fd2b417e52982345bc826389bae4a156}{%
+           family={Utting},
+           familyi={U\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0db39deea26db1ea1e9fa508b66fc563}{%
+           family={Ko},
+           familyi={K\bibinitperiod},
+           given={Ryan\bibnamedelima K.\bibnamedelimi L.},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b06da57f378bb00f16c6f7a83e7323f5}
+      \strng{fullhash}{734e2a5e0723ae792cf5720f7a9896bd}
+      \strng{fullhashraw}{734e2a5e0723ae792cf5720f7a9896bd}
+      \strng{bibnamehash}{734e2a5e0723ae792cf5720f7a9896bd}
+      \strng{authorbibnamehash}{734e2a5e0723ae792cf5720f7a9896bd}
+      \strng{authornamehash}{b06da57f378bb00f16c6f7a83e7323f5}
+      \strng{authorfullhash}{734e2a5e0723ae792cf5720f7a9896bd}
+      \strng{authorfullhashraw}{734e2a5e0723ae792cf5720f7a9896bd}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2303.09802}
+      \field{title}{TypeScript's Evolution: An Analysis of Feature Adoption Over Time}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2303.09802
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2303.09802
+      \endverb
+    \endentry
+    \entry{singh2014responsive}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6622a89a038314194d7480f89b52e9b0}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Vibhakar},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6622a89a038314194d7480f89b52e9b0}
+      \strng{fullhash}{6622a89a038314194d7480f89b52e9b0}
+      \strng{fullhashraw}{6622a89a038314194d7480f89b52e9b0}
+      \strng{bibnamehash}{6622a89a038314194d7480f89b52e9b0}
+      \strng{authorbibnamehash}{6622a89a038314194d7480f89b52e9b0}
+      \strng{authornamehash}{6622a89a038314194d7480f89b52e9b0}
+      \strng{authorfullhash}{6622a89a038314194d7480f89b52e9b0}
+      \strng{authorfullhashraw}{6622a89a038314194d7480f89b52e9b0}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Scientific \& Technology Research}
+      \field{note}{Accessed: 2025-07-19}
+      \field{number}{11}
+      \field{title}{Designing Responsive Websites Using HTML and CSS}
+      \field{volume}{3}
+      \field{year}{2014}
+      \field{pages}{92\bibrangedash 94}
+      \range{pages}{3}
+      \verb{urlraw}
+      \verb https://www.ijstr.org/final-print/nov2014/Designing-Responsive-Websites-Using-Html-And-Css.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ijstr.org/final-print/nov2014/Designing-Responsive-Websites-Using-Html-And-Css.pdf
+      \endverb
+    \endentry
+    \entry{seeed2024fuxa}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c2c720614f2160dcd35faef4a64a31a0}{%
+           family={Thushara},
+           familyi={T\bibinitperiod},
+           given={Kasun},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Seeed Studio Wiki}%
+      }
+      \strng{namehash}{c2c720614f2160dcd35faef4a64a31a0}
+      \strng{fullhash}{c2c720614f2160dcd35faef4a64a31a0}
+      \strng{fullhashraw}{c2c720614f2160dcd35faef4a64a31a0}
+      \strng{bibnamehash}{c2c720614f2160dcd35faef4a64a31a0}
+      \strng{authorbibnamehash}{c2c720614f2160dcd35faef4a64a31a0}
+      \strng{authornamehash}{c2c720614f2160dcd35faef4a64a31a0}
+      \strng{authorfullhash}{c2c720614f2160dcd35faef4a64a31a0}
+      \strng{authorfullhashraw}{c2c720614f2160dcd35faef4a64a31a0}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2025-07-16}
+      \field{title}{Getting Start with FUXA - Web Based SCADA Tool}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://wiki.seeedstudio.com/reTerminal-DM_intro_FUXA/
+      \endverb
+      \verb{url}
+      \verb https://wiki.seeedstudio.com/reTerminal-DM_intro_FUXA/
+      \endverb
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global/global}
+    \entry{almas2014open}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=df4d6efa7cb57914fd7be0aa721021dd}{%
+           family={Almas},
+           familyi={A\bibinitperiod},
+           given={M.\bibnamedelimi S.},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fd402262a74b7286ad062a42526938bd}{%
+           family={Vanfretti},
+           familyi={V\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f2475dbd1fc0bfa9e0c9425e6582a08d}
+      \strng{fullhash}{f2475dbd1fc0bfa9e0c9425e6582a08d}
+      \strng{fullhashraw}{f2475dbd1fc0bfa9e0c9425e6582a08d}
+      \strng{bibnamehash}{f2475dbd1fc0bfa9e0c9425e6582a08d}
+      \strng{authorbibnamehash}{f2475dbd1fc0bfa9e0c9425e6582a08d}
+      \strng{authornamehash}{f2475dbd1fc0bfa9e0c9425e6582a08d}
+      \strng{authorfullhash}{f2475dbd1fc0bfa9e0c9425e6582a08d}
+      \strng{authorfullhashraw}{f2475dbd1fc0bfa9e0c9425e6582a08d}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE PES General Meeting}
+      \field{title}{Open Source SCADA Implementation and PMU Integration}
+      \field{year}{2014}
+    \endentry
+    \entry{ancona2018nodejs}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=4d28113dc31dfe4c449904a19210a0a2}{%
+           family={Ancona},
+           familyi={A\bibinitperiod},
+           given={Davide},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0ee07e31a39e8db2f7fa82a69c175453}{%
+           family={Franceschini},
+           familyi={F\bibinitperiod},
+           given={Luca},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2e4809d840d1596ed662d30ec3f1ac25}{%
+           family={Delzanno},
+           familyi={D\bibinitperiod},
+           given={Giorgio},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=195bbef5226e67489c0979057feee037}{%
+           family={Leotta},
+           familyi={L\bibinitperiod},
+           given={Maurizio},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6909d41ed27d37f59ccf48201708eb4f}{%
+           family={Ribaudo},
+           familyi={R\bibinitperiod},
+           given={Marina},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4ee41f96d413672a97365aa556a0c8d8}{%
+           family={Ricca},
+           familyi={R\bibinitperiod},
+           given={Filippo},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d32e834b8ac66f8db188181dc3fd20d8}
+      \strng{fullhash}{8f2596def1f7174c9193404a30f3a269}
+      \strng{fullhashraw}{8f2596def1f7174c9193404a30f3a269}
+      \strng{bibnamehash}{8f2596def1f7174c9193404a30f3a269}
+      \strng{authorbibnamehash}{8f2596def1f7174c9193404a30f3a269}
+      \strng{authornamehash}{d32e834b8ac66f8db188181dc3fd20d8}
+      \strng{authorfullhash}{8f2596def1f7174c9193404a30f3a269}
+      \strng{authorfullhashraw}{8f2596def1f7174c9193404a30f3a269}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1802.01790}
+      \field{title}{Towards Runtime Monitoring of Node.js and Its Application to the Internet of Things}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.48550/arXiv.1802.01790
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1802.01790
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1802.01790
+      \endverb
+    \endentry
+    \entry{banthia2024vendorlockin}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=98bb9886b9c47c331b76b2540f9b000e}{%
+           family={Banthia},
+           familyi={B\bibinitperiod},
+           given={Bakul},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Tessell}%
+      }
+      \strng{namehash}{98bb9886b9c47c331b76b2540f9b000e}
+      \strng{fullhash}{98bb9886b9c47c331b76b2540f9b000e}
+      \strng{fullhashraw}{98bb9886b9c47c331b76b2540f9b000e}
+      \strng{bibnamehash}{98bb9886b9c47c331b76b2540f9b000e}
+      \strng{authorbibnamehash}{98bb9886b9c47c331b76b2540f9b000e}
+      \strng{authornamehash}{98bb9886b9c47c331b76b2540f9b000e}
+      \strng{authorfullhash}{98bb9886b9c47c331b76b2540f9b000e}
+      \strng{authorfullhashraw}{98bb9886b9c47c331b76b2540f9b000e}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{13}
+      \field{month}{8}
+      \field{note}{Disaster Recovery Journal}
+      \field{title}{Understanding the Risks of Cloud Vendor Lock-In}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://drj.com/industry_news/understanding-the-risks-of-cloud-vendor-lock-in/
+      \endverb
+      \verb{url}
+      \verb https://drj.com/industry_news/understanding-the-risks-of-cloud-vendor-lock-in/
+      \endverb
+    \endentry
+    \entry{bhanarkar2023responsive}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=ebc0141bf416f5a42d7add641614c439}{%
+           family={Bhanarkar},
+           familyi={B\bibinitperiod},
+           given={Noorkaran},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a3d972e567d9a6c5fe7e13ca3912a425}{%
+           family={Paul},
+           familyi={P\bibinitperiod},
+           given={Aditi},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3403dfef0bf4c6068ec0c6f9ca7b1313}{%
+           family={Mehta},
+           familyi={M\bibinitperiod},
+           given={Ashima},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{60b43bb62952b338f5b83190546d87aa}
+      \strng{fullhash}{f193182eae8b43cdbe78b55dcaa1b1fb}
+      \strng{fullhashraw}{f193182eae8b43cdbe78b55dcaa1b1fb}
+      \strng{bibnamehash}{f193182eae8b43cdbe78b55dcaa1b1fb}
+      \strng{authorbibnamehash}{f193182eae8b43cdbe78b55dcaa1b1fb}
+      \strng{authornamehash}{60b43bb62952b338f5b83190546d87aa}
+      \strng{authorfullhash}{f193182eae8b43cdbe78b55dcaa1b1fb}
+      \strng{authorfullhashraw}{f193182eae8b43cdbe78b55dcaa1b1fb}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Advanced Research in Science, Communication and Technology}
+      \field{note}{Accessed: 2025-07-19}
+      \field{title}{Responsive Web Design and Its Impact on User Experience}
+      \field{volume}{50}
+      \field{year}{2023}
+      \field{pages}{50\bibrangedash 55}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.48175/ijarsct-9259
+      \endverb
+      \verb{urlraw}
+      \verb https://resmilitaris.net/uploads/paper/71c5ba28e79bacafb5bcd0f4dc298d3a.pdf
+      \endverb
+      \verb{url}
+      \verb https://resmilitaris.net/uploads/paper/71c5ba28e79bacafb5bcd0f4dc298d3a.pdf
+      \endverb
+    \endentry
+    \entry{chen_open_source_web_scada_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8fcdd7c09f8a379f059df5f4eb5c50d1}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Jerry},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8fcdd7c09f8a379f059df5f4eb5c50d1}
+      \strng{fullhash}{8fcdd7c09f8a379f059df5f4eb5c50d1}
+      \strng{fullhashraw}{8fcdd7c09f8a379f059df5f4eb5c50d1}
+      \strng{bibnamehash}{8fcdd7c09f8a379f059df5f4eb5c50d1}
+      \strng{authorbibnamehash}{8fcdd7c09f8a379f059df5f4eb5c50d1}
+      \strng{authornamehash}{8fcdd7c09f8a379f059df5f4eb5c50d1}
+      \strng{authorfullhash}{8fcdd7c09f8a379f059df5f4eb5c50d1}
+      \strng{authorfullhashraw}{8fcdd7c09f8a379f059df5f4eb5c50d1}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://armbasedsolutions.com/blog-detail/top-10-open-source-web-scada-platforms-from-around-the-world}}
+      \field{month}{7}
+      \field{note}{Blog post}
+      \field{title}{Top 10 Open-Source Web SCADA Platforms from Around the World}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://armbasedsolutions.com/blog-detail/top-10-open-source-web-scada-platforms-from-around-the-world
+      \endverb
+      \verb{url}
+      \verb https://armbasedsolutions.com/blog-detail/top-10-open-source-web-scada-platforms-from-around-the-world
+      \endverb
+    \endentry
+    \entry{jointjs2023scada}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=abe0545a85f98ab58bf1d2d2ef5fa163}{%
+           family={{Client IO}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{abe0545a85f98ab58bf1d2d2ef5fa163}
+      \strng{fullhash}{abe0545a85f98ab58bf1d2d2ef5fa163}
+      \strng{fullhashraw}{abe0545a85f98ab58bf1d2d2ef5fa163}
+      \strng{bibnamehash}{abe0545a85f98ab58bf1d2d2ef5fa163}
+      \strng{authorbibnamehash}{abe0545a85f98ab58bf1d2d2ef5fa163}
+      \strng{authornamehash}{abe0545a85f98ab58bf1d2d2ef5fa163}
+      \strng{authorfullhash}{abe0545a85f98ab58bf1d2d2ef5fa163}
+      \strng{authorfullhashraw}{abe0545a85f98ab58bf1d2d2ef5fa163}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{JointJS Official Demos}
+      \field{note}{Accessed: 2025-07-19}
+      \field{title}{SCADA HMI Demo using Angular and JointJS+}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://www.jointjs.com/demos/scada
+      \endverb
+      \verb{url}
+      \verb https://www.jointjs.com/demos/scada
+      \endverb
+    \endentry
+    \entry{electron2024why}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e20915476a3233d6704e0e59d1ea0165}{%
+           family={{Electron Team}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {ElectronJS}%
+      }
+      \strng{namehash}{e20915476a3233d6704e0e59d1ea0165}
+      \strng{fullhash}{e20915476a3233d6704e0e59d1ea0165}
+      \strng{fullhashraw}{e20915476a3233d6704e0e59d1ea0165}
+      \strng{bibnamehash}{e20915476a3233d6704e0e59d1ea0165}
+      \strng{authorbibnamehash}{e20915476a3233d6704e0e59d1ea0165}
+      \strng{authornamehash}{e20915476a3233d6704e0e59d1ea0165}
+      \strng{authorfullhash}{e20915476a3233d6704e0e59d1ea0165}
+      \strng{authorfullhashraw}{e20915476a3233d6704e0e59d1ea0165}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2025-07-18}
+      \field{title}{Why Electron}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.electronjs.org/docs/latest/why-electron
+      \endverb
+      \verb{url}
+      \verb https://www.electronjs.org/docs/latest/why-electron
+      \endverb
+    \endentry
+    \entry{emmanni2025typescript}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3e6d778067a66644b2a7e39a60ea985c}{%
+           family={Emmanni},
+           familyi={E\bibinitperiod},
+           given={Phani\bibnamedelima Sekhar},
+           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{fullhash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{fullhashraw}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{bibnamehash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{authorbibnamehash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{authornamehash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{authorfullhash}{3e6d778067a66644b2a7e39a60ea985c}
+      \strng{authorfullhashraw}{3e6d778067a66644b2a7e39a60ea985c}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Scientific and Engineering Research (IJSR)}
+      \field{number}{1}
+      \field{title}{The Role of TypeScript in Enhancing Development with Modern JavaScript Frameworks}
+      \field{volume}{11}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.researchgate.net/publication/380361058_The_Role_of_TypeScript_in_Enhancing_Development_with_Modern_JavaScript_Frameworks
+      \endverb
+      \verb{url}
+      \verb https://www.researchgate.net/publication/380361058_The_Role_of_TypeScript_in_Enhancing_Development_with_Modern_JavaScript_Frameworks
+      \endverb
+    \endentry
+    \entry{emqx2023fins}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c5a470f79e8a497585b5a3a6c7d81e3c}{%
+           family={EMQX},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{c5a470f79e8a497585b5a3a6c7d81e3c}
+      \strng{fullhash}{c5a470f79e8a497585b5a3a6c7d81e3c}
+      \strng{fullhashraw}{c5a470f79e8a497585b5a3a6c7d81e3c}
+      \strng{bibnamehash}{c5a470f79e8a497585b5a3a6c7d81e3c}
+      \strng{authorbibnamehash}{c5a470f79e8a497585b5a3a6c7d81e3c}
+      \strng{authornamehash}{c5a470f79e8a497585b5a3a6c7d81e3c}
+      \strng{authorfullhash}{c5a470f79e8a497585b5a3a6c7d81e3c}
+      \strng{authorfullhashraw}{c5a470f79e8a497585b5a3a6c7d81e3c}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed July 2025}
+      \field{title}{Omron FINS Protocol Overview}
+      \field{year}{2023}
+    \endentry
+    \entry{Gularte2025OpenVsProprietary}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b8f0fbb0129a7e71d123450e31901733}{%
+           family={Gularte},
+           familyi={G\bibinitperiod},
+           given={Alisyn},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b8f0fbb0129a7e71d123450e31901733}
+      \strng{fullhash}{b8f0fbb0129a7e71d123450e31901733}
+      \strng{fullhashraw}{b8f0fbb0129a7e71d123450e31901733}
+      \strng{bibnamehash}{b8f0fbb0129a7e71d123450e31901733}
+      \strng{authorbibnamehash}{b8f0fbb0129a7e71d123450e31901733}
+      \strng{authornamehash}{b8f0fbb0129a7e71d123450e31901733}
+      \strng{authorfullhash}{b8f0fbb0129a7e71d123450e31901733}
+      \strng{authorfullhashraw}{b8f0fbb0129a7e71d123450e31901733}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Blog post, Nor‑Cal Controls}
+      \field{month}{2}
+      \field{note}{Accessed: 2025‑09‑12}
+      \field{title}{Open vs. Proprietary: Choosing the Right SCADA System for Your Solar Plant}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://blog.norcalcontrols.net/open-vs.-proprietary-choosing-the-right-scada-system-for-your-solar-plant
+      \endverb
+      \verb{url}
+      \verb https://blog.norcalcontrols.net/open-vs.-proprietary-choosing-the-right-scada-system-for-your-solar-plant
+      \endverb
+    \endentry
+    \entry{humaj2021fins}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fa6ca52db56502d042643ba11a2319fa}{%
+           family={Humaj},
+           familyi={H\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fa6ca52db56502d042643ba11a2319fa}
+      \strng{fullhash}{fa6ca52db56502d042643ba11a2319fa}
+      \strng{fullhashraw}{fa6ca52db56502d042643ba11a2319fa}
+      \strng{bibnamehash}{fa6ca52db56502d042643ba11a2319fa}
+      \strng{authorbibnamehash}{fa6ca52db56502d042643ba11a2319fa}
+      \strng{authornamehash}{fa6ca52db56502d042643ba11a2319fa}
+      \strng{authorfullhash}{fa6ca52db56502d042643ba11a2319fa}
+      \strng{authorfullhashraw}{fa6ca52db56502d042643ba11a2319fa}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Blog post on Ipesoft D2000}
+      \field{month}{4}
+      \field{title}{Communication with Omron FINS}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://d2000.ipesoft.com/blog/communication-omron-fins/
+      \endverb
+      \verb{url}
+      \verb https://d2000.ipesoft.com/blog/communication-omron-fins/
+      \endverb
+    \endentry
+    \entry{joshi2024study}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=43ed84727947c3c59c306f7ef23a6400}{%
+           family={Joshi},
+           familyi={J\bibinitperiod},
+           given={Brijesh},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{43ed84727947c3c59c306f7ef23a6400}
+      \strng{fullhash}{43ed84727947c3c59c306f7ef23a6400}
+      \strng{fullhashraw}{43ed84727947c3c59c306f7ef23a6400}
+      \strng{bibnamehash}{43ed84727947c3c59c306f7ef23a6400}
+      \strng{authorbibnamehash}{43ed84727947c3c59c306f7ef23a6400}
+      \strng{authornamehash}{43ed84727947c3c59c306f7ef23a6400}
+      \strng{authorfullhash}{43ed84727947c3c59c306f7ef23a6400}
+      \strng{authorfullhashraw}{43ed84727947c3c59c306f7ef23a6400}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Research Journal of Modernization in Engineering Technology and Science (IRJMETS)}
+      \field{month}{4}
+      \field{number}{4}
+      \field{title}{A Study of the Various Communication Protocols Used in PLC Systems: Modbus, Profibus, Ethernet/IP and Their Implementations, Evolution and Comparative Analysis}
+      \field{volume}{6}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.56726/IRJMETS52882
+      \endverb
+      \verb{urlraw}
+      \verb https://www.irjmets.com/uploadedfiles/paper//issue_4_april_2024/52882/final/fin_irjmets1713198034.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.irjmets.com/uploadedfiles/paper//issue_4_april_2024/52882/final/fin_irjmets1713198034.pdf
+      \endverb
+    \endentry
+    \entry{koondhar2023role}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=188a26a36b261869ed17bd8f99637b2c}{%
+           family={Koondhar},
+           familyi={K\bibinitperiod},
+           given={Mohsin\bibnamedelima Ali},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e4c3d1a6eab9913abe483807cfa149f4}{%
+           family={Kaloi},
+           familyi={K\bibinitperiod},
+           given={Ghulam\bibnamedelima Sarwar},
+           giveni={G\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=525a59b8705f8fa9b0582a2d4cec5bc2}{%
+           family={Junejo},
+           familyi={J\bibinitperiod},
+           given={Abdul\bibnamedelima Khalique},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=17d5111e216f63fcc0314e986af25dc1}{%
+           family={Soomro},
+           familyi={S\bibinitperiod},
+           given={Abdul\bibnamedelima Hameed},
+           giveni={A\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4cab34b3739cabf602aebfa28b0e8719}{%
+           family={Chandio},
+           familyi={C\bibinitperiod},
+           given={Sadullah},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9ea9f3892e6283eae80b3552ef3728fe}{%
+           family={Ali},
+           familyi={A\bibinitperiod},
+           given={Majid},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{2}{%
+        {Mehran University of Engineering}%
+        {Technology}%
+      }
+      \strng{namehash}{77bde90a5c8b0c365282eb31653a0e81}
+      \strng{fullhash}{8936e1583bad97775ef63f4a84eccb1a}
+      \strng{fullhashraw}{8936e1583bad97775ef63f4a84eccb1a}
+      \strng{bibnamehash}{8936e1583bad97775ef63f4a84eccb1a}
+      \strng{authorbibnamehash}{8936e1583bad97775ef63f4a84eccb1a}
+      \strng{authornamehash}{77bde90a5c8b0c365282eb31653a0e81}
+      \strng{authorfullhash}{8936e1583bad97775ef63f4a84eccb1a}
+      \strng{authorfullhashraw}{8936e1583bad97775ef63f4a84eccb1a}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Pakistan Journal of Engineering Technology and Science}
+      \field{number}{2}
+      \field{title}{The Role of PLC in Automation, Industry, and Education: A Review}
+      \field{volume}{11}
+      \field{year}{2023}
+      \field{pages}{22\bibrangedash 31}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.22555/pjets.v11i2.975
+      \endverb
+    \endentry
+    \entry{mckinsey2023automation}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=96eaa81a81a29c441708d1ec4be5a27b}{%
+           family={{McKinsey \& Company}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{96eaa81a81a29c441708d1ec4be5a27b}
+      \strng{fullhash}{96eaa81a81a29c441708d1ec4be5a27b}
+      \strng{fullhashraw}{96eaa81a81a29c441708d1ec4be5a27b}
+      \strng{bibnamehash}{96eaa81a81a29c441708d1ec4be5a27b}
+      \strng{authorbibnamehash}{96eaa81a81a29c441708d1ec4be5a27b}
+      \strng{authornamehash}{96eaa81a81a29c441708d1ec4be5a27b}
+      \strng{authorfullhash}{96eaa81a81a29c441708d1ec4be5a27b}
+      \strng{authorfullhashraw}{96eaa81a81a29c441708d1ec4be5a27b}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{McKinsey \& Company Insights}
+      \field{title}{Is industrial automation headed for a tipping point?}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://www.mckinsey.com/capabilities/operations/our-insights/is-industrial-automation-headed-for-a-tipping-point
+      \endverb
+      \verb{url}
+      \verb https://www.mckinsey.com/capabilities/operations/our-insights/is-industrial-automation-headed-for-a-tipping-point
+      \endverb
+    \endentry
+    \entry{mujawar2023_hmi_intro}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fe8e2c5b1e0e610a740993d6ee3b3077}{%
+           family={Mujawar},
+           familyi={M\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{fe8e2c5b1e0e610a740993d6ee3b3077}
+      \strng{fullhash}{fe8e2c5b1e0e610a740993d6ee3b3077}
+      \strng{fullhashraw}{fe8e2c5b1e0e610a740993d6ee3b3077}
+      \strng{bibnamehash}{fe8e2c5b1e0e610a740993d6ee3b3077}
+      \strng{authorbibnamehash}{fe8e2c5b1e0e610a740993d6ee3b3077}
+      \strng{authornamehash}{fe8e2c5b1e0e610a740993d6ee3b3077}
+      \strng{authorfullhash}{fe8e2c5b1e0e610a740993d6ee3b3077}
+      \strng{authorfullhashraw}{fe8e2c5b1e0e610a740993d6ee3b3077}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Handbook/Book on Human--Machine Interfaces}
+      \field{note}{Chapter 1; Accessed via Wiley Online Library}
+      \field{title}{Introduction to Human--Machine Interface}
+      \field{urlday}{26}
+      \field{urlmonth}{9}
+      \field{urlyear}{2025}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/9781394200344.ch1
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/9781394200344.ch1
+      \endverb
+    \endentry
+    \entry{sawal_scada_market_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6223be459bafd2ad7b59242ab0844be3}{%
+           family={Sawal},
+           familyi={S\bibinitperiod},
+           given={Jyotika},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6223be459bafd2ad7b59242ab0844be3}
+      \strng{fullhash}{6223be459bafd2ad7b59242ab0844be3}
+      \strng{fullhashraw}{6223be459bafd2ad7b59242ab0844be3}
+      \strng{bibnamehash}{6223be459bafd2ad7b59242ab0844be3}
+      \strng{authorbibnamehash}{6223be459bafd2ad7b59242ab0844be3}
+      \strng{authornamehash}{6223be459bafd2ad7b59242ab0844be3}
+      \strng{authorfullhash}{6223be459bafd2ad7b59242ab0844be3}
+      \strng{authorfullhashraw}{6223be459bafd2ad7b59242ab0844be3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.emergenresearch.com/industry-report/scada-market}}
+      \field{month}{5}
+      \field{note}{Report ID: ER\_00 4544}
+      \field{title}{SCADA Market Size, Share, Trend Analysis by 2033}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.emergenresearch.com/industry-report/scada-market?srsltid=AfmBOorSdQPJM_IH0PBEriqxoKYbO23L8TR4JyuIII93M6iZJ4ojmwiu
+      \endverb
+      \verb{url}
+      \verb https://www.emergenresearch.com/industry-report/scada-market?srsltid=AfmBOorSdQPJM_IH0PBEriqxoKYbO23L8TR4JyuIII93M6iZJ4ojmwiu
+      \endverb
+    \endentry
+    \entry{scarsbrook2023typescript}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=fd40ed45253cadcd580fc4160fcbd689}{%
+           family={Scarsbrook},
+           familyi={S\bibinitperiod},
+           given={Joshua\bibnamedelima D.},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fd2b417e52982345bc826389bae4a156}{%
+           family={Utting},
+           familyi={U\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0db39deea26db1ea1e9fa508b66fc563}{%
+           family={Ko},
+           familyi={K\bibinitperiod},
+           given={Ryan\bibnamedelima K.\bibnamedelimi L.},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b06da57f378bb00f16c6f7a83e7323f5}
+      \strng{fullhash}{734e2a5e0723ae792cf5720f7a9896bd}
+      \strng{fullhashraw}{734e2a5e0723ae792cf5720f7a9896bd}
+      \strng{bibnamehash}{734e2a5e0723ae792cf5720f7a9896bd}
+      \strng{authorbibnamehash}{734e2a5e0723ae792cf5720f7a9896bd}
+      \strng{authornamehash}{b06da57f378bb00f16c6f7a83e7323f5}
+      \strng{authorfullhash}{734e2a5e0723ae792cf5720f7a9896bd}
+      \strng{authorfullhashraw}{734e2a5e0723ae792cf5720f7a9896bd}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2303.09802}
+      \field{title}{TypeScript's Evolution: An Analysis of Feature Adoption Over Time}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2303.09802
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2303.09802
+      \endverb
+    \endentry
+    \entry{singh2014responsive}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6622a89a038314194d7480f89b52e9b0}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Vibhakar},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6622a89a038314194d7480f89b52e9b0}
+      \strng{fullhash}{6622a89a038314194d7480f89b52e9b0}
+      \strng{fullhashraw}{6622a89a038314194d7480f89b52e9b0}
+      \strng{bibnamehash}{6622a89a038314194d7480f89b52e9b0}
+      \strng{authorbibnamehash}{6622a89a038314194d7480f89b52e9b0}
+      \strng{authornamehash}{6622a89a038314194d7480f89b52e9b0}
+      \strng{authorfullhash}{6622a89a038314194d7480f89b52e9b0}
+      \strng{authorfullhashraw}{6622a89a038314194d7480f89b52e9b0}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Scientific \& Technology Research}
+      \field{note}{Accessed: 2025-07-19}
+      \field{number}{11}
+      \field{title}{Designing Responsive Websites Using HTML and CSS}
+      \field{volume}{3}
+      \field{year}{2014}
+      \field{pages}{92\bibrangedash 94}
+      \range{pages}{3}
+      \verb{urlraw}
+      \verb https://www.ijstr.org/final-print/nov2014/Designing-Responsive-Websites-Using-Html-And-Css.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ijstr.org/final-print/nov2014/Designing-Responsive-Websites-Using-Html-And-Css.pdf
+      \endverb
+    \endentry
+    \entry{seeed2024fuxa}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c2c720614f2160dcd35faef4a64a31a0}{%
+           family={Thushara},
+           familyi={T\bibinitperiod},
+           given={Kasun},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Seeed Studio Wiki}%
+      }
+      \strng{namehash}{c2c720614f2160dcd35faef4a64a31a0}
+      \strng{fullhash}{c2c720614f2160dcd35faef4a64a31a0}
+      \strng{fullhashraw}{c2c720614f2160dcd35faef4a64a31a0}
+      \strng{bibnamehash}{c2c720614f2160dcd35faef4a64a31a0}
+      \strng{authorbibnamehash}{c2c720614f2160dcd35faef4a64a31a0}
+      \strng{authornamehash}{c2c720614f2160dcd35faef4a64a31a0}
+      \strng{authorfullhash}{c2c720614f2160dcd35faef4a64a31a0}
+      \strng{authorfullhashraw}{c2c720614f2160dcd35faef4a64a31a0}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2025-07-16}
+      \field{title}{Getting Start with FUXA - Web Based SCADA Tool}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://wiki.seeedstudio.com/reTerminal-DM_intro_FUXA/
+      \endverb
+      \verb{url}
+      \verb https://wiki.seeedstudio.com/reTerminal-DM_intro_FUXA/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
