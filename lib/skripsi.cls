@@ -406,14 +406,13 @@
             {\normalfont\large{Disusun dan diajukan oleh}}\\
             \vspace{1.5cm}
 
-            \normalfont\bfseries{\@fullnameA}\\
-            \normalfont\bfseries{\@idnumA}\\[1em]
+            \begin{tabular}{lcc}
+                \normalfont\bfseries{\@fullnameA} & & \normalfont\bfseries{\@idnumA}\\
+                \normalfont\bfseries{\@fullnameB} & & \normalfont\bfseries{\@idnumB}\\
+                \normalfont\bfseries{\@fullnameC} & & \normalfont\bfseries{\@idnumC}\\
+            \end{tabular}\\[0.5cm]
+            \normalfont\bfseries{Kelas/Kelompok: TQCA/Kelompok 1}
 
-            \normalfont\bfseries{\@fullnameB}\\
-            \normalfont\bfseries{\@idnumB}\\[1em]
-
-            \normalfont\bfseries{\@fullnameC}\\
-            \normalfont\bfseries{\@idnumC}\\
             \vfill
 
             \includegraphics[height=4.85cm]{images/logo-binus-university}
@@ -462,16 +461,12 @@
             \normalfont\bfseries{oleh}\\
             \vfill
 
-            {\normalfont\bfseries
-                \@fullnameA \\[-0.2em]
-                \@idnumA \\[1em]
-
-                \@fullnameB \\[-0.2em]
-                \@idnumB \\[1em]
-
-                \@fullnameC \\[-0.2em]
-                \@idnumC
-            }\\
+            \begin{tabular}{lcc}
+                \normalfont\bfseries{\@fullnameA} & & \normalfont\bfseries{\@idnumA}\\
+                \normalfont\bfseries{\@fullnameB} & & \normalfont\bfseries{\@idnumB}\\
+                \normalfont\bfseries{\@fullnameC} & & \normalfont\bfseries{\@idnumC}\\
+            \end{tabular}\\[0.5cm]
+            \normalfont\bfseries{Kelas/Kelompok: TQCA/Kelompok 1}
             \vfill
 
             {\normalfont
@@ -527,19 +522,20 @@
     dengan ini menyatakan bahwa Skripsi yang berjudul:
 
     \begin{center}
-        \bfseries{\@titleskripsi}\\
+        \bfseries{\@titleskripsi}\\[0.2cm]
         \bfseries{\@titleeng}
     \end{center}
 
     \noindent
     adalah benar hasil karya kami dan belum pernah diajukan sebagai karya ilmiah, sebagian atau seluruhnya, atas nama kami atau pihak lain. \\
 
-    \vspace{1cm}
+    \vspace{0.4cm}
 
     \begin{center}
-    \begin{tabular}{ccc}
-        {\@fullnameA} & {\@fullnameB} & {\@fullnameC} \\
-        NIM. {\@idnumA} & NIM. {\@idnumB} & NIM. {\@idnumC}
+    \begin{tabular}{ccccc}
+        {\@fullnameA} & & {\@fullnameB} & & {\@fullnameC} \\
+        \cline{1-1} \cline{3-3} \cline{5-5}
+        {\@idnumA} & & {\@idnumB} & & {\@idnumC}
         \vspace{0.4cm}
     \end{tabular}
         \normalfont\bfseries{Disetujui oleh Pembimbing}\\
@@ -771,6 +767,42 @@
 }
 %-----------------------------------------------------------
 % End Define Persetujuan Publikasi Karya Ilmiah
+%===========================================================
+
+%===========================================================
+% Define abstract page
+%-----------------------------------------------------------
+\def\abstractpage{
+    \addcontentsline{toc}{chapter}{Abstrak}
+
+    \begin{center}
+        \MakeUppercase{\normalfont\large\bfseries\expandafter{Universitas Bina Nusantara}}\\
+        \noindent\rule{\linewidth}{0.4pt}
+        \normalfont{\@program}\\
+        \normalfont{\@faculty}\\
+        \normalfont{Skripsi Sarjana Komputer}\\
+        \normalfont{Semester Ganjil 2025/2026}\\
+        \vspace{0.5cm}
+
+        \MakeUppercase{\normalfont\bfseries\@titleskripsi}\\
+        \vspace{0.5cm}
+
+        \begin{tabular}{lcc}
+            \normalfont\bfseries{\@fullnameA} & & \normalfont\bfseries{\@idnumA}\\
+            \normalfont\bfseries{\@fullnameB} & & \normalfont\bfseries{\@idnumB}\\
+            \normalfont\bfseries{\@fullnameC} & & \normalfont\bfseries{\@idnumC}\\
+        \end{tabular}\\[0.5cm]
+        \normalfont\bfseries{Kelas/Kelompok: TQCA/Kelompok 1}
+        \vspace{0.8cm}
+
+        \normalfont\bfseries{Abstrak}
+    \end{center}
+
+    \normalfont{\input{include/halaman-abstrak.tex}}
+}
+
+%-----------------------------------------------------------
+% End Define abstract page
 %===========================================================
 
 
