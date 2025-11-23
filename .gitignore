@@ -80,3 +80,7 @@ texlive/
 *.bcf
 *.blg
 *.run.xml
+
+#personal file
+cv_Gilang.*
+images/Graduation Photo.jpg
