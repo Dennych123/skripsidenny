@@ -1,51 +1,33 @@
 \chapter*{KATA PENGANTAR}
 \addcontentsline{toc}{chapter}{KATA PENGANTAR}
 
-Puji dan syukur penulis panjatkan ke hadirat Tuhan Yang Maha Esa atas limpahan rahmat, berkat, dan karunia-Nya, sehingga penulis dapat menyelesaikan laporan tugas akhir yang berjudul: \textbf{``Implementasi Protokol FINS pada Sistem HMI Sumber Terbuka Berbasis Web untuk PLC Omron''} dengan baik dan tepat waktu.
+Puji dan syukur penulis panjatkan ke hadirat Tuhan Yang Maha Esa atas rahmat dan karunia-Nya sehingga penulis dapat menyelesaikan laporan tugas akhir berjudul \textbf{``Implementasi Protokol FINS pada Sistem HMI Sumber Terbuka Berbasis Web untuk PLC Omron''}.
 
-Laporan tugas akhir ini disusun sebagai salah satu syarat untuk memperoleh gelar \textit{Sarjana Teknik} pada Program Studi Teknik Informatika, Fakultas Komputer, Universitas Bina Nusantara (BINUS University).  
-Penelitian ini berfokus pada pengembangan sistem \textit{Human–Machine Interface} (HMI) berbasis \textit{open source} dengan penambahan dukungan protokol komunikasi \textit{Factory Interface Network Service} (FINS) guna memungkinkan integrasi dengan \textit{Programmable Logic Controller} (PLC) merek Omron yang banyak digunakan di sektor manufaktur.
+Laporan ini disusun sebagai salah satu syarat untuk memperoleh gelar \textit{Sarjana Teknik} pada Program Studi Teknik Informatika, Fakultas Komputer, Universitas Bina Nusantara (BINUS University). Penelitian berfokus pada perancangan dan penerapan sistem \textit{Human–Machine Interface} (HMI) berbasis \textit{open source} dengan dukungan protokol \textit{Factory Interface Network Service} (FINS) sehingga dapat terintegrasi dengan \textit{Programmable Logic Controller} (PLC) Omron di lingkungan manufaktur.
 
-Latar belakang penelitian ini berangkat dari keterbatasan sistem HMI komersial yang kerap menimbulkan permasalahan biaya lisensi, kurangnya fleksibilitas, serta risiko \textit{vendor lock-in}.  
-Sebagai alternatif, pemanfaatan platform \textit{open source} seperti FUXA dinilai mampu menghadirkan solusi yang lebih efisien, adaptif, dan bebas lisensi. Dengan menambahkan dukungan protokol FINS, sistem HMI berbasis FUXA diharapkan dapat berfungsi secara optimal dalam lingkungan industri yang menggunakan PLC Omron, sekaligus mendukung arah transformasi digital di bidang otomasi industri.
-
-Metodologi penelitian ini mencakup tahap analisis kebutuhan, studi literatur, implementasi protokol FINS pada sistem HMI berbasis FUXA, serta pengujian stabilitas komunikasi data antara sistem dan PLC.  
-Hasil akhir penelitian diharapkan dapat memberikan kontribusi nyata bagi pengembangan perangkat lunak sumber terbuka di bidang otomasi industri serta memperkuat integrasi antara sistem kendali dan teknologi informasi.
-
-Ucapan terima kasih yang tulus penulis sampaikan kepada berbagai pihak yang telah memberikan dukungan, bimbingan, dan bantuan selama proses penyusunan tugas akhir ini, antara lain:
-
+Ucapan terima kasih penulis sampaikan kepada:
 \begin{enumerate}
-    \item Bapak/Ibu dosen pembimbing, atas arahan, motivasi, serta bimbingan yang sangat berharga selama proses penelitian dan penulisan laporan ini.
-    \item Pihak PT~XYZ, atas kesempatan dan izin yang diberikan untuk melakukan observasi serta pengumpulan data terkait sistem otomasi produksi.
-    \item Kedua orang tua dan keluarga, atas doa, kasih sayang, serta dukungan moral yang tiada henti.
-    \item Rekan-rekan mahasiswa di BINUS University, atas kerja sama, dukungan, dan semangat kebersamaan selama menjalani proses akademik hingga penyusunan laporan ini.
+    \item Dr.~Nelly, S.Kom., M.M., CSCA selaku Rektor Universitas Bina Nusantara.
+    \item Prof.~Dr.~Ir.~Harjanto Prabowo, M.M. selaku Direktur BINUS Online Universitas Bina Nusantara.
+    \item Dr.~Sarwo, S.Kom., M.Kom. selaku dosen pembimbing yang telah meluangkan waktu untuk memberikan arahan selama penyusunan skripsi.
+    \item Seluruh jajaran dosen dan staf Program Studi Ilmu Komputer Universitas Bina Nusantara.
+    \item Seluruh narasumber yang telah bersedia membantu dan meluangkan waktu untuk wawancara.
+    \item Seluruh staf PT~Denso Indonesia yang telah memberikan izin penelitian dan membantu kelancaran penelitian ini.
+    \item Orang tua dan saudara yang senantiasa memberikan doa dan dukungan selama proses penyusunan skripsi.
+    \item Semua pihak yang tidak dapat disebutkan satu per satu yang telah membantu dan memberikan dukungan.
 \end{enumerate}
 
-Penulis menyadari bahwa laporan ini masih memiliki kekurangan, baik dari segi analisis maupun penyajian. Oleh karena itu, penulis dengan rendah hati menerima kritik dan saran yang bersifat membangun untuk penyempurnaan penelitian ini di masa mendatang.  
-Semoga laporan tugas akhir ini dapat memberikan manfaat bagi pengembangan ilmu pengetahuan, khususnya di bidang otomasi industri dan sistem HMI berbasis \textit{open source}.
+Penulis mohon maaf atas segala kesalahan yang pernah dilakukan. Semoga skripsi ini dapat memberikan manfaat untuk mendorong penelitian-penelitian selanjutnya.
 
-\vspace{1cm}
+\vspace{0.5cm}
 \begin{center}
-    Dibuat di Jakarta, pada 21 Oktober 2025\\[2cm]
-    \begin{tabular}{ccc}
-        \begin{minipage}{0.4\textwidth}
-            \centering
-            \textbf{DENNY CHRISNANDA}\\
-            NIM. 2502124914
-        \end{minipage}
-        &
-        \begin{minipage}{0.3\textwidth}
-            \centering
-            \textbf{FRANS SEBASTIAN}\\
-            NIM. 2502121162
-        \end{minipage}
-        &
-        \begin{minipage}{0.3\textwidth}
-            \centering
-            \textbf{GILANG HANSAGITA}\\
-            NIM. 2502124403
-        \end{minipage}
+    Jakarta, 23 November 2025\\[1.5cm]
+    \makeatletter
+    \begin{tabular}{ccccc}
+        	\textbf{\@fullnameA} & & \textbf{\@fullnameB} & & \textbf{\@fullnameC} \\
+        \cline{1-1} \cline{3-3} \cline{5-5}
+        	\textbf{\@idnumA} & & \textbf{\@idnumB} & & \textbf{\@idnumC}
+        \vspace{0.4cm}
     \end{tabular}
+    \makeatother
 \end{center}
-
-
