@@ -81,6 +81,6 @@ texlive/
 *.blg
 *.run.xml
 
-#personal file
+# personal file
 cv_Gilang.*
 images/Graduation Photo.jpg
