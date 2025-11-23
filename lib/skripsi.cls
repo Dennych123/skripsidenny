@@ -492,7 +492,7 @@
 %-----------------------------------------------------------
 \def\authenticationpage{
     \addwatermark
-    \addcontentsline{toc}{chapter}{Pernyataan Kesiapan Skripsi untuk Sidang Skripsi}
+    \addcontentsline{toc}{chapter}{PERNYATAAN KESIAPAN SKRIPSI UNTUK SIDANG SKRIPSI}
 
     \begin{center}
         \MakeUppercase{\normalfont\large\bfseries\expandafter{Universitas Bina Nusantara}}\\
@@ -773,7 +773,7 @@
 % Define abstract page
 %-----------------------------------------------------------
 \def\abstractpage{
-    \addcontentsline{toc}{chapter}{Abstrak}
+    \addcontentsline{toc}{chapter}{ABSTRAK}
 
     \begin{center}
         \MakeUppercase{\normalfont\large\bfseries\expandafter{Universitas Bina Nusantara}}\\
