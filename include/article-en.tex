@@ -126,15 +126,15 @@ The study began with an evaluation of the \texttt{omron-fins} Node.js library to
 \toprule
 \textbf{Component} & \textbf{Specification} \\ 
 \midrule
-PLC & Omron CJ2M-CPU34 \\ 
-Host Client & PC(i7-11th Gen, 16GB RAM, Win 11) \\ 
-IP PLC & 192.168.0.1 \\ 
-IP Client & 192.168.0.234 \\ 
-Protocol & FINS/UDP (Port 9600) \\ 
+PLC Controller & Omron CJ2M CPU Unit (Model CPU34) \\ 
+Test Computer & 11th Generation Intel i7, 16GB memory, Win 11 \\ 
+PLC Network & 192.168.0.1 \\ 
+Host Network & 192.168.0.234 \\ 
+Protocol Stack & FINS protocol via UDP transport, port 9600 \\ 
 Library & \texttt{omron-fins} (Node.js) \\ 
 Runtime & Node.js v18 LTS \\ 
 \bottomrule
-\end{tabular}
+\end{tabular>
 \end{table}
 
 
@@ -164,13 +164,13 @@ The FINS connector was integrated into the FUXA server under the directory \verb
 \centering
 \begin{tabular}{|l|l|}
 \hline
-\textbf{Parameter} & \textbf{Nilai Contoh} \\ \hline
-Alamat IP PLC & 192.168.11.1 \\ \hline
-Port & 9600 \\ \hline
-Protokol & UDP \\ \hline
-Source Address (SA1) & 234 \\ \hline
-Destination Address (DA1) & 1 \\ \hline
-Polling Interval & 200 ms \\ \hline
+\textbf{Parameter} & \textbf{Configuration Value} \\ \hline
+PLC IP Address & 192.168.11.1 \\ \hline
+Communication Port & 9600 \\ \hline
+Transport Protocol & UDP \\ \hline
+Source Node (SA1) & 234 \\ \hline
+Destination Node (DA1) & 1 \\ \hline
+Data Polling Rate & 200 ms \\ \hline
 \end{tabular}
 \caption{FINS connection configuration parameters}
 \label{tab:konfigurasi-fins}
@@ -239,7 +239,7 @@ Testing shows that the system detects high-temperature events and displays the c
 
 \subsection{Performance Evaluation}
 
-Performance evaluation comprised automated technical tests and a small-scale usability assessment. Results are summarized in Table~\ref{tab:eval-results-summary}.
+Performance testing combined automated benchmarks with user feedback analysis. Table~\ref{tab:eval-results-summary} presents the evaluation metrics and outcomes.
 
 \begin{table}[H]
   \centering
@@ -262,17 +262,17 @@ Performance evaluation comprised automated technical tests and a small-scale usa
 
 
 \subsubsection{Read/Write Latency}
-Read/write latency was measured by issuing a write to memory (e.g., \texttt{W1}) and immediately performing a read-back on the same address. The average latency across 100 repeated trials was \textbf{12\,ms}, well below the 200\,ms target. This result demonstrates that the integrated connector and FUXA frontend can achieve low round-trip times in the laboratory network conditions used.
+Latency measurements involved writing data to PLC memory (\texttt{W1} register) followed by immediate read-back operations. Testing across 100 trials yielded an average latency of \textbf{12\,ms}, significantly under the 200\,ms benchmark. These measurements confirm that the connector maintains fast response times under controlled laboratory conditions.
 
 \subsubsection{Communication Success Rate}
-The automated stress test (1\,000 requests, concurrency 10) recorded \textbf{990 successful responses} and \textbf{10 failures} (99\% success). Failures were predominantly timeouts visible in the Wireshark traces as requests without corresponding replies. Likely causes include UDP packet loss on the link, temporary PLC processing backlog, or aggressive scheduling from the test host. No systematic FINS framing errors were observed in successful captures.
+Stress testing with 1\,000 requests at concurrency level 10 achieved \textbf{990 successful responses} against \textbf{10 timeouts} (99\% success rate). Wireshark analysis showed missing replies for failed requests, attributed to network packet loss, PLC processing delays, or host scheduling conflicts. Successful communications exhibited proper FINS frame structure without protocol errors.
 
 \subsubsection{Resource Utilization}
-System monitoring during load tests showed low CPU utilization (approx.\ 2--3\%) and moderate memory consumption (backend $\approx$91\,MB, frontend $\approx$371\,MB). These figures indicate the Node.js + Angular architecture can operate efficiently on the selected PC hardware for the tested workload.
+Load testing revealed minimal CPU usage (2--3\%) with memory consumption at 91\,MB (backend) and 371\,MB (frontend). The Node.js and Angular components operated efficiently on standard PC hardware during testing.
 
 \subsubsection{Alarm Detection Time}
-The alarm detection time is measured from the moment the triggering condition in the PLC becomes true until the alarm indicator appears on the HMI interface. 
-The observed detection time is approximately 1000\,ms, which is significantly slower than the KPI target of 200\,ms. This delay occurs because the minimum polling interval used by the HMI system to evaluate alarm conditions and generate alarm events is 1\,s, as illustrated in Fig.~\ref{fig:alarm-interval}.
+Alarm detection measures the interval from PLC trigger activation to HMI display update. 
+Measured detection time averaged 1000\,ms, exceeding the 200\,ms target. This delay stems from the system's fixed 1-second polling cycle for alarm evaluation, shown in Fig.~\ref{fig:alarm-interval}.
 
 \begin{figure}[H]
     \centering
@@ -283,13 +283,13 @@ The observed detection time is approximately 1000\,ms, which is significantly sl
 
 
 \subsubsection{Application Startup Time}
-Measured application startup time averaged \textbf{3.14\,s}, which satisfies the $\leq$10\,s requirement and indicates acceptable initialization performance for the integrated system.
+Application initialization averaged \textbf{3.14\,s}, meeting the $\leq$10\,s requirement and confirming adequate startup performance.
 
 % \subsection{Testing Results (White-box and Black-box)}
 % Both white-box and black-box tests passed the designed scenarios. Unit tests verified connector lifecycle functions (\texttt{connect()}, \texttt{read()}, \texttt{write()}, \texttt{poll()}). Integration tests confirmed event propagation between Angular frontend and Node.js backend and proper persistence of device configuration. summarized test tables are available in Tables~\ref{tab:whitebox-result} and~\ref{tab:blackbox-result}.
 
 \subsection{Usability Evaluation}
-A small usability survey (10 respondents: operators and technicians) using a 5-point Likert scale assessed configuration ease, clarity of status display, perceived responsiveness, UI consistency, and overall satisfaction. Average scores (scale 1--5) were:
+User feedback collection involved 10 operators and technicians rating system aspects on a 5-point scale. Categories included configuration simplicity, status clarity, responsiveness, interface consistency, and overall satisfaction. Average ratings were:
 \begin{itemize}
   \item Configuration ease: 4.2
   \item Clarity of status: 4.1
@@ -298,10 +298,10 @@ A small usability survey (10 respondents: operators and technicians) using a 5-p
   \item Overall satisfaction: 4.3
 \end{itemize}
 
-Qualitative feedback highlighted appreciation for clear connection-status indicators and requests for a more prominent \textit{Check Connection} control and a simplified logging mode for non-technical troubleshooting.
+User comments praised the clear connection status display while suggesting improvements: more visible \textit{Check Connection} controls and simplified logging for basic troubleshooting.
 
 \subsection{Discussion}
-The integration of a FINS connector into FUXA using the \texttt{omron-fins} library produced a functional, low-latency HMI capable of reliable read/write operations with Omron CJ2M PLCs under laboratory conditions. Important takeaway points are:
+FINS connector integration with FUXA created a working HMI system supporting reliable Omron CJ2M communication under test conditions. Key findings include:
 \begin{itemize}
   \item \textbf{Reliability:} Communication success rate (99\%) and correct packet framing demonstrate interoperability with Omron FINS.
   \item \textbf{Performance:} Read/write latencies (12\,ms) and low resource usage indicate the approach is suitable for responsive HMI operations on modest hardware.
