@@ -1,0 +1,97 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{url}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Integration of the FINS Protocol into the Open-Source HMI System FUXA for Omron PLCs}
+
+\author{
+\IEEEauthorblockN{Denny Chrisnanda}
+\IEEEauthorblockA{\textit{Computer Science Department} \\
+\textit{Binus Online Learning} \\
+\textit{Bina Nusantara University} \\
+denny.chrisnanda@binus.ac.id}
+\and
+\IEEEauthorblockN{Frans Sebastian}
+\IEEEauthorblockA{\textit{Computer Science Department} \\
+\textit{Binus Online Learning} \\
+\textit{Bina Nusantara University} \\
+frans.sebastian@binus.ac.id}
+\and
+\IEEEauthorblockN{Gilang Hansagita}
+\IEEEauthorblockA{\textit{Computer Science Department} \\
+\textit{Binus Online Learning} \\
+\textit{Bina Nusantara University} \\
+gilang.hansagita@binus.ac.id}
+}
+
+\maketitle
+
+\begin{abstract}
+Omron PLCs dominate automation at PT XYZ and most of them use the FINS protocol. However, almost all open-source HMI platforms—including the lightweight, web-based FUXA—do not natively support FINS. This study develops and integrates a dedicated FINS communication module into FUXA.
+
+An iterative approach was used: literature review, FINS protocol analysis, module implementation, and testing on an Omron CJ2M PLC. Testing shows that the module reliably reads and writes data to the PLC with minimal delay, and FUXA screens now accurately represent real factory-floor processes. The result is a free, fully customizable, browser-based HMI capable of native communication with Omron PLCs without gateways or middleware.
+
+A key limitation identified is an alarm detection delay of approximately 1000~ms, caused by FUXA’s minimum alarm polling interval of 1 second. This limitation was not addressed because the focus of this work is enabling FINS communication rather than redesigning FUXA’s alarm engine.
+
+This development expands the viability of modern open-source tools in Omron-dominated industrial environments and accelerates digital-transformation initiatives in manufacturing.
+\end{abstract}
+
+\begin{IEEEkeywords}
+FINS protocol, FUXA, human-machine interface, industrial automation, Omron PLC
+\end{IEEEkeywords}
+
+\section{Introduction}
+\input{include/article-en.tex}
+
+\begin{thebibliography}{00}
+\bibitem{b1} D. Flanagan, \textit{JavaScript: The Definitive Guide}, 7th ed. Sebastopol, CA: O'Reilly Media, 2020.
+\bibitem{b2} P. Kozlowski and P. B. Darwin, \textit{Mastering Angular}. Birmingham, U.K.: Packt Publishing, 2021.
+\bibitem{b3} S. Powers, \textit{Learning Node.js Development}. Sebastopol, CA: O'Reilly Media, 2016.
+\bibitem{b4} S. A. Boyer, \textit{SCADA: Supervisory Control and Data Acquisition}. ISA, 2009.
+\bibitem{b5} H. Chesbrough, ``Open Innovation: The new imperative for creating and profiting from technology,'' \textit{Harvard Business Review}, 2003.
+\bibitem{b6} S. Mujawar, ``Introduction to Human–Machine Interface,'' in \textit{Handbook on Human–Machine Interfaces}. Wiley, 2023. [Online]. Available: https://onlinelibrary.wiley.com/doi/abs/10.1002/9781394200344.ch1
+\bibitem{b7} M. A. Koondhar \textit{et al.}, ``The role of PLC in automation, industry, and education: A review,'' \textit{Pakistan J. Eng. Technol. Sci.}, vol. 11, no. 2, pp. 22–31, 2023, doi: 10.22555/pjets.v11i2.975.
+\bibitem{b8} A. Giehl, M. P. Heinl, and V. Embacher, ``EmuFlex: A flexible OT testbed for security experiments with OPC UA,'' in \textit{Proc. 19th Int. Conf. Availability, Reliability and Security (ARES)}, Jul. 2024, pp. 1–9, doi: 10.1145/3664476.3670931.
+\bibitem{b9} J. Sawal, ``SCADA market size, share, trend analysis by 2033,'' Emergen Research, May 2025. [Online]. Available: https://www.emergenresearch.com/industry-report/scada-market
+\bibitem{b10} J. Chen, ``Top 10 open-source web SCADA platforms from around the world,'' Jul. 24, 2025. [Online]. Available: https://armbasedsolutions.com/blog-detail/top-10-open-source-web-scada-platforms-from-around-the-world
+\bibitem{b11} A. Gularte, ``Open vs. proprietary: Choosing the right SCADA system for your solar plant,'' Nor-Cal Controls, Feb. 20, 2025. [Online]. Available: https://blog.norcalcontrols.net/open-vs.-proprietary-choosing-the-right-scada-system-for-your-solar-plant
+\bibitem{b12} OMRON Corporation, ``FINS communications protocol manual,'' 2019. [Online]. Available: https://www.ia.omron.com/support/documents/fins.html
+\bibitem{b13} Frangoteam, ``FUXA — Web-based SCADA/HMI software,'' 2024. [Online]. Available: https://github.com/frangoteam/FUXA
+\bibitem{b14} EMQ Technologies, ``Omron FINS protocol: The basics and its benefits of bridging to MQTT,'' 2024. [Online]. Available: https://www.emqx.com/en/blog/omron-fins-protocol
+\bibitem{b15} M. S. Almas and L. Vanfretti, ``Open source SCADA implementation and PMU integration,'' \textit{IEEE PES General Meeting}, 2014.
+\bibitem{b16} M. Omidi, M. Salehifar, and A. Mohammadi, ``Design and implementation of an open source SCADA system for monitoring a hybrid renewable power system,'' \textit{Energies}, vol. 16, no. 5, p. 2229, 2023, doi: 10.3390/en16052229.
+\bibitem{b17} S. U. Uddin, M. J. A. Baig, and M. T. Iqbal, ``Design and implementation of an open-source SCADA system for a community solar-powered reverse osmosis system,'' \textit{Sensors}, vol. 22, no. 24, p. 9631, 2022, doi: 10.3390/s22249631.
+\bibitem{b18} A. Mohamed \textit{et al.}, ``Off-the-shelf IoT gateways as a viable alternative to traditional HMI devices,'' in \textit{Proc. Int. Petroleum Technol. Conf. (IPTC)}, Feb. 2024, pp. 1–8, doi: 10.2523/IPTC-24344-MS.
+\bibitem{b19} FrangoTeam, ``FrangoTeam — Home Page,'' 2025. [Online]. Available: https://frangoteam.org/
+\bibitem{b20} D. Jakob, K. Wrede, F. Weiss, and J. Bräunig, ``A hardware-in-the-loop system for monitoring building energy consumption with sparse sensors,'' Feb. 2025. [Online]. Available: https://publica.fraunhofer.de/handle/publica/487277, doi: 10.13140/RG.2.2.13085.63208.
+\bibitem{b21} L. Arnoud \textit{et al.}, ``HENDRICS: A hardware-in-the-loop testbed for enhanced intrusion detection, response and recovery of industrial control systems,'' in \textit{Proc. ESORICS Workshop ANUBIS}, Toulouse, France, Sep. 2025.
+\bibitem{b22} J. Gao \textit{et al.}, ``A new detection approach against attack/intrusion in measurement and control system with FINS protocol,'' in \textit{Proc. Chinese Autom. Congr. (CAC)}, 2020, pp. 3691–3696, doi: 10.1109/CAC51589.2020.9327136.
+\bibitem{b23} A. Enemosah and J. Chukwunweike, ``Next-generation SCADA architectures for enhanced field automation and real-time remote control in oil and gas fields,'' \textit{Int. J. Comput. Appl. Technol. Res.}, vol. 11, no. 12, pp. 514–529, 2022, doi: 10.7753/IJCATR1112.1018.
+\bibitem{b24} L. Malyi and M. Bryksin, ``Unified UI design system for industrial HMI software development,'' in \textit{Human–Computer Interaction, HCII 2024}, 2024, pp. 109–124, doi: 10.1007/978-3-031-60405-8\_8.
+\bibitem{b25} C. Rubiomedrano, ``ICSNet: A hybrid-interaction honeynet for ICS,'' in \textit{Proc. CPSIoTSec’24}, 2023.
+\bibitem{b26} L. Salazar \textit{et al.}, ``ICSNet: A hybrid-interaction honeynet for industrial control systems,'' in \textit{Proc. CPSIoTSec’24}, 2024, pp. 1–12, doi: 10.1145/3690134.3694813.
+\bibitem{b27} P. Humaj, ``Communication with Omron FINS,'' Apr. 27, 2021. [Online]. Available: https://d2000.ipesoft.com/blog/communication-omron-fins/
+\bibitem{b28} K.~Thushara, ``Getting started with FUXA — Web based SCADA tool,'' 2024. [Online]. Available: \url{https://wiki.seeedstudio.com/reTerminal-DM_intro_FUXA/}
+\bibitem{b29} L.~Sastoque and J.~Pérez, ``Assessing open-source SCADA systems in industrial environments,''
+\textit{Int. J. Ind. Informatics}, vol.~18, no.~2, pp.~123--135, 2023.
+L.~Sastoque and J.~Pérez, ``Assessing open-source SCADA systems in industrial environments,'' 
+\textit{Int. J. Ind. Informatics}, vol.~18, no.~2, pp.~123--135, 2023.
+\bibitem{b30} EMQX, ``Omron FINS protocol overview,'' 2023. [Online]. Available: https://www.emqx.com/
+\bibitem{b31} R. Hazdi, M. Fadli, and Y. Maulana, ``Perancangan SCADA pada sistem otomatisasi rumah,'' \textit{eProceedings Appl. Sci.}, vol. 3, no. 2, pp. 1099–1106, 2017.
+\bibitem{b32} B. Banthia, ``Understanding the risks of cloud vendor lock-in,'' Aug. 2024. [Online]. Available: https://drj.com/
+\end{thebibliography}
+
+\end{document}
