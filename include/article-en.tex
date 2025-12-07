@@ -104,14 +104,25 @@ To assess the performance of the implemented FINS driver, a dedicated load-testi
 
 The results of these measurements were analyzed statistically to evaluate whether the implemented connector meets the performance characteristics comparable to Modbus TCP communication.
 
-\subsection{Evaluation Criteria}
-The evaluation focused on two primary objectives linear with the research goals:
-\begin{enumerate}
-    \item \textbf{Functional Equivalence:}  
-    Verifying that the implemented FINS connector supports key HMI functions—connectivity, data reading, data writing, and visualization—equivalent to existing Modbus modules.
-    \item \textbf{Stability and Responsiveness:}  
-    Measuring whether the FINS communication remains stable under repetitive load and can maintain real-time data visualization without significant latency or data loss.
-\end{enumerate}
+\subsection{Evaluation Metrics}
+To ensure practical suitability for real-time HMI–PLC communication, the system was evaluated using five key performance metrics. A compact summary of the metrics and their KPI thresholds is presented in Table~\ref{tab:eval-metrics-compact}.
+
+\begin{table}[H]
+\centering
+\caption{Evaluation Metrics and KPI Targets}
+\label{tab:eval-metrics-compact}
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Metric} & \textbf{KPI Target} \\ \hline
+
+Read/write latency & $\leq 200$ ms \\ \hline
+Success rate & $\geq 95\%$ \\ \hline
+CPU / Memory usage & $\leq 30\%$ / $\leq 500$ MB \\ \hline
+Alarm detection time & $\leq 200$ ms \\ \hline
+Startup time & $\leq 10$ s \\ \hline
+
+\end{tabular}
+\end{table}
 
 %=========================
 % RESULTS AND DISCUSSION

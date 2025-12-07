@@ -491,70 +491,65 @@
 % Define Authentication Page
 %-----------------------------------------------------------
 \def\authenticationpage{
-    \addwatermark
+    %\addwatermark
     \addcontentsline{toc}{chapter}{PERNYATAAN KESIAPAN SKRIPSI UNTUK SIDANG SKRIPSI}
 
     \begin{center}
-        \MakeUppercase{\normalfont\large\bfseries\expandafter{Universitas Bina Nusantara}}\\
+        \MakeUppercase{\normalfont\large\bfseries Universitas Bina Nusantara}\\
         \noindent\rule{\linewidth}{0.4pt}
         \normalfont\bfseries{Pernyataan Kesiapan Skripsi untuk Sidang Skripsi}
-        \vspace{0.2cm}
     \end{center}
 
-    \noindent
-    \normalfont\bfseries{Pernyataan Penyusunan Skripsi:} \\
-    \normalfont\bfseries{Kami,} \\
+    \noindent \textbf{Pernyataan Penyusunan Skripsi:} \\
+    \textbf{Kami,}
 
     \begin{center}
-        \normalfont\bfseries{\@fullnameA}\\
-        \normalfont\bfseries{\@fullnameB}\\
-        \normalfont\bfseries{\@fullnameC}\\
+        \textbf{\@fullnameA}\\[-2pt]
+        \textbf{\@fullnameB}\\[-2pt]
+        \textbf{\@fullnameC}
     \end{center}
-
-    % \begin{tabular}{ m{0.5cm} l c l }
-    %     & Nama          & : & \@fullnameA \\
-    %     & Nama          & : & \@fullnameB \\
-    %     & Nama          & : & \@fullnameC \\
-    % \end{tabular}
-
 
     \noindent
     dengan ini menyatakan bahwa Skripsi yang berjudul:
 
     \begin{center}
-        \bfseries{\@titleskripsi}\\[0.2cm]
+        \bfseries{\@titleskripsi}\\[-1pt]
         \bfseries{\@titleeng}
     \end{center}
 
     \noindent
-    adalah benar hasil karya kami dan belum pernah diajukan sebagai karya ilmiah, sebagian atau seluruhnya, atas nama kami atau pihak lain. \\
-
-    \vspace{0.4cm}
+    adalah benar hasil karya kami dan belum pernah diajukan sebagai karya ilmiah pihak lain. \\[-2pt]
 
     \begin{center}
     \begin{tabular}{ccccc}
-        {\@fullnameA} & & {\@fullnameB} & & {\@fullnameC} \\
+        \includegraphics[height=2cm]{images/ttd_denny-removebg-preview.png} & &
+        \includegraphics[height=2cm]{images/ttd_frans-removebg-preview.png} & &
+        \includegraphics[height=2cm]{images/ttd_gilang-removebg-preview.png} \\
+        \textbf{\@fullnameA} & & \textbf{\@fullnameB} & & \textbf{\@fullnameC} \\
         \cline{1-1} \cline{3-3} \cline{5-5}
-        {\@idnumA} & & {\@idnumB} & & {\@idnumC}
-        \vspace{0.4cm}
+        \@idnumA & & \@idnumB & & \@idnumC
     \end{tabular}
-        \normalfont\bfseries{Disetujui oleh Pembimbing}\\
-        \normalfont\bfseries{Saya setuju Skripsi tersebut layak diajukan untuk Sidang Skripsi}\\
+
+    \vspace{0.2cm}
+
+    \textbf{Disetujui oleh Pembimbing}\\[-2pt]
+    \textbf{Saya setuju Skripsi tersebut layak diajukan untuk Sidang Skripsi}
     \end{center}
 
-    \vspace{1cm}
+    \vspace{0.5cm}
 
     \begin{center}
     \begin{tabular}{c c c}
-        {\@firstsupervisor} & & {23 November 2025} \\
+        \includegraphics[height=2cm]{images/ttd_pembimbing.png} & &  \\
+        \textbf{\@firstsupervisor} & & 23 November 2025 \\
         \cline{1-1} \cline{3-3}
-        {\@firstsupervisorNIP} & & \\
-        \vspace{0.4cm}
+        \@firstsupervisorNIP & &
     \end{tabular}
     \end{center}
 
     \pagebreak
 }
+
 %-----------------------------------------------------------
 % End Define Authentication Page
 %===========================================================
