@@ -1,5 +1,13 @@
 \documentclass{lib/journal}
 \usepackage{multicol}
+
+% === CARA KLASIK BibTeX – 100 % sesuai IEEE ===
+\usepackage{cite}              % opsional, tapi bikin referensi lebih rapi
+\usepackage{url}                % agar URL bisa ditulis dengan baik
+\usepackage{hyperref}           % opsional, agar link DOI/URL bisa diklik
+
+
+
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
@@ -53,5 +61,9 @@
     \input{include/article-en.tex}
 
     % Daftar Pustaka
-    \printbibliography[title={References}]
+    % \printbibliography[title={References}]
+
+    % === GANTI SEMUA perintah \printbibliography dll dengan ini ===
+    \bibliographystyle{IEEEtran}         % style resmi IEEE
+    \bibliography{bibtex/daftar-pustaka-paper}  % nama file .bib kamu (tanpa ekstensi .bib)
 \end{document}
