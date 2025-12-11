@@ -5,7 +5,7 @@ DOCNAME=$(file)
 
 run: 
 	pdflatex $(DOCNAME).tex;
-	biber $(DOCNAME);
+	bibtex $(DOCNAME);
 	pdflatex $(DOCNAME).tex;
 	pdflatex $(DOCNAME).tex
 
