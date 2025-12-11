@@ -124,6 +124,12 @@ Startup time & $\leq 10$ s \\ \hline
 \end{tabular}
 \end{table}
 
+
+The selection of test parameters was informed by common operational characteristics of existing HMI systems currently used at PT~XYZ. In the production lines observed, conventional HMIs generally employ second-level polling cycles for status monitoring and handle multiple tag updates within a single refresh window. To ensure that the evaluation of the proposed FINS connector remained representative of these real operating conditions—while still being reproducible and not dependent on confidential plant data—the experiment adopted a workload consisting of 1000 sequential read operations with a concurrency level of ten parallel requests. This configuration reflects the typical density of status indicators and alarm points monitored simultaneously in PT~XYZ’s equipment dashboards, yet remains sufficiently general for replication in other industrial environments.
+
+The chosen metrics—latency, success rate, resource usage, and reconnection behaviour—directly relate to the research objectives, namely assessing whether the integrated FINS driver can deliver stable, low-latency communication comparable to Modbus/TCP within FUXA. This ensures that the experimental design maintains a clear alignment with the research questions stated in the introduction.
+
+
 %=========================
 % RESULTS AND DISCUSSION
 %=========================
