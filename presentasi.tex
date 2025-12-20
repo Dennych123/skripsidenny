@@ -18,7 +18,7 @@
 \title[FINS Integration in FUXA]%
 {Integration of the FINS Protocol into the Open-Source HMI System FUXA}
 
-\author[Denny \and Frans \and Gilang]%
+\author[D. Chrisnanda \and F. Sebastian \and G. Hansagita]%
 {Denny Chrisnanda \and Frans Sebastian \and Gilang Hansagita}
 
 \institute[Binus University]%
@@ -41,43 +41,36 @@
 % =========================
 \begin{frame}{Outline}
 \begin{itemize}
-  \item Motivation and Problem Statement
-  \item Research Questions and Contributions
+  \item Introduction
   \item Related Works
-  \item System Architecture and Methodology
-  \item Implementation and Experimental Setup
+  \item Methodology
   \item Results and Discussion
-  \item Conclusions and Future Work
+  \item Conclusion and Future Work
 \end{itemize}
 \end{frame}
 
-% =========================
-% MOTIVATION
-% =========================
-\begin{frame}{Motivation}
+% =====================================================
+\section{Introduction}
+% =====================================================
+
+\begin{frame}{Introduction -- Motivation}
 \begin{itemize}
   \item Omron PLCs dominate production lines at PT~XYZ ($>90\%$ machines).
-  \item Factory Interface Network Service (FINS) is the de facto Omron protocol.
+  \item Factory Interface Network Service (FINS) is most used in omron PLC.
   \item Commercial HMI/SCADA systems are costly and vendor-locked.
   \item Open-source HMI FUXA lacks native FINS support.
 \end{itemize}
 \end{frame}
 
-% =========================
-% PROBLEM STATEMENT
-% =========================
-\begin{frame}{Problem Statement}
+\begin{frame}{Introduction -- Problem Statement}
 \begin{itemize}
   \item Lack of native FINS support prevents FUXA adoption in Omron-centric plants.
-  \item Middleware-based solutions increase latency and complexity.
-  \item Alarm and real-time visualization reliability are critical requirements.
+  \item Middleware-based integration increases latency and complexity.
+  \item Alarm reliability and real-time visualization are critical requirements.
 \end{itemize}
 \end{frame}
 
-% =========================
-% RESEARCH QUESTIONS
-% =========================
-\begin{frame}{Research Questions}
+\begin{frame}{Introduction -- Research Questions}
 \begin{block}{RQ1}
 How can FINS protocol support be implemented in FUXA with reliability and feature parity comparable to built-in protocols?
 \end{block}
@@ -87,10 +80,7 @@ How can stable, low-latency read/write operations be achieved for real-time visu
 \end{block}
 \end{frame}
 
-% =========================
-% CONTRIBUTIONS
-% =========================
-\begin{frame}{Main Contributions}
+\begin{frame}{Introduction -- Main Contributions}
 \begin{itemize}
   \item First native integration of Omron FINS into the FUXA HMI platform.
   \item Backend driver (\texttt{DeviceFins}) and frontend configuration support.
@@ -99,16 +89,17 @@ How can stable, low-latency read/write operations be achieved for real-time visu
 \end{itemize}
 \end{frame}
 
-% =========================
-% RELATED WORKS (FIXED)
-% =========================
-\begin{frame}[allowframebreaks]{Related Works}
+% =====================================================
+\section{Related Works}
+% =====================================================
+
+\begin{frame}[allowframebreaks]{Related Works -- Systematic Literature Review}
 \centering
 \small
 \resizebox{\textwidth}{!}{
 \begin{tabular}{|p{2.5cm}|p{2.3cm}|p{3cm}|p{3cm}|p{4cm}|}
 \hline
-\textbf{Author \& Year} & \textbf{Platform} & \textbf{Domain} & \textbf{Protocol} & \textbf{Contribution} \\ \hline
+\textbf{Author \& Year} & \textbf{Platform} & \textbf{Domain} & \textbf{Protocol} & \textbf{Main Contribution} \\ \hline
 
 Uddin et al. (2022) &
 Node-RED, Grafana &
@@ -129,16 +120,16 @@ DNP3 &
 Polling performance analysis \\ \hline
 
 Hazdi et al. (2017) &
-Web SCADA &
+Web-based SCADA &
 Home automation &
 OPC &
-Web-based PLC SCADA \\ \hline
+PLC-based web SCADA \\ \hline
 
 Arnoud et al. (2021) &
 FUXA &
-Cybersecurity &
+Cybersecurity testbed &
 Modbus TCP &
-FUXA as HMI testbed \\ \hline
+FUXA as visualization layer \\ \hline
 
 Salazar et al. (2024) &
 ICSNet + FUXA &
@@ -147,174 +138,205 @@ Multi-protocol &
 ICS security visualization \\ \hline
 
 Gil et al. (2022) &
-Framework &
+Framework study &
 Industrial systems &
 Multi-protocol &
 Interoperability analysis \\ \hline
 
 Giehl et al. (2024) &
 OpenPLC &
-ICS &
+Industrial control &
 OPC UA &
-Secure OPC UA integration \\ \hline
+Secure semantic integration \\ \hline
 
 \textbf{This work} &
 \textbf{FUXA} &
 \textbf{Manufacturing} &
 \textbf{Omron FINS} &
 \textbf{First native FINS integration} \\ \hline
-
 \end{tabular}}
 \end{frame}
 
-% =========================
-% RESEARCH GAP
-% =========================
-\begin{frame}{Research Gap}
+\begin{frame}{Related Works -- Research Gap}
 \begin{itemize}
   \item Existing studies focus on Modbus, OPC UA, MQTT.
   \item No native open-source HMI support for Omron FINS.
-  \item Alarm latency rarely analyzed explicitly.
+  
 \end{itemize}
 \end{frame}
 
-% =========================
-% METHODOLOGY OVERVIEW
-% =========================
-\begin{frame}{Methodology Overview}
+% =====================================================
+\section{Methodology}
+% =====================================================
+
+\begin{frame}{Methodology -- Research Overview}
 \begin{itemize}
-  \item Iterative development:
+  \item Iterative development approach:
   \begin{itemize}
-    \item Analysis
-    \item Design
+    \item Requirements analysis
+    \item System design
     \item Implementation
     \item Evaluation
   \end{itemize}
 \end{itemize}
 \end{frame}
 
-% =========================
-% RESEARCH WORKFLOW
-% =========================
-\begin{frame}[t]{Research Workflow}
-\vspace{-0.5cm}
+\begin{frame}{Methodology -- Research Workflow}
+\vspace{-0.4cm}
 \centering
-\includegraphics[height=0.8\textheight,keepaspectratio]{images/flowchart-tahapan-en.jpeg}
+\includegraphics[height=0.82\textheight,keepaspectratio]{images/flowchart-tahapan-en.jpeg}
 \end{frame}
 
-% =========================
-% SYSTEM ARCHITECTURE
-% =========================
-\begin{frame}{System Architecture}
+\begin{frame}{Methodology -- System Architecture}
 \begin{itemize}
-  \item Omron PLC
-  \item Node.js backend (FUXA + DeviceFins)
-  \item Angular frontend (HMI)
+  \item Omron PLC layer
+  \item Node.js backend (FUXA + \texttt{DeviceFins})
+  \item Angular-based HMI frontend
 \end{itemize}
 \end{frame}
 
-% =========================
-% ARCHITECTURE DIAGRAM
-% =========================
-\begin{frame}[t]{Architecture Diagram}
-\vspace{-0.5cm}
+\begin{frame}{Methodology -- Architecture Diagram}
+\vspace{-0.4cm}
 \centering
-\includegraphics[height=0.8\textheight,keepaspectratio]{images/topologi_fuxa_fins_en.jpeg}
+\includegraphics[height=0.82\textheight,keepaspectratio]{images/topologi_fuxa_fins_en.jpeg}
 \end{frame}
 
-% =========================
-% IMPLEMENTATION
-% =========================
-\begin{frame}{Implementation}
+\begin{frame}{Methodology -- Implementation}
 \begin{itemize}
-  \item Node.js \texttt{DeviceFins} driver
-  \item FINS UDP/TCP support
+  \item Node.js \texttt{DeviceFins} backend driver
+  \item FINS UDP and TCP communication
   \item PLC memory access (DM, CIO, W)
-  \item Auto reconnect and timeout handling
+  \item Auto-reconnect and timeout handling
 \end{itemize}
 \end{frame}
 
-% =========================
-% FRONTEND
-% =========================
-\begin{frame}{Frontend Integration}
+\begin{frame}{Methodology -- Frontend Integration}
 \begin{itemize}
-  \item Device configuration UI
-  \item Tag editor
-  \item Event-based real-time updates
+  \item Device configuration interface
+  \item Tag editor for FINS memory areas
+  \item Event-driven real-time UI updates
 \end{itemize}
 \end{frame}
 
-% =========================
-% RESULTS
-% =========================
-\begin{frame}{Performance Results}
+\begin{frame}{Methodology -- Evaluation Metrics and Justification}
+\small
 \begin{itemize}
-  \item Latency: \textbf{12 ms}
-  \item Success rate: \textbf{99\%}
+  \item System performance evaluated using five key metrics reflecting real-time HMI--PLC requirements.
+  \item KPI thresholds derived from conventional industrial HMI operation at PT~XYZ.
+\end{itemize}
+
+\vspace{0.2cm}
+\centering
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Metric} & \textbf{KPI Target} \\ \hline
+Read/write latency & $\leq 200$ ms \\ \hline
+Success rate & $\geq 95\%$ \\ \hline
+CPU / Memory usage & $\leq 30\%$ / $\leq 500$ MB \\ \hline
+Alarm detection time & $\leq 200$ ms \\ \hline
+Startup time & $\leq 10$ s \\ \hline
+\end{tabular}
+
+\vspace{0.2cm}
+\begin{itemize}
+  \item Test workload: 1000 read operations with 10 concurrent requests.
+  \item Configuration represents typical status and alarm density in industrial HMIs.
+  \item Metrics directly support RQ1 (functional parity) and RQ2 (real-time performance).
+\end{itemize}
+\end{frame}
+
+
+% =====================================================
+\section{Results and Discussion}
+% =====================================================
+
+\begin{frame}{Results -- Performance Summary}
+\begin{itemize}
+  \item Average read/write latency: \textbf{12 ms}
+  \item Communication success rate: \textbf{99\%}
   \item CPU usage: \textbf{2\%}
   \item Memory usage: \textbf{462 MB}
 \end{itemize}
 \end{frame}
 
-
-% =========================
-% KPI TABLE
-% =========================
-\begin{frame}{Evaluation Metrics}
+\begin{frame}{Results -- Evaluation Metrics}
 \centering
-\begin{tabular}{lc}
-\toprule
-Metric & KPI Target \\
-\midrule
-Latency & $\leq$200 ms \\
-Success Rate & $\geq$95\% \\
-CPU Usage & $\leq$30\% \\
-Memory Usage & $\leq$500 MB \\
-Alarm Detection & $\leq$200 ms \\
-Startup Time & $\leq$10 s \\
-\bottomrule
-\end{tabular}
+\begin{table}[H]
+  \centering
+  \caption{Summary of Technical Evaluation Results}
+  \label{tab:eval-results-summary}
+  \renewcommand{\arraystretch}{1.05}
+  \begin{tabular}{p{3.2cm} p{1.4cm} p{1.6cm}}
+    \toprule
+    \textbf{Metric} & \textbf{Target} & \textbf{Observed} \\
+    \midrule
+    Read/write latency (avg.) & $\leq$200\,ms & 12\,ms \\
+    Communication success rate & $\geq$95\% & 99\% \\
+    Server CPU usage & $\leq$30\% & 2\% \\
+    Server memory usage & $\leq$500\,MB & 462\,MB \\
+    Alarm detection time & $\leq$200\,ms & 1000\,ms (formal) \\
+    Application startup time & $\leq$10\,s & 3.14\,s \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 \end{frame}
 
-% =========================
-% KPI TABLE
-% =========================
-\begin{frame}{Evaluation Metrics}
+\begin{frame}{Results -- FUXA Device Configuration (FINS)}
+\vspace{-0.4cm}
 \centering
-\begin{tabular}{lc}
-\toprule
-Metric & KPI Target \\
-\midrule
-Latency & $\leq$200 ms \\
-Success Rate & $\geq$95\% \\
-CPU Usage & $\leq$30\% \\
-Memory Usage & $\leq$500 MB \\
-Alarm Detection & $\leq$200 ms \\
-Startup Time & $\leq$10 s \\
-\bottomrule
-\end{tabular}
+\includegraphics[height=0.6\textheight,keepaspectratio]{images/ui_result_1.png}
 \end{frame}
 
+\begin{frame}{Results -- Real-Time HMI Visualization}
+\vspace{-0.4cm}
+\centering
+\includegraphics[height=0.82\textheight,keepaspectratio]{images/demo_run.png}
+\end{frame}
 
-% =========================
-% ALARM
-% =========================
-\begin{frame}{Alarm Analysis}
+\begin{frame}{Results -- Alarm Monitoring via FINS}
+\vspace{-0.4cm}
+\centering
+\includegraphics[height=0.82\textheight,keepaspectratio]{images/demo_alarm.png}
+\end{frame}
+
+\begin{frame}{Results -- Alarm Latency Analysis}
 \begin{itemize}
-  \item Detection delay: \textbf{1000 ms}
-  \item Cause: 1-second polling interval
+  \item Observed alarm delay: \textbf{1000 ms}
+  \item Cause: Global 1-second polling interval
+  \item Limitation originates from HMI alarm engine
 \end{itemize}
 \end{frame}
 
-% =========================
-% CONCLUSION
-% =========================
-\begin{frame}{Conclusion}
+% =====================================================
+\section{Conclusion}
+% =====================================================
+
+\begin{frame}{Conclusion -- Research Questions Revisited}
 \begin{itemize}
-  \item First native FINS integration in FUXA
-  \item Reliable low-latency communication
-  \item Alarm latency is main limitation
+  \item \textbf{RQ1 Answered:}  
+  Native FINS integration was successfully implemented in FUXA with reliability and feature completeness comparable to existing protocols.
+
+  \vspace{0.2cm}
+  \item \textbf{RQ2 Answered:}  
+  The implemented FINS connector achieved stable communication with low latency suitable for real-time HMI visualization.
+
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Conclusion -- Key Findings}
+\begin{itemize}
+  \item First native FINS integration for FUXA.
+  \item Reliable low-latency communication with Omron PLCs.
+  \item Alarm latency identified as main system limitation.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Conclusion -- Future Work}
+\begin{itemize}
+  \item Event-driven or interrupt-based alarm mechanism
+  \item Security enhancement (TLS, VPN isolation)
+  \item Multi-protocol interoperability expansion
 \end{itemize}
 \end{frame}
 
