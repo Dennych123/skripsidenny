@@ -164,6 +164,32 @@ Secure semantic integration \\ \hline
   
 \end{itemize}
 \end{frame}
+% =====================================================
+\section{System Overview}
+% =====================================================
+
+\begin{frame}{System Overview -- PLC, HMI, and FUXA}
+\small
+\begin{itemize}
+  \item \textbf{Programmable Logic Controller (PLC):}  
+  An industrial-grade real-time controller responsible for executing deterministic control logic, processing sensor inputs, and driving actuators. PLCs operate continuously in harsh environments and serve as the primary data source for operational status, process variables, and alarms.
+
+  \vspace{0.15cm}
+  \item \textbf{Human--Machine Interface (HMI):}  
+  A visualization and interaction layer that allows operators to monitor PLC data, issue control commands, and respond to alarms through graphical dashboards in real time.
+
+  \vspace{0.15cm}
+  \item \textbf{FUXA:}  
+  An open-source, web-based HMI/SCADA platform that connects to PLCs via industrial communication protocols and provides browser-accessible real-time monitoring and control.
+\end{itemize}
+
+\vspace{0.2cm}
+\centering
+\includegraphics[height=0.28\textheight,keepaspectratio]{images/plc_overview.png}
+\hspace{0.3cm}
+\includegraphics[height=0.28\textheight,keepaspectratio]{images/hmi_overview.jpeg}
+\end{frame}
+
 
 % =====================================================
 \section{Methodology}
@@ -274,7 +300,7 @@ Startup time & $\leq 10$ s \\ \hline
     Communication success rate & $\geq$95\% & 99\% \\
     Server CPU usage & $\leq$30\% & 2\% \\
     Server memory usage & $\leq$500\,MB & 462\,MB \\
-    Alarm detection time & $\leq$200\,ms & 1000\,ms (formal) \\
+    Alarm detection time & $\leq$200\,ms & 1000\,ms  \\
     Application startup time & $\leq$10\,s & 3.14\,s \\
     \bottomrule
   \end{tabular}
