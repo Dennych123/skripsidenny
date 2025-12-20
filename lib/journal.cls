@@ -118,23 +118,23 @@
 % - style, citestyle = {authoryear, numeric, apa, mla}
 % - sorting {year,name,title} = ynt
 %-----------------------------------------------------------
-\usepackage[
-    backend=biber,
-    style=numeric,
-    citestyle=numeric,
-    % Keep bibliography in citation order so numeric labels follow appearance
-    sorting=none,
-    giveninits=false,
-    maxbibnames=3
-    ]{biblatex}
-\addbibresource{bibtex/daftar-pustaka.bib}
+% \usepackage[
+%     backend=biber,
+%     style=ieee,
+%     citestyle=numeric,
+%     % Keep bibliography in citation order so numeric labels follow appearance
+%     sorting=none,
+%     giveninits=false,
+%     maxbibnames=3
+%     ]{biblatex}
+% \addbibresource{bibtex/daftar-pustaka-paper.bib}
 
 % redefine "et al" in bib to "dkk"
 %\DefineBibliographyStrings{english}{andothers={dkk\adddot}}
 % force to use quote in title field of bibliographi
-\DeclareFieldFormat
-  [article,inbook,incollection,inproceedings,patent,thesis,masterthesis,misc,unpublished, book]
-  {title}{\mkbibquote{#1\isdot}}
+% \DeclareFieldFormat
+%   [article,inbook,incollection,inproceedings,patent,thesis,masterthesis,misc,unpublished, book]
+%   {title}{\mkbibquote{#1\isdot}}
 
 % new citation style
 \let\oldcitate\cite
