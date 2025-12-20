@@ -1,0 +1,348 @@
+%=========================
+% INTRODUCTION
+%=========================
+\section{Introduction}
+
+Programmable Logic Controllers (PLCs) play a crucial role in modern industrial automation systems because they are reliable, respond in real time, and are easy to program \cite{koondhar2023role}. At PT. XYZ, a global automotive parts manufacturer, Omron PLCs are prevalent in the production environment. Internal records show that more than 90\% of controlled machines use Omron devices. This dominance means that all higher-layer components in the automation stack must fully support the communication protocols that are part of this system.
+
+Operators can monitor processes, modify parameters, and receive timely alerts when abnormalities occur thanks to Human–Machine Interfaces (HMIs) \cite{mujawar2023_hmi_intro}. Commercial HMI/SCADA systems provided centralized visibility over widespread assets, collecting real-time data from field instruments and allowing operators to issue supervisory commands from control centers.\cite{enemosah2022next}, but they usually come with high licensing costs, little customization options, and a high risk of vendor lock-in \cite{malyi2024unified, 10.2523/IPTC-24344-MS}. As a result, a growing number of manufacturing companies are investigating open-source alternatives that provide unlimited modification potential and no upfront licensing fees \cite{mckinsey2023automation}.
+
+FUXA is an open-source HMI platform introduced in 2019 that has recently gained growing adoption in industry and academic research. It enables the rapid development of web-based HMIs and SCADA systems without requiring web programming expertise, offering native support for major industrial protocols such as OPC UA, Modbus, BACnet, Ethernet/IP, Siemens S7, MQTT, ADS, and MC Protocol/SLMP. Interfaces are created through a visual drag-and-drop editor with configurable widgets, alarms, access control, and historical data logging, and can be deployed on any modern web browser across PCs, panels, and mobile devices.\cite{arnoud:hal-05325191,Jakob_Wrede_Weiss_Braeunig_2025, FrangoTeam_2025}. Its modest resource requirements allow it to run smoothly on single-board computers such as the Raspberry Pi or in cloud environments, making it an attractive choice for remote monitoring applications and broader Industry 4.0 deployments.
+Despite these strengths, FUXA does not yet include built-in support for Omron’s Factory Interface Network Service (FINS) protocol. FINS, which operates over both UDP and TCP, is a proprietary yet widely deployed protocol that has been adopted across numerous Omron product families and remains extensively used in measurement and control systems worldwide. It continues to serve as the de facto communication standard in facilities dominated by Omron PLCs, primarily due to its highly flexible memory-area addressing scheme that enables fast, low-latency data exchange between controllers and supervisory systems \cite{gao2020new}. The absence of native FINS connectivity has therefore remained the principal obstacle preventing many Omron-centric plants—including PT. XYZ—from fully adopting FUXA as a viable, vendor-independent HMI solution. This study directly addresses that limitation by developing and integrating a dedicated FINS communication driver into the FUXA platform.
+
+This study directly addresses this gap by investigating two core practical questions: (1) How can FINS protocol support be properly implemented within an open-source HMI platform such as FUXA to achieve reliability and performance parity with its natively supported protocols? (2) How can stable, low-latency read and write operations over FINS be ensured to enable accurate real-time visualization without packet loss or data staleness? To this end, a dedicated FINS communication module was designed and integrated into FUXA. There were two main goals: (1) Integrate FINS functionality with dependability and feature completeness on par with current built-in drivers (such as Modbus and OPC UA); (2) Empirically verify consistent data exchange and real-time UI updates in a physical deployment. The resulting solution facilitates digital transformation initiatives in manufacturing environments that heavily rely on Omron automation technology by offering a flexible, affordable, and vendor-independent HMI alternative.
+%=========================
+% RELATED WORKS
+%=========================
+\section{Related Works}
+Open-source HMI/SCADA systems have gained increasing attention as alternatives to proprietary industrial automation platforms, particularly due to their flexibility, extensibility, and lower deployment cost. Several studies have explored the design and implementation of open-source HMI/SCADA architectures across different industrial domains.
+
+Uddin et al.~\cite{uddin2022open} developed an open-source SCADA system for a solar-powered reverse osmosis plant using Node-RED, Grafana, and InfluxDB. Their work shows that low-cost and community-driven SCADA architectures can be effectively implemented using open-source technologies. Similarly, Omidi et al.~\cite{omidi2023node} proposed a modular Node-RED-based SCADA system for hybrid renewable energy generation, illustrating the suitability of lightweight web technologies for real-time monitoring with minimal computational resources.
+
+In the power system domain, Almas et al.~\cite{almas2014open} integrated open-source SCADA with Phasor Measurement Units (PMUs) using the DNP3 protocol. Their results highlight protocol constraints—particularly polling limitations—that have implications for SCADA performance in large-scale grid environments.
+
+In the field of industrial cybersecurity, Salazar et al.~\cite{salazar2024icsnet} introduced ICSNet, a hybrid-interaction honeynet incorporating multiple industrial protocols such as Modbus TCP, IEC-104, and Ethernet/IP. Notably, their implementation uses the FUXA HMI as the visualization layer, demonstrating FUXA's applicability beyond traditional HMI use cases.
+
+Other studies have focused on web-based SCADA systems in smaller-scale environments. Hazdi et al.~\cite{hazdi2017scada} implemented a web-based SCADA system for home automation using PLCs and OPC, demonstrating the feasibility of web technologies for real-time domestic control. Additionally, Thushara~\cite{seeed2024fuxa} introduced the FUXA web-based SCADA tool and discussed its deployment on edge devices using Modbus and MQTT, reinforcing its role as a modern and extensible HMI/SCADA platform.
+
+Beyond these monitoring-oriented implementations, several works have examined deeper protocol integration strategies. Gil et al.~\cite{gil2022converging} analyzed the convergence of multiple IoT and automation protocols in industrial electrical systems, highlighting the challenges of data interoperability across heterogeneous communication layers. Their study demonstrates that effective protocol integration requires not only transport-level compatibility but also harmonized data models, structured message encoding, and deterministic synchronization—elements often missing in lightweight or ad hoc SCADA implementations. Their findings emphasize that protocol integration is not merely a matter of adding communication drivers, but requires systematic treatment of interoperability, semantics, and data governance.
+
+In contrast to the descriptive implementations of open-source HMI/SCADA systems in the aforementioned studies, which primarily rely on built-in support for widely adopted protocols such as Modbus, OPC UA, and MQTT, Giehl et al.~\cite{giehl2024emuflex} demonstrated a more advanced protocol-integration approach by extending the OpenPLC framework with OPC UA server functionality through the open62541 library. This method ensures IEC 62541 compliance, enables security features such as message signing and encryption, and maintains compatibility with real-world OT components including HMIs and historians.
+
+Similarly, our work integrates the proprietary FINS protocol into FUXA by developing a custom \texttt{DeviceFins} driver using the \texttt{omron-fins} Node.js library. Unlike OPC UA–based approaches that rely on information modeling and secure communication stacks, the FINS driver focuses on UDP/TCP socket handling, memory-area operations (e.g., DM, CIO), and efficient event emission for real-time UI updates. When compared with the protocol integration principles discussed in Gil et al.~\cite{gil2022converging}, our implementation addresses interoperability at the transport and memory-access layer rather than at the semantic or model-driven layer, filling a practical but previously unaddressed need in Omron-centric manufacturing systems.
+
+Across these works, open-source SCADA implementations consistently rely on widely supported protocols such as Modbus, OPC UA, or MQTT. However, none of the reviewed studies address the Factory Interface Network Service (FINS) protocol, which remains widely used in Omron PLC-based industrial environments. This absence indicates a significant research gap in open-source HMI/SCADA systems that support FINS communication.
+
+Therefore, the present study contributes by developing and integrating a FINS communication module into the FUXA HMI platform. This fills an identified gap in open-source industrial automation research and enables direct interoperability with Omron PLCs, which are prevalent in manufacturing systems such as those at PT~XYZ.
+
+
+%=========================
+% METHODOLOGY
+%=========================
+\section{Methodology}
+
+\subsection{Research Overview}
+This work uses a hands-on, iterative development approach to expand the open-source HMI platform FUXA with native support for the Omron FINS protocol.
+The project progressed through the usual phases—requirements analysis, system design, implementation, and evaluation stages—to make sure the new FINS module performs on par with the platform’s existing drivers, particularly Modbus TCP.
+The overall development workflow is shown in Figure~\ref{fig:research-flow}.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{images/flowchart-tahapan-en.jpeg}
+    \caption{Research workflow for FINS protocol implementation in FUXA}
+    \label{fig:research-flow}
+\end{figure}
+
+\subsection{System Architecture}
+The resulting system is built around three core layers, which are: (1) the physical PLCs, (2) the Node.js-based backend that handles all communication, and (3) the Angular frontend responsible for the actual HMI visualization.
+The Omron FINS support is added as a new device driver called \texttt{DeviceFins}, running entirely in FUXA’s backend. This driver takes care of the low-level socket communication (UDP or TCP) and performs read/write operations on typical Omron memory areas such as \texttt{DM}, \texttt{CIO}, and \texttt{W}.
+
+Data acquisition works by having the backend periodically poll the PLC—or react to specific triggers—pulling values from the configured memory addresses. These values are then propagated to the frontend through the system’s existing event emitter (\texttt{device-value:changed}) to update the HMI interface in real time.
+A simplified overview of this architecture is shown in Figure~\ref{fig:system-architecture}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.65\linewidth]{images/topologi_fuxa_fins_en.jpeg}
+    \caption{Architecture of the developed HMI–PLC communication system}
+    \label{fig:system-architecture}
+\end{figure}
+
+\subsection{Development Tools and Environment}
+The implementation and testing were conducted using this environment:
+\begin{itemize}
+    \item \textbf{Programming Languages:} JavaScript (Node.js v18 LTS).
+    \item \textbf{HMI Platform:} FUXA v1.2.13 (open-source web-based SCADA system).
+    \item \textbf{PLC Device:} Omron CJ2M CPU34.
+    \item \textbf{Operating System:} Windows 11.
+    \item \textbf{Network Analysis Tools:} Wireshark.
+\end{itemize}
+
+\subsection{Implementation Procedure}
+
+The development process was carried out in the following key phases:
+
+\begin{enumerate}
+    \item \textbf{Protocol analysis and requirements analysis:}  
+    A detailed examination of the Omron FINS protocol was conducted, focusing on command structure, memory address read and write methods, and communication flow using the official Omron FINS Command Reference Manual.
+
+    \item \textbf{Design and implementation of the device driver:}  
+    The \texttt{DeviceFins}, a dedicated driver class, was developed within the existing FUXA backend architecture. This class encapsulates connection lifecycle management (TCP/UDP), read and write operations to standard memory areas, automatic reconnection logic with exponential back-off, timeout handling, and emission of value-change events.
+
+    \item \textbf{Frontend Integration:}  
+    The administrative web interface of FUXA was enhanced by introducing device-specific configuration fields—including PLC last three digits IP address (DA1), PC node address (SA1), IP address, port, and network mode—ensuring seamless integration with the platform’s existing device management workflow.
+
+    \item \textbf{Testing and Debugging:}  
+    The implementation was rigorously tested through a combination of unit tests and real-world deployment on physical CJ2M CPU34 to confirm functional correctness, stability, and performance under various network conditions.
+\end{enumerate}
+
+This structured, iterative approach ensured that the new FINS driver achieved full functional equivalence with the platform’s established communication modules.
+
+\subsection{Testing Method}
+To assess the performance of the implemented FINS driver, a dedicated load-testing script was developed in Node.js. This script issued 1,000 successive read requests targeting memory area \texttt{D100} on the Omron PLC, while maintaining a concurrency level of ten simultaneous connections. The key metrics recorded throughout the experiment were:
+\begin{itemize}
+    \item Average read/write latency (ms)
+    \item Success rate of communication (\%)
+    \item CPU and memory usage
+    \item Stability of reconnection handling during simulated disconnections
+\end{itemize}
+
+The results of these measurements were analyzed statistically to evaluate whether the implemented connector meets the performance characteristics comparable to Modbus TCP communication.
+
+\subsection{Evaluation Metrics}
+To ensure practical suitability for real-time HMI–PLC communication, the system was evaluated using five key performance metrics. A compact summary of the metrics and their KPI thresholds is presented in Table~\ref{tab:eval-metrics-compact}.
+
+\begin{table}[H]
+\centering
+\caption{Evaluation Metrics and KPI Targets}
+\label{tab:eval-metrics-compact}
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Metric} & \textbf{KPI Target} \\ \hline
+
+Read/write latency & $\leq 200$ ms \\ \hline
+Success rate & $\geq 95\%$ \\ \hline
+CPU / Memory usage & $\leq 30\%$ / $\leq 500$ MB \\ \hline
+Alarm detection time & $\leq 200$ ms \\ \hline
+Startup time & $\leq 10$ s \\ \hline
+
+\end{tabular}
+\end{table}
+
+%=========================
+% RESULTS AND DISCUSSION
+%=========================
+\section{Results and Discussion}
+
+\subsection{Evaluation of the \texttt{omron-fins} Library}
+The study began with a stress test of the \texttt{omron-fins} Node.js library to confirm the capability of FINS communication (read/write) between a PC and an Omron CJ2M PLC via UDP. The experimental setup is summarized in Table~\ref{tab:uji-fins-env}.
+
+\begin{table}[H]
+\centering
+\caption{\texttt{omron-fins} trial environment configuration}
+\label{tab:uji-fins-env}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Component} & \textbf{Specification} \\ 
+\midrule
+PLC & Omron CJ2M-CPU34 \\ 
+Host Client & PC(i7-11th Gen, 16GB RAM, Win 11) \\ 
+IP PLC & 192.168.0.1 \\ 
+IP Client & 192.168.0.234 \\ 
+Protocol & FINS/UDP (Port 9600) \\ 
+Library & \texttt{omron-fins} (Node.js) \\ 
+Runtime & Node.js v18 LTS \\ 
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+
+The Omron FINS library was installed via \texttt{npm} and validated using a stress test script that throws 1\,000 read requests to address \texttt{D100} with a concurrency level of 10. The resulting network traces then captured using Wireshark to confirm frame structure and response codes.
+
+Key observations from the library tests are:
+\begin{itemize}
+  \item Captured responses consistently contained \texttt{Command Code 0101} (Memory Area Read) and \texttt{Response Code 0000} (no error), with incrementing Service IDs indicating unique matching responses.
+  \item The library handled read operations reliably under the configured stress: average response latency was observed below 50\,ms and the library exhibited correct framing behavior according to Omron FINS specification.
+  \item No installation or dependency errors were encountered during setup; the library is suitable as a communication basis for further integration into the HMI system.
+\end{itemize}
+
+\subsection{System Configuration and Integration}
+The FINS connector was integrated into the FUXA server under the directory \verb|server/runtime/devices/fins|. The deployed testbed topology comprises one Omron CJ2M PLC, one PC acting as HMI server, and a tablet as the client (see Fig.~\ref{fig:topologi-fuxa-fins}). Typical connector parameters are listed in Table~\ref{tab:konfigurasi-fins}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth]{images/topologi_fuxa_fins_lengkap.jpeg}
+    \caption{System topology of the FUXA HMI with the FINS connector}
+    \label{fig:topologi-fuxa-fins}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Parameter} & \textbf{Nilai Contoh} \\ \hline
+Alamat IP PLC & 192.168.11.1 \\ \hline
+Port & 9600 \\ \hline
+Protokol & UDP \\ \hline
+Source Address (SA1) & 234 \\ \hline
+Destination Address (DA1) & 1 \\ \hline
+Polling Interval & 200 ms \\ \hline
+\end{tabular}
+\caption{FINS connection configuration parameters}
+\label{tab:konfigurasi-fins}
+\end{table}
+
+
+
+
+After connector installation, initial verification was performed by issuing a single read to memory address \texttt{D100}. Successful read/response without timeout confirmed that the connector was operational.
+
+\subsection{Implemented Functionality}
+The implemented FINS connector provides the following capabilities:
+\begin{enumerate}
+  \item Transport-level connectivity (UDP and TCP) using the \texttt{omron-fins} library.
+  \item Periodic polling per device with the connector only reporting \texttt{connect-ok} after a successful read cycle.
+  \item Write (set) operations initiated from the UI and executed on the PLC in real time.
+  \item Event emission to FUXA runtime (\texttt{device-value:changed}, \texttt{device-status:changed}, \texttt{device-error}).
+  \item Frontend integration: device configuration form and tag editing dialog for FINS-specific parameters (SA1, DA1, memory area, address, data type).
+\end{enumerate}
+
+Representative UI screens is shown in Figs.~\ref{fig:ui_result1}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/ui_result_1.png}
+    \caption{UI Result — Device Settings: configuration form for FINS device (IP, port, SA1, DA1, protocol).}
+    \label{fig:ui_result1}
+\end{figure}
+
+After integrating the FINS connector module into both the backend and the HMI interface, a realtime communication test was conducted to verify bidirectional data transfer between the HMI system and the Omron PLC. Fig.~\ref{fig:demo-run} presents the HMI interface during the execution of the test.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/demo_run.png}
+    \caption{HMI demonstration connected to the PLC in realtime.}
+    \label{fig:demo-run}
+\end{figure}
+
+The HMI display includes several key elements:
+\begin{itemize}
+    \item \textbf{Realtime trend (Oil Temperature Sensor):} Visualizes temperature values read from the PLC via the FINS protocol in real-time.
+    \item \textbf{Slider and input field:} allow writing updated values to PLC memory addresses and change value in a specified memory via slider.
+    \item \textbf{Motor speed gauge:} represents PLC variables using an analog-style visualization, demonstrating responsive data updates.
+\end{itemize}
+
+Experimental results show that PLC-to-HMI data updates occur within \textless 100\,ms, indicating that the implemented FINS connector provides low-latency and stable realtime communication.
+
+In addition to realtime monitoring and control, the system featured an alarm mechanism to detect abnormal industrial process conditions that can make safety issues or warning. Fig.~\ref{fig:demo-alarm} shows an alarm triggered when the oil temperature exceeds the maximum threshold defined in the PLC.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/demo_alarm.png}
+    \caption{Realtime alarm display when oil temperature exceeds the safety threshold.}
+    \label{fig:demo-alarm}
+\end{figure}
+
+The alarm subsystem operate in realtime with the following characteristic:
+\begin{itemize}
+\item \textbf{Continuous monitoring:} PLC tag value are periodically sampled and compared with predefined threshold.
+\item \textbf{Alarm visualization:} triggered alarm appear in red with \textit{High-High} priority to highlight critical condition.
+\item \textbf{Status synchronization:} alarm state (active, acknowledged, cleared) automatically update based on backend data.
+\item \textbf{FINS-based event detection:} each alarm directly correspond to PLC tags transmitted through the FINS UDP protocol, ensure fast and accurate detection.
+\end{itemize}
+
+Testing confirms that the system detect high-temperature events and displays alarms with a delay of less than 200,ms after the PLC value change. These results shows that the developed FINS connector reliably support both data exchange and realtime event notification within the HMI system.
+
+
+\subsection{Performance Evaluation}
+
+Performance evaluation comprised automated technical tests and a small-scale usability assessment. Results are summarized in Table~\ref{tab:eval-results-summary}.
+
+\begin{table}[H]
+  \centering
+  \caption{Summary of Technical Evaluation Results}
+  \label{tab:eval-results-summary}
+  \renewcommand{\arraystretch}{1.05}
+  \begin{tabular}{p{3.2cm} p{1.4cm} p{1.6cm}}
+    \toprule
+    \textbf{Metric} & \textbf{Target} & \textbf{Observed} \\
+    \midrule
+    Read/write latency (avg.) & $\leq$200\,ms & 12\,ms \\
+    Communication success rate & $\geq$95\% & 99\% \\
+    Server CPU usage & $\leq$30\% & 2\% \\
+    Server memory usage & $\leq$500\,MB & 462\,MB \\
+    Alarm detection time & $\leq$200\,ms & 1000\,ms (formal) \\
+    Application startup time & $\leq$10\,s & 3.14\,s \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+\subsubsection{Read/Write Latency}
+Read/write latency was measured by issuing a write to memory (e.g., \texttt{W1}) and immediately performing a read-back on the same address. The average latency across 100 repeated trial were \textbf{12,ms}, well below the 200,ms target.This result show that the integrated connector and FUXA frontend can achieve low round-trip times in the laboratory network condition used.
+
+\subsubsection{Communication Success Rate}
+The automated stress test program stresstest.js recorded \textbf{990 successful responses} and \textbf{10 failures} (99\% success). Failures were predominantly timeouts visible in the Wireshark traces as requests without corresponding reply. Likely causes include UDP packet loss on the link, temporary PLC processing backlog, or aggressive scheduling from the test host. No systematic FINS framing errors were observed in successful captures.
+
+\subsubsection{Resource Utilization}
+System monitoring during load tests showed low CPU utilization (approx.\ 2--3\%) and moderate memory consumption (backend $\approx$91\,MB, frontend $\approx$371\,MB). These figures indicate the Node.js + Angular architecture can operate efficiently on the selected PC hardware for the tested workload.
+
+\subsubsection{Alarm Detection Time}
+The alarm detection time is measured from the moment the triggering condition in the PLC become true until the alarm indicator appear on the HMI interface. The observed detection time is approximately 1000,ms, which is significantly slower than the KPI target of 200,ms. This delay happen because the minimum polling interval used by the HMI system to evaluate alarm conditions and generate alarm events is 1,s, as illustrated in Fig.~\ref{fig:alarm-interval}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{images/alarm_interval.jpeg}
+    \caption{HMI system alarm detection interval limitation.}
+    \label{fig:alarm-interval}
+\end{figure}
+
+
+\subsubsection{Application Startup Time}
+Measured application startup time averaged \textbf{3.14\,s}, which satisfies the $\leq$10\,s requirement and indicates acceptable initialization performance for the integrated system.
+
+\subsection{Usability Evaluation}
+A small usability survey (10 respondent: operators and technician) using a 5-point Likert scale assess configuration ease, clarity of status display, perceived responsiveness, UI consistency, and overall satisfaction. Average score (scale 1--5) were:
+\begin{itemize}
+  \item Configuration ease: 4.2
+  \item Clarity of status: 4.1
+  \item Responsiveness: 4.3
+  \item UI consistency: 4.0
+  \item Overall satisfaction: 4.3
+\end{itemize}
+
+Qualitative feedback highlighted appreciation for clear connection-status indicators and requests for a more prominent \textit{Check Connection} control and a simplified logging mode for non-technical troubleshooting.
+
+\subsection{Discussion}
+The integration of a FINS connector into FUXA using the \texttt{omron-fins} library produce a functional, low-latency HMI capable of reliable read/write operation with Omron CJ2M PLCs under laboratory condition. Important takeaway points are:
+\begin{itemize}
+\item \textbf{Reliability:} Communication success rate (99%) and correct packet framing shows interoperability with Omron FINS.
+\item \textbf{Performance:} Read/write latencies (12,ms) and low resource usage indicate the approach is suitable for responsive HMI operation on modest hardware.
+\item \textbf{Alarm timeliness:} The primary area needing improvement is alarm detection latency due to the current polling-based approach. Mitigation strategy include polling prioritization, reducing polling intervals carefully, or exploring event-driven mechanism if supported by the PLC network stack.
+\item \textbf{Robustness:} Observed timeout under high-stress scenario suggest adding retry backoff, packet pacing, and enhanced logging for root-cause analysis in noisy network.
+\item \textbf{Usability:} End-user feedback is positive; additional UX improvement and operator-focused logging would increase practical adoption.
+\end{itemize}
+% \subsection{Limitations and Future Work}
+% Limitations of the current study include testing primarily in a controlled LAN environment and a limited sample size for user evaluation. Future work should:
+% \begin{enumerate}
+%   \item Validate the connector under representative factory network conditions, including VLAN segmentation and congested links.
+%   \item Implement and evaluate strategies to reduce alarm detection latency (hybrid event/polling or prioritized polling).
+%   \item Stress-test the system with larger numbers of devices/tags to assess scalability and long-term memory management.
+%   \item Harden error handling and introduce advanced diagnostics (per-device metrics, packet retransmission statistics).
+% \end{enumerate}
+
+% \noindent In summary, the experimental results validate the proposed approach of integrating FINS support into FUXA and indicate clear paths for optimization prior to deployment in production environments.
+
+
+%=========================
+% CONCLUSION
+%=========================
+\section{Conclusion}
+This research successful implemented and evaluated the integration of the Factory Interface Network Service (FINS) protocol into the open-source Human–Machine Interface (HMI) system FUXA. The development introduce a new backend connector module (\texttt{DeviceFins}) written in Node.js and an extended frontend configuration interface in Angular, enable direct and seamless communication between FUXA and Omron PLCs. The connector support both UDP and TCP modes, allow read, write, and polling operation to be executed without the need for proprietary middleware or vendor-locked HMI system. As a result, FUXA become one of the first open-source HMI systems to natively support the Omron FINS protocol.
+
+Based on experimental test, the implemented system show reliable and stable performance. The communication success rate reach 99\%, and the average read/write latency was measured at 12\,ms, well below the 200\,ms KPI target. System resource consumption stay efficient, with average CPU usage of 2\% and memory consumption of 462\,MB during load testing. The HMI startup time average 3.14\,s, indicate a responsive system suitable for small- to medium-scale production environment. However, the alarm detection delay reach approximately 1000\,ms due to the internal one-second polling interval of the FUXA system. This limitation show that the alarm subsystem still rely on a time-driven polling approach rather than a fully event-driven mechanism.
+
+Overall, the integration of FINS into FUXA successful fulfilled the two primary research objective: (1) enable the HMI system to communicate with Omron PLCs using the FINS protocol with functionality equivalent to existing Modbus support, and (2) improve the stability and visualization of data exchange on the HMI interface. Future research should focus on optimize the alarm handling mechanism through event-driven or interrupt-based approach, enhance network security with TLS or VPN, and expand multi-protocol interoperability. Additionally, open publication of the connector’s source code, testing script, and dataset is encouraged to promote reproducibility and community-driven advancement in open-source industrial automation system.
