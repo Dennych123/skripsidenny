@@ -1,8 +1,10 @@
-\chapter{Kode Test Pustaka Omron-Fins}
+\clearpage
+\pagenumbering{arabic} % Pastikan mulai dari 1 lagi jika diperlukan
+\renewcommand{\thepage}{L\arabic{page}} % Mulai detik ini, nomor halaman pakai "L"
 
+\newappendix{Kode Test Pustaka Omron-Fins}
 
 \label{lampiran:kode-fin-test}
-\appendices{Kode Test Pustaka Omron-Fins}
 \begin{verbatim}
 const fins = require('omron-fins');
 
@@ -96,9 +98,8 @@ client.on('open', () => {
 });
 \end{verbatim}
 
-\chapter{Kode Modifikasi Backend}
+\newappendix{Kode Modifikasi Backend}
 \label{lampiran:kode-fins-backend}
-\appendices{Kode Modifikasi Backend}
 \begin{verbatim}
 TypeScript Code DeviceFins Module
 --------------------------------
@@ -337,8 +338,7 @@ module.exports = {
 };
 \end{verbatim}
 
-\chapter{Tabulasi Data Penelitian}
-\appendices{Tabulasi Data Penelitian}
+\newappendix{Tabulasi Data Penelitian}
 Tabel berikut menyajikan data mentah hasil kuesioner dari 10 responden (operator/teknisi) terkait evaluasi integrasi protokol FINS pada sistem HMI FUXA. Setiap pertanyaan menggunakan skala Likert 1--5.
 
 \begin{table}[H]

@@ -21,7 +21,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{lib/skripsi}[2020/03/11 Skripsi Class]
-\LoadClass[a4paper, 12pt]{report}
+\LoadClass[a4paper, 12pt, twoside]{report}
 
 %===========================================================
 % Require Package
@@ -90,9 +90,38 @@
 
 \newcommand{\listappendicesname}{DAFTAR LAMPIRAN}
 \newlistof{appendices}{apc}{\listappendicesname}
+\renewcommand{\theappendices}{L\arabic{appendices}}
 \newcommand{\appendices}[1]{\addcontentsline{apc}{appendices}{#1}}
-\newcommand{\newappendix}[1]{\section{#1}\appendices{#1}}
+\newcommand{\newappendix}[1]{%
+    \clearpage
+    \refstepcounter{appendices}
+    
+    % Konfigurasi Header/Footer Khusus Lampiran
+    \pagestyle{fancy}
+    \fancyhf{} 
+    
+    % Aturan Halaman Selanjutnya: LE (Kiri Genap), RO (Kanan Ganjil)
+    \fancyhead[LE,RO]{\thepage} 
+    \fancyfoot{}
+    
+    % Aturan Halaman Pertama Lampiran: Tengah Bawah
+    \fancypagestyle{plain}{
+        \fancyhf{}
+        \fancyfoot[C]{\thepage}
+        \renewcommand{\headrulewidth}{0pt}
+    }
+    \thispagestyle{plain}
 
+    \begin{center}
+        \normalfont\large\bfseries LAMPIRAN \theappendices\\[0.2cm]
+        \MakeUppercase{#1}
+    \end{center}
+    \vspace{0.5cm}
+    
+    % PERBAIKAN DI SINI:
+    % Ganti \theappendices menjadi \thepage agar muncul L6, L8, dst.
+    \addcontentsline{apc}{appendices}{#1\protect\numberline{}\hfill \thepage}
+}
 %===========================================================
 % Package Daftar Pustaka, bentuk citasi
 % Config
@@ -126,28 +155,40 @@
 % Setting footer, header and page number
 %-----------------------------------------------------------
 \pagestyle{fancy}
-\fancyhf{}
-\fancyfoot[R]{\thepage}
+\fancyhf{} % Bersihkan semua header dan footer
+
+% AGAR HEADER MENJOLOK KE LUAR (TIDAK MENABRAK TEKS)
+% Sesuaikan angka 0.5cm jika ingin nomor lebih ke tepi kertas
+\fancyhfoffset[L]{0.7cm} 
+\fancyhfoffset[R]{0cm}
+
+% Pengaturan Header untuk halaman selanjutnya (Mirror)
+% LE: Left Even (Kiri Genap), RO: Right Odd (Kanan Ganjil)
+\fancyhead[LE,RO]{\thepage} 
+
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-\fancypagestyle{plain}{ %style for chapter page
-    \fancyhf{} % clear all header and footer fields
-    \fancyfoot[R]{\thepage}
-    % \renewcommand{\headrulewidth}{0pt}
-    % \renewcommand{\footrulewidth}{0pt}
+
+% Style untuk halaman AWAL BAB (Otomatis dipanggil oleh \chapter)
+\fancypagestyle{plain}{ 
+    \fancyhf{} 
+    \fancyfoot[C]{\thepage} % Nomor di Tengah Bawah
+    \renewcommand{\headrulewidth}{0pt}
 }
-\fancypagestyle{empty}{ %style for cover
+
+% Style untuk cover atau halaman kosong
+\fancypagestyle{empty}{ 
     \fancyhf{}
-    % \renewcommand{\headrulewidth}{0pt}
-    % \renewcommand{\footrulewidth}{0pt}
 }
-\fancypagestyle{theheader}{ %style for header
-    \fancyhead[R]{Universitas Hasanuddin}
+
+% Style kustom jika diperlukan header khusus
+\fancypagestyle{theheader}{ 
+    \fancyhead[LE,RO]{\thepage}
+    \fancyhead[RE,LO]{Universitas Bina Nusantara} % Contoh penyesuaian nama kampus
 }
 %-----------------------------------------------------------
 % End Setting footer, header and page number
 %===========================================================
-
 
 %===========================================================
 % Code Script, Listing
@@ -211,9 +252,9 @@
 %===========================================================
 % Page Layout, Margin
 %-----------------------------------------------------------
-\setlength{\topmargin}{0cm}
-\setlength{\headheight}{1cm}
-\setlength{\headsep}{0.2cm}
+\setlength{\topmargin}{-0.5cm}
+\setlength{\headheight}{0.5cm}
+\setlength{\headsep}{1.5cm}
 \setlength{\topskip}{1ex}
 \setlength{\oddsidemargin}{1.2cm}
 \setlength{\evensidemargin}{1.2cm}
@@ -237,7 +278,7 @@
     angle=0,
     opacity=.2,
     hshift=3mm,
-    contents={\includegraphics[width=14cm]{images/logo-binus-university.jpg}}
+    contents={\includegraphics[width=14cm]{images/LOGO-BINUS-ONLINE.jpg}}
 }
 \newcommand\addwatermark{\BgThispage}
 %-----------------------------------------------------------
@@ -299,7 +340,7 @@
 \newcommand{\@monthsubmit}{}
 \newcommand{\yearsubmit}[1]{\gdef\@yearsubmit{#1}}
 \newcommand{\@yearsubmit}{}
-\newcommand{\@examdate}{\@datesubmit \space \@monthsubmit \space \@yearsubmit}
+\newcommand{\@examdate}{23 November 2025}
 \newcommand{\degree}[1]{\gdef\@degree{#1}}
 \newcommand{\@degree}{}
 \newcommand{\program}[1]{\gdef\@program{#1}}
@@ -344,7 +385,7 @@
         \begin{singlespace}
             \MakeUppercase{\normalfont\bfseries\@titleskripsi}\par\nobreak
             \vfill
-            \includegraphics[height=4.85cm]{images/logo-binus-university}
+            \includegraphics[height=4.85cm]{images/LOGO-BINUS-ONLINE.jpg}
             \vfill
 
             Oleh\\
@@ -394,6 +435,8 @@
     \thispagestyle{empty}%
     \pagenumbering{roman}
     \setcounter{page}{1}
+
+    \addcontentsline{toc}{chapter}{Halaman Sampul}
     \begin{center}
         \begin{singlespace}
             \MakeUppercase{\normalfont\bfseries Skripsi}
@@ -415,7 +458,7 @@
 
             \vfill
 
-            \includegraphics[height=4.85cm]{images/logo-binus-university}
+            \includegraphics[height=4.85cm]{images/LOGO-BINUS-ONLINE.jpg}
             \vfill
 
             {\normalfont
@@ -441,9 +484,21 @@
 % Define Title Page
 %-----------------------------------------------------------
 \def\titlepage{
+    \clearpage
+    \setcounter{page}{2}  % Forces this page to be 'ii'
+
+    \begingroup % <--- Memulai Group agar perubahan tidak bocor ke luar
+    
+    % Konfigurasi Khusus Halaman Judul (Kanan Bawah)
+    \pagenumbering{roman}
+    \setcounter{page}{2} 
+    \thispagestyle{fancy}
+    \fancyhf{}
+    \fancyfoot[R]{\thepage} 
+    \renewcommand{\headrulewidth}{0pt}
+    
     \begin{center}
-        \addwatermark
-        \addcontentsline{toc}{chapter}{HALAMAN JUDUL}
+        \addcontentsline{toc}{chapter}{Halaman Judul}
         \begin{singlespace}
             \vspace*{2cm}
             \MakeUppercase{\normalfont\bfseries\@titleskripsi}\\
@@ -469,6 +524,9 @@
             \normalfont\bfseries{Kelas/Kelompok: TQCA/Kelompok 1}
             \vfill
 
+            \includegraphics[height=4.85cm]{images/LOGO-BINUS-ONLINE.jpg}
+            \vfill
+            
             {\normalfont
                 \MakeUppercase{\normalfont\bfseries \@program}\\
                 \MakeUppercase{\normalfont\bfseries \@faculty}\\
@@ -481,6 +539,7 @@
         \end{singlespace}
     \end{center}
     \pagebreak
+    \endgroup % <--- Mengakhiri Group, settingan kembali ke global (Mirror/Center)
 }
 %-----------------------------------------------------------
 % End Define Title Page
@@ -541,7 +600,7 @@
     \begin{center}
     \begin{tabular}{c c c}
         \includegraphics[height=2cm]{images/ttd_pembimbing.png} & &  \\
-        \textbf{\@firstsupervisor} & & 23 November 2025 \\
+        \textbf{\@firstsupervisor} & & \@examdate \\
         \cline{1-1} \cline{3-3}
         \@firstsupervisorNIP & &
     \end{tabular}
@@ -559,60 +618,57 @@
 % Define Supervisor Approval Page
 %-----------------------------------------------------------
 \def\supervisorapprovalpage{
-    \addwatermark
-    \addcontentsline{toc}{chapter}{HALAMAN PERSETUJUAN PEMBIMBING}
+    \clearpage
+    \thispagestyle{plain}
+    \addcontentsline{toc}{chapter}{Halaman Persetujuan Dosen Pembimbing}
     \begin{center}
         \MakeUppercase{\normalfont\large\bfseries\expandafter{\@titleskripsi}}\\
         \vspace{0.5cm}
+        \MakeUppercase{\normalfont\large\bfseries\expandafter{Skripsi}}\\
     \end{center}
 
     \begin{center}
-        Disusun dan diajukan oleh\\
-        \begin{center}
-            \begin{singlespace}
-                \large\bfseries{\@fullnameA}\\
-                \large\bfseries{\@idnumA}\\
-                \vspace{1.0cm}
-
-                \large\bfseries{\@fullnameB}\\
-                \large\bfseries{\@idnumB}\\
-                \vspace{1.0cm}
-
-                \large\bfseries{\@fullnameC}\\
-                \large\bfseries{\@idnumC}\\
-            \end{singlespace}
-        \end{center}
-
-        Telah dipertahankan di hadapan Panitia Ujian yang dibentuk dalam rangka Penyelesaian Studi Program Sarjana pada Program Studi {\@program} Fakultas {\@faculty} {\@university} dan dinyatakan telah memenuhi syarat kelulusan \\
-
-        \vspace{0.2cm}
-        Menyetujui,
-        \vspace{0.2cm}
+    \normalfont\large\bfseries Disusun oleh:\\
     \end{center}
+
+    \begin{center}
+    \begin{tabular}{ccccc}
+        \includegraphics[height=2cm]{images/ttd_denny-removebg-preview.png} & &
+        \includegraphics[height=2cm]{images/ttd_frans-removebg-preview.png} & &
+        \includegraphics[height=2cm]{images/ttd_gilang-removebg-preview.png} \\
+        \textbf{\@fullnameA} & & \textbf{\@fullnameB} & & \textbf{\@fullnameC} \\
+        \cline{1-1} \cline{3-3} \cline{5-5}
+        \@idnumA & & \@idnumB & & \@idnumC
+    \end{tabular}
+    \end{center}
+    \vspace{0.5cm}
+
+    \begin{center}
+    \normalfont\large\bfseries Disetujui oleh :\\
+    \normalfont\large\bfseries Pembimbing dan Head of  Study Program\\
+    \end{center}
+
 
     \begin{table}[h]
         \centering
-        \begin{tabular}{ >{\centering\arraybackslash}m{6cm}  m{2cm} >{\centering\arraybackslash}m{6cm} }
-            Pembimbing Utama              &  & Pembimbing Pertama             \\
-                                          &  &                                \\
-                                          &  &                                \\
-                                          &  &                                \\
-                                          &  &                                \\
-                                          &  &                                \\
-            \underline{\@firstsupervisor} &  & \underline{\@secondsupervisor} \\
-            NIP. \@firstsupervisorNIP     &  & NIP. \@secondsupervisorNIP
+        \begin{tabular}{c}
+            Pembimbing\\[0.5cm]
+            \includegraphics[height=2cm]{images/ttd_pembimbing.png}\\
+            \textbf{\@firstsupervisor}\\
+            \cline{1-1}
+            \@firstsupervisorNIP
         \end{tabular}
 
         \vspace{1cm}
         \begin{tabular}{ >{\centering\arraybackslash}m{6cm} }
-            Ketua Program Studi       \\
+            Head of  Study Program       \\[0.5cm]
             \\
             \\
             \\
             \\
             \\
-            \underline{\@headprogram} \\
-            NIP. \@headprogramNIP
+            \textbf{\underline{\@headprogram}} \\
+            \@headprogramNIP
         \end{tabular}
     \end{table}
     \pagebreak
@@ -687,78 +743,224 @@
 %===========================================================
 % Define Persetujuan Publikasi Karya Ilmiah
 %-----------------------------------------------------------
-\def\publicationapprovalpage{%
-    % \addwatermark
-    \addcontentsline{toc}{chapter}{PERSETUJUAN PUBLIKASI KARYA ILMIAH}
+\def\publicationapprovalpage{
+    \clearpage
+    \begingroup % <--- Start local group
+    \pagestyle{plain} % <--- Forces centered numbering for all pages in this group
+
+    \addcontentsline{toc}{chapter}{Pernyataan Persetujuan Publikasi Karya Ilmiah}
     \begin{center}
         \begin{singlespace}
-            \MakeUppercase{\normalfont\large\bfseries\expandafter{PERNYATAAN PERSETUJUAN PUBLIKASI TUGAS AKHIR UNTUK KEPENTINGAN AKADEMIS}}\\
+            \MakeUppercase{\normalfont\large\bfseries\expandafter{PERNYATAAN}}\\
             \vspace{1.0cm}
         \end{singlespace}
     \end{center}
 
     \begin{singlespace}
         \noindent
-        Sebagai civitas akademik {\@university}, saya yang bertanda tangan di bawah ini:
+        Dengan ini, saya:
         \begin{center}
-            \begin{tabular}{ @{} l c l @{} }
-                Nama          & : & \@fullnameA \\[-0.2em]
-                NIM           & : & \@idnumA    \\[0.8em]
-
-                Nama          & : & \@fullnameB \\[-0.2em]
-                NIM           & : & \@idnumB    \\[0.8em]
-
-                Nama          & : & \@fullnameC \\[-0.2em]
-                NIM           & : & \@idnumC    \\[1.0em]
-
-                Program Studi & : & \@program   \\[-0.2em]
-                Fakultas      & : & \@faculty   \\[-0.2em]
-                Jenis Karya   & : & Skripsi
+            \begin{tabular}{@{} l c p{10cm} @{}}
+                Nama    & : & \@fullnameA \\
+                NIM     & : & \@idnumA    \\
+                Judul Skripsi & : & \@titleskripsi \\
             \end{tabular}
         \end{center}
     \end{singlespace}
 
     \noindent
-    Demi pengembangan ilmu pengetahuan, menyetujui untuk memberikan kepada {\@university} \textbf{Hak Predikator Royalti Noneksklusif} (\textit{Non-exclusive Royalty-Free Right}) atas tugas akhir saya yang berjudul:
-
-    \begin{center}
-        {\normalfont\bfseries\expandafter{"\@titleskripsi"}}\\
-        % \vspace{1.0cm}
-    \end{center}
+    Memberikan kepada Universitas Bina Nusantara \textit{hak non-eksklusif} untuk menyimpan, memperbanyak, dan menyebarluaskan Skripsi karya saya, secara keseluruhan atau hanya sebagian atau hanya ringkasannya saja, dalam bentuk format tercetak dan atau elektronik.\\
 
     \noindent
-    beserta perangkat yang ada (jika diperlukan). Terkait dengan hal diatas, maka pihak {\@university} berhak menyimpan, mengalih-media/format-kan, mengola dalam bentuk pangkalan data (\textit{database}), merawat dan mempublikasikan tugas akhir saya selama tetap mencantumkan nama saya sebagai penulis/pencipta dan sebagai pemilik Hak Cipta.
+    Menyatakan bahwa saya, akan mempertahankan \textbf{hak eksklusif} saya, untuk menggunakan seluruh atau sebagian isi skripsi saya, guna pengembangan karya di masa depan, misalnya bentuk artikel, buku, perangkat lunak, ataupun sistem informasi.
 
-    \noindent
-    Demikian surat pernyataan ini saya buat dengan sebenarnya.
 
     \vspace{0.5cm}
     \begin{center}
-        \begin{tabular}{ccc}
-            % --- Name A ---
-            \begin{minipage}{0.3\textwidth}
-                \centering
-                \vspace{3cm}
-                (\@fullnameA)\\
-            \end{minipage}
-            &
-            % --- Name B ---
-            \begin{minipage}{0.3\textwidth}
-                \centering
-                \vspace{3cm}
-                (\@fullnameB)\\
-            \end{minipage}
-            &
-            % --- Name C with location/date ---
-            \begin{minipage}{0.3\textwidth}
-                \centering
-                Dibuat di \@city\\
-                pada \@examdate\\[1.5cm]
-                (\@fullnameC)\\
-            \end{minipage}
+        \begin{tabular}{c @{\hspace{2cm}} c}
+
+            \@city, \@examdate & \@city, \@examdate \\[0.8cm]
+
+            \includegraphics[height=2cm]{images/ttd_denny-removebg-preview.png} &
+            \includegraphics[height=2cm]{images/ttd_pembimbing.png} \\[0.5cm]
+
+            \textbf{\@fullnameA} &
+            \textbf{\@firstsupervisor} \\
+            \rule{4cm}{0.4pt} & \rule{5cm}{0.4pt} \\
+            \@idnumA & \@firstsupervisorNIP
+
+        \end{tabular}
+    \end{center}
+
+    \pagebreak
+
+    \begin{center}
+        \begin{singlespace}
+            \MakeUppercase{\normalfont\large\bfseries\expandafter{PERNYATAAN}}\\
+            \vspace{1.0cm}
+        \end{singlespace}
+    \end{center}
+
+    \begin{singlespace}
+        \noindent
+        Dengan ini, saya:
+        \begin{center}
+            \begin{tabular}{@{} l c p{10cm} @{}}
+                Nama    & : & \@fullnameB \\
+                NIM     & : & \@idnumB    \\
+                Judul Skripsi & : & \@titleskripsi \\
+            \end{tabular}
+        \end{center}
+    \end{singlespace}
+
+    \noindent
+    Memberikan kepada Universitas Bina Nusantara \textit{hak non-eksklusif} untuk menyimpan, memperbanyak, dan menyebarluaskan Skripsi karya saya, secara keseluruhan atau hanya sebagian atau hanya ringkasannya saja, dalam bentuk format tercetak dan atau elektronik.\\
+
+    \noindent
+    Menyatakan bahwa saya, akan mempertahankan \textbf{hak eksklusif} saya, untuk menggunakan seluruh atau sebagian isi skripsi saya, guna pengembangan karya di masa depan, misalnya bentuk artikel, buku, perangkat lunak, ataupun sistem informasi.
+
+
+    \vspace{0.5cm}
+    \begin{center}
+        \begin{tabular}{c @{\hspace{2cm}} c}
+
+            \@city, \@examdate & \@city, \@examdate \\[0.8cm]
+
+            \includegraphics[height=2cm]{images/ttd_frans-removebg-preview.png} &
+            \includegraphics[height=2cm]{images/ttd_pembimbing.png} \\[0.5cm]
+
+            \textbf{\@fullnameB} &
+            \textbf{\@firstsupervisor} \\
+            \rule{4cm}{0.4pt} & \rule{5cm}{0.4pt} \\
+            \@idnumB & \@firstsupervisorNIP
+
         \end{tabular}
     \end{center}
     \pagebreak
+
+    \begin{center}
+        \begin{singlespace}
+            \MakeUppercase{\normalfont\large\bfseries\expandafter{PERNYATAAN}}\\
+            \vspace{1.0cm}
+        \end{singlespace}
+    \end{center}
+
+    \begin{singlespace}
+        \noindent
+        Dengan ini, saya:
+        \begin{center}
+            \begin{tabular}{@{} l c p{10cm} @{}}
+                Nama    & : & \@fullnameC \\
+                NIM     & : & \@idnumC    \\
+                Judul Skripsi & : & \@titleskripsi \\
+            \end{tabular}
+        \end{center}
+    \end{singlespace}
+
+    \noindent
+    Memberikan kepada Universitas Bina Nusantara \textit{hak non-eksklusif} untuk menyimpan, memperbanyak, dan menyebarluaskan Skripsi karya saya, secara keseluruhan atau hanya sebagian atau hanya ringkasannya saja, dalam bentuk format tercetak dan atau elektronik.\\
+
+    \noindent
+    Menyatakan bahwa saya, akan mempertahankan \textbf{hak eksklusif} saya, untuk menggunakan seluruh atau sebagian isi skripsi saya, guna pengembangan karya di masa depan, misalnya bentuk artikel, buku, perangkat lunak, ataupun sistem informasi.
+
+
+    \vspace{0.5cm}
+    \begin{center}
+        \begin{tabular}{c @{\hspace{2cm}} c}
+
+            \@city, \@examdate & \@city, \@examdate \\[0.8cm]
+
+            \includegraphics[height=2cm]{images/ttd_gilang-removebg-preview.png} &
+            \includegraphics[height=2cm]{images/ttd_pembimbing.png} \\[0.5cm]
+
+            \textbf{\@fullnameC} &
+            \textbf{\@firstsupervisor} \\
+            \rule{4cm}{0.4pt} & \rule{5cm}{0.4pt} \\
+            \@idnumC & \@firstsupervisorNIP
+
+        \end{tabular}
+    \end{center}
+    \pagebreak
+
+    \begin{center}
+        \begin{singlespace}
+            \MakeUppercase{\normalfont\large\bfseries\expandafter{SURAT PERNYATAAN}}\\
+            \vspace{1.0cm}
+        \end{singlespace}
+    \end{center}
+
+    \noindent
+    Kami, yang bertandatangan di bawah ini:
+
+    \noindent
+    \small
+    \resizebox{0.9\textwidth}{!}{%
+    \begin{tabular}{p{0.2cm} p{4cm} p{0.1cm} p{9cm}}
+        1.  & NIM & : & \@idnumA \\
+            & Nama & : & \@fullnameA \\
+            & Program -- Program Studi & : & Binus Online Learning -- Computer Science Study Program \\[0.2cm]
+
+        2.  & NIM & : & \@idnumB \\
+            & Nama & : & \@fullnameB \\
+            & Program -- Program Studi & : & Binus Online Learning -- Computer Science Study Program \\[0.2cm]
+
+        3.  & NIM & : & \@idnumC \\
+            & Nama & : & \@fullnameC \\
+            & Program -- Program Studi & : & Binus Online Learning -- Computer Science Study Program \\[0.4cm]
+    \end{tabular}%
+    }
+
+
+    \noindent
+    Dengan ini menyatakan bahwa karya yang berjudul:
+
+    \small
+    \begin{center}
+        \bfseries{\@titleskripsi}\\
+    \end{center}
+
+    \noindent
+    Di bawah bimbingan dosen:\\
+    \begin{tabular}{p{0.2cm} p{1cm} p{0.1cm} p{9cm}}
+        1.  & \@firstsupervisorNIP & - & \@firstsupervisor \\[0.4cm]
+    \end{tabular}
+
+    \noindent
+    Telah dijadikan sebagai Tugas Akhir/Skripsi pada Program Studi di Universitas Bina Nusantara dan telah diuji pada semester Ganjil tahun 2025/2026, disetujui untuk dielaborasi dan diajukan bersama-sama sebagai publikasi internasional, dengan ketentuan:\\
+    Denny Chrisnanda: sebagai Penulis Pertama;\\
+    Frans Sebastian: sebagai Penulis Kedua;\\
+    Gilang Hansagita: sebagai Penulis Ketiga;\\
+    Dr. Sarwo, S.Kom, M.Kom.: sebagai Penulis Keempat;\\
+    Para penulis di atas sekaligus merupakan pemegang hak cipta atas publikasi internasional tersebut.\\
+    Pernyataan ini dibuat dengan penuh kesadaran dan tanpa paksaan dari pihak manapun.\\
+
+
+    \noindent
+    \begin{center}
+    \resizebox{0.9\textwidth}{!}{%
+    \begin{tabular}{c c c c}
+        \textbf{\@city, \@examdate} & & & \\[0.2cm]
+
+        Penulis Pertama, &
+        Penulis Kedua, &
+        Penulis Ketiga, &
+        Penulis Keempat, \\
+
+        \includegraphics[height=2cm]{images/ttd_denny-removebg-preview.png} &
+        \includegraphics[height=2cm]{images/ttd_frans-removebg-preview.png} &
+        \includegraphics[height=2cm]{images/ttd_gilang-removebg-preview.png} &
+        \includegraphics[height=2cm]{images/ttd_pembimbing.png} \\[0.3cm]
+
+        \underline{\textbf{\@fullnameA}} &
+        \underline{\textbf{\@fullnameB}} &
+        \underline{\textbf{\@fullnameC}} &
+        \underline{\textbf{\@firstsupervisor}} \\
+    \end{tabular}%
+    }
+    \end{center}
+    \pagebreak
+    \clearpage % <--- Finish the last page before ending group
+    \endgroup % <--- End local group (Automatically reverts to fancy/Right-align)
 }
 %-----------------------------------------------------------
 % End Define Persetujuan Publikasi Karya Ilmiah
@@ -768,6 +970,10 @@
 % Define abstract page
 %-----------------------------------------------------------
 \def\abstractpage{
+    \clearpage
+    \begingroup % <--- Start local group
+    \pagestyle{plain} % <--- Forces centered numbering for all pages in this group
+
     \addcontentsline{toc}{chapter}{ABSTRAK}
 
     \begin{center}
@@ -794,6 +1000,8 @@
     \end{center}
 
     \normalfont{\input{include/halaman-abstrak.tex}}
+    \clearpage % <--- Finish the last page before ending group
+    \endgroup % <--- End local group (Automatically reverts to fancy/Right-align)
 }
 
 %-----------------------------------------------------------
@@ -804,7 +1012,7 @@
 %===========================================================
 % Redefine chapter and sections
 %-----------------------------------------------------------
-\renewcommand \thechapter {\@Roman\c@chapter}
+\renewcommand \thechapter{\arabic{chapter}}
 \renewcommand \thesection {\@arabic\c@chapter.\@arabic\c@section}
 \renewcommand \thesubsection {\@arabic\c@chapter.\@arabic\c@section.\@arabic\c@subsection}
 \renewcommand \thesubsubsection {\@arabic\c@chapter.\@arabic\c@section.\@arabic\c@subsection.\@arabic\c@subsubsection}
@@ -856,26 +1064,53 @@
 \renewcommand{\cftchappresnum}{BAB }
 \renewcommand{\cftchapnumwidth}{3.7em}
 \renewcommand{\cftchapdotsep}{\cftdotsep}
+% increase spacing between chapter entries in TOC
+\setlength{\cftbeforechapskip}{0pt}
 % table of contents
 \renewcommand{\cftbeforetoctitleskip}{-0.25cm}
 \renewcommand{\cftaftertoctitleskip}{0.75cm}
-\renewcommand\cfttoctitlefont{\hfill\Large\bfseries\MakeUppercase}
+\renewcommand\cfttoctitlefont{\hfill\normalsize\bfseries\MakeUppercase}
 \renewcommand\cftaftertoctitle{\hfill\mbox{}}
 % list of figures
 \renewcommand{\cftbeforeloftitleskip}{-0.25cm}
 \renewcommand{\cftafterloftitleskip}{0.75cm}
-\renewcommand\cftloftitlefont{\hfill\Large\bfseries\MakeUppercase}
+\renewcommand\cftloftitlefont{\hfill\normalsize\bfseries\MakeUppercase}
 \renewcommand\cftafterloftitle{\hfill\mbox{}}
 % list of tables
 \renewcommand{\cftbeforelottitleskip}{-0.25cm}
 \renewcommand{\cftafterlottitleskip}{0.75cm}
-\renewcommand\cftlottitlefont{\hfill\Large\bfseries\MakeUppercase}
+\renewcommand\cftlottitlefont{\hfill\normalsize\bfseries\MakeUppercase}
 \renewcommand\cftafterlottitle{\hfill\mbox{}}
 % list of appendix
 \renewcommand{\cftbeforeapctitleskip}{-0.25cm}
 \renewcommand{\cftafterapctitleskip}{0.75cm}
-\renewcommand\cftapctitlefont{\hfill\Large\bfseries\MakeUppercase}
+\renewcommand\cftapctitlefont{\hfill\normalsize\bfseries\MakeUppercase}
 \renewcommand\cftafterapctitle{\hfill\mbox{}}
+\cftpagenumbersoff{appendices}
+% Ensure TOC entries are not bold
+\renewcommand{\cftchapfont}{\normalfont}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsubsecfont}{\normalfont}
+\renewcommand{\cftsubsubsecfont}{\normalfont}
+\renewcommand{\cftchappagefont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
+\renewcommand{\cftsubsecpagefont}{\normalfont}
+\renewcommand{\cftsubsubsecpagefont}{\normalfont}
+% remove dotted leaders in Table of Contents: use \hfill to preserve spacing
+\renewcommand{\cftchapleader}{\hfill}
+\renewcommand{\cftsecleader}{\hfill}
+\renewcommand{\cftsubsecleader}{\hfill}
+\renewcommand{\cftsubsubsecleader}{\hfill}
+% remove dotted leaders in Lists (Figures, Tables, Appendices)
+\renewcommand{\cftfigleader}{\hfill}
+\renewcommand{\cfttableader}{\hfill}
+\renewcommand{\cftappendicesleader}{\hfill}
+% configure indentation in section in TOC
+\setlength{\cftsecindent}{0pt}
+\setlength{\cftsubsecindent}{1.5em}
+\setlength{\cftsubsubsecindent}{3.0em}
+
+
 %-----------------------------------------------------------
 % End Setting Tabble of Content, list of figure, list of table
 %===========================================================

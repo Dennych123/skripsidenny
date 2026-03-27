@@ -18,11 +18,13 @@
 \degree{Sarjana}
 \firstsupervisor{Dr. Sarwo, S.Kom, M.Kom.}
 \firstsupervisorNIP{D6489}
+\headprogram{Dennise Adrianto, S.Kom., M.T.I.}
+\headprogramNIP{D4456}
 
 
 
 
-\yearsubmit{2025}
+\yearsubmit{2026}
 \program{Computer Science Study Program}
 %\dept{~}
 \faculty{BINUS Online Learning}
@@ -54,13 +56,13 @@
     \titlepage
 
     % PERNYATAAN KEOTENTIKAN
-    \authenticationpage
+    %\authenticationpage
 
     % LEMBAR PERSETUJUAN PEMBIMBING
-    %\supervisorapprovalpage
+    \supervisorapprovalpage
 
     % Halaman Pengesahan
-    %\approvalpage
+    \publicationapprovalpage
 
 
     % ABSTRAK
@@ -68,10 +70,15 @@
 
 
     % KATA PENGANTAR
-    \addcontentsline{toc}{chapter}{KATA PENGANTAR}
+    {
+    \clearpage
+    \begingroup % <--- Start local group
+    \pagestyle{plain} % <--- Forces centered numbering for all pages in this group
     \input{include/kata-pengantar.tex}
     \pagebreak
-
+    \clearpage % <--- Finish the last page before ending group
+    \endgroup % <--- End local group (Automatically reverts to fancy/Right-align)
+    }
     % PERNYATAAN PERSETUJUAN PUBLIKASI
     %\publicationapprovalpage
 
@@ -80,22 +87,61 @@
     %===========================================================
     % Daftar isi, daftar gambar, daftar tabel
     %-----------------------------------------------------------
-    \addcontentsline{toc}{chapter}{DAFTAR ISI}
-    \tableofcontents
-    \pagebreak
+    % --- Daftar Isi ---
+    {\begingroup
+        % 1. Definisikan ulang style plain untuk halaman pertama TOC
+        \fancypagestyle{plain}{
+            \fancyhf{}
+            \fancyhfoffset{0cm} % Reset offset agar tidak menjorok keluar
+            \fancyfoot[R]{\thepage}
+            \renewcommand{\headrulewidth}{0pt}
+        }
+        
+        % 2. Paksa pagestyle FANCY untuk halaman kedua dan seterusnya di dalam group ini
+        \pagestyle{fancy}
+        \fancyhf{}
+        \fancyhfoffset{0cm}
+        \fancyfoot[R]{\thepage} % Kunci semua halaman di group ini ke Kanan Bawah
+        \renewcommand{\headrulewidth}{0pt}
+        
+        \addcontentsline{toc}{chapter}{DAFTAR ISI}
+        \tableofcontents
+        \clearpage 
+    \endgroup}
+% Setelah \endgroup, sistem akan otomatis kembali ke LE-RO global
 
-    \addcontentsline{toc}{chapter}{DAFTAR TABEL}
-    \listoftables
-    \pagebreak
+    % --- Daftar Tabel ---
+    \begingroup
+        \fancypagestyle{plain}{
+            \fancyhf{}
+            \fancyfoot[R]{\thepage}
+        }
+        \addcontentsline{toc}{chapter}{DAFTAR TABEL}
+        \listoftables
+        \clearpage
+    \endgroup
 
-    \addcontentsline{toc}{chapter}{DAFTAR GAMBAR}
-    \listoffigures
-    \pagebreak
+    % --- Daftar Gambar ---
+    \begingroup
+        \fancypagestyle{plain}{
+            \fancyhf{}
+            \fancyfoot[R]{\thepage}
+        }
+        \addcontentsline{toc}{chapter}{DAFTAR GAMBAR}
+        \listoffigures
+        \clearpage
+    \endgroup
 
-    \addcontentsline{toc}{chapter}{DAFTAR LAMPIRAN}
-    \listofappendices
-    \pagebreak
-
+    % --- Daftar Lampiran ---
+    \begingroup
+        \fancypagestyle{plain}{
+            \fancyhf{}
+            \fancyfoot[R]{\thepage}
+        }
+        \addcontentsline{toc}{chapter}{DAFTAR LAMPIRAN}
+        \listofappendices
+        \clearpage
+    \endgroup
     \pagenumbering{arabic}
     %-----------------------------------------------------------
     % End Daftar isi, daftar gambar, daftar tabel
